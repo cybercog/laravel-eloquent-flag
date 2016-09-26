@@ -81,7 +81,7 @@ Post::where('id', 4)->activate();
 Post::where('id', 4)->deactivate();
 ```
 
-### Setup an publishable model
+### Setup a publishable model
 
 ```php
 <?php

@@ -35,4 +35,4 @@ vendor/bin/phpunit
 
 ## Reporting issues
 
-- [General problems](https://github.com/a-komarev/laravel-eloquent-flag/issues)
+- [General problems](https://github.com/cybercog/laravel-eloquent-flag/issues)
