@@ -11,7 +11,7 @@
 
 namespace Cog\Flag\Tests\Unit;
 
-use Cog\Flag\Tests\Stubs\Models\Entity;
+use Cog\Flag\Tests\Stubs\Models\EntityWithActiveFlag;
 use Cog\Flag\Tests\TestCase;
 
 /**
@@ -24,14 +24,14 @@ class HasActiveFlagTest extends TestCase
     /** @test */
     public function it_can_get_only_active()
     {
-        factory(Entity::class, 3)->create([
+        factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
         ]);
-        factory(Entity::class, 2)->create([
+        factory(EntityWithActiveFlag::class, 2)->create([
             'is_active' => false,
         ]);
 
-        $entities = Entity::all();
+        $entities = EntityWithActiveFlag::all();
 
         $this->assertCount(3, $entities);
     }
@@ -39,14 +39,14 @@ class HasActiveFlagTest extends TestCase
     /** @test */
     public function it_can_get_without_inactive()
     {
-        factory(Entity::class, 3)->create([
+        factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
         ]);
-        factory(Entity::class, 2)->create([
+        factory(EntityWithActiveFlag::class, 2)->create([
             'is_active' => false,
         ]);
 
-        $entities = Entity::withoutInactive()->get();
+        $entities = EntityWithActiveFlag::withoutInactive()->get();
 
         $this->assertCount(3, $entities);
     }
@@ -54,14 +54,14 @@ class HasActiveFlagTest extends TestCase
     /** @test */
     public function it_can_get_only_inactive()
     {
-        factory(Entity::class, 3)->create([
+        factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
         ]);
-        factory(Entity::class, 2)->create([
+        factory(EntityWithActiveFlag::class, 2)->create([
             'is_active' => false,
         ]);
 
-        $entities = Entity::onlyInactive()->get();
+        $entities = EntityWithActiveFlag::onlyInactive()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -69,13 +69,13 @@ class HasActiveFlagTest extends TestCase
     /** @test */
     public function it_can_activate_model()
     {
-        $method = factory(Entity::class)->create([
+        $method = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
         ]);
 
-        Entity::where('id', $method->id)->activate();
+        EntityWithActiveFlag::where('id', $method->id)->activate();
 
-        $method = Entity::where('id', $method->id)->first();
+        $method = EntityWithActiveFlag::where('id', $method->id)->first();
 
         $this->assertTrue($method->is_active);
     }
@@ -83,13 +83,13 @@ class HasActiveFlagTest extends TestCase
     /** @test */
     public function it_can_deactivate_model()
     {
-        $method = factory(Entity::class)->create([
+        $method = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
         ]);
 
-        Entity::where('id', $method->id)->deactivate();
+        EntityWithActiveFlag::where('id', $method->id)->deactivate();
 
-        $method = Entity::withInactive()->where('id', $method->id)->first();
+        $method = EntityWithActiveFlag::withInactive()->where('id', $method->id)->first();
 
         $this->assertFalse($method->is_active);
     }

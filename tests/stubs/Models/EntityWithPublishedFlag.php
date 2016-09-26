@@ -11,24 +11,24 @@
 
 namespace Cog\Flag\Tests\Stubs\Models;
 
-use Cog\Flag\Traits\HasActiveFlag;
+use Cog\Flag\Traits\HasPublishedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Entity.
+ * Class EntityWithPublishedFlag.
  *
  * @package Cog\Flag\Tests\Stubs\Models
  */
-class Entity extends Model
+class EntityWithPublishedFlag extends Model
 {
-    use HasActiveFlag;
+    use HasPublishedFlag;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'entity';
+    protected $table = 'entity_with_published_flag';
 
     /**
      * The attributes that are mass assignable.
@@ -45,6 +45,6 @@ class Entity extends Model
      * @var array
      */
     protected $casts = [
-        'is_active' => 'bool',
+        'is_published' => 'bool',
     ];
 }

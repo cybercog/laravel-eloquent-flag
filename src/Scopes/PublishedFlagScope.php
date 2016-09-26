@@ -16,18 +16,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Class ActiveFlagScope.
+ * Class PublishedFlagScope.
  *
  * @package Cog\Flag\Scopes
  */
-class ActiveFlagScope implements Scope
+class PublishedFlagScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.
      *
      * @var array
      */
-    protected $extensions = ['Activate', 'Deactivate', 'WithInactive', 'WithoutInactive', 'OnlyInactive'];
+    protected $extensions = ['Publish', 'Unpublish', 'WithUnpublished', 'WithoutUnpublished', 'OnlyUnpublished'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -38,7 +38,7 @@ class ActiveFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where('is_active', 1);
+        return $builder->where('is_published', 1);
     }
 
     /**
@@ -55,69 +55,69 @@ class ActiveFlagScope implements Scope
     }
 
     /**
-     * Add the activate extension to the builder.
+     * Add the publish extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addActivate(Builder $builder)
+    protected function addPublish(Builder $builder)
     {
-        $builder->macro('activate', function (Builder $builder) {
-            $builder->withInactive();
+        $builder->macro('publish', function (Builder $builder) {
+            $builder->withUnpublished();
 
-            return $builder->update(['is_active' => 1]);
+            return $builder->update(['is_published' => 1]);
         });
     }
 
     /**
-     * Add the deactivate extension to the builder.
+     * Add the unpublish extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addDeactivate(Builder $builder)
+    protected function addUnpublish(Builder $builder)
     {
-        $builder->macro('deactivate', function (Builder $builder) {
-            return $builder->update(['is_active' => 0]);
+        $builder->macro('unpublish', function (Builder $builder) {
+            return $builder->update(['is_published' => 0]);
         });
     }
 
     /**
-     * Add the with-inactive extension to the builder.
+     * Add the with-unpublished extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithInactive(Builder $builder)
+    protected function addWithUnpublished(Builder $builder)
     {
-        $builder->macro('withInactive', function (Builder $builder) {
+        $builder->macro('withUnpublished', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the without-inactive extension to the builder.
+     * Add the without-unpublished extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutInactive(Builder $builder)
+    protected function addWithoutUnpublished(Builder $builder)
     {
-        $builder->macro('withoutInactive', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_active', 1);
+        $builder->macro('withoutUnpublished', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_published', 1);
         });
     }
 
     /**
-     * Add the only-inactive extension to the builder.
+     * Add the only-unpublished extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyInactive(Builder $builder)
+    protected function addOnlyUnpublished(Builder $builder)
     {
-        $builder->macro('onlyInactive', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_active', 0);
+        $builder->macro('onlyUnpublished', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_published', 0);
         });
     }
 }

@@ -12,9 +12,9 @@
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateEntityTable.
+ * Class CreateEntityWithActiveFlagTable.
  */
-class CreateEntityTable extends Migration
+class CreateEntityWithActiveFlagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,7 +23,7 @@ class CreateEntityTable extends Migration
      */
     public function up()
     {
-        Schema::create('entity', function ($table) {
+        Schema::create('entity_with_active_flag', function ($table) {
             $table->increments('id');
             $table->string('name');
             $table->boolean('is_active');
@@ -38,6 +38,6 @@ class CreateEntityTable extends Migration
      */
     public function down()
     {
-        Schema::drop('entity');
+        Schema::drop('entity_with_active_flag');
     }
 }

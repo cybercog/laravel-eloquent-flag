@@ -10,8 +10,7 @@ Eloquent flagged attributes behavior.
 ## Flags list
 
 - Is Active
-- Is Published (todo)
-- Is Confirmed (todo)
+- Is Published
 
 ## Installation
 
@@ -29,7 +28,9 @@ And then include the service provider within `app/config/app.php`.
 ];
 ```
 
-## Setup a Model
+## Usage
+
+### Setup an activatable model
 
 ```php
 <?php
@@ -43,6 +44,88 @@ class Post extends Model
 {
     use HasActiveFlag;
 }
+```
+
+### Available functions
+
+#### Get only active models
+
+```shell
+Post::all();
+Post::withoutInactive();
+```
+
+#### Get only inactive models
+
+```shell
+Post::onlyInactive();
+```
+
+#### Get active + inactive models
+
+```shell
+Post::withInactive();
+```
+
+#### Activate model
+
+```shell
+Post::where('id', 4)->activate();
+```
+
+#### Deactivate model
+
+```shell
+Post::where('id', 4)->deactivate();
+```
+
+### Setup an publishable model
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\HasPublishedFlag;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasPublishedFlag;
+}
+```
+
+### Available functions
+
+#### Get only published models
+
+```shell
+Post::all();
+Post::withoutUnpublished();
+```
+
+#### Get only unpublished models
+
+```shell
+Post::onlyUnpublished();
+```
+
+#### Get published + unpublished models
+
+```shell
+Post::withUnpublished();
+```
+
+#### Publish model
+
+```shell
+Post::where('id', 4)->publish();
+```
+
+#### Unpublish model
+
+```shell
+Post::where('id', 4)->unpublish();
 ```
 
 ## Testing
@@ -64,6 +147,11 @@ If you discover any security related issues, please email support@cybercog.su in
 ## Credits
 
 - [Anton Komarev](https://github.com/a-komarev)
+- [All Contributors](../../contributors)
+
+## Alternatives
+
+*Not found.*
 
 ## License
 
