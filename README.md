@@ -7,10 +7,10 @@
 
 Eloquent flagged attributes behavior.
 
-## Flags list
+## Available flags list
 
-- Is Active
-- Is Published
+- `is_active`
+- `is_published`
 
 ## Installation
 
@@ -45,6 +45,8 @@ class Post extends Model
     use HasActiveFlag;
 }
 ```
+
+*Model must have boolean `is_active` column in database table.*
 
 ### Available functions
 
@@ -94,6 +96,8 @@ class Post extends Model
     use HasPublishedFlag;
 }
 ```
+
+*Model must have boolean `is_published` column in database table.*
 
 ### Available functions
 
