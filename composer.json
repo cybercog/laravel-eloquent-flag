@@ -1,0 +1,34 @@
+{
+    "name": "cybercog/laravel-eloquent-flag",
+    "description": "Laravel Eloquent flagged attributes behavior",
+    "authors": [
+        {
+            "name": "Anton Komarev",
+            "email": "a.komarev@cybercog.su",
+            "homepage": "http://ell.folio.su",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": "^5.6|^7.0",
+        "illuminate/database": "~5.2.0|~5.3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^1.11",
+        "phpunit/phpunit": "^5.2",
+        "orchestra/testbench": "~3.0",
+        "mockery/mockery": "^0.9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cog\\Flag\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cog\\Flag\\Tests\\": "tests/"
+        }
+    }
+}
