@@ -16,18 +16,18 @@ use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Class PublishedFlagScope.
+ * Class KeptFlagScope.
  *
  * @package Cog\Flag\Scopes
  */
-class PublishedFlagScope implements Scope
+class KeptFlagScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.
      *
      * @var array
      */
-    protected $extensions = ['Publish', 'Unpublish', 'WithUnpublished', 'WithoutUnpublished', 'OnlyUnpublished'];
+    protected $extensions = ['Keep', 'Unkeep', 'WithUnkept', 'WithoutUnkept', 'OnlyUnkept'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -38,7 +38,7 @@ class PublishedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where('is_published', 1);
+        return $builder->where('is_kept', 1);
     }
 
     /**
@@ -55,69 +55,69 @@ class PublishedFlagScope implements Scope
     }
 
     /**
-     * Add the `publish` extension to the builder.
+     * Add the `keep` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addPublish(Builder $builder)
+    protected function addKeep(Builder $builder)
     {
-        $builder->macro('publish', function (Builder $builder) {
-            $builder->withUnpublished();
+        $builder->macro('keep', function (Builder $builder) {
+            $builder->withUnkept();
 
-            return $builder->update(['is_published' => 1]);
+            return $builder->update(['is_kept' => 1]);
         });
     }
 
     /**
-     * Add the `unpublish` extension to the builder.
+     * Add the `unkeep` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnpublish(Builder $builder)
+    protected function addUnkeep(Builder $builder)
     {
-        $builder->macro('unpublish', function (Builder $builder) {
-            return $builder->update(['is_published' => 0]);
+        $builder->macro('unkeep', function (Builder $builder) {
+            return $builder->update(['is_kept' => 0]);
         });
     }
 
     /**
-     * Add the `withUnpublished` extension to the builder.
+     * Add the `withUnkept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnpublished(Builder $builder)
+    protected function addWithUnkept(Builder $builder)
     {
-        $builder->macro('withUnpublished', function (Builder $builder) {
+        $builder->macro('withUnkept', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUnpublished` extension to the builder.
+     * Add the `withoutUnkept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnpublished(Builder $builder)
+    protected function addWithoutUnkept(Builder $builder)
     {
-        $builder->macro('withoutUnpublished', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_published', 1);
+        $builder->macro('withoutUnkept', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_kept', 1);
         });
     }
 
     /**
-     * Add the `onlyUnpublished` extension to the builder.
+     * Add the `onlyUnkept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnpublished(Builder $builder)
+    protected function addOnlyUnkept(Builder $builder)
     {
-        $builder->macro('onlyUnpublished', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_published', 0);
+        $builder->macro('onlyUnkept', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_kept', 0);
         });
     }
 }
