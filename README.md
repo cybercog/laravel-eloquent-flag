@@ -5,12 +5,13 @@
 [![Releases](https://img.shields.io/github/release/cybercog/laravel-eloquent-flag.svg?style=flat-square)](https://github.com/cybercog/laravel-eloquent-flag/releases)
 [![License](https://img.shields.io/github/license/cybercog/laravel-eloquent-flag.svg?style=flat-square)](https://github.com/cybercog/laravel-eloquent-flag/blob/master/LICENSE)
 
-Eloquent flagged attributes behavior.
+Eloquent flagged attributes behavior. Add commonly used flags to models very quick and easy.
 
 ## Available flags list
 
 - `is_active`
 - `is_published`
+- `is_kept`
 
 ## Installation
 
@@ -131,6 +132,87 @@ Post::where('id', 4)->publish();
 ```shell
 Post::where('id', 4)->unpublish();
 ```
+
+### Setup a keepable model
+
+Keep functionality required when you are trying to attach related models before parent one isn't saved.
+
+**Issue:**
+
+1. User press `Create Post` button.
+2. Create post form has image uploader.
+3. On image uploading user can't attach image to post before it wouldn't been stored in database.
+
+**Solution:**
+
+1. Add `HasKeptFlag` trait to model (and add boolean `is_kept` column to database).
+2. Create empty model on form loading (it will has `is_kept = 0` by default).
+3. Feel free to add any relations to the model.
+
+*Model will be marked as required to be kept as soon as client will save\update model for the first time.*
+
+*Remove the unkept models on a predetermined schedule (once a week for example).*
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\HasKeptFlag;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasKeptFlag;
+}
+```
+
+Your model is now can be marked to be kept!
+
+*Model must have boolean `is_kept` column in database table.*
+
+By default all records that have a `is_kept` equals to 0 will be excluded from your query results. To include unkept records, all you need to do is call the `withUnkept()` method on your query.
+
+### Available functions
+
+#### Get only kept models
+
+```shell
+Post::all();
+Post::withoutUnkept();
+```
+
+#### Get only unkept models
+
+```shell
+Post::onlyUnkept();
+```
+
+#### Get kept + unkept models
+
+```shell
+Post::withUnkept();
+```
+
+#### Keep model
+
+```shell
+Post::where('id', 4)->keep();
+```
+
+#### Unkeep model
+
+```shell
+Post::where('id', 4)->unkeep();
+```
+
+#### Get unkept models which older than hours
+
+```shell
+Post::onlyUnkeptOlderThanHours(4);
+```
+
+Output will have all unkept models created earlier than 4 hours ago.
 
 ## Testing
 

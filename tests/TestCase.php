@@ -11,8 +11,8 @@
 
 namespace Cog\Flag\Tests;
 
-use Cog\Flag\Providers\FlagServiceProvider;
 use Illuminate\Support\Facades\File;
+use Cog\Flag\Providers\FlagServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 /**

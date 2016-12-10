@@ -11,8 +11,8 @@
 
 namespace Cog\Flag\Scopes;
 
-use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -55,7 +55,7 @@ class ActiveFlagScope implements Scope
     }
 
     /**
-     * Add the activate extension to the builder.
+     * Add the `activate` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
@@ -70,7 +70,7 @@ class ActiveFlagScope implements Scope
     }
 
     /**
-     * Add the deactivate extension to the builder.
+     * Add the `deactivate` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
@@ -83,7 +83,7 @@ class ActiveFlagScope implements Scope
     }
 
     /**
-     * Add the with-inactive extension to the builder.
+     * Add the `withInactive` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
@@ -96,7 +96,7 @@ class ActiveFlagScope implements Scope
     }
 
     /**
-     * Add the without-inactive extension to the builder.
+     * Add the `withoutInactive` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
@@ -109,7 +109,7 @@ class ActiveFlagScope implements Scope
     }
 
     /**
-     * Add the only-inactive extension to the builder.
+     * Add the `onlyInactive` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void

@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Unit;
+namespace Cog\Flag\Tests\Unit\Scopes;
 
-use Cog\Flag\Tests\Stubs\Models\EntityWithActiveFlag;
 use Cog\Flag\Tests\TestCase;
+use Cog\Flag\Tests\Stubs\Models\EntityWithActiveFlag;
 
 /**
- * Class HasActiveFlagTest.
+ * Class ActiveFlagScopeTest.
  *
- * @package Cog\Merchant\Tests\Unit
+ * @package Cog\Merchant\Tests\Unit\Scopes
  */
-class HasActiveFlagTest extends TestCase
+class ActiveFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_active()
