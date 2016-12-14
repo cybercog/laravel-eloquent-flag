@@ -22,7 +22,7 @@ use Cog\Flag\Tests\Stubs\Models\EntityWithPublishedFlag;
 class PublishedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_active()
+    public function it_can_get_only_published()
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,
@@ -37,7 +37,7 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_inactive()
+    public function it_can_get_without_unpublished()
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,
@@ -52,7 +52,22 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_inactive()
+    public function it_can_get_with_unpublished()
+    {
+        factory(EntityWithPublishedFlag::class, 3)->create([
+            'is_published' => true,
+        ]);
+        factory(EntityWithPublishedFlag::class, 2)->create([
+            'is_published' => false,
+        ]);
+
+        $entities = EntityWithPublishedFlag::withUnpublished()->get();
+
+        $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_get_only_unpublished()
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,
@@ -67,30 +82,30 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_activate_model()
+    public function it_can_publish_model()
     {
-        $method = factory(EntityWithPublishedFlag::class)->create([
+        $model = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => false,
         ]);
 
-        EntityWithPublishedFlag::where('id', $method->id)->publish();
+        EntityWithPublishedFlag::where('id', $model->id)->publish();
 
-        $method = EntityWithPublishedFlag::where('id', $method->id)->first();
+        $model = EntityWithPublishedFlag::where('id', $model->id)->first();
 
-        $this->assertTrue($method->is_published);
+        $this->assertTrue($model->is_published);
     }
 
     /** @test */
-    public function it_can_deactivate_model()
+    public function it_can_unpublish_model()
     {
-        $method = factory(EntityWithPublishedFlag::class)->create([
+        $model = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,
         ]);
 
-        EntityWithPublishedFlag::where('id', $method->id)->unpublish();
+        EntityWithPublishedFlag::where('id', $model->id)->unpublish();
 
-        $method = EntityWithPublishedFlag::withUnpublished()->where('id', $method->id)->first();
+        $model = EntityWithPublishedFlag::withUnpublished()->where('id', $model->id)->first();
 
-        $this->assertFalse($method->is_published);
+        $this->assertFalse($model->is_published);
     }
 }

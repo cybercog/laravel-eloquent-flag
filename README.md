@@ -13,7 +13,7 @@ Eloquent flagged attributes behavior. Add commonly used flags to models very qui
  
 Eloquent Flag is an easy way to add flagged attributes to eloquent models. All flags has their own trait which adds global scopes to desired entity.
 
-The main logic of the flags: If flag is `false` - entity should be hidden from the query results. Omitted entities could be retrieved by using a global scope methods.  
+The main logic of the flags: If flag is `false` - entity should be hidden from the query results. Omitted entities could be retrieved by using special global scope methods.  
 
 ## Available flags list
 
