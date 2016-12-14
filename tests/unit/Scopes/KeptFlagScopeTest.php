@@ -52,6 +52,21 @@ class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
+    public function it_can_get_with_unkept()
+    {
+        factory(EntityWithKeptFlag::class, 3)->create([
+            'is_kept' => true,
+        ]);
+        factory(EntityWithKeptFlag::class, 2)->create([
+            'is_kept' => false,
+        ]);
+
+        $entities = EntityWithKeptFlag::withUnkept()->get();
+
+        $this->assertCount(5, $entities);
+    }
+
+    /** @test */
     public function it_can_get_only_unkept()
     {
         factory(EntityWithKeptFlag::class, 3)->create([
@@ -69,28 +84,28 @@ class KeptFlagScopeTest extends TestCase
     /** @test */
     public function it_can_keep_model()
     {
-        $method = factory(EntityWithKeptFlag::class)->create([
+        $model = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => false,
         ]);
 
-        EntityWithKeptFlag::where('id', $method->id)->keep();
+        EntityWithKeptFlag::where('id', $model->id)->keep();
 
-        $method = EntityWithKeptFlag::where('id', $method->id)->first();
+        $model = EntityWithKeptFlag::where('id', $model->id)->first();
 
-        $this->assertTrue($method->is_kept);
+        $this->assertTrue($model->is_kept);
     }
 
     /** @test */
-    public function it_can_deactivate_model()
+    public function it_can_unkeep_model()
     {
-        $method = factory(EntityWithKeptFlag::class)->create([
+        $model = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
         ]);
 
-        EntityWithKeptFlag::where('id', $method->id)->unkeep();
+        EntityWithKeptFlag::where('id', $model->id)->unkeep();
 
-        $method = EntityWithKeptFlag::withUnkept()->where('id', $method->id)->first();
+        $model = EntityWithKeptFlag::withUnkept()->where('id', $model->id)->first();
 
-        $this->assertFalse($method->is_kept);
+        $this->assertFalse($model->is_kept);
     }
 }
