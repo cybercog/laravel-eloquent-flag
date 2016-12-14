@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## 1.3.0 - 2016-12-14
+
+- `is_accepted` flag added.
+
 ## 1.2.0 - 2016-12-10
 
 - `is_kept` flag added.
