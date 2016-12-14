@@ -7,6 +7,14 @@
 
 Eloquent flagged attributes behavior. Add commonly used flags to models very quick and easy.
 
+![cog-laravel-eloquent-flag](https://cloud.githubusercontent.com/assets/1849174/21166452/b1bbf3e8-c1b6-11e6-8f06-468828402ebe.png)
+
+## How it works
+ 
+Eloquent Flag is an easy way to add flagged attributes to eloquent models. All flags has their own trait which adds global scopes to desired entity.
+
+The main logic of the flags: If flag is `false` - entity should be hidden from the query results. Omitted entities could be retrieved by using a global scope methods.  
+
 ## Available flags list
 
 - `is_active`
@@ -135,23 +143,26 @@ Post::where('id', 4)->unpublish();
 
 ### Setup a keepable model
 
-Keep functionality required when you are trying to attach related models before parent one isn't saved.
+Keep functionality required when you are trying to attach related models before parent one isn't persisted in application.
 
 **Issue:**
 
 1. User press `Create Post` button.
 2. Create post form has image uploader.
-3. On image uploading user can't attach image to post before it wouldn't been stored in database.
+3. On image uploading user can't attach image to post before post entity wouldn't been stored in database.
 
 **Solution:**
 
-1. Add `HasKeptFlag` trait to model (and add boolean `is_kept` column to database).
+1. Add `HasKeptFlag` trait to model (and add boolean `is_kept` column to model's database table).
 2. Create empty model on form loading (it will has `is_kept = 0` by default).
 3. Feel free to add any relations to the model.
+4. Model will be marked as required to be kept as soon as model will be saved\updated for the first time after creation.
 
-*Model will be marked as required to be kept as soon as client will save\update model for the first time.*
+**Known limitations:**
 
-*Remove the unkept models on a predetermined schedule (once a week for example).*
+- Using this methodology you wouldn't have create form, only edit will be available.
+- Not all the models allows to have empty attributes on save. Such attributes could be set as nullable to allow create blank model.  
+- To prevent spam of unkept models in database they could be deleted on a predetermined schedule (once a week for example).
 
 ```php
 <?php
