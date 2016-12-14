@@ -17,6 +17,7 @@ The main logic of the flags: If flag is `false` - entity should be hidden from t
 
 ## Available flags list
 
+- `is_accepted`
 - `is_active`
 - `is_published`
 - `is_kept`
@@ -88,6 +89,57 @@ Post::where('id', 4)->activate();
 
 ```shell
 Post::where('id', 4)->deactivate();
+```
+
+### Setup an acceptable model
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\HasAcceptedFlag;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasAcceptedFlag;
+}
+```
+
+*Model must have boolean `is_accepted` column in database table.*
+
+### Available functions
+
+#### Get only accepted models
+
+```shell
+Post::all();
+Post::withoutUnaccepted();
+```
+
+#### Get only unaccepted models
+
+```shell
+Post::onlyUnaccepted();
+```
+
+#### Get accepted + unaccepted models
+
+```shell
+Post::withUnaccepted();
+```
+
+#### Accept model
+
+```shell
+Post::where('id', 4)->accept();
+```
+
+#### Deactivate model
+
+```shell
+Post::where('id', 4)->unaccept();
 ```
 
 ### Setup a publishable model
