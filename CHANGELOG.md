@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## 1.4.0 - 2016-12-26
+
+- `is_verified` flag added.
+
 ## 1.3.0 - 2016-12-14
 
 - `is_accepted` flag added.

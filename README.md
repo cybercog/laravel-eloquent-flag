@@ -9,18 +9,28 @@ Eloquent flagged attributes behavior. Add commonly used flags to models very qui
 
 ![cog-laravel-eloquent-flag](https://cloud.githubusercontent.com/assets/1849174/21166452/b1bbf3e8-c1b6-11e6-8f06-468828402ebe.png)
 
-## How it works
- 
-Eloquent Flag is an easy way to add flagged attributes to eloquent models. All flags has their own trait which adds global scopes to desired entity.
+## Features
 
-The main logic of the flags: If flag is `false` - entity should be hidden from the query results. Omitted entities could be retrieved by using special global scope methods.  
+- Designed to work with Laravel Eloquent models
+- Each model can has as many flags as required
+- Each flag adds global query scopes to models
+- Covered with unit tests
 
 ## Available flags list
 
-- `is_accepted`
-- `is_active`
-- `is_published`
-- `is_kept`
+| Trait name | Database columns | Flag type |
+| ---------- | ---------------- | --------- |
+| `HasAcceptedFlag` | `is_accepted` | Boolean |
+| `HasActiveFlag` | `is_active` | Boolean |
+| `HasKeptFlag` | `is_kept` | Boolean |
+| `HasPublishedFlag` | `is_published` | Boolean |
+| `HasVerifiedFlag` | `is_verified` | Boolean |
+
+## How it works
+
+Eloquent Flag is an easy way to add flagged attributes to eloquent models. All flags has their own trait which adds global scopes to desired entity.
+
+The main logic of the flags: If flag is `false` - entity should be hidden from the query results. Omitted entities could be retrieved by using special global scope methods.  
 
 ## Installation
 
@@ -31,6 +41,8 @@ composer require cybercog/laravel-eloquent-flag
 ```
 
 And then include the service provider within `app/config/app.php`.
+
+*// Service provider not using yet. Will be used to boot console commands in future.*
 
 ```php
 'providers' => [
@@ -193,6 +205,57 @@ Post::where('id', 4)->publish();
 Post::where('id', 4)->unpublish();
 ```
 
+### Setup a verifiable model
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\HasVerifiedFlag;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasVerifiedFlag;
+}
+```
+
+*Model must have boolean `is_verified` column in database table.*
+
+### Available functions
+
+#### Get only verified models
+
+```shell
+Post::all();
+Post::withoutUnverified();
+```
+
+#### Get only unverified models
+
+```shell
+Post::onlyUnverified();
+```
+
+#### Get verified + unverified models
+
+```shell
+Post::withUnverified();
+```
+
+#### Verify model
+
+```shell
+Post::where('id', 4)->verify();
+```
+
+#### Unverify model
+
+```shell
+Post::where('id', 4)->unverify();
+```
+
 ### Setup a keepable model
 
 Keep functionality required when you are trying to attach related models before parent one isn't persisted in application.
@@ -304,7 +367,9 @@ If you discover any security related issues, please email support@cybercog.su in
 
 ## License
 
-Please see [License](LICENSE) file for more information.
+- `Laravel Eloquent Flag` package is open-sourced software licensed under the [MIT license](LICENSE).
+- `Check Mark` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Kimmi Studio.
+- `Clock Check` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Harsha Rai.
 
 ## About CyberCog
 
