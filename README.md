@@ -22,6 +22,7 @@ Eloquent flagged attributes behavior. Add commonly used flags to models very qui
 | ---------- | ---------------- | --------- |
 | `HasAcceptedFlag` | `is_accepted` | Boolean |
 | `HasActiveFlag` | `is_active` | Boolean |
+| `HasApprovedFlag` | `is_approved` | Boolean |
 | `HasKeptFlag` | `is_kept` | Boolean |
 | `HasPublishedFlag` | `is_published` | Boolean |
 | `HasVerifiedFlag` | `is_verified` | Boolean |
@@ -152,6 +153,57 @@ Post::where('id', 4)->accept();
 
 ```shell
 Post::where('id', 4)->unaccept();
+```
+
+### Setup an approvable model
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\HasApprovedFlag;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasApprovedFlag;
+}
+```
+
+*Model must have boolean `is_approved` column in database table.*
+
+### Available functions
+
+#### Get only approved models
+
+```shell
+Post::all();
+Post::withoutUnapproved();
+```
+
+#### Get only unapproved models
+
+```shell
+Post::onlyUnapproved();
+```
+
+#### Get approved + unapproved models
+
+```shell
+Post::withUnapproved();
+```
+
+#### Approve model
+
+```shell
+Post::where('id', 4)->approve();
+```
+
+#### Unapprove model
+
+```shell
+Post::where('id', 4)->unapprove();
 ```
 
 ### Setup a publishable model
@@ -364,6 +416,8 @@ If you discover any security related issues, please email support@cybercog.su in
 ## Alternatives
 
 *Not found.*
+
+*Feel free to add more alternatives as Pull Request.*
 
 ## License
 

@@ -11,22 +11,22 @@
 
 namespace Cog\Flag\Traits;
 
-use Cog\Flag\Scopes\ActiveFlagScope;
+use Cog\Flag\Scopes\ApprovedFlagScope;
 
 /**
- * Class HasActiveFlag.
+ * Class HasApprovedFlag.
  *
  * @package Cog\Flag\Traits
  */
-trait HasActiveFlag
+trait HasApprovedFlag
 {
     /**
-     * Boot the HasKeptFlag trait for a model.
+     * Boot the HasApprovedFlag trait for a model.
      *
      * @return void
      */
-    public static function bootHasActiveFlag()
+    public static function bootHasApprovedFlag()
     {
-        static::addGlobalScope(new ActiveFlagScope);
+        static::addGlobalScope(new ApprovedFlagScope);
     }
 }

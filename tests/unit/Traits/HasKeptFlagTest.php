@@ -18,7 +18,7 @@ use Cog\Flag\Tests\Stubs\Models\EntityWithKeptFlag;
 /**
  * Class HasKeptFlagTest.
  *
- * @package Cog\Merchant\Tests\Unit\Traits
+ * @package Cog\Flag\Tests\Unit\Traits
  */
 class HasKeptFlagTest extends TestCase
 {

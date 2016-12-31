@@ -17,7 +17,7 @@ use Cog\Flag\Tests\Stubs\Models\EntityWithVerifiedFlag;
 /**
  * Class VerifiedFlagScopeTest.
  *
- * @package Cog\Merchant\Tests\Unit\Scopes
+ * @package Cog\Flag\Tests\Unit\Scopes
  */
 class VerifiedFlagScopeTest extends TestCase
 {

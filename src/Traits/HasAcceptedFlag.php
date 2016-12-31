@@ -21,7 +21,7 @@ use Cog\Flag\Scopes\AcceptedFlagScope;
 trait HasAcceptedFlag
 {
     /**
-     * Boot the has accepted flag trait for a model.
+     * Boot the HasAcceptedFlag trait for a model.
      *
      * @return void
      */
