@@ -1,6 +1,32 @@
 {
     "name": "cybercog/laravel-eloquent-flag",
     "description": "Laravel Eloquent flagged attributes behavior",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "cybercog",
+        "cog",
+        "laravel",
+        "trait",
+        "scopes",
+        "flag",
+        "boolean",
+        "timestamp",
+        "accepted",
+        "unaccepted",
+        "active",
+        "activated",
+        "deactivated",
+        "kept",
+        "unkept",
+        "published",
+        "unpublished",
+        "verified",
+        "unverified",
+        "persisted",
+        "approved",
+        "unapproved"
+    ],
     "authors": [
         {
             "name": "Anton Komarev",
@@ -9,11 +35,17 @@
             "role": "Developer"
         }
     ],
-    "license": "MIT",
-    "type": "library",
+    "homepage": "https://github.com/cybercog/laravel-eloquent-flag",
+    "support": {
+        "email": "a.komarev@cybercog.su",
+        "issues": "https://github.com/cybercog/laravel-eloquent-flag/issues",
+        "wiki": "https://github.com/cybercog/laravel-eloquent-flag/wiki",
+        "source": "https://github.com/cybercog/laravel-eloquent-flag",
+        "docs": "https://github.com/cybercog/laravel-eloquent-flag/wiki"
+    },
     "require": {
         "php": "^5.6|^7.0",
-        "illuminate/database": "~5.2.0|~5.3.0"
+        "illuminate/database": "~5.2.0|~5.3.0|~5.4.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^1.11",
@@ -30,5 +62,8 @@
         "psr-4": {
             "Cog\\Flag\\Tests\\": "tests/"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }

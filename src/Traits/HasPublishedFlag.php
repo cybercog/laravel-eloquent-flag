@@ -21,7 +21,7 @@ use Cog\Flag\Scopes\PublishedFlagScope;
 trait HasPublishedFlag
 {
     /**
-     * Boot the has published flag trait for a model.
+     * Boot the HasPublishedFlag trait for a model.
      *
      * @return void
      */

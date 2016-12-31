@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Builder;
 trait HasKeptFlag
 {
     /**
-     * Boot the has kept flag trait for a model.
+     * Boot the HasKeptFlag trait for a model.
      *
      * @return void
      */
