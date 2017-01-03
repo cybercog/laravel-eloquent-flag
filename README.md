@@ -18,20 +18,26 @@ Eloquent flagged attributes behavior. Add commonly used flags to models very qui
 
 ## Available flags list
 
-| Trait name | Database columns | Flag type |
-| ---------- | ---------------- | --------- |
-| `HasAcceptedFlag` | `is_accepted` | Boolean |
-| `HasActiveFlag` | `is_active` | Boolean |
-| `HasApprovedFlag` | `is_approved` | Boolean |
-| `HasKeptFlag` | `is_kept` | Boolean |
-| `HasPublishedFlag` | `is_published` | Boolean |
-| `HasVerifiedFlag` | `is_verified` | Boolean |
+| Trait name | Database columns | Flag type | Logic |
+| ---------- | ---------------- | --------- | ----- |
+| `HasAcceptedFlag` | `is_accepted` | Boolean | Classic |
+| `HasActiveFlag` | `is_active` | Boolean | Classic |
+| `HasApprovedFlag` | `is_approved` | Boolean | Classic |
+| `HasExpiredInverseFlag` | `is_expired` | Boolean | Inverse |
+| `HasKeptFlag` | `is_kept` | Boolean | Classic |
+| `HasPublishedFlag` | `is_published` | Boolean | Classic |
+| `HasVerifiedFlag` | `is_verified` | Boolean | Classic |
 
 ## How it works
 
 Eloquent Flag is an easy way to add flagged attributes to eloquent models. All flags has their own trait which adds global scopes to desired entity.
 
-The main logic of the flags: If flag is `false` - entity should be hidden from the query results. Omitted entities could be retrieved by using special global scope methods.  
+All flags separated on 2 logical groups:
+
+- `Classic` flags displays only entities with flag setted as `true`.
+- `Inverse` flags displays only entities with flag setted as `false`. 
+
+Omitted entities could be retrieved by using special global scope methods, unique for each flag.
 
 ## Installation
 
@@ -60,7 +66,7 @@ And then include the service provider within `app/config/app.php`.
 
 namespace App\Models;
 
-use Cog\Flag\Traits\HasActiveFlag;
+use Cog\Flag\Traits\Classic\HasActiveFlag;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -111,7 +117,7 @@ Post::where('id', 4)->deactivate();
 
 namespace App\Models;
 
-use Cog\Flag\Traits\HasAcceptedFlag;
+use Cog\Flag\Traits\Classic\HasAcceptedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -162,7 +168,7 @@ Post::where('id', 4)->unaccept();
 
 namespace App\Models;
 
-use Cog\Flag\Traits\HasApprovedFlag;
+use Cog\Flag\Traits\Classic\HasApprovedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -213,7 +219,7 @@ Post::where('id', 4)->unapprove();
 
 namespace App\Models;
 
-use Cog\Flag\Traits\HasPublishedFlag;
+use Cog\Flag\Traits\Classic\HasPublishedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -264,7 +270,7 @@ Post::where('id', 4)->unpublish();
 
 namespace App\Models;
 
-use Cog\Flag\Traits\HasVerifiedFlag;
+use Cog\Flag\Traits\Classic\HasVerifiedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -336,7 +342,7 @@ Keep functionality required when you are trying to attach related models before 
 
 namespace App\Models;
 
-use Cog\Flag\Traits\HasKeptFlag;
+use Cog\Flag\Traits\Classic\HasKeptFlag;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -391,6 +397,57 @@ Post::onlyUnkeptOlderThanHours(4);
 ```
 
 Output will have all unkept models created earlier than 4 hours ago.
+
+### Setup an expirable model
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Inverse\HasExpiredFlag;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasExpiredFlag;
+}
+```
+
+*Model must have boolean `is_expired` column in database table.*
+
+### Available functions
+
+#### Get only not expired models
+
+```shell
+Post::all();
+Post::withoutExpired();
+```
+
+#### Get only expired models
+
+```shell
+Post::onlyExpired();
+```
+
+#### Get expired + not expired models
+
+```shell
+Post::withExpired();
+```
+
+#### Set expire flag to model
+
+```shell
+Post::where('id', 4)->expire();
+```
+
+#### Remove expire flag from model
+
+```shell
+Post::where('id', 4)->unexpire();
+```
 
 ## Testing
 

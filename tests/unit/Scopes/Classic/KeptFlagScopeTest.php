@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Unit\Scopes;
+namespace Cog\Flag\Tests\Unit\Scopes\Classic;
 
+use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Flag\Tests\TestCase;
-use Cog\Flag\Tests\Stubs\Models\EntityWithKeptFlag;
 
 /**
  * Class KeptFlagScopeTest.
  *
- * @package Cog\Flag\Tests\Unit\Scopes
+ * @package Cog\Flag\Tests\Unit\Scopes\Classic
  */
 class KeptFlagScopeTest extends TestCase
 {

@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Scopes;
+namespace Cog\Flag\Scopes\Classic;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Class AcceptedFlagScope.
+ * Class VerifiedFlagScope.
  *
- * @package Cog\Flag\Scopes
+ * @package Cog\Flag\Scopes\Classic
  */
-class AcceptedFlagScope implements Scope
+class VerifiedFlagScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.
      *
      * @var array
      */
-    protected $extensions = ['Accept', 'Unaccept', 'WithUnaccepted', 'WithoutUnaccepted', 'OnlyUnaccepted'];
+    protected $extensions = ['Verify', 'Unverify', 'WithUnverified', 'WithoutUnverified', 'OnlyUnverified'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -38,7 +38,7 @@ class AcceptedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where('is_accepted', 1);
+        return $builder->where('is_verified', 1);
     }
 
     /**
@@ -55,69 +55,69 @@ class AcceptedFlagScope implements Scope
     }
 
     /**
-     * Add the `accept` extension to the builder.
+     * Add the `verify` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addAccept(Builder $builder)
+    protected function addVerify(Builder $builder)
     {
-        $builder->macro('accept', function (Builder $builder) {
-            $builder->withUnaccepted();
+        $builder->macro('verify', function (Builder $builder) {
+            $builder->withUnverified();
 
-            return $builder->update(['is_accepted' => 1]);
+            return $builder->update(['is_verified' => 1]);
         });
     }
 
     /**
-     * Add the `unaccept` extension to the builder.
+     * Add the `unverify` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnaccept(Builder $builder)
+    protected function addUnverify(Builder $builder)
     {
-        $builder->macro('unaccept', function (Builder $builder) {
-            return $builder->update(['is_accepted' => 0]);
+        $builder->macro('unverify', function (Builder $builder) {
+            return $builder->update(['is_verified' => 0]);
         });
     }
 
     /**
-     * Add the `withUnaccepted` extension to the builder.
+     * Add the `withUnverified` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnaccepted(Builder $builder)
+    protected function addWithUnverified(Builder $builder)
     {
-        $builder->macro('withUnaccepted', function (Builder $builder) {
+        $builder->macro('withUnverified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUnaccepted` extension to the builder.
+     * Add the `withoutUnverified` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnaccepted(Builder $builder)
+    protected function addWithoutUnverified(Builder $builder)
     {
-        $builder->macro('withoutUnaccepted', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_accepted', 1);
+        $builder->macro('withoutUnverified', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_verified', 1);
         });
     }
 
     /**
-     * Add the `onlyUnaccepted` extension to the builder.
+     * Add the `onlyUnverified` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnaccepted(Builder $builder)
+    protected function addOnlyUnverified(Builder $builder)
     {
-        $builder->macro('onlyUnaccepted', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_accepted', 0);
+        $builder->macro('onlyUnverified', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_verified', 0);
         });
     }
 }

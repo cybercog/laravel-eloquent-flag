@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Scopes;
+namespace Cog\Flag\Scopes\Inverse;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Class VerifiedFlagScope.
+ * Class ExpiredFlagScope.
  *
- * @package Cog\Flag\Scopes
+ * @package Cog\Flag\Scopes\Inverse
  */
-class VerifiedFlagScope implements Scope
+class ExpiredFlagScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.
      *
      * @var array
      */
-    protected $extensions = ['Verify', 'Unverify', 'WithUnverified', 'WithoutUnverified', 'OnlyUnverified'];
+    protected $extensions = ['Unexpire', 'Expire', 'WithExpired', 'WithoutExpired', 'OnlyExpired'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -38,7 +38,7 @@ class VerifiedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where('is_verified', 1);
+        return $builder->where('is_expired', 0);
     }
 
     /**
@@ -55,69 +55,69 @@ class VerifiedFlagScope implements Scope
     }
 
     /**
-     * Add the `verify` extension to the builder.
+     * Add the `unexpire` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addVerify(Builder $builder)
+    protected function addUnexpire(Builder $builder)
     {
-        $builder->macro('verify', function (Builder $builder) {
-            $builder->withUnverified();
+        $builder->macro('unexpire', function (Builder $builder) {
+            $builder->withExpired();
 
-            return $builder->update(['is_verified' => 1]);
+            return $builder->update(['is_expired' => 0]);
         });
     }
 
     /**
-     * Add the `unverify` extension to the builder.
+     * Add the `expire` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnverify(Builder $builder)
+    protected function addExpire(Builder $builder)
     {
-        $builder->macro('unverify', function (Builder $builder) {
-            return $builder->update(['is_verified' => 0]);
+        $builder->macro('expire', function (Builder $builder) {
+            return $builder->update(['is_expired' => 1]);
         });
     }
 
     /**
-     * Add the `withUnverified` extension to the builder.
+     * Add the `withExpired` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnverified(Builder $builder)
+    protected function addWithExpired(Builder $builder)
     {
-        $builder->macro('withUnverified', function (Builder $builder) {
+        $builder->macro('withExpired', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUnverified` extension to the builder.
+     * Add the `withoutExpired` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnverified(Builder $builder)
+    protected function addWithoutExpired(Builder $builder)
     {
-        $builder->macro('withoutUnverified', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_verified', 1);
+        $builder->macro('withoutExpired', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_expired', 0);
         });
     }
 
     /**
-     * Add the `onlyUnverified` extension to the builder.
+     * Add the `onlyExpired` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnverified(Builder $builder)
+    protected function addOnlyExpired(Builder $builder)
     {
-        $builder->macro('onlyUnverified', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_verified', 0);
+        $builder->macro('onlyExpired', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_expired', 1);
         });
     }
 }

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Flag\Tests\Stubs\Models\EntityWithApprovedFlag::class, function (\Faker\Generator $faker) {
+$factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithApprovedFlag::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'is_approved' => true,

@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Scopes;
+namespace Cog\Flag\Scopes\Classic;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class ApprovedFlagScope.
  *
- * @package Cog\Flag\Scopes
+ * @package Cog\Flag\Scopes\Classic
  */
 class ApprovedFlagScope implements Scope
 {

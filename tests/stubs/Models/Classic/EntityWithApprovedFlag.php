@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Stubs\Models;
+namespace Cog\Flag\Tests\Stubs\Models\Classic;
 
-use Cog\Flag\Traits\HasApprovedFlag;
+use Cog\Flag\Traits\Classic\HasApprovedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class EntityWithApprovedFlag.
  *
- * @package Cog\Flag\Tests\Stubs\Models
+ * @package Cog\Flag\Tests\Stubs\Models\Classic
  */
 class EntityWithApprovedFlag extends Model
 {
