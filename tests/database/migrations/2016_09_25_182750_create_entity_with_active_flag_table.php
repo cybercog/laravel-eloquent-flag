@@ -10,6 +10,7 @@
  */
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 /**
  * Class CreateEntityWithActiveFlagTable.
@@ -23,7 +24,7 @@ class CreateEntityWithActiveFlagTable extends Migration
      */
     public function up()
     {
-        Schema::create('entity_with_active_flag', function ($table) {
+        Schema::create('entity_with_active_flag', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->boolean('is_active');
