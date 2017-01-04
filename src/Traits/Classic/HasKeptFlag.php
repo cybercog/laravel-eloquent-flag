@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Traits;
+namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
-use Cog\Flag\Scopes\KeptFlagScope;
+use Cog\Flag\Scopes\Classic\KeptFlagScope;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class HasKeptFlag.
  *
- * @package Cog\Flag\Traits
+ * @package Cog\Flag\Traits\Classic
  */
 trait HasKeptFlag
 {

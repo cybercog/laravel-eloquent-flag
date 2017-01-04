@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Traits;
+namespace Cog\Flag\Traits\Classic;
 
-use Cog\Flag\Scopes\ActiveFlagScope;
+use Cog\Flag\Scopes\Classic\ActiveFlagScope;
 
 /**
  * Class HasActiveFlag.
  *
- * @package Cog\Flag\Traits
+ * @package Cog\Flag\Traits\Classic
  */
 trait HasActiveFlag
 {

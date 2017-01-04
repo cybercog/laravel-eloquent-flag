@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Stubs\Models;
+namespace Cog\Flag\Tests\Stubs\Models\Classic;
 
-use Cog\Flag\Traits\HasVerifiedFlag;
+use Cog\Flag\Traits\Classic\HasPublishedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class EntityWithVerifiedFlag.
+ * Class EntityWithPublishedFlag.
  *
- * @package Cog\Flag\Tests\Stubs\Models
+ * @package Cog\Flag\Tests\Stubs\Models\Classic
  */
-class EntityWithVerifiedFlag extends Model
+class EntityWithPublishedFlag extends Model
 {
-    use HasVerifiedFlag;
+    use HasPublishedFlag;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'entity_with_verified_flag';
+    protected $table = 'entity_with_published_flag';
 
     /**
      * The attributes that are mass assignable.
@@ -45,6 +45,6 @@ class EntityWithVerifiedFlag extends Model
      * @var array
      */
     protected $casts = [
-        'is_verified' => 'bool',
+        'is_published' => 'bool',
     ];
 }

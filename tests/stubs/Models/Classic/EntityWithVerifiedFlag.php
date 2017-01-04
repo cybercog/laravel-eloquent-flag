@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Stubs\Models;
+namespace Cog\Flag\Tests\Stubs\Models\Classic;
 
-use Cog\Flag\Traits\HasActiveFlag;
+use Cog\Flag\Traits\Classic\HasVerifiedFlag;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class EntityWithActiveFlag.
+ * Class EntityWithVerifiedFlag.
  *
- * @package Cog\Flag\Tests\Stubs\Models
+ * @package Cog\Flag\Tests\Stubs\Models\Classic
  */
-class EntityWithActiveFlag extends Model
+class EntityWithVerifiedFlag extends Model
 {
-    use HasActiveFlag;
+    use HasVerifiedFlag;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'entity_with_active_flag';
+    protected $table = 'entity_with_verified_flag';
 
     /**
      * The attributes that are mass assignable.
@@ -45,6 +45,6 @@ class EntityWithActiveFlag extends Model
      * @var array
      */
     protected $casts = [
-        'is_active' => 'bool',
+        'is_verified' => 'bool',
     ];
 }

@@ -9,26 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Stubs\Models;
+namespace Cog\Flag\Tests\Stubs\Models\Inverse;
 
-use Cog\Flag\Traits\HasPublishedFlag;
+use Cog\Flag\Traits\Inverse\HasExpiredFlag;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class EntityWithPublishedFlag.
+ * Class EntityWithExpiredFlag.
  *
- * @package Cog\Flag\Tests\Stubs\Models
+ * @package Cog\Flag\Tests\Stubs\Models\Inverse
  */
-class EntityWithPublishedFlag extends Model
+class EntityWithExpiredFlag extends Model
 {
-    use HasPublishedFlag;
+    use HasExpiredFlag;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'entity_with_published_flag';
+    protected $table = 'entity_with_expired_flag';
 
     /**
      * The attributes that are mass assignable.
@@ -45,6 +45,6 @@ class EntityWithPublishedFlag extends Model
      * @var array
      */
     protected $casts = [
-        'is_published' => 'bool',
+        'is_expired' => 'bool',
     ];
 }

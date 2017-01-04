@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Stubs\Models;
+namespace Cog\Flag\Tests\Stubs\Models\Classic;
 
-use Cog\Flag\Traits\HasKeptFlag;
+use Cog\Flag\Traits\Classic\HasKeptFlag;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class EntityWithKeptFlag.
  *
- * @package Cog\Flag\Tests\Stubs\Models
+ * @package Cog\Flag\Tests\Stubs\Models\Classic
  */
 class EntityWithKeptFlag extends Model
 {

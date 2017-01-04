@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests\Unit\Traits;
+namespace Cog\Flag\Tests\Unit\Traits\Classic;
 
 use Carbon\Carbon;
+use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Flag\Tests\TestCase;
-use Cog\Flag\Tests\Stubs\Models\EntityWithKeptFlag;
 
 /**
  * Class HasKeptFlagTest.
  *
- * @package Cog\Flag\Tests\Unit\Traits
+ * @package Cog\Flag\Tests\Unit\Traits\Classic
  */
 class HasKeptFlagTest extends TestCase
 {

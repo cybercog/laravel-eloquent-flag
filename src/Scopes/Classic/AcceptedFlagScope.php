@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Scopes;
+namespace Cog\Flag\Scopes\Classic;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Class PublishedFlagScope.
+ * Class AcceptedFlagScope.
  *
- * @package Cog\Flag\Scopes
+ * @package Cog\Flag\Scopes\Classic
  */
-class PublishedFlagScope implements Scope
+class AcceptedFlagScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.
      *
      * @var array
      */
-    protected $extensions = ['Publish', 'Unpublish', 'WithUnpublished', 'WithoutUnpublished', 'OnlyUnpublished'];
+    protected $extensions = ['Accept', 'Unaccept', 'WithUnaccepted', 'WithoutUnaccepted', 'OnlyUnaccepted'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -38,7 +38,7 @@ class PublishedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where('is_published', 1);
+        return $builder->where('is_accepted', 1);
     }
 
     /**
@@ -55,69 +55,69 @@ class PublishedFlagScope implements Scope
     }
 
     /**
-     * Add the `publish` extension to the builder.
+     * Add the `accept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addPublish(Builder $builder)
+    protected function addAccept(Builder $builder)
     {
-        $builder->macro('publish', function (Builder $builder) {
-            $builder->withUnpublished();
+        $builder->macro('accept', function (Builder $builder) {
+            $builder->withUnaccepted();
 
-            return $builder->update(['is_published' => 1]);
+            return $builder->update(['is_accepted' => 1]);
         });
     }
 
     /**
-     * Add the `unpublish` extension to the builder.
+     * Add the `unaccept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnpublish(Builder $builder)
+    protected function addUnaccept(Builder $builder)
     {
-        $builder->macro('unpublish', function (Builder $builder) {
-            return $builder->update(['is_published' => 0]);
+        $builder->macro('unaccept', function (Builder $builder) {
+            return $builder->update(['is_accepted' => 0]);
         });
     }
 
     /**
-     * Add the `withUnpublished` extension to the builder.
+     * Add the `withUnaccepted` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnpublished(Builder $builder)
+    protected function addWithUnaccepted(Builder $builder)
     {
-        $builder->macro('withUnpublished', function (Builder $builder) {
+        $builder->macro('withUnaccepted', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUnpublished` extension to the builder.
+     * Add the `withoutUnaccepted` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnpublished(Builder $builder)
+    protected function addWithoutUnaccepted(Builder $builder)
     {
-        $builder->macro('withoutUnpublished', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_published', 1);
+        $builder->macro('withoutUnaccepted', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_accepted', 1);
         });
     }
 
     /**
-     * Add the `onlyUnpublished` extension to the builder.
+     * Add the `onlyUnaccepted` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnpublished(Builder $builder)
+    protected function addOnlyUnaccepted(Builder $builder)
     {
-        $builder->macro('onlyUnpublished', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_published', 0);
+        $builder->macro('onlyUnaccepted', function (Builder $builder) {
+            return $builder->withoutGlobalScope($this)->where('is_accepted', 0);
         });
     }
 }

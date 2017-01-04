@@ -16,7 +16,7 @@ use Illuminate\Support\ServiceProvider;
 /**
  * Class FlagServiceProvider.
  *
- * @package Cog\Flag\Scopes
+ * @package Cog\Flag\Providers
  */
 class FlagServiceProvider extends ServiceProvider
 {

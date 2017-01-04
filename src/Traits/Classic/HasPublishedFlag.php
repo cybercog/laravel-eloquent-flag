@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Traits;
+namespace Cog\Flag\Traits\Classic;
 
-use Cog\Flag\Scopes\PublishedFlagScope;
+use Cog\Flag\Scopes\Classic\PublishedFlagScope;
 
 /**
  * Class HasPublishedFlag.
  *
- * @package Cog\Flag\Traits
+ * @package Cog\Flag\Traits\Classic
  */
 trait HasPublishedFlag
 {
