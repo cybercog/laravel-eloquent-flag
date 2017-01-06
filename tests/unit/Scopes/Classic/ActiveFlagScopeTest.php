@@ -37,7 +37,7 @@ class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_inactive()
+    public function it_can_get_without_deactivated()
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -46,13 +46,13 @@ class ActiveFlagScopeTest extends TestCase
             'is_active' => false,
         ]);
 
-        $entities = EntityWithActiveFlag::withoutInactive()->get();
+        $entities = EntityWithActiveFlag::withoutDeactivated()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_inactive()
+    public function it_can_get_with_deactivated()
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -61,13 +61,13 @@ class ActiveFlagScopeTest extends TestCase
             'is_active' => false,
         ]);
 
-        $entities = EntityWithActiveFlag::withInactive()->get();
+        $entities = EntityWithActiveFlag::withDeactivated()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_inactive()
+    public function it_can_get_only_deactivated()
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -76,7 +76,7 @@ class ActiveFlagScopeTest extends TestCase
             'is_active' => false,
         ]);
 
-        $entities = EntityWithActiveFlag::onlyInactive()->get();
+        $entities = EntityWithActiveFlag::onlyDeactivated()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -104,7 +104,7 @@ class ActiveFlagScopeTest extends TestCase
 
         EntityWithActiveFlag::where('id', $model->id)->deactivate();
 
-        $model = EntityWithActiveFlag::withInactive()->where('id', $model->id)->first();
+        $model = EntityWithActiveFlag::withDeactivated()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_active);
     }
