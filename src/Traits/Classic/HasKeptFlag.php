@@ -12,7 +12,6 @@
 namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
-use Cog\Flag\Scopes\Classic\KeptFlagScope;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -22,6 +21,8 @@ use Illuminate\Database\Eloquent\Builder;
  */
 trait HasKeptFlag
 {
+    use HasKeptFlagScope;
+
     /**
      * Boot the HasKeptFlag trait for a model.
      *
@@ -29,8 +30,6 @@ trait HasKeptFlag
      */
     public static function bootHasKeptFlag()
     {
-        static::addGlobalScope(new KeptFlagScope);
-
         static::creating(function ($entity) {
             if (!$entity->is_kept) {
                 $entity->is_kept = false;
