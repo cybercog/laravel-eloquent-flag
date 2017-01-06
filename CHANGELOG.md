@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
-## 3.0.0 - [Unreleased]
+## 3.0.0 - 2017-01-07
 
 ### Added
 
@@ -14,13 +14,13 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - Each Flag trait was spliced on 2 additional traits: `Has{Name}Flag` = `Has{Name}FlagScope` + `Has{Name}FlagHelpers`.
 - Kept Flag trait was spliced on 3 additional traits, because events were pulled out to `HasKeptFlagBehavior` trait.
-- Flags `Classic\Accepted`, `Classic\Active` & `Classic\Approved` methods were changed. Details in the [UPGRADING.md](UPGRADING.md).
+- Flags `Classic\Accepted`, `Classic\Active` & `Classic\Approved` methods were changed. Details in the [Upgrade Guide](UPGRADE.md).
 
-## 2.1.0 - 2016-01-04
+## 2.1.0 - 2017-01-04
 
 - `is_closed` inverse boolean flag added.
 
-## 2.0.0 - 2016-01-04
+## 2.0.0 - 2017-01-04
 
 ### Breaking changes
 

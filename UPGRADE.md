@@ -1,6 +1,10 @@
-# Upgrading
+# Upgrade Guide
 
-## From v2 to v3
+- [Upgrading To 3.0 From 2.0](#upgrade-3.0)
+- [Upgrading To 2.0 From 1.0](#upgrade-2.0)
+
+<a name="upgrade-3.0"></a>
+## Upgrading To 3.0 From 2.0
 
 You can upgrade from v2 to v3 by performing these renames in your model that has flags: `Accepted`, `Active` & `Approved`.
 
@@ -18,7 +22,8 @@ These methods should be renamed:
 - `withoutUnapproved()` has been renamed to `withoutDisapproved()`.
 - `onlyUnapproved()` has been renamed to `onlyDisapproved()`.
 
-## From v1 to v2
+<a name="upgrade-2.0"></a>
+## Upgrading To 2.0 From 1.0
 
 - Namespaces of flag's traits received `Classic` at the end: `Cog\Flag\Traits\Classic`.
 - Namespaces of flag's scopes received `Classic` at the end: `Cog\Flag\Scopes\Classic`.

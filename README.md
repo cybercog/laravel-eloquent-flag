@@ -1,13 +1,15 @@
-# Laravel Eloquent Flag
+![cog-laravel-eloquent-flag-3](https://cloud.githubusercontent.com/assets/1849174/21735581/feb857cc-d47b-11e6-80fa-126be1a1d871.png)
 
-[![Build Status](https://img.shields.io/travis/cybercog/laravel-eloquent-flag/master.svg?style=flat-square)](https://travis-ci.org/cybercog/laravel-eloquent-flag)
-[![StyleCI](https://styleci.io/repos/69245607/shield)](https://styleci.io/repos/69245607)
-[![Releases](https://img.shields.io/github/release/cybercog/laravel-eloquent-flag.svg?style=flat-square)](https://github.com/cybercog/laravel-eloquent-flag/releases)
-[![License](https://img.shields.io/github/license/cybercog/laravel-eloquent-flag.svg?style=flat-square)](https://github.com/cybercog/laravel-eloquent-flag/blob/master/LICENSE)
+<p align="center">
+<a href="https://travis-ci.org/cybercog/laravel-eloquent-flag"><img src="https://img.shields.io/travis/cybercog/laravel-eloquent-flag/master.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://styleci.io/repos/69245607"><img src="https://styleci.io/repos/69245607/shield" alt="StyleCI"></a>
+<a href="https://github.com/cybercog/laravel-eloquent-flag/releases"><img src="https://img.shields.io/github/release/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="Releases"></a>
+<a href="https://github.com/cybercog/laravel-eloquent-flag/blob/master/LICENSE"><img src="https://img.shields.io/github/license/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="License"></a>
+</p>
 
-Eloquent flagged attributes behavior. Add commonly used flags to models very quick and easy.
+## Introduction
 
-![cog-laravel-eloquent-flag](https://cloud.githubusercontent.com/assets/1849174/21166452/b1bbf3e8-c1b6-11e6-8f06-468828402ebe.png)
+Eloquent flagged attributes behavior. Enhance eloquent models with commonly used flags like `Active`, `Published`, `Approved` and other in a minutes!
 
 ## Features
 
@@ -50,7 +52,7 @@ composer require cybercog/laravel-eloquent-flag
 
 And then include the service provider within `app/config/app.php`.
 
-*// Service provider not using yet. Will be used to boot console commands in future.*
+*// Service provider not using yet. This step not mandatory. Will be used to boot console commands in future.*
 
 ```php
 'providers' => [
@@ -515,7 +517,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email support@cybercog.su instead of using the issue tracker.
+If you discover any security related issues, please email a.komarev@cybercog.su instead of using the issue tracker.
 
 ## Credits
 
