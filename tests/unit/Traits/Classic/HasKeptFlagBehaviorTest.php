@@ -11,16 +11,15 @@
 
 namespace Cog\Flag\Tests\Unit\Traits\Classic;
 
-use Carbon\Carbon;
 use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Flag\Tests\TestCase;
 
 /**
- * Class HasKeptFlagTest.
+ * Class HasKeptFlagBehaviorTest.
  *
  * @package Cog\Flag\Tests\Unit\Traits\Classic
  */
-class HasKeptFlagTest extends TestCase
+class HasKeptFlagBehaviorTest extends TestCase
 {
     /** @test */
     public function it_sets_is_kept_false_on_create()
@@ -45,28 +44,5 @@ class HasKeptFlagTest extends TestCase
         ]);
 
         $this->assertTrue($entity->is_kept);
-    }
-
-    /** @test */
-    public function it_can_get_unkept_older_than_hours()
-    {
-        factory(EntityWithKeptFlag::class, 3)->create([
-            'is_kept' => true,
-        ]);
-        factory(EntityWithKeptFlag::class, 2)->create([
-            'is_kept' => false,
-            'created_at' => Carbon::now()->subHours(4)->toDateTimeString(),
-        ]);
-        factory(EntityWithKeptFlag::class, 2)->create([
-            'is_kept' => false,
-            'created_at' => Carbon::now()->subHours(2)->toDateTimeString(),
-        ]);
-        factory(EntityWithKeptFlag::class, 2)->create([
-            'is_kept' => false,
-        ]);
-
-        $entities = EntityWithKeptFlag::onlyUnkeptOlderThanHours(4)->get();
-
-        $this->assertCount(2, $entities);
     }
 }

@@ -12,12 +12,11 @@
 namespace Cog\Flag\Traits\Classic;
 
 /**
- * Class HasAcceptedFlag.
+ * Class HasPublishedFlagHelpers.
  *
  * @package Cog\Flag\Traits\Classic
  */
-trait HasAcceptedFlag
+trait HasPublishedFlagHelpers
 {
-    use HasAcceptedFlagHelpers,
-        HasAcceptedFlagScope;
+    //
 }

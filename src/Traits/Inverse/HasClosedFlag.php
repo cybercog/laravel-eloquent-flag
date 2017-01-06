@@ -11,8 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-use Cog\Flag\Scopes\Inverse\ClosedFlagScope;
-
 /**
  * Class HasClosedFlag.
  *
@@ -20,13 +18,6 @@ use Cog\Flag\Scopes\Inverse\ClosedFlagScope;
  */
 trait HasClosedFlag
 {
-    /**
-     * Boot the HasClosedFlag trait for a model.
-     *
-     * @return void
-     */
-    public static function bootHasClosedFlag()
-    {
-        static::addGlobalScope(new ClosedFlagScope);
-    }
+    use HasClosedFlagHelpers,
+        HasClosedFlagScope;
 }

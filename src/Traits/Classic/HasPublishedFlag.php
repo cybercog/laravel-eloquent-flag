@@ -11,8 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-use Cog\Flag\Scopes\Classic\PublishedFlagScope;
-
 /**
  * Class HasPublishedFlag.
  *
@@ -20,13 +18,6 @@ use Cog\Flag\Scopes\Classic\PublishedFlagScope;
  */
 trait HasPublishedFlag
 {
-    /**
-     * Boot the HasPublishedFlag trait for a model.
-     *
-     * @return void
-     */
-    public static function bootHasPublishedFlag()
-    {
-        static::addGlobalScope(new PublishedFlagScope);
-    }
+    use HasPublishedFlagHelpers,
+        HasPublishedFlagScope;
 }

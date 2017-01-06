@@ -11,8 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-use Cog\Flag\Scopes\Classic\VerifiedFlagScope;
-
 /**
  * Class HasVerifiedFlag.
  *
@@ -20,13 +18,6 @@ use Cog\Flag\Scopes\Classic\VerifiedFlagScope;
  */
 trait HasVerifiedFlag
 {
-    /**
-     * Boot the HasVerifiedTrait for a model.
-     *
-     * @return void
-     */
-    public static function bootHasVerifiedFlag()
-    {
-        static::addGlobalScope(new VerifiedFlagScope);
-    }
+    use HasVerifiedFlagHelpers,
+        HasVerifiedFlagScope;
 }

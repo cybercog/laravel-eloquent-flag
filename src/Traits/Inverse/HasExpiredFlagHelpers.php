@@ -9,15 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Traits\Classic;
+namespace Cog\Flag\Traits\Inverse;
 
 /**
- * Class HasAcceptedFlag.
+ * Class HasExpiredFlagHelpers.
  *
- * @package Cog\Flag\Traits\Classic
+ * @package Cog\Flag\Traits\Inverse
  */
-trait HasAcceptedFlag
+trait HasExpiredFlagHelpers
 {
-    use HasAcceptedFlagHelpers,
-        HasAcceptedFlagScope;
+    //
 }

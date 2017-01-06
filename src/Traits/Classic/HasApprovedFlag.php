@@ -11,8 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-use Cog\Flag\Scopes\Classic\ApprovedFlagScope;
-
 /**
  * Class HasApprovedFlag.
  *
@@ -20,13 +18,6 @@ use Cog\Flag\Scopes\Classic\ApprovedFlagScope;
  */
 trait HasApprovedFlag
 {
-    /**
-     * Boot the HasApprovedFlag trait for a model.
-     *
-     * @return void
-     */
-    public static function bootHasApprovedFlag()
-    {
-        static::addGlobalScope(new ApprovedFlagScope);
-    }
+    use HasApprovedFlagHelpers,
+        HasApprovedFlagScope;
 }
