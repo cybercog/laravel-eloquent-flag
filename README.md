@@ -84,19 +84,19 @@ class Post extends Model
 
 ```php
 Post::all();
-Post::withoutInactive();
+Post::withoutDeactivated();
 ```
 
-#### Get only inactive models
+#### Get only deactivated models
 
 ```php
-Post::onlyInactive();
+Post::onlyDeactivated();
 ```
 
-#### Get active + inactive models
+#### Get active + deactivated models
 
 ```php
-Post::withInactive();
+Post::withDeactivated();
 ```
 
 #### Activate model
@@ -135,19 +135,19 @@ class Post extends Model
 
 ```php
 Post::all();
-Post::withoutUnaccepted();
+Post::withoutRejected();
 ```
 
-#### Get only unaccepted models
+#### Get only rejected models
 
 ```php
-Post::onlyUnaccepted();
+Post::onlyRejected();
 ```
 
-#### Get accepted + unaccepted models
+#### Get accepted + rejected models
 
 ```php
-Post::withUnaccepted();
+Post::withRejected();
 ```
 
 #### Accept model
@@ -159,7 +159,7 @@ Post::where('id', 4)->accept();
 #### Deactivate model
 
 ```php
-Post::where('id', 4)->unaccept();
+Post::where('id', 4)->reject();
 ```
 
 ### Setup an approvable model
@@ -186,19 +186,19 @@ class Post extends Model
 
 ```php
 Post::all();
-Post::withoutUnapproved();
+Post::withoutDisapproved();
 ```
 
-#### Get only unapproved models
+#### Get only disapproved models
 
 ```php
-Post::onlyUnapproved();
+Post::onlyDisapproved();
 ```
 
-#### Get approved + unapproved models
+#### Get approved + disapproved models
 
 ```php
-Post::withUnapproved();
+Post::withDisapproved();
 ```
 
 #### Approve model
@@ -207,10 +207,10 @@ Post::withUnapproved();
 Post::where('id', 4)->approve();
 ```
 
-#### Unapprove model
+#### Disapprove model
 
 ```php
-Post::where('id', 4)->unapprove();
+Post::where('id', 4)->disapprove();
 ```
 
 ### Setup a publishable model

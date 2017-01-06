@@ -12,8 +12,9 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 ### Changed
 
-- Each Flag trait was spliced on 2 additional traits: `Has{Name}Flag` = `Has{Name}FlagScope` + `Has{Name}FlagHelpers`
+- Each Flag trait was spliced on 2 additional traits: `Has{Name}Flag` = `Has{Name}FlagScope` + `Has{Name}FlagHelpers`.
 - Kept Flag trait was spliced on 3 additional traits, because events were pulled out to `HasKeptFlagBehavior` trait.
+- Flags `Classic\Accepted`, `Classic\Active` & `Classic\Approved` methods were changed. Details in the [UPGRADING.md](UPGRADING.md).
 
 ## 2.1.0 - 2016-01-04
 

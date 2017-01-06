@@ -27,7 +27,7 @@ class ActiveFlagScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Activate', 'Deactivate', 'WithInactive', 'WithoutInactive', 'OnlyInactive'];
+    protected $extensions = ['Activate', 'Deactivate', 'WithDeactivated', 'WithoutDeactivated', 'OnlyDeactivated'];
 
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -63,7 +63,7 @@ class ActiveFlagScope implements Scope
     protected function addActivate(Builder $builder)
     {
         $builder->macro('activate', function (Builder $builder) {
-            $builder->withInactive();
+            $builder->withDeactivated();
 
             return $builder->update(['is_active' => 1]);
         });
@@ -83,40 +83,40 @@ class ActiveFlagScope implements Scope
     }
 
     /**
-     * Add the `withInactive` extension to the builder.
+     * Add the `withDeactivated` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithInactive(Builder $builder)
+    protected function addWithDeactivated(Builder $builder)
     {
-        $builder->macro('withInactive', function (Builder $builder) {
+        $builder->macro('withDeactivated', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutInactive` extension to the builder.
+     * Add the `withoutDeactivated` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutInactive(Builder $builder)
+    protected function addWithoutDeactivated(Builder $builder)
     {
-        $builder->macro('withoutInactive', function (Builder $builder) {
+        $builder->macro('withoutDeactivated', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_active', 1);
         });
     }
 
     /**
-     * Add the `onlyInactive` extension to the builder.
+     * Add the `onlyDeactivated` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyInactive(Builder $builder)
+    protected function addOnlyDeactivated(Builder $builder)
     {
-        $builder->macro('onlyInactive', function (Builder $builder) {
+        $builder->macro('onlyDeactivated', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_active', 0);
         });
     }

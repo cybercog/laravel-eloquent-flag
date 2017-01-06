@@ -37,7 +37,7 @@ class AcceptedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unaccepted()
+    public function it_can_get_without_rejected()
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -46,13 +46,13 @@ class AcceptedFlagScopeTest extends TestCase
             'is_accepted' => false,
         ]);
 
-        $entities = EntityWithAcceptedFlag::withoutUnaccepted()->get();
+        $entities = EntityWithAcceptedFlag::withoutRejected()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_unaccepted()
+    public function it_can_get_with_rejected()
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -61,13 +61,13 @@ class AcceptedFlagScopeTest extends TestCase
             'is_accepted' => false,
         ]);
 
-        $entities = EntityWithAcceptedFlag::withUnaccepted()->get();
+        $entities = EntityWithAcceptedFlag::withRejected()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_unaccepted()
+    public function it_can_get_only_rejected()
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -76,7 +76,7 @@ class AcceptedFlagScopeTest extends TestCase
             'is_accepted' => false,
         ]);
 
-        $entities = EntityWithAcceptedFlag::onlyUnaccepted()->get();
+        $entities = EntityWithAcceptedFlag::onlyRejected()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -102,9 +102,9 @@ class AcceptedFlagScopeTest extends TestCase
             'is_accepted' => true,
         ]);
 
-        EntityWithAcceptedFlag::where('id', $model->id)->unaccept();
+        EntityWithAcceptedFlag::where('id', $model->id)->reject();
 
-        $model = EntityWithAcceptedFlag::withUnaccepted()->where('id', $model->id)->first();
+        $model = EntityWithAcceptedFlag::withRejected()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_accepted);
     }
