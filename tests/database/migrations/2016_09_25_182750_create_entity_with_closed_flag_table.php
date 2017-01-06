@@ -13,9 +13,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * Class CreateEntityWithKeptFlagTable.
+ * Class CreateEntityWithClosedFlagTable.
  */
-class CreateEntityWithKeptFlagTable extends Migration
+class CreateEntityWithClosedFlagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -24,10 +24,10 @@ class CreateEntityWithKeptFlagTable extends Migration
      */
     public function up()
     {
-        Schema::create('entity_with_kept_flag', function (Blueprint $table) {
+        Schema::create('entity_with_closed_flag', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->boolean('is_kept')->default(false);
+            $table->boolean('is_closed');
             $table->timestamps();
         });
     }
@@ -39,6 +39,6 @@ class CreateEntityWithKeptFlagTable extends Migration
      */
     public function down()
     {
-        Schema::drop('entity_with_kept_flag');
+        Schema::drop('entity_with_closed_flag');
     }
 }

@@ -11,22 +11,22 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-use Cog\Flag\Scopes\Inverse\ExpiredFlagScope;
+use Cog\Flag\Scopes\Inverse\ClosedFlagScope;
 
 /**
- * Class HasExpiredFlag.
+ * Class HasClosedFlag.
  *
  * @package Cog\Flag\Traits\Inverse
  */
-trait HasExpiredFlag
+trait HasClosedFlag
 {
     /**
-     * Boot the HasExpiredFlag trait for a model.
+     * Boot the HasClosedFlag trait for a model.
      *
      * @return void
      */
-    public static function bootHasExpiredFlag()
+    public static function bootHasClosedFlag()
     {
-        static::addGlobalScope(new ExpiredFlagScope);
+        static::addGlobalScope(new ClosedFlagScope);
     }
 }

@@ -17,6 +17,7 @@
         "active",
         "activated",
         "deactivated",
+        "inactive",
         "kept",
         "unkept",
         "published",
@@ -25,7 +26,12 @@
         "unverified",
         "persisted",
         "approved",
-        "unapproved"
+        "unapproved",
+        "toggle",
+        "closed",
+        "opened",
+        "expiry",
+        "expired"
     ],
     "authors": [
         {
