@@ -11,9 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
-
 /**
  * Class HasKeptFlag.
  *
@@ -21,48 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
  */
 trait HasKeptFlag
 {
-    use HasKeptFlagScope;
-
-    /**
-     * Boot the HasKeptFlag trait for a model.
-     *
-     * @return void
-     */
-    public static function bootHasKeptFlag()
-    {
-        static::creating(function ($entity) {
-            if (!$entity->is_kept) {
-                $entity->is_kept = false;
-            }
-        });
-
-        static::updating(function ($entity) {
-            if (!$entity->is_kept) {
-                $entity->is_kept = true;
-            }
-        });
-    }
-
-    /**
-     * Determine if the model instance has `is_kept` state.
-     *
-     * @return bool
-     */
-    public function isKept()
-    {
-        return (bool) $this->is_kept;
-    }
-
-    /**
-     * Get unkept models that are older than the given number of hours.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @param int $hours
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeOnlyUnkeptOlderThanHours(Builder $builder, $hours)
-    {
-        return $builder->onlyUnkept()
-            ->where(static::getCreatedAtColumn(), '<=', Carbon::now()->subHours($hours)->toDateTimeString());
-    }
+    use HasKeptFlagBehavior,
+        HasKeptFlagHelpers,
+        HasKeptFlagScope;
 }

@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## 3.0.0 - [Unreleased]
+
+### Added
+
+- `Has{Name}FlagScope` traits which include global scopes.
+- `Has{Name}FlagHelpers` traits which include flag related helper methods.
+- `Has{Name}FlagBehavior` traits which include flag specific behavior.
+
+### Changed
+
+- Each Flag trait was spliced on 2 additional traits: `Has{Name}Flag` = `Has{Name}FlagScope` + `Has{Name}FlagHelpers`
+- Kept Flag trait was spliced on 3 additional traits, because events were pulled out to `HasKeptFlagBehavior` trait.
+
 ## 2.1.0 - 2016-01-04
 
 - `is_closed` inverse boolean flag added.

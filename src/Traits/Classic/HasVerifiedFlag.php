@@ -18,5 +18,6 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasVerifiedFlag
 {
-    use HasVerifiedFlagScope;
+    use HasVerifiedFlagHelpers,
+        HasVerifiedFlagScope;
 }

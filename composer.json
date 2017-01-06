@@ -1,6 +1,6 @@
 {
     "name": "cybercog/laravel-eloquent-flag",
-    "description": "Laravel Eloquent flagged attributes behavior",
+    "description": "Laravel Eloquent flagged attributes behavior.",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -50,14 +50,14 @@
         "docs": "https://github.com/cybercog/laravel-eloquent-flag/wiki"
     },
     "require": {
-        "php": "^5.6|^7.0",
-        "illuminate/database": "~5.2.0|~5.3.0|~5.4.0"
+        "illuminate/database": "~5.2.0|~5.3.0|~5.4.0",
+        "php": "^5.6|^7.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^1.11",
-        "phpunit/phpunit": "^5.2",
+        "mockery/mockery": "^0.9.5",
         "orchestra/testbench": "~3.0",
-        "mockery/mockery": "^0.9.5"
+        "phpunit/phpunit": "^5.2"
     },
     "autoload": {
         "psr-4": {
