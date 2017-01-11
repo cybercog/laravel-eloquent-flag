@@ -22,17 +22,19 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 
 ## Available flags list
 
-| Trait name | Logic | Database columns | Flag type |
-| ---------- | ----- | ---------------- | --------- |
-| `HasAcceptedFlag` | Classic | `is_accepted` | Boolean |
-| `HasActiveFlag` | Classic | `is_active` | Boolean |
-| `HasApprovedFlag` | Classic | `is_approved` | Boolean |
-| `HasClosedFlag` | Inverse | `is_closed` | Boolean |
-| `HasExpiredFlag` | Inverse | `is_expired` | Boolean |
-| `HasKeptFlag` | Classic | `is_kept` | Boolean |
-| `HasPublishedAt` | Classic | `published_at` | Timestamp |
-| `HasPublishedFlag` | Classic | `is_published` | Boolean |
-| `HasVerifiedFlag` | Classic | `is_verified` | Boolean |
+| Trait name | Logic | Database columns | Flag type | Conflict |
+| ---------- | ----- | ---------------- | --------- | -------- |
+| `HasAcceptedFlag` | Classic | `is_accepted` | Boolean | - |
+| `HasActiveFlag` | Classic | `is_active` | Boolean | - |
+| `HasApprovedFlag` | Classic | `is_approved` | Boolean | - |
+| `HasClosedFlag` | Inverse | `is_closed` | Boolean | - |
+| `HasExpiredFlag` | Inverse | `is_expired` | Boolean | - |
+| `HasKeptFlag` | Classic | `is_kept` | Boolean | - |
+| `HasPublishedAt` | Classic | `published_at` | Timestamp | `HasPublishedFlag` |
+| `HasPublishedFlag` | Classic | `is_published` | Boolean | `HasPublishedAt` |
+| `HasVerifiedFlag` | Classic | `is_verified` | Boolean | - |
+
+Any entity can has more than one flag at the same time. If flags can't work for the same entity simultaneously they are listed in `Conflict` column.
 
 ## How it works
 
@@ -69,6 +71,40 @@ And then include the service provider within `app/config/app.php`.
 ```
 
 ## Usage
+
+### Prepare database
+
+#### Boolean flag
+
+```php
+public function up()
+{
+    Schema::create('post', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('title');
+        $table->boolean('is_published');
+        $table->timestamps();
+    });
+}
+```
+
+*Change `is_published` on any other `Boolean` flag database column name.*
+
+#### Timestamp flag
+
+```php
+public function up()
+{
+    Schema::create('post', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('title');
+        $table->timestamp('published_at')->nullable();
+        $table->timestamps();
+    });
+}
+```
+
+*Change `published_at` on any other `Timestamp` flag database column name.*
 
 ### Setup an activatable model
 
