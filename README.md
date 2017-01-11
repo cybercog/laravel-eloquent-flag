@@ -40,8 +40,8 @@ Eloquent Flag is an easy way to add flagged attributes to eloquent models. All f
 
 There are 2 types of flags:
 
-- `Boolean` flags are the common ones. Stored in database as boolean value.
-- `Timestamp` flags stored in database as `TIMESTAMP` column. Useful when you need to know when action was performed.
+- `Boolean` flags are the common ones. Stored in database as `BOOLEAN` or `TINYINT(1)` value.
+- `Timestamp` flags represented in database as nullable `TIMESTAMP` column. Useful when you need to know when action was performed.
 
 All flags separated on 2 logical groups:
 
