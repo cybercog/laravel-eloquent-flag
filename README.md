@@ -9,13 +9,15 @@
 
 ## Introduction
 
-Eloquent flagged attributes behavior. Enhance eloquent models with commonly used flags like `Active`, `Published`, `Approved` and other in a minutes!
+Eloquent flagged attributes behavior. Enhance eloquent models with commonly used flags like `Active`, `Published`, `Approved` and others in a minutes!
 
 ## Features
 
 - Designed to work with Laravel Eloquent models
 - Each model can has as many flags as required
 - Each flag adds global query scopes to models
+- 2 logical groups of flags: `Classic`, `Inverse`
+- 2 types of flags: `Boolean`, `Timestamp`
 - Covered with unit tests
 
 ## Available flags list
@@ -28,6 +30,7 @@ Eloquent flagged attributes behavior. Enhance eloquent models with commonly used
 | `HasClosedFlag` | Inverse | `is_closed` | Boolean |
 | `HasExpiredFlag` | Inverse | `is_expired` | Boolean |
 | `HasKeptFlag` | Classic | `is_kept` | Boolean |
+| `HasPublishedAt` | Classic | `published_at` | Timestamp |
 | `HasPublishedFlag` | Classic | `is_published` | Boolean |
 | `HasVerifiedFlag` | Classic | `is_verified` | Boolean |
 
@@ -35,10 +38,15 @@ Eloquent flagged attributes behavior. Enhance eloquent models with commonly used
 
 Eloquent Flag is an easy way to add flagged attributes to eloquent models. All flags has their own trait which adds global scopes to desired entity.
 
+There are 2 types of flags:
+
+- `Boolean` flags are the common ones. Stored in database as boolean value.
+- `Timestamp` flags stored in database as `TIMESTAMP` column. Useful when you need to know when action was performed.
+
 All flags separated on 2 logical groups:
 
-- `Classic` flags displays only entities with flag setted as `true`.
-- `Inverse` flags displays only entities with flag setted as `false`. 
+- `Classic` flags displays only entities with `true` or `timestamp` flag value.
+- `Inverse` flags displays only entities with `false` or `null` flag value. 
 
 Omitted entities could be retrieved by using special global scope methods, unique for each flag.
 
@@ -213,6 +221,57 @@ Post::where('id', 4)->approve();
 
 ```php
 Post::where('id', 4)->disapprove();
+```
+
+### Setup a publishable model (with timestamp)
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasPublishedAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasPublishedAt;
+}
+```
+
+*Model must have nullable timestamp `published_at` column in database table.*
+
+### Available functions
+
+#### Get only published models
+
+```php
+Post::all();
+Post::withoutUnpublished();
+```
+
+#### Get only unpublished models
+
+```php
+Post::onlyUnpublished();
+```
+
+#### Get published + unpublished models
+
+```php
+Post::withUnpublished();
+```
+
+#### Publish model
+
+```php
+Post::where('id', 4)->publish();
+```
+
+#### Unpublish model
+
+```php
+Post::where('id', 4)->unpublish();
 ```
 
 ### Setup a publishable model
