@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Eloquent flagged attributes behavior. Enhance eloquent models with commonly used flags like `Active`, `Published`, `Approved` and others in a minutes!
+Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent models with commonly used state flags like `Active`, `Published`, `Approved` and others in a minutes!
 
 ## Features
 
@@ -223,58 +223,9 @@ Post::where('id', 4)->approve();
 Post::where('id', 4)->disapprove();
 ```
 
-### Setup a publishable model (with timestamp)
-
-```php
-<?php
-
-namespace App\Models;
-
-use Cog\Flag\Traits\Classic\HasPublishedAt;
-use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
-{
-    use HasPublishedAt;
-}
-```
-
-*Model must have nullable timestamp `published_at` column in database table.*
-
-### Available functions
-
-#### Get only published models
-
-```php
-Post::all();
-Post::withoutUnpublished();
-```
-
-#### Get only unpublished models
-
-```php
-Post::onlyUnpublished();
-```
-
-#### Get published + unpublished models
-
-```php
-Post::withUnpublished();
-```
-
-#### Publish model
-
-```php
-Post::where('id', 4)->publish();
-```
-
-#### Unpublish model
-
-```php
-Post::where('id', 4)->unpublish();
-```
-
 ### Setup a publishable model
+
+#### With boolean flag
 
 ```php
 <?php
@@ -291,6 +242,24 @@ class Post extends Model
 ```
 
 *Model must have boolean `is_published` column in database table.*
+
+#### With timestamp flag
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasPublishedAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasPublishedAt;
+}
+```
+
+*Model must have nullable timestamp `published_at` column in database table.*
 
 ### Available functions
 
@@ -559,7 +528,7 @@ Post::where('id', 4)->close();
 #### Remove close flag from model
 
 ```php
-Post::where('id', 4)->unclose();
+Post::where('id', 4)->open();
 ```
 
 ## Testing

@@ -1,6 +1,6 @@
 {
     "name": "cybercog/laravel-eloquent-flag",
-    "description": "Laravel Eloquent flagged attributes behavior.",
+    "description": "Laravel Eloquent boolean & timestamp flagged attributes behavior.",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -10,6 +10,8 @@
         "trait",
         "scopes",
         "flag",
+        "state",
+        "status",
         "boolean",
         "timestamp",
         "accepted",

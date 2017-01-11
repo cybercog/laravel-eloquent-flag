@@ -26,7 +26,7 @@ class PublishedAtScopeTest extends TestCase
     public function it_can_get_only_published()
     {
         factory(EntityWithPublishedAt::class, 3)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Carbon::now()->subDay(),
         ]);
         factory(EntityWithPublishedAt::class, 2)->create([
             'published_at' => null,
@@ -41,7 +41,7 @@ class PublishedAtScopeTest extends TestCase
     public function it_can_get_without_unpublished()
     {
         factory(EntityWithPublishedAt::class, 3)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Carbon::now()->subDay(),
         ]);
         factory(EntityWithPublishedAt::class, 2)->create([
             'published_at' => null,
@@ -56,7 +56,7 @@ class PublishedAtScopeTest extends TestCase
     public function it_can_get_with_unpublished()
     {
         factory(EntityWithPublishedAt::class, 3)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Carbon::now()->subDay(),
         ]);
         factory(EntityWithPublishedAt::class, 2)->create([
             'published_at' => null,
@@ -71,7 +71,7 @@ class PublishedAtScopeTest extends TestCase
     public function it_can_get_only_unpublished()
     {
         factory(EntityWithPublishedAt::class, 3)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Carbon::now()->subDay(),
         ]);
         factory(EntityWithPublishedAt::class, 2)->create([
             'published_at' => null,
@@ -100,7 +100,7 @@ class PublishedAtScopeTest extends TestCase
     public function it_can_unpublish_model()
     {
         $model = factory(EntityWithPublishedAt::class)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Carbon::now()->subDay(),
         ]);
 
         EntityWithPublishedAt::where('id', $model->id)->unpublish();
