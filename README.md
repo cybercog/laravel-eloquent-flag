@@ -9,36 +9,46 @@
 
 ## Introduction
 
-Eloquent flagged attributes behavior. Enhance eloquent models with commonly used flags like `Active`, `Published`, `Approved` and other in a minutes!
+Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent models with commonly used state flags like `Active`, `Published`, `Approved` and others in a minutes!
 
 ## Features
 
 - Designed to work with Laravel Eloquent models
 - Each model can has as many flags as required
 - Each flag adds global query scopes to models
+- 2 logical groups of flags: `Classic`, `Inverse`
+- 2 types of flags: `Boolean`, `Timestamp`
 - Covered with unit tests
 
 ## Available flags list
 
-| Trait name | Logic | Database columns | Flag type |
-| ---------- | ----- | ---------------- | --------- |
-| `HasAcceptedFlag` | Classic | `is_accepted` | Boolean |
-| `HasActiveFlag` | Classic | `is_active` | Boolean |
-| `HasApprovedFlag` | Classic | `is_approved` | Boolean |
-| `HasClosedFlag` | Inverse | `is_closed` | Boolean |
-| `HasExpiredFlag` | Inverse | `is_expired` | Boolean |
-| `HasKeptFlag` | Classic | `is_kept` | Boolean |
-| `HasPublishedFlag` | Classic | `is_published` | Boolean |
-| `HasVerifiedFlag` | Classic | `is_verified` | Boolean |
+| Trait name | Logic | Database columns | Flag type | Conflict |
+| ---------- | ----- | ---------------- | --------- | -------- |
+| `HasAcceptedFlag` | Classic | `is_accepted` | Boolean | - |
+| `HasActiveFlag` | Classic | `is_active` | Boolean | - |
+| `HasApprovedFlag` | Classic | `is_approved` | Boolean | - |
+| `HasClosedFlag` | Inverse | `is_closed` | Boolean | - |
+| `HasExpiredFlag` | Inverse | `is_expired` | Boolean | - |
+| `HasKeptFlag` | Classic | `is_kept` | Boolean | - |
+| `HasPublishedAt` | Classic | `published_at` | Timestamp | `HasPublishedFlag` |
+| `HasPublishedFlag` | Classic | `is_published` | Boolean | `HasPublishedAt` |
+| `HasVerifiedFlag` | Classic | `is_verified` | Boolean | - |
+
+Any entity can has more than one flag at the same time. If flags can't work for the same entity simultaneously they are listed in `Conflict` column.
 
 ## How it works
 
 Eloquent Flag is an easy way to add flagged attributes to eloquent models. All flags has their own trait which adds global scopes to desired entity.
 
+There are 2 types of flags:
+
+- `Boolean` flags are the common ones. Stored in database as `BOOLEAN` or `TINYINT(1)` value.
+- `Timestamp` flags represented in database as nullable `TIMESTAMP` column. Useful when you need to know when action was performed.
+
 All flags separated on 2 logical groups:
 
-- `Classic` flags displays only entities with flag setted as `true`.
-- `Inverse` flags displays only entities with flag setted as `false`. 
+- `Classic` flags displays only entities with `true` or `timestamp` flag value.
+- `Inverse` flags displays only entities with `false` or `null` flag value. 
 
 Omitted entities could be retrieved by using special global scope methods, unique for each flag.
 
@@ -61,6 +71,40 @@ And then include the service provider within `app/config/app.php`.
 ```
 
 ## Usage
+
+### Prepare database
+
+#### Boolean flag
+
+```php
+public function up()
+{
+    Schema::create('post', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('title');
+        $table->boolean('is_published');
+        $table->timestamps();
+    });
+}
+```
+
+*Change `is_published` on any other `Boolean` flag database column name.*
+
+#### Timestamp flag
+
+```php
+public function up()
+{
+    Schema::create('post', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('title');
+        $table->timestamp('published_at')->nullable();
+        $table->timestamps();
+    });
+}
+```
+
+*Change `published_at` on any other `Timestamp` flag database column name.*
 
 ### Setup an activatable model
 
@@ -217,6 +261,8 @@ Post::where('id', 4)->disapprove();
 
 ### Setup a publishable model
 
+#### With boolean flag
+
 ```php
 <?php
 
@@ -232,6 +278,24 @@ class Post extends Model
 ```
 
 *Model must have boolean `is_published` column in database table.*
+
+#### With timestamp flag
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasPublishedAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasPublishedAt;
+}
+```
+
+*Model must have nullable timestamp `published_at` column in database table.*
 
 ### Available functions
 
@@ -500,7 +564,7 @@ Post::where('id', 4)->close();
 #### Remove close flag from model
 
 ```php
-Post::where('id', 4)->unclose();
+Post::where('id', 4)->open();
 ```
 
 ## Testing

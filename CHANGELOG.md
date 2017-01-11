@@ -2,6 +2,13 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## 3.1.0 - 2017-01-11
+
+### Added
+
+- `Timestamp` flag types introduced.
+- `published_at` classic timestamp flag added.
+
 ## 3.0.0 - 2017-01-07
 
 ### Added
