@@ -11,6 +11,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Class CreateEntityWithApprovedFlagTable.
@@ -39,6 +40,6 @@ class CreateEntityWithApprovedFlagTable extends Migration
      */
     public function down()
     {
-        Schema::drop('entity_with_approved_flag');
+        Schema::dropIfExists('entity_with_approved_flag');
     }
 }

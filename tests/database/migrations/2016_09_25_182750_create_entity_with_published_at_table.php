@@ -14,9 +14,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateEntityWithAcceptedFlagTable.
+ * Class CreateEntityWithPublishedAtTable.
  */
-class CreateEntityWithAcceptedFlagTable extends Migration
+class CreateEntityWithPublishedAtTable extends Migration
 {
     /**
      * Run the migrations.
@@ -25,10 +25,10 @@ class CreateEntityWithAcceptedFlagTable extends Migration
      */
     public function up()
     {
-        Schema::create('entity_with_accepted_flag', function (Blueprint $table) {
+        Schema::create('entity_with_published_at', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->boolean('is_accepted');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }
@@ -40,6 +40,6 @@ class CreateEntityWithAcceptedFlagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entity_with_accepted_flag');
+        Schema::dropIfExists('entity_with_published_at');
     }
 }
