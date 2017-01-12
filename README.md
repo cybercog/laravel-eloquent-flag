@@ -24,7 +24,8 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 
 | Trait name | Logic | Database columns | Flag type | Conflict |
 | ---------- | ----- | ---------------- | --------- | -------- |
-| `HasAcceptedFlag` | Classic | `is_accepted` | Boolean | - |
+| `HasAcceptedAt` | Classic | `accepted_at` | Timestamp | `HasAcceptedFlag` |
+| `HasAcceptedFlag` | Classic | `is_accepted` | Boolean | `HasAcceptedAt` |
 | `HasActiveFlag` | Classic | `is_active` | Boolean | - |
 | `HasApprovedFlag` | Classic | `is_approved` | Boolean | - |
 | `HasClosedFlag` | Inverse | `is_closed` | Boolean | - |
@@ -159,6 +160,8 @@ Post::where('id', 4)->deactivate();
 
 ### Setup an acceptable model
 
+#### With boolean flag
+
 ```php
 <?php
 
@@ -174,6 +177,24 @@ class Post extends Model
 ```
 
 *Model must have boolean `is_accepted` column in database table.*
+
+#### With timestamp flag
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasAcceptedAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasAcceptedAt;
+}
+```
+
+*Model must have nullable timestamp `accepted_at` column in database table.*
 
 ### Available functions
 

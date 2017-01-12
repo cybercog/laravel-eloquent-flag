@@ -96,7 +96,7 @@ class AcceptedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unaccept_model()
+    public function it_can_reject_model()
     {
         $model = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,

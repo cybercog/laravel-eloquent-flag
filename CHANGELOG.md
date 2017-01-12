@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## 3.2.0 - 2017-01-12
+
+### Added
+
+- `accepted_at` classic timestamp flag added.
+
 ## 3.1.0 - 2017-01-11
 
 ### Added
