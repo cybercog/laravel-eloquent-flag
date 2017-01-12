@@ -82,7 +82,7 @@ class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_publish_model()
+    public function it_can_verify_model()
     {
         $model = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => false,
