@@ -21,7 +21,7 @@ use Cog\Flag\Scopes\Classic\ActiveFlagScope;
 trait HasActiveFlagScope
 {
     /**
-     * Boot the HasKeptFlagScope trait for a model.
+     * Boot the HasActiveFlagScope trait for a model.
      *
      * @return void
      */

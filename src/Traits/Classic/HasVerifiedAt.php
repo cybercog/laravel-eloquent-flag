@@ -11,22 +11,13 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-use Cog\Flag\Scopes\Classic\VerifiedFlagScope;
-
 /**
- * Class HasVerifiedFlagScope.
+ * Class HasVerifiedAt.
  *
  * @package Cog\Flag\Traits\Classic
  */
-trait HasVerifiedFlagScope
+trait HasVerifiedAt
 {
-    /**
-     * Boot the HasVerifiedFlagScope for a model.
-     *
-     * @return void
-     */
-    public static function bootHasVerifiedFlagScope()
-    {
-        static::addGlobalScope(new VerifiedFlagScope);
-    }
+    use HasVerifiedAtHelpers,
+        HasVerifiedAtScope;
 }

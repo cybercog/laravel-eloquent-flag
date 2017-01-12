@@ -33,7 +33,8 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 | `HasKeptFlag` | Classic | `is_kept` | Boolean | - |
 | `HasPublishedAt` | Classic | `published_at` | Timestamp | `HasPublishedFlag` |
 | `HasPublishedFlag` | Classic | `is_published` | Boolean | `HasPublishedAt` |
-| `HasVerifiedFlag` | Classic | `is_verified` | Boolean | - |
+| `HasVerifiedAt` | Classic | `verified_at` | Timestamp | `HasVerifiedFlag` |
+| `HasVerifiedFlag` | Classic | `is_verified` | Boolean | `HasVerifiedAt` |
 
 Any entity can has more than one flag at the same time. If flags can't work for the same entity simultaneously they are listed in `Conflict` column.
 
@@ -353,6 +354,8 @@ Post::where('id', 4)->unpublish();
 
 ### Setup a verifiable model
 
+#### With boolean flag
+
 ```php
 <?php
 
@@ -368,6 +371,24 @@ class Post extends Model
 ```
 
 *Model must have boolean `is_verified` column in database table.*
+
+#### With timestamp flag
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasVerifiedAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasVerifiedAt;
+}
+```
+
+*Model must have nullable timestamp `verified_at` column in database table.*
 
 ### Available functions
 
