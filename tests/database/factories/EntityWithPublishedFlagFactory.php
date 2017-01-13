@@ -12,6 +12,6 @@
 $factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithPublishedFlag::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'is_published' => true,
+        'is_published' => false,
     ];
 });

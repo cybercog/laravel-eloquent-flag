@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithActiveFlag::class, function (\Faker\Generator $faker) {
+$factory->define(\Cog\Flag\Tests\Stubs\Models\Inverse\EntityWithClosedAt::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'is_active' => false,
+        'closed_at' => null,
     ];
 });

@@ -11,12 +11,14 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
+use Carbon\Carbon;
+
 /**
  * Class HasClosedFlagHelpers.
  *
  * @package Cog\Flag\Traits\Inverse
  */
-trait HasClosedFlagHelpers
+trait HasClosedAtHelpers
 {
     /**
      * Set closed flag.
@@ -25,7 +27,7 @@ trait HasClosedFlagHelpers
      */
     public function setClosedFlag()
     {
-        $this->is_closed = true;
+        $this->closed_at = Carbon::now();
 
         return $this;
     }
@@ -37,7 +39,7 @@ trait HasClosedFlagHelpers
      */
     public function unsetClosedFlag()
     {
-        $this->is_closed = false;
+        $this->closed_at = null;
 
         return $this;
     }
@@ -49,7 +51,7 @@ trait HasClosedFlagHelpers
      */
     public function isClosed()
     {
-        return boolval($this->is_closed);
+        return !is_null($this->closed_at);
     }
 
     /**

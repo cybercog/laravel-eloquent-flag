@@ -1,27 +1,35 @@
-# Changelog
+# Change Log
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
-## 3.3.0 - 2017-01-12
+## [3.4.0] - 2017-01-13
+
+### Added
+
+- `closed_at` inverse timestamp flag added.
+- `is_closed` inverse boolean flag helpers added.
+
+## [3.3.0] - 2017-01-12
 
 ### Added
 
 - `verified_at` classic timestamp flag added.
+- `is_verified` classic boolean flag helpers added.
 
-## 3.2.0 - 2017-01-12
+## [3.2.0] - 2017-01-12
 
 ### Added
 
 - `accepted_at` classic timestamp flag added.
 
-## 3.1.0 - 2017-01-11
+## [3.1.0] - 2017-01-11
 
 ### Added
 
 - `Timestamp` flag types introduced.
 - `published_at` classic timestamp flag added.
 
-## 3.0.0 - 2017-01-07
+## [3.0.0] - 2017-01-07
 
 ### Added
 
@@ -35,11 +43,11 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 - Kept Flag trait was spliced on 3 additional traits, because events were pulled out to `HasKeptFlagBehavior` trait.
 - Flags `Classic\Accepted`, `Classic\Active` & `Classic\Approved` methods were changed. Details in the [Upgrade Guide](UPGRADE.md).
 
-## 2.1.0 - 2017-01-04
+## [2.1.0] - 2017-01-04
 
 - `is_closed` inverse boolean flag added.
 
-## 2.0.0 - 2017-01-04
+## [2.0.0] - 2017-01-04
 
 ### Breaking changes
 
@@ -51,26 +59,39 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 - `Inverse Logic` flags group. Hides entities if flag not set.
 - `is_expired` inverse boolean flag added.
 
-## 1.5.0 - 2016-12-31
+## [1.5.0] - 2016-12-31
 
 - `is_approved` boolean flag added.
 
-## 1.4.0 - 2016-12-26
+## [1.4.0] - 2016-12-26
 
 - `is_verified` boolean flag added.
 
-## 1.3.0 - 2016-12-14
+## [1.3.0] - 2016-12-14
 
 - `is_accepted` boolean flag added.
 
-## 1.2.0 - 2016-12-10
+## [1.2.0] - 2016-12-10
 
 - `is_kept` boolean flag added.
 
-## 1.1.0 - 2016-09-25
+## [1.1.0] - 2016-09-25
 
 - `is_published` boolean flag added.
 
 ## 1.0.0 - 2016-09-25
 
 - `is_active` boolean flag added.
+
+[3.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.3.0...3.4.0
+[3.3.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.2.0...3.3.0
+[3.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.1.0...3.2.0
+[3.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.0.0...3.1.0
+[3.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/2.1.0...3.0.0
+[2.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/2.0.0...2.1.0
+[2.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.5.0...2.0.0
+[1.5.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.4.0...1.5.0
+[1.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.3.0...1.4.0
+[1.3.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.2.0...1.3.0
+[1.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.1.0...1.2.0
+[1.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.0.0...1.1.0

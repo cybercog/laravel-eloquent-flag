@@ -12,6 +12,6 @@
 $factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithApprovedFlag::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'is_approved' => true,
+        'is_approved' => false,
     ];
 });

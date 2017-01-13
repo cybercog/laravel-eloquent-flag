@@ -9,9 +9,15 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithActiveFlag::class, function (\Faker\Generator $faker) {
-    return [
-        'name' => $faker->word,
-        'is_active' => false,
-    ];
-});
+namespace Cog\Flag\Traits\Inverse;
+
+/**
+ * Class HasClosedAt.
+ *
+ * @package Cog\Flag\Traits\Inverse
+ */
+trait HasClosedAt
+{
+    use HasClosedAtHelpers,
+        HasClosedAtScope;
+}

@@ -12,6 +12,6 @@
 $factory->define(\Cog\Flag\Tests\Stubs\Models\Inverse\EntityWithClosedFlag::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'is_closed' => true,
+        'is_closed' => false,
     ];
 });

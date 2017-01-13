@@ -12,6 +12,6 @@
 $factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithVerifiedFlag::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'is_verified' => true,
+        'is_verified' => false,
     ];
 });
