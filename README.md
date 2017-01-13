@@ -561,6 +561,8 @@ Post::where('id', 4)->unexpire();
 
 ### Setup a closable model
 
+#### With boolean flag
+
 ```php
 <?php
 
@@ -576,6 +578,24 @@ class Post extends Model
 ```
 
 *Model must have boolean `is_closed` column in database table.*
+
+#### With timestamp flag
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasClosedAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasClosedAt;
+}
+```
+
+*Model must have nullable timestamp `closed_at` column in database table.*
 
 ### Available functions
 
