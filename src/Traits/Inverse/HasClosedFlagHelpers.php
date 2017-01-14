@@ -49,7 +49,7 @@ trait HasClosedFlagHelpers
      */
     public function isClosed()
     {
-        return boolval($this->is_closed);
+        return (bool) $this->is_closed;
     }
 
     /**

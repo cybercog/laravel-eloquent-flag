@@ -77,7 +77,7 @@ trait HasVerifiedAtHelpers
     }
 
     /**
-     * Mark entity as rejected.
+     * Mark entity as unverified.
      *
      * @return void
      */

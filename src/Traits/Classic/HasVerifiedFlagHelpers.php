@@ -49,7 +49,7 @@ trait HasVerifiedFlagHelpers
      */
     public function isVerified()
     {
-        return boolval($this->is_verified);
+        return (bool) $this->is_verified;
     }
 
     /**
@@ -75,7 +75,7 @@ trait HasVerifiedFlagHelpers
     }
 
     /**
-     * Mark entity as rejected.
+     * Mark entity as unverified.
      *
      * @return void
      */

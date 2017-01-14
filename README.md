@@ -22,7 +22,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 
 ## Available flags list
 
-| Trait name | Logic | Database columns | Flag type | Conflict |
+| Trait name | Logic | Database column | Flag type | Conflict |
 | ---------- | ----- | ---------------- | --------- | -------- |
 | `HasAcceptedAt` | Classic | `accepted_at` | Timestamp | `HasAcceptedFlag` |
 | `HasAcceptedFlag` | Classic | `is_accepted` | Boolean | `HasAcceptedAt` |

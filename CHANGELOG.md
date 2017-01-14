@@ -2,6 +2,21 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [3.7.0] - 2017-01-14
+
+### Added
+
+- `setKeptOnUpdate` property in `HasKeptFlagBehavior` to control events.
+
+### Changed
+
+- `HasAcceptedAtHelpers` methods implemented.
+- `HasAcceptedFlagHelpers` methods implemented.
+- `HasActiveFlagHelpers` methods implemented.
+- `HasKeptFlagHelpers` methods implemented.
+- `HasPublishedAtHelpers` methods implemented.
+- `HasPublishedFlagHelpers` methods implemented.
+
 ## [3.6.0] - 2017-01-14
 
 ### Added
@@ -106,6 +121,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[3.7.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.6.0...3.7.0
 [3.6.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.5.0...3.6.0
 [3.5.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.4.0...3.5.0
 [3.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.3.0...3.4.0
