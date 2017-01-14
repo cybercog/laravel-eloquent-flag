@@ -23,13 +23,74 @@ use Illuminate\Database\Eloquent\Builder;
 trait HasKeptFlagHelpers
 {
     /**
-     * Determine if the model instance has `is_kept` state.
+     * Set kept flag.
+     *
+     * @return static
+     */
+    public function setKeptFlag()
+    {
+        $this->is_kept = true;
+
+        return $this;
+    }
+
+    /**
+     * Unset kept flag.
+     *
+     * @return static
+     */
+    public function unsetKeptFlag()
+    {
+        $this->is_kept = false;
+        if (property_exists($this, 'setKeptOnUpdate')) {
+            $this->setKeptOnUpdate = false;
+        }
+
+        return $this;
+    }
+
+    /**
+     * If entity is kept.
      *
      * @return bool
      */
     public function isKept()
     {
         return (bool) $this->is_kept;
+    }
+
+    /**
+     * If entity is unkept.
+     *
+     * @return bool
+     */
+    public function isUnkept()
+    {
+        return !$this->isKept();
+    }
+
+    /**
+     * Mark entity as kept.
+     *
+     * @return void
+     */
+    public function keep()
+    {
+        $this->setKeptFlag()->save();
+
+        // :TODO: Fire an event here
+    }
+
+    /**
+     * Mark entity as unkept.
+     *
+     * @return void
+     */
+    public function unkeep()
+    {
+        $this->unsetKeptFlag()->save();
+
+        // :TODO: Fire an event here
     }
 
     /**

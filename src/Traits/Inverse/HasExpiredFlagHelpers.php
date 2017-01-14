@@ -49,7 +49,7 @@ trait HasExpiredFlagHelpers
      */
     public function isExpired()
     {
-        return boolval($this->is_expired);
+        return (bool) $this->is_expired;
     }
 
     /**

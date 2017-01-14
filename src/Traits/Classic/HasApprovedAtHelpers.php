@@ -77,7 +77,7 @@ trait HasApprovedAtHelpers
     }
 
     /**
-     * Mark entity as rejected.
+     * Mark entity as disapproved.
      *
      * @return void
      */

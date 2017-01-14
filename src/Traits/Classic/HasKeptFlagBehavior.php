@@ -19,6 +19,13 @@ namespace Cog\Flag\Traits\Classic;
 trait HasKeptFlagBehavior
 {
     /**
+     * Set `is_kept = true` on entity update.
+     *
+     * @var bool
+     */
+    protected $setKeptOnUpdate = true;
+
+    /**
      * Boot the bootHasKeptFlagBehavior trait for a model.
      *
      * @return void
@@ -32,7 +39,7 @@ trait HasKeptFlagBehavior
         });
 
         static::updating(function ($entity) {
-            if (!$entity->is_kept) {
+            if (!$entity->is_kept && $entity->setKeptOnUpdate) {
                 $entity->is_kept = true;
             }
         });

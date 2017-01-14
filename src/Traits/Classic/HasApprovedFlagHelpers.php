@@ -49,7 +49,7 @@ trait HasApprovedFlagHelpers
      */
     public function isApproved()
     {
-        return boolval($this->is_approved);
+        return (bool) $this->is_approved;
     }
 
     /**
@@ -75,7 +75,7 @@ trait HasApprovedFlagHelpers
     }
 
     /**
-     * Mark entity as rejected.
+     * Mark entity as disapproved.
      *
      * @return void
      */
