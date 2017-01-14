@@ -11,12 +11,14 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
+use Carbon\Carbon;
+
 /**
- * Class HasExpiredFlagHelpers.
+ * Class HasExpiredAtHelpers.
  *
  * @package Cog\Flag\Traits\Inverse
  */
-trait HasExpiredFlagHelpers
+trait HasExpiredAtHelpers
 {
     /**
      * Set expired flag.
@@ -25,7 +27,7 @@ trait HasExpiredFlagHelpers
      */
     public function setExpiredFlag()
     {
-        $this->is_expired = true;
+        $this->expired_at = Carbon::now();
 
         return $this;
     }
@@ -37,7 +39,7 @@ trait HasExpiredFlagHelpers
      */
     public function unsetExpiredFlag()
     {
-        $this->is_expired = false;
+        $this->expired_at = null;
 
         return $this;
     }
@@ -49,7 +51,7 @@ trait HasExpiredFlagHelpers
      */
     public function isExpired()
     {
-        return boolval($this->is_expired);
+        return !is_null($this->expired_at);
     }
 
     /**

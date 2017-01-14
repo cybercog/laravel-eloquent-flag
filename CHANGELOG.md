@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [3.6.0] - 2017-01-14
+
+### Added
+
+- `expired_at` inverse timestamp flag added.
+
+### Changed
+
+- `is_expired` inverse boolean flag helpers implemented.
+
 ## [3.5.0] - 2017-01-13
 
 ### Added
@@ -96,6 +106,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[3.6.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.5.0...3.6.0
 [3.5.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.4.0...3.5.0
 [3.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.3.0...3.4.0
 [3.3.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.2.0...3.3.0
