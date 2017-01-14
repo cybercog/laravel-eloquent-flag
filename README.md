@@ -27,7 +27,8 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 | `HasAcceptedAt` | Classic | `accepted_at` | Timestamp | `HasAcceptedFlag` |
 | `HasAcceptedFlag` | Classic | `is_accepted` | Boolean | `HasAcceptedAt` |
 | `HasActiveFlag` | Classic | `is_active` | Boolean | - |
-| `HasApprovedFlag` | Classic | `is_approved` | Boolean | - |
+| `HasApprovedAt` | Classic | `approved_at` | Timestamp | `HasApprovedFlag` |
+| `HasApprovedFlag` | Classic | `is_approved` | Boolean | `HasApprovedAt` |
 | `HasClosedAt` | Inverse | `closed_at` | Timestamp | `HasClosedFlag` |
 | `HasClosedFlag` | Inverse | `is_closed` | Boolean | `HasClosedAt` |
 | `HasExpiredFlag` | Inverse | `is_expired` | Boolean | - |
@@ -233,6 +234,8 @@ Post::where('id', 4)->reject();
 
 ### Setup an approvable model
 
+#### With boolean flag
+
 ```php
 <?php
 
@@ -248,6 +251,24 @@ class Post extends Model
 ```
 
 *Model must have boolean `is_approved` column in database table.*
+
+#### With timestamp flag
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasApprovedAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasApprovedAt;
+}
+```
+
+*Model must have nullable timestamp `approved_at` column in database table.*
 
 ### Available functions
 
@@ -651,7 +672,7 @@ If you discover any security related issues, please email a.komarev@cybercog.su 
 - [Anton Komarev](https://github.com/a-komarev)
 - [All Contributors](../../contributors)
 
-## Changelog
+## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 

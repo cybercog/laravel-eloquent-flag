@@ -2,11 +2,24 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [3.5.0] - 2017-01-13
+
+### Added
+
+- `approved_at` classic timestamp flag added.
+
+### Changed
+
+- `is_approved` classic boolean flag helpers implemented.
+
 ## [3.4.0] - 2017-01-13
 
 ### Added
 
 - `closed_at` inverse timestamp flag added.
+
+### Changed
+
 - `is_closed` inverse boolean flag helpers added.
 
 ## [3.3.0] - 2017-01-12
@@ -83,6 +96,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[3.5.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.4.0...3.5.0
 [3.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.3.0...3.4.0
 [3.3.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.2.0...3.3.0
 [3.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.1.0...3.2.0
