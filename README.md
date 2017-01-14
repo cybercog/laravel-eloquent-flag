@@ -31,7 +31,8 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 | `HasApprovedFlag` | Classic | `is_approved` | Boolean | `HasApprovedAt` |
 | `HasClosedAt` | Inverse | `closed_at` | Timestamp | `HasClosedFlag` |
 | `HasClosedFlag` | Inverse | `is_closed` | Boolean | `HasClosedAt` |
-| `HasExpiredFlag` | Inverse | `is_expired` | Boolean | - |
+| `HasExpiredAt` | Inverse | `expired_at` | Timestamp | `HasExpiredFlag` |
+| `HasExpiredFlag` | Inverse | `is_expired` | Boolean | `HasExpiredAt` |
 | `HasKeptFlag` | Classic | `is_kept` | Boolean | - |
 | `HasPublishedAt` | Classic | `published_at` | Timestamp | `HasPublishedFlag` |
 | `HasPublishedFlag` | Classic | `is_published` | Boolean | `HasPublishedAt` |
@@ -531,6 +532,8 @@ Output will have all unkept models created earlier than 4 hours ago.
 
 ### Setup an expirable model
 
+#### With boolean flag
+
 ```php
 <?php
 
@@ -546,6 +549,24 @@ class Post extends Model
 ```
 
 *Model must have boolean `is_expired` column in database table.*
+
+#### With timestamp flag
+
+```php
+<?php
+
+namespace App\Models;
+
+use Cog\Flag\Traits\Classic\HasExpiredAt;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasExpiredAt;
+}
+```
+
+*Model must have nullable timestamp `expired_at` column in database table.*
 
 ### Available functions
 
