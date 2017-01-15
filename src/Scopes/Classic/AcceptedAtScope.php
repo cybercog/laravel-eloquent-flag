@@ -39,6 +39,10 @@ class AcceptedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
+        if (method_exists($model, 'canHasFutureAcceptedAt') && $model->canHasFutureAcceptedAt()) {
+            return $builder->where('accepted_at', '<=', Carbon::now());
+        }
+
         return $builder->whereNotNull('accepted_at');
     }
 

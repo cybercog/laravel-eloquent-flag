@@ -38,6 +38,21 @@ class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
+    public function it_can_get_only_accepted_in_past()
+    {
+        factory(EntityWithAcceptedAt::class, 3)->create([
+            'accepted_at' => Carbon::now()->subDay(),
+        ]);
+        factory(EntityWithAcceptedAt::class, 2)->create([
+            'accepted_at' => Carbon::now()->addDay(),
+        ]);
+
+        $entities = EntityWithAcceptedAt::all();
+
+        $this->assertCount(3, $entities);
+    }
+
+    /** @test */
     public function it_can_get_without_rejected()
     {
         factory(EntityWithAcceptedAt::class, 3)->create([

@@ -87,4 +87,14 @@ trait HasAcceptedAtHelpers
 
         // :TODO: Fire an event here
     }
+
+    /**
+     * Determine if entity can has future date of flag.
+     *
+     * @return bool
+     */
+    public function canHasFutureAcceptedAt()
+    {
+        return true;
+    }
 }
