@@ -12,6 +12,7 @@
 namespace Cog\Flag\Tests\Unit\Scopes\Classic;
 
 use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithPublishedFlag;
+use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithPublishedFlagUnapplied;
 use Cog\Flag\Tests\TestCase;
 
 /**
@@ -107,5 +108,20 @@ class PublishedFlagScopeTest extends TestCase
         $model = EntityWithPublishedFlag::withUnpublished()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_published);
+    }
+
+    /** @test */
+    public function it_can_skip_apply()
+    {
+        factory(EntityWithPublishedFlag::class, 3)->create([
+            'is_published' => true,
+        ]);
+        factory(EntityWithPublishedFlag::class, 2)->create([
+            'is_published' => false,
+        ]);
+
+        $entities = EntityWithPublishedFlagUnapplied::all();
+
+        $this->assertCount(5, $entities);
     }
 }

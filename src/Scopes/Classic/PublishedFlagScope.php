@@ -38,6 +38,10 @@ class PublishedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
+        if (method_exists($model, 'shouldApplyPublishedFlagScope') && !$model->shouldApplyPublishedFlagScope()) {
+            return $builder;
+        }
+
         return $builder->where('is_published', 1);
     }
 
