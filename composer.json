@@ -52,7 +52,7 @@
         "docs": "https://github.com/cybercog/laravel-eloquent-flag/wiki"
     },
     "require": {
-        "illuminate/database": "~5.2.0|~5.3.0|~5.4.0",
+        "illuminate/database": "~5.2.0|~5.3.0",
         "php": "^5.6|^7.0"
     },
     "require-dev": {

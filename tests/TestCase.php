@@ -70,7 +70,7 @@ abstract class TestCase extends Orchestra
     protected function migrateUnitTestTables()
     {
         $this->artisan('migrate', [
-            '--realpath' => realpath(__DIR__ . '/database/migrations'),
+            '--path' => '../../../../tests/database/migrations',
         ]);
     }
 
