@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [3.8.0] - 2017-01-29
+
+### Added
+
+- `shouldApplyPublishedAtScope` & `shouldApplyPublishedFlagScope` methods to skip Published flags global scope auto apply.
+
 ## [3.7.0] - 2017-01-14
 
 ### Added
@@ -121,6 +127,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[3.8.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.7.0...3.8.0
 [3.7.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.6.0...3.7.0
 [3.6.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.5.0...3.6.0
 [3.5.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.4.0...3.5.0

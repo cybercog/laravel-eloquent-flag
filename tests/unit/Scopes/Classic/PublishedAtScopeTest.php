@@ -13,6 +13,7 @@ namespace Cog\Flag\Tests\Unit\Scopes\Classic;
 
 use Carbon\Carbon;
 use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithPublishedAt;
+use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithPublishedAtUnapplied;
 use Cog\Flag\Tests\TestCase;
 
 /**
@@ -108,5 +109,20 @@ class PublishedAtScopeTest extends TestCase
         $model = EntityWithPublishedAt::withUnpublished()->where('id', $model->id)->first();
 
         $this->assertNull($model->published_at);
+    }
+
+    /** @test */
+    public function it_can_skip_apply()
+    {
+        factory(EntityWithPublishedAt::class, 3)->create([
+            'published_at' => Carbon::now()->subDay(),
+        ]);
+        factory(EntityWithPublishedAt::class, 2)->create([
+            'published_at' => null,
+        ]);
+
+        $entities = EntityWithPublishedAtUnapplied::all();
+
+        $this->assertCount(5, $entities);
     }
 }
