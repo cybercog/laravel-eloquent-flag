@@ -39,6 +39,10 @@ class ExpiredAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
+        if (method_exists($model, 'shouldApplyExpiredAtScope') && !$model->shouldApplyExpiredAtScope()) {
+            return $builder;
+        }
+
         return $builder->whereNull('expired_at');
     }
 

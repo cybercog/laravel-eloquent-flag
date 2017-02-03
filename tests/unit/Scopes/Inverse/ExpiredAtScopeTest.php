@@ -13,6 +13,7 @@ namespace Cog\Flag\Tests\Unit\Scopes\Inverse;
 
 use Carbon\Carbon;
 use Cog\Flag\Tests\Stubs\Models\Inverse\EntityWithExpiredAt;
+use Cog\Flag\Tests\Stubs\Models\Inverse\EntityWithExpiredAtUnapplied;
 use Cog\Flag\Tests\TestCase;
 
 /**
@@ -108,5 +109,20 @@ class ExpiredAtScopeTest extends TestCase
         $model = EntityWithExpiredAt::withExpired()->where('id', $model->id)->first();
 
         $this->assertNotNull($model->expired_at);
+    }
+
+    /** @test */
+    public function it_can_skip_apply()
+    {
+        factory(EntityWithExpiredAt::class, 3)->create([
+            'expired_at' => Carbon::now()->subDay(),
+        ]);
+        factory(EntityWithExpiredAt::class, 2)->create([
+            'expired_at' => null,
+        ]);
+
+        $entities = EntityWithExpiredAtUnapplied::all();
+
+        $this->assertCount(5, $entities);
     }
 }

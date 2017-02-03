@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [3.9.0] - 2017-02-03
+
+### Added
+
+- `shouldApplyExpiredAtScope` & `shouldApplyExpiredFlagScope` methods to skip Expired flags global scope auto apply.
+
 ## [3.8.0] - 2017-01-29
 
 ### Added
@@ -127,6 +133,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[3.9.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.8.0...3.9.0
 [3.8.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.7.0...3.8.0
 [3.7.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.6.0...3.7.0
 [3.6.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.5.0...3.6.0
