@@ -13,6 +13,7 @@ namespace Cog\Flag\Tests\Unit\Scopes\Classic;
 
 use Carbon\Carbon;
 use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithVerifiedAt;
+use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithVerifiedAtUnapplied;
 use Cog\Flag\Tests\TestCase;
 
 /**
@@ -108,5 +109,20 @@ class VerifiedAtScopeTest extends TestCase
         $model = EntityWithVerifiedAt::withUnverified()->where('id', $model->id)->first();
 
         $this->assertNull($model->verified_at);
+    }
+
+    /** @test */
+    public function it_can_skip_apply()
+    {
+        factory(EntityWithVerifiedAt::class, 3)->create([
+            'verified_at' => Carbon::now()->subDay(),
+        ]);
+        factory(EntityWithVerifiedAt::class, 2)->create([
+            'verified_at' => null,
+        ]);
+
+        $entities = EntityWithVerifiedAtUnapplied::all();
+
+        $this->assertCount(5, $entities);
     }
 }

@@ -12,6 +12,7 @@
 namespace Cog\Flag\Tests\Unit\Scopes\Classic;
 
 use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithVerifiedFlag;
+use Cog\Flag\Tests\Stubs\Models\Classic\EntityWithVerifiedFlagUnapplied;
 use Cog\Flag\Tests\TestCase;
 
 /**
@@ -107,5 +108,20 @@ class VerifiedFlagScopeTest extends TestCase
         $model = EntityWithVerifiedFlag::withUnverified()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_verified);
+    }
+
+    /** @test */
+    public function it_can_skip_apply()
+    {
+        factory(EntityWithVerifiedFlag::class, 3)->create([
+            'is_verified' => true,
+        ]);
+        factory(EntityWithVerifiedFlag::class, 2)->create([
+            'is_verified' => false,
+        ]);
+
+        $entities = EntityWithVerifiedFlagUnapplied::all();
+
+        $this->assertCount(5, $entities);
     }
 }
