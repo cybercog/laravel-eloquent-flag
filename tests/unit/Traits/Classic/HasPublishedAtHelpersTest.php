@@ -25,7 +25,7 @@ class HasPublishedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_set_published_flag()
     {
-        $entity = factory(EntityWithPublishedAt::class, 1)->create([
+        $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
         ]);
 
@@ -37,7 +37,7 @@ class HasPublishedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_published_flag()
     {
-        $entity = factory(EntityWithPublishedAt::class, 1)->create([
+        $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),
         ]);
 
@@ -49,11 +49,11 @@ class HasPublishedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_published()
     {
-        $publishedEntity = factory(EntityWithPublishedAt::class, 1)->create([
+        $publishedEntity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),
         ]);
 
-        $unpublishedEntity = factory(EntityWithPublishedAt::class, 1)->create([
+        $unpublishedEntity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
         ]);
 
@@ -64,11 +64,11 @@ class HasPublishedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_unpublished()
     {
-        $publishedEntity = factory(EntityWithPublishedAt::class, 1)->create([
+        $publishedEntity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),
         ]);
 
-        $unpublishedEntity = factory(EntityWithPublishedAt::class, 1)->create([
+        $unpublishedEntity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
         ]);
 
@@ -79,7 +79,7 @@ class HasPublishedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_publish_entity()
     {
-        $entity = factory(EntityWithPublishedAt::class, 1)->create([
+        $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
         ]);
 
@@ -91,7 +91,7 @@ class HasPublishedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unpublish_entity()
     {
-        $entity = factory(EntityWithPublishedAt::class, 1)->create([
+        $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),
         ]);
 

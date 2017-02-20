@@ -25,7 +25,7 @@ class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_set_approved_flag()
     {
-        $entity = factory(EntityWithApprovedAt::class, 1)->create([
+        $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => null,
         ]);
 
@@ -37,7 +37,7 @@ class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_approved_flag()
     {
-        $entity = factory(EntityWithApprovedAt::class, 1)->create([
+        $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),
         ]);
 
@@ -49,11 +49,11 @@ class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_approved()
     {
-        $approvedEntity = factory(EntityWithApprovedAt::class, 1)->create([
+        $approvedEntity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),
         ]);
 
-        $disapprovedEntity = factory(EntityWithApprovedAt::class, 1)->create([
+        $disapprovedEntity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => null,
         ]);
 
@@ -64,11 +64,11 @@ class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_disapproved()
     {
-        $approvedEntity = factory(EntityWithApprovedAt::class, 1)->create([
+        $approvedEntity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),
         ]);
 
-        $disapprovedEntity = factory(EntityWithApprovedAt::class, 1)->create([
+        $disapprovedEntity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => null,
         ]);
 
@@ -79,7 +79,7 @@ class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_approve_entity()
     {
-        $entity = factory(EntityWithApprovedAt::class, 1)->create([
+        $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => null,
         ]);
 
@@ -91,7 +91,7 @@ class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_disapprove_entity()
     {
-        $entity = factory(EntityWithApprovedAt::class, 1)->create([
+        $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),
         ]);
 

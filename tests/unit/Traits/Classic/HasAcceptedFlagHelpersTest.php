@@ -24,7 +24,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_set_accepted_flag()
     {
-        $entity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => false,
         ]);
 
@@ -36,7 +36,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_accepted_flag()
     {
-        $entity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
         ]);
 
@@ -48,11 +48,11 @@ class HasAcceptedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_accepted()
     {
-        $acceptedEntity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $acceptedEntity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
         ]);
 
-        $rejectedEntity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $rejectedEntity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => false,
         ]);
 
@@ -63,11 +63,11 @@ class HasAcceptedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_rejected()
     {
-        $acceptedEntity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $acceptedEntity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
         ]);
 
-        $rejectedEntity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $rejectedEntity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => false,
         ]);
 
@@ -78,7 +78,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_accept_entity()
     {
-        $entity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => false,
         ]);
 
@@ -90,7 +90,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_reject_entity()
     {
-        $entity = factory(EntityWithAcceptedFlag::class, 1)->create([
+        $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
         ]);
 

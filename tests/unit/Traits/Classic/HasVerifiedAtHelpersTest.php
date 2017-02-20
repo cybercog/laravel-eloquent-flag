@@ -25,7 +25,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_set_verified_flag()
     {
-        $entity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => null,
         ]);
 
@@ -37,7 +37,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_verified_flag()
     {
-        $entity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),
         ]);
 
@@ -49,11 +49,11 @@ class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_verified()
     {
-        $verifiedEntity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),
         ]);
 
-        $unverifiedEntity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $unverifiedEntity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => null,
         ]);
 
@@ -64,11 +64,11 @@ class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_unverified()
     {
-        $verifiedEntity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),
         ]);
 
-        $unverifiedEntity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $unverifiedEntity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => null,
         ]);
 
@@ -79,7 +79,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_verify_entity()
     {
-        $entity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => null,
         ]);
 
@@ -91,7 +91,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unverify_entity()
     {
-        $entity = factory(EntityWithVerifiedAt::class, 1)->create([
+        $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),
         ]);
 
