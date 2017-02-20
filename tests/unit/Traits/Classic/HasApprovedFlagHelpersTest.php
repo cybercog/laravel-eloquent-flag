@@ -24,7 +24,7 @@ class HasApprovedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_set_approved_flag()
     {
-        $entity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $entity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => false,
         ]);
 
@@ -36,7 +36,7 @@ class HasApprovedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_approved_flag()
     {
-        $entity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $entity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,
         ]);
 
@@ -48,11 +48,11 @@ class HasApprovedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_approved()
     {
-        $approvedEntity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $approvedEntity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,
         ]);
 
-        $disapprovedEntity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $disapprovedEntity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => false,
         ]);
 
@@ -63,11 +63,11 @@ class HasApprovedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_disapproved()
     {
-        $approvedEntity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $approvedEntity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,
         ]);
 
-        $disapprovedEntity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $disapprovedEntity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => false,
         ]);
 
@@ -78,7 +78,7 @@ class HasApprovedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_approve_entity()
     {
-        $entity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $entity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => false,
         ]);
 
@@ -90,7 +90,7 @@ class HasApprovedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_disapprove_entity()
     {
-        $entity = factory(EntityWithApprovedFlag::class, 1)->create([
+        $entity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,
         ]);
 

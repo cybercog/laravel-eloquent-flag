@@ -25,7 +25,7 @@ class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_set_closed_flag()
     {
-        $entity = factory(EntityWithClosedAt::class, 1)->create([
+        $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,
         ]);
 
@@ -37,7 +37,7 @@ class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_closed_flag()
     {
-        $entity = factory(EntityWithClosedAt::class, 1)->create([
+        $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),
         ]);
 
@@ -49,11 +49,11 @@ class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_closed()
     {
-        $closedEntity = factory(EntityWithClosedAt::class, 1)->create([
+        $closedEntity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),
         ]);
 
-        $openedEntity = factory(EntityWithClosedAt::class, 1)->create([
+        $openedEntity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,
         ]);
 
@@ -64,11 +64,11 @@ class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_opened()
     {
-        $closedEntity = factory(EntityWithClosedAt::class, 1)->create([
+        $closedEntity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),
         ]);
 
-        $openedEntity = factory(EntityWithClosedAt::class, 1)->create([
+        $openedEntity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,
         ]);
 
@@ -79,7 +79,7 @@ class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_close_entity()
     {
-        $entity = factory(EntityWithClosedAt::class, 1)->create([
+        $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,
         ]);
 
@@ -91,7 +91,7 @@ class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_open_entity()
     {
-        $entity = factory(EntityWithClosedAt::class, 1)->create([
+        $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),
         ]);
 

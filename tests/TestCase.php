@@ -31,6 +31,7 @@ abstract class TestCase extends Orchestra
 
         $this->destroyPackageMigrations();
         $this->publishPackageMigrations();
+        $this->registerMigrations();
         $this->migrateUnitTestTables();
         $this->registerPackageFactories();
     }
@@ -45,6 +46,7 @@ abstract class TestCase extends Orchestra
     {
         return [
             FlagServiceProvider::class,
+            \Orchestra\Database\ConsoleServiceProvider::class,
         ];
     }
 
@@ -65,13 +67,24 @@ abstract class TestCase extends Orchestra
     }
 
     /**
+     * Register test migrations.
+     *
+     * @return void
+     */
+    protected function registerMigrations()
+    {
+        $this->loadMigrationsFrom([
+            //'--database' => 'sqlite',
+            '--realpath' => realpath(__DIR__ . '/database/migrations'),
+        ]);
+    }
+
+    /**
      * Perform unit test database migrations.
      */
     protected function migrateUnitTestTables()
     {
-        $this->artisan('migrate', [
-            '--path' => '../../../../tests/database/migrations',
-        ]);
+        $this->artisan('migrate');
     }
 
     /**

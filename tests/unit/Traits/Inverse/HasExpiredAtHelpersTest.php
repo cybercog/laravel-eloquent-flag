@@ -25,7 +25,7 @@ class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_set_expired_flag()
     {
-        $entity = factory(EntityWithExpiredAt::class, 1)->create([
+        $entity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => null,
         ]);
 
@@ -37,7 +37,7 @@ class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_expired_flag()
     {
-        $entity = factory(EntityWithExpiredAt::class, 1)->create([
+        $entity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => Carbon::now(),
         ]);
 
@@ -49,11 +49,11 @@ class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_expired()
     {
-        $expiredEntity = factory(EntityWithExpiredAt::class, 1)->create([
+        $expiredEntity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => Carbon::now(),
         ]);
 
-        $unexpiredEntity = factory(EntityWithExpiredAt::class, 1)->create([
+        $unexpiredEntity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => null,
         ]);
 
@@ -64,11 +64,11 @@ class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_unexpired()
     {
-        $expiredEntity = factory(EntityWithExpiredAt::class, 1)->create([
+        $expiredEntity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => Carbon::now(),
         ]);
 
-        $unexpiredEntity = factory(EntityWithExpiredAt::class, 1)->create([
+        $unexpiredEntity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => null,
         ]);
 
@@ -79,7 +79,7 @@ class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_expire_entity()
     {
-        $entity = factory(EntityWithExpiredAt::class, 1)->create([
+        $entity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => null,
         ]);
 
@@ -91,7 +91,7 @@ class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unexpire_entity()
     {
-        $entity = factory(EntityWithExpiredAt::class, 1)->create([
+        $entity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => Carbon::now(),
         ]);
 

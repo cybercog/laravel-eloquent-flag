@@ -24,7 +24,7 @@ class HasActiveFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_set_active_flag()
     {
-        $entity = factory(EntityWithActiveFlag::class, 1)->create([
+        $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
         ]);
 
@@ -36,7 +36,7 @@ class HasActiveFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_active_flag()
     {
-        $entity = factory(EntityWithActiveFlag::class, 1)->create([
+        $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
         ]);
 
@@ -48,11 +48,11 @@ class HasActiveFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_active()
     {
-        $activatedEntity = factory(EntityWithActiveFlag::class, 1)->create([
+        $activatedEntity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
         ]);
 
-        $deactivatedEntity = factory(EntityWithActiveFlag::class, 1)->create([
+        $deactivatedEntity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
         ]);
 
@@ -63,11 +63,11 @@ class HasActiveFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_deactivated()
     {
-        $activatedEntity = factory(EntityWithActiveFlag::class, 1)->create([
+        $activatedEntity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
         ]);
 
-        $deactivatedEntity = factory(EntityWithActiveFlag::class, 1)->create([
+        $deactivatedEntity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
         ]);
 
@@ -78,7 +78,7 @@ class HasActiveFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_accept_entity()
     {
-        $entity = factory(EntityWithActiveFlag::class, 1)->create([
+        $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
         ]);
 
@@ -90,7 +90,7 @@ class HasActiveFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_reject_entity()
     {
-        $entity = factory(EntityWithActiveFlag::class, 1)->create([
+        $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
         ]);
 

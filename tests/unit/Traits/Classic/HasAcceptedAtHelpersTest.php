@@ -25,7 +25,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_set_accepted_flag()
     {
-        $entity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
         ]);
 
@@ -37,7 +37,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_accepted_flag()
     {
-        $entity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),
         ]);
 
@@ -49,11 +49,11 @@ class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_accepted()
     {
-        $acceptedEntity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),
         ]);
 
-        $rejectedEntity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $rejectedEntity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
         ]);
 
@@ -64,11 +64,11 @@ class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_rejected()
     {
-        $acceptedEntity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),
         ]);
 
-        $rejectedEntity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $rejectedEntity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
         ]);
 
@@ -79,7 +79,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_accept_entity()
     {
-        $entity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
         ]);
 
@@ -91,7 +91,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_reject_entity()
     {
-        $entity = factory(EntityWithAcceptedAt::class, 1)->create([
+        $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),
         ]);
 

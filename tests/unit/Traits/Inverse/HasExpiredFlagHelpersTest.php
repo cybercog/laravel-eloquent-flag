@@ -24,7 +24,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_set_expired_flag()
     {
-        $entity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => false,
         ]);
 
@@ -36,7 +36,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_unset_expired_flag()
     {
-        $entity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
         ]);
 
@@ -48,11 +48,11 @@ class HasExpiredFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_expired()
     {
-        $expiredEntity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $expiredEntity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
         ]);
 
-        $unexpiredEntity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $unexpiredEntity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => false,
         ]);
 
@@ -63,11 +63,11 @@ class HasExpiredFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_unexpired()
     {
-        $expiredEntity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $expiredEntity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
         ]);
 
-        $unexpiredEntity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $unexpiredEntity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => false,
         ]);
 
@@ -78,7 +78,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_expire_entity()
     {
-        $entity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => false,
         ]);
 
@@ -90,7 +90,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_unexpire_entity()
     {
-        $entity = factory(EntityWithExpiredFlag::class, 1)->create([
+        $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
         ]);
 
