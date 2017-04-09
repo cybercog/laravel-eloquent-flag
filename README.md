@@ -11,6 +11,22 @@
 
 Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent models with commonly used state flags like `Active`, `Published`, `Approved` and others in a minutes!
 
+## Contents
+
+- [Features](#features)
+- [Available flags list](#available-flags-list)
+- [How it works](#how-it-works)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Change log](#change-log)
+- [Contributing](#contributing)
+- [Testing](#testing)
+- [Security](#security)
+- [Credits](#credits)
+- [Alternatives](#alternatives)
+- [License](#license)
+- [About CyberCog](#about-cybercog)
+
 ## Features
 
 - Designed to work with Laravel Eloquent models
@@ -672,6 +688,14 @@ Post::where('id', 4)->close();
 Post::where('id', 4)->open();
 ```
 
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
 ## Testing
 
 Run the tests with:
@@ -679,10 +703,6 @@ Run the tests with:
 ```sh
 vendor/bin/phpunit
 ```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
@@ -692,10 +712,6 @@ If you discover any security related issues, please email a.komarev@cybercog.su 
 
 - [Anton Komarev](https://github.com/a-komarev)
 - [All Contributors](../../contributors)
-
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Alternatives
 
