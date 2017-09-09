@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithAcceptedAt::class, function (\Faker\Generator $faker) {
+$factory->define(\Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'accepted_at' => null,

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Flag\Tests;
+namespace Cog\Tests\Flag;
 
 use Cog\Flag\Providers\FlagServiceProvider;
 use Illuminate\Support\Facades\File;
@@ -18,7 +18,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 /**
  * Class TestCase.
  *
- * @package Cog\Flag\Tests
+ * @package Cog\Tests\Flag
  */
 abstract class TestCase extends Orchestra
 {
@@ -30,7 +30,6 @@ abstract class TestCase extends Orchestra
         parent::setUp();
 
         $this->destroyPackageMigrations();
-        $this->publishPackageMigrations();
         $this->registerMigrations();
         $this->migrateUnitTestTables();
         $this->registerPackageFactories();
@@ -51,19 +50,11 @@ abstract class TestCase extends Orchestra
     }
 
     /**
-     * Publish package migrations.
-     */
-    protected function publishPackageMigrations()
-    {
-        $this->artisan('vendor:publish', ['--force' => '']);
-    }
-
-    /**
      * Delete all published package migrations.
      */
     protected function destroyPackageMigrations()
     {
-        File::cleanDirectory('vendor/orchestra/testbench/fixture/database/migrations');
+        File::cleanDirectory('vendor/orchestra/testbench-core/laravel/database/migrations');
     }
 
     /**

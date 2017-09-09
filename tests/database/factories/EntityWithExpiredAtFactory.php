@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Flag\Tests\Stubs\Models\Inverse\EntityWithExpiredAt::class, function (\Faker\Generator $faker) {
+$factory->define(\Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAt::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'expired_at' => null,

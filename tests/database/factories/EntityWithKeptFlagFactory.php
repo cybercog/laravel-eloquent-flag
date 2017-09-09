@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Flag\Tests\Stubs\Models\Classic\EntityWithKeptFlag::class, function (\Faker\Generator $faker) {
+$factory->define(\Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag::class, function (\Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'is_kept' => false,

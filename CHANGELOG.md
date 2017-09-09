@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [3.12.0] - 2017-09-09
+
+### Added
+
+- Laravel 5.5 support.
+
 ## [3.11.0] - 2017-02-20
 
 ### Added
