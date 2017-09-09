@@ -19,6 +19,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 - [Installation](#installation)
 - [Usage](#usage)
 - [Change log](#change-log)
+- [Upgrading](#upgrading)
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [Security](#security)
@@ -102,6 +103,10 @@ And then include the service provider within `app/config/app.php`.
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Upgrading
+
+Please see [UPGRADING](UPGRADING.md) for detailed upgrade instructions.
 
 ## Contributing
 
