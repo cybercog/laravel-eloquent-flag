@@ -35,6 +35,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 - 2 logical groups of flags: `Classic`, `Inverse`.
 - 2 types of flags: `Boolean`, `Timestamp`.
 - Following PHP Standard Recommendations:
+  - [PSR-1 (Basic Coding Standard)](http://www.php-fig.org/psr/psr-1/).
   - [PSR-2 (Coding Style Guide)](http://www.php-fig.org/psr/psr-2/).
   - [PSR-4 (Autoloading Standard)](http://www.php-fig.org/psr/psr-4/).
 - Covered with unit tests.
