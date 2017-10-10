@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasActiveFlag
 {
-    use HasActiveFlagHelpers,
-        HasActiveFlagScope;
+    use HasActiveFlagHelpers;
+    use HasActiveFlagScope;
 }

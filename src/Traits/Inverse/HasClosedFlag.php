@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Inverse;
  */
 trait HasClosedFlag
 {
-    use HasClosedFlagHelpers,
-        HasClosedFlagScope;
+    use HasClosedFlagHelpers;
+    use HasClosedFlagScope;
 }

@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasPublishedAt
 {
-    use HasPublishedAtHelpers,
-        HasPublishedAtScope;
+    use HasPublishedAtHelpers;
+    use HasPublishedAtScope;
 }

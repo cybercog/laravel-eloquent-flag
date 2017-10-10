@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasVerifiedAt
 {
-    use HasVerifiedAtHelpers,
-        HasVerifiedAtScope;
+    use HasVerifiedAtHelpers;
+    use HasVerifiedAtScope;
 }

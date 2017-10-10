@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Inverse;
  */
 trait HasExpiredAt
 {
-    use HasExpiredAtHelpers,
-        HasExpiredAtScope;
+    use HasExpiredAtHelpers;
+    use HasExpiredAtScope;
 }

@@ -18,7 +18,7 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasKeptFlag
 {
-    use HasKeptFlagBehavior,
-        HasKeptFlagHelpers,
-        HasKeptFlagScope;
+    use HasKeptFlagBehavior;
+    use HasKeptFlagHelpers;
+    use HasKeptFlagScope;
 }

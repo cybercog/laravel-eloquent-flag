@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasPublishedFlag
 {
-    use HasPublishedFlagHelpers,
-        HasPublishedFlagScope;
+    use HasPublishedFlagHelpers;
+    use HasPublishedFlagScope;
 }

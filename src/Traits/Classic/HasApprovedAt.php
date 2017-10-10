@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasApprovedAt
 {
-    use HasApprovedAtHelpers,
-        HasApprovedAtScope;
+    use HasApprovedAtHelpers;
+    use HasApprovedAtScope;
 }

@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Inverse;
  */
 trait HasExpiredFlag
 {
-    use HasExpiredFlagHelpers,
-        HasExpiredFlagScope;
+    use HasExpiredFlagHelpers;
+    use HasExpiredFlagScope;
 }

@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Classic;
  */
 trait HasApprovedFlag
 {
-    use HasApprovedFlagHelpers,
-        HasApprovedFlagScope;
+    use HasApprovedFlagHelpers;
+    use HasApprovedFlagScope;
 }

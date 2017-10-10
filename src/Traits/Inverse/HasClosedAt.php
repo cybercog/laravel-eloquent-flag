@@ -18,6 +18,6 @@ namespace Cog\Flag\Traits\Inverse;
  */
 trait HasClosedAt
 {
-    use HasClosedAtHelpers,
-        HasClosedAtScope;
+    use HasClosedAtHelpers;
+    use HasClosedAtScope;
 }
