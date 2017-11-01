@@ -33,7 +33,8 @@
         "closed",
         "opened",
         "expiry",
-        "expired"
+        "expired",
+        "ended"
     ],
     "authors": [
         {

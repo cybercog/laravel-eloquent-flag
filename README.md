@@ -52,8 +52,12 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 | `HasApprovedFlag` | Classic | `is_approved` | Boolean | `HasApprovedAt` |
 | `HasClosedAt` | Inverse | `closed_at` | Timestamp | `HasClosedFlag` |
 | `HasClosedFlag` | Inverse | `is_closed` | Boolean | `HasClosedAt` |
+| `HasEndedAt` | Inverse | `ended_at` | Timestamp | `HasEndedFlag` |
+| `HasEndededFlag` | Inverse | `is_ended` | Boolean | `HasEndedAt` |
 | `HasExpiredAt` | Inverse | `expired_at` | Timestamp | `HasExpiredFlag` |
 | `HasExpiredFlag` | Inverse | `is_expired` | Boolean | `HasExpiredAt` |
+| `HasInvitedAt` | Classic | `invited_at` | Timestamp | `HasInvitedFlag` |
+| `HasInvitedFlag` | Classic | `is_invited` | Boolean | `HasInvitedAt` |
 | `HasKeptFlag` | Classic | `is_kept` | Boolean | - |
 | `HasPublishedAt` | Classic | `published_at` | Timestamp | `HasPublishedFlag` |
 | `HasPublishedFlag` | Classic | `is_published` | Boolean | `HasPublishedAt` |
