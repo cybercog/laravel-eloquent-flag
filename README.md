@@ -23,7 +23,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [Security](#security)
-- [Credits](#credits)
+- [Contributors](#contributors)
 - [Alternatives](#alternatives)
 - [License](#license)
 - [About CyberCog](#about-cybercog)
@@ -128,11 +128,10 @@ vendor/bin/phpunit
 
 If you discover any security related issues, please email open@cybercog.su instead of using the issue tracker.
 
-## Credits
+## Contributors
 
-|  | @mention |
-|---|---|
-| ![@a-komarev](https://avatars2.githubusercontent.com/u/1849174?s=64) | [@a-komarev](https://github.com/a-komarev) |
+| <a href="https://github.com/a-komarev">![@a-komarev](https://avatars.githubusercontent.com/u/1849174?s=110)<br />Anton Komarev</a> | <a href="https://github.com/zagreusinoz">![@zagreusinoz](https://avatars.githubusercontent.com/u/16147285?s=110)<br />zagreusinoz</a> |  
+| :---: | :---: |
 
 [Eloquent Flag contributors list](../../contributors)
 
