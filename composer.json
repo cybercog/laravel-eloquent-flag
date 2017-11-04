@@ -61,7 +61,7 @@
         "mockery/mockery": "^0.9.8",
         "orchestra/database": "~3.4.0|~3.5.0",
         "orchestra/testbench": "~3.4.0|~3.5.0",
-        "phpunit/phpunit": "^6.2"
+        "phpunit/phpunit": "^5.7|^6.2"
     },
     "autoload": {
         "psr-4": {
