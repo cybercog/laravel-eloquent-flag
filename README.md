@@ -50,6 +50,8 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 | `HasActiveFlag` | Classic | `is_active` | Boolean | - |
 | `HasApprovedAt` | Classic | `approved_at` | Timestamp | `HasApprovedFlag` |
 | `HasApprovedFlag` | Classic | `is_approved` | Boolean | `HasApprovedAt` |
+| `HasArchivedAt` | Inverse | `archived_at` | Timestamp | `HasArchivedFlag` |
+| `HasArchivedFlag` | Inverse | `is_archived` | Boolean | `HasArchivedAt` |
 | `HasClosedAt` | Inverse | `closed_at` | Timestamp | `HasClosedFlag` |
 | `HasClosedFlag` | Inverse | `is_closed` | Boolean | `HasClosedAt` |
 | `HasDraftedAt` | Inverse | `drafted_at` | Timestamp | `HasDraftedFlag` |
