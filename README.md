@@ -23,7 +23,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [Security](#security)
-- [Contributors](#contributors)
+- [Credits](#credits)
 - [Alternatives](#alternatives)
 - [License](#license)
 - [About CyberCog](#about-cybercog)
@@ -50,8 +50,12 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 | `HasActiveFlag` | Classic | `is_active` | Boolean | - |
 | `HasApprovedAt` | Classic | `approved_at` | Timestamp | `HasApprovedFlag` |
 | `HasApprovedFlag` | Classic | `is_approved` | Boolean | `HasApprovedAt` |
+| `HasArchivedAt` | Inverse | `archived_at` | Timestamp | `HasArchivedFlag` |
+| `HasArchivedFlag` | Inverse | `is_archived` | Boolean | `HasArchivedAt` |
 | `HasClosedAt` | Inverse | `closed_at` | Timestamp | `HasClosedFlag` |
 | `HasClosedFlag` | Inverse | `is_closed` | Boolean | `HasClosedAt` |
+| `HasDraftedAt` | Inverse | `drafted_at` | Timestamp | `HasDraftedFlag` |
+| `HasDraftedFlag` | Inverse | `is_drafted` | Boolean | `HasDraftedAt` |
 | `HasEndedAt` | Inverse | `ended_at` | Timestamp | `HasEndedFlag` |
 | `HasEndededFlag` | Inverse | `is_ended` | Boolean | `HasEndedAt` |
 | `HasExpiredAt` | Inverse | `expired_at` | Timestamp | `HasExpiredFlag` |
