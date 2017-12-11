@@ -23,7 +23,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 - [Contributing](#contributing)
 - [Testing](#testing)
 - [Security](#security)
-- [Credits](#credits)
+- [Contributors](#contributors)
 - [Alternatives](#alternatives)
 - [License](#license)
 - [About CyberCog](#about-cybercog)
