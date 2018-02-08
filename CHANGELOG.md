@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [3.13.0] - 2018-02-08
+
+### Added
+
+- Laravel 5.6 support.
+
 ## [3.12.0] - 2017-09-09
 
 ### Added
@@ -151,6 +157,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[3.13.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.12.0...3.13.0
 [3.12.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.11.0...3.12.0
 [3.11.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.10.0...3.11.0
 [3.10.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.9.0...3.10.0
