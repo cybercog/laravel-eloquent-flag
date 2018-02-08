@@ -6,7 +6,15 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 ### Added
 
-- Laravel 5.6 support.
+- Laravel 5.6 support ([#35](https://github.com/cybercog/laravel-eloquent-flag/pull/35)).
+- `is_invited` classic boolean flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
+- `invited_at` classic timestamp flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
+- `is_ended` inverse boolean flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
+- `ended_at` inverse timestamp flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
+- `is_drafted` inverse boolean flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
+- `drafted_at` inverse timestamp flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
+- `is_archived` inverse boolean flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
+- `archived_at` inverse timestamp flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
 
 ## [3.12.0] - 2017-09-09
 
