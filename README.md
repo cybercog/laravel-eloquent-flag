@@ -18,7 +18,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent model
 - [How it works](#how-it-works)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Change log](#change-log)
+- [Changelog](#changelog)
 - [Upgrading](#upgrading)
 - [Contributing](#contributing)
 - [Testing](#testing)
@@ -108,7 +108,7 @@ And then include the service provider within `app/config/app.php`.
 
 [Usage examples described in Wiki](https://github.com/cybercog/laravel-eloquent-flag/wiki/usage)
 
-## Change log
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
