@@ -69,7 +69,7 @@ trait HasArchivedAtHelpers
      *
      * @return void
      */
-    public function archvie()
+    public function archive()
     {
         $this->setArchivedFlag()->save();
 
@@ -81,7 +81,7 @@ trait HasArchivedAtHelpers
      *
      * @return void
      */
-    public function unarchvie()
+    public function unarchive()
     {
         $this->unsetArchivedFlag()->save();
 
