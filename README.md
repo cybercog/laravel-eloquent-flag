@@ -147,7 +147,7 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 ## License
 
-- `Laravel Eloquent Flag` package is open-sourced software licensed under the [MIT license](LICENSE).
+- `Laravel Eloquent Flag` package is open-sourced software licensed under the [MIT license](LICENSE) by Anton Komarev.
 - `Check Mark` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Kimmi Studio.
 - `Clock Check` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Harsha Rai.
 
