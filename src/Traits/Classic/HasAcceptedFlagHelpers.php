@@ -71,7 +71,7 @@ trait HasAcceptedFlagHelpers
     {
         $this->setAcceptedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('accepted', false);
     }
 
     /**
@@ -83,6 +83,6 @@ trait HasAcceptedFlagHelpers
     {
         $this->unsetAcceptedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('rejected', false);
     }
 }

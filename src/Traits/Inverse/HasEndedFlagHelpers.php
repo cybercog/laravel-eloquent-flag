@@ -71,7 +71,7 @@ trait HasEndedFlagHelpers
     {
         $this->setEndedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('ended', false);
     }
 
     /**
@@ -83,6 +83,6 @@ trait HasEndedFlagHelpers
     {
         $this->unsetEndedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('unended', false);
     }
 }

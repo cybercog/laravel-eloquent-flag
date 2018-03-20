@@ -71,7 +71,7 @@ trait HasDraftedFlagHelpers
     {
         $this->setDraftedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('drafted', false);
     }
 
     /**
@@ -83,6 +83,6 @@ trait HasDraftedFlagHelpers
     {
         $this->unsetDraftedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('undrafted', false);
     }
 }
