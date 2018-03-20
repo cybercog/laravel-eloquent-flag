@@ -73,7 +73,7 @@ trait HasPublishedAtHelpers
     {
         $this->setPublishedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('published', false);
     }
 
     /**
@@ -85,6 +85,6 @@ trait HasPublishedAtHelpers
     {
         $this->unsetPublishedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('unpublished', false);
     }
 }

@@ -71,7 +71,7 @@ trait HasInvitedFlagHelpers
     {
         $this->setInvitedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('invited', false);
     }
 
     /**
@@ -83,6 +83,6 @@ trait HasInvitedFlagHelpers
     {
         $this->unsetInvitedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('uninvited', false);
     }
 }

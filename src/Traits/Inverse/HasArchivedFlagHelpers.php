@@ -71,7 +71,7 @@ trait HasArchivedFlagHelpers
     {
         $this->setArchivedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('archived', false);
     }
 
     /**
@@ -83,6 +83,6 @@ trait HasArchivedFlagHelpers
     {
         $this->unsetArchivedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('unarchived', false);
     }
 }

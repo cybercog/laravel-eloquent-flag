@@ -78,7 +78,7 @@ trait HasKeptFlagHelpers
     {
         $this->setKeptFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('kept', false);
     }
 
     /**
@@ -90,7 +90,7 @@ trait HasKeptFlagHelpers
     {
         $this->unsetKeptFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('unkept', false);
     }
 
     /**

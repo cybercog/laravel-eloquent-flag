@@ -73,7 +73,7 @@ trait HasClosedAtHelpers
     {
         $this->setClosedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('closed', false);
     }
 
     /**
@@ -85,6 +85,6 @@ trait HasClosedAtHelpers
     {
         $this->unsetClosedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('opened', false);
     }
 }

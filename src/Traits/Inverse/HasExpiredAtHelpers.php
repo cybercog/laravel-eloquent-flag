@@ -73,7 +73,7 @@ trait HasExpiredAtHelpers
     {
         $this->setExpiredFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('expired', false);
     }
 
     /**
@@ -85,6 +85,6 @@ trait HasExpiredAtHelpers
     {
         $this->unsetExpiredFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('unexpired', false);
     }
 }

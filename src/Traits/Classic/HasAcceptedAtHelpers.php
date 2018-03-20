@@ -73,7 +73,7 @@ trait HasAcceptedAtHelpers
     {
         $this->setAcceptedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('accepted', false);
     }
 
     /**
@@ -85,6 +85,6 @@ trait HasAcceptedAtHelpers
     {
         $this->unsetAcceptedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('rejected', false);
     }
 }

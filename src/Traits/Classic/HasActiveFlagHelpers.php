@@ -71,7 +71,7 @@ trait HasActiveFlagHelpers
     {
         $this->setActivatedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('activated', false);
     }
 
     /**
@@ -83,6 +83,6 @@ trait HasActiveFlagHelpers
     {
         $this->unsetActivatedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('deactivated', false);
     }
 }

@@ -73,7 +73,7 @@ trait HasVerifiedAtHelpers
     {
         $this->setVerifiedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('verified', false);
     }
 
     /**
@@ -85,6 +85,6 @@ trait HasVerifiedAtHelpers
     {
         $this->unsetVerifiedFlag()->save();
 
-        // :TODO: Fire an event here
+        $this->fireModelEvent('unverified', false);
     }
 }
