@@ -9,7 +9,11 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag::class, function (\Faker\Generator $faker) {
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
+use Faker\Generator as Faker;
+
+/* @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(EntityWithExpiredFlag::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         'is_expired' => false,

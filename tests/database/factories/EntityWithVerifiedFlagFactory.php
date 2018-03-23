@@ -9,7 +9,11 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag::class, function (\Faker\Generator $faker) {
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag;
+use Faker\Generator as Faker;
+
+/* @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(EntityWithVerifiedFlag::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         'is_verified' => false,

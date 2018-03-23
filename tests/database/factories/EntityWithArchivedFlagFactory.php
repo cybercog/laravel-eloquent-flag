@@ -9,7 +9,11 @@
  * file that was distributed with this source code.
  */
 
-$factory->define(\Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag::class, function (\Faker\Generator $faker) {
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
+use Faker\Generator as Faker;
+
+/* @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(EntityWithArchivedFlag::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
         'is_archived' => false,

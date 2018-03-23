@@ -1,9 +1,10 @@
 ![cog-laravel-eloquent-flag-3](https://cloud.githubusercontent.com/assets/1849174/21735581/feb857cc-d47b-11e6-80fa-126be1a1d871.png)
 
 <p align="center">
+<a href="https://github.com/cybercog/laravel-eloquent-flag/releases"><img src="https://img.shields.io/github/release/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="Releases"></a>
 <a href="https://travis-ci.org/cybercog/laravel-eloquent-flag"><img src="https://img.shields.io/travis/cybercog/laravel-eloquent-flag/master.svg?style=flat-square" alt="Build Status"></a>
 <a href="https://styleci.io/repos/69245607"><img src="https://styleci.io/repos/69245607/shield" alt="StyleCI"></a>
-<a href="https://github.com/cybercog/laravel-eloquent-flag/releases"><img src="https://img.shields.io/github/release/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="Releases"></a>
+<a href="https://scrutinizer-ci.com/g/cybercog/laravel-eloquent-flag/?branch=master"><img src="https://img.shields.io/scrutinizer/g/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="Code Quality"></a>
 <a href="https://github.com/cybercog/laravel-eloquent-flag/blob/master/LICENSE"><img src="https://img.shields.io/github/license/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="License"></a>
 </p>
 
