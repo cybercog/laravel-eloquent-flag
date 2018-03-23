@@ -89,20 +89,10 @@ Omitted entities could be retrieved by using special global scope methods, uniqu
 
 ## Installation
 
-First, pull in the package through Composer.
+Pull in the package through Composer.
 
-```shell
-composer require cybercog/laravel-eloquent-flag
-```
-
-And then include the service provider within `app/config/app.php`.
-
-*// Service provider not using yet. This step not mandatory. Will be used to boot console commands in future.*
-
-```php
-'providers' => [
-    Cog\Flag\Providers\FlagServiceProvider::class,
-];
+```sh
+$ composer require cybercog/laravel-eloquent-flag
 ```
 
 ## Usage
@@ -126,7 +116,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 Run the tests with:
 
 ```sh
-vendor/bin/phpunit
+$ vendor/bin/phpunit
 ```
 
 ## Security
