@@ -1,7 +1,7 @@
 # Upgrade Guide
 
-- [Upgrading From 2.0 To 3.0](#upgrading-from-2.0-to-3.0)
-- [Upgrading From 1.0 To 2.0](#upgrading-from-1.0-to-2.0)
+- [Upgrading From 2.0 To 3.0](#upgrading-from-20-to-30)
+- [Upgrading From 1.0 To 2.0](#upgrading-from-10-to-20)
 
 ## Upgrading From 2.0 To 3.0
 
