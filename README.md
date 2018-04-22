@@ -82,8 +82,8 @@ There are 2 types of flags:
 
 All flags separated on 2 logical groups:
 
-- `Classic` flags displays by default only entities with `true` or `timestamp` flag value.
-- `Inverse` flags displays by default only entities with `false` or `null` flag value. 
+- `Classic` flags displays only entities with `true` or `timestamp` flag value by default.
+- `Inverse` flags displays only entities with `false` or `null` flag value by default.
 
 Omitted entities could be retrieved by using special global scope methods, unique for each flag.
 
