@@ -82,10 +82,12 @@ There are 2 types of flags:
 
 All flags separated on 2 logical groups:
 
-- `Classic` flags displays only entities with `true` or `timestamp` flag value.
-- `Inverse` flags displays only entities with `false` or `null` flag value. 
+- `Classic` flags displays by default only entities with `true` or `timestamp` flag value.
+- `Inverse` flags displays by default only entities with `false` or `null` flag value. 
 
 Omitted entities could be retrieved by using special global scope methods, unique for each flag.
+
+> **Example:** If your `Article` model has `PublishedAt` flag then `Article::get()` will return you only published records. When you need to get only unpublished records you could call `Article::onlyUnpublished()->get()` and `Article::withUnpublished()->get()` will return you published and unpublished articles as well.
 
 ## Installation
 
