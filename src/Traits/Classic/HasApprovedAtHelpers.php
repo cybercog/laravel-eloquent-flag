@@ -65,7 +65,7 @@ trait HasApprovedAtHelpers
     }
 
     /**
-     * Mark entity as verified.
+     * Mark entity as approved.
      *
      * @return void
      */
