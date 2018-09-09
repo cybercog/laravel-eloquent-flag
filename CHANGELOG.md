@@ -2,6 +2,13 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [4.0.0] - 2018-09-09
+
+### Added
+
+- ([#42](https://github.com/cybercog/laravel-eloquent-flag/pull/42)) Laravel 5.7 support
+- ([#37](https://github.com/cybercog/laravel-eloquent-flag/pull/37)) Events firing
+
 ## [3.13.0] - 2018-02-08
 
 ### Added
@@ -165,6 +172,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[4.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.13.0...4.0.0
 [3.13.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.12.0...3.13.0
 [3.12.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.11.0...3.12.0
 [3.11.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.10.0...3.11.0

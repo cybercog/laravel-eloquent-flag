@@ -127,8 +127,8 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 ## Contributors
 
-| <a href="https://github.com/antonkomarev">![@antonkomarev](https://avatars.githubusercontent.com/u/1849174?s=110)<br />Anton Komarev</a> | <a href="https://github.com/zagreusinoz">![@zagreusinoz](https://avatars.githubusercontent.com/u/16147285?s=110)<br />zagreusinoz</a> |  
-| :---: | :---: |
+| <a href="https://github.com/antonkomarev">![@antonkomarev](https://avatars.githubusercontent.com/u/1849174?s=110)<br />Anton Komarev</a> | <a href="https://github.com/zagreusinoz">![@zagreusinoz](https://avatars.githubusercontent.com/u/16147285?s=110)<br />zagreusinoz</a> | <a href="https://github.com/jonagoldman">![@jonagoldman](https://avatars.githubusercontent.com/u/1297559?s=110)<br />Jona Goldman</a> | <a href="https://github.com/irazasyed">![@irazasyed](https://avatars.githubusercontent.com/u/1915268?s=110)<br />Irfaq Syed</a> |  
+| :---: | :---: | :---: | :---: |
 
 [Eloquent Flag contributors list](../../contributors)
 
