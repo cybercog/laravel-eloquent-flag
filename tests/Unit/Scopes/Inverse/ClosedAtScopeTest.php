@@ -9,16 +9,18 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class ClosedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_closed()
+    public function it_can_get_only_not_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
             'closed_at' => Carbon::now()->subDay(),
@@ -33,7 +35,7 @@ class ClosedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_closed()
+    public function it_can_get_without_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
             'closed_at' => Carbon::now()->subDay(),
@@ -48,7 +50,7 @@ class ClosedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_closed()
+    public function it_can_get_with_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
             'closed_at' => Carbon::now()->subDay(),
@@ -63,7 +65,7 @@ class ClosedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_closed()
+    public function it_can_get_only_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
             'closed_at' => Carbon::now()->subDay(),
@@ -78,7 +80,7 @@ class ClosedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_model()
+    public function it_can_open_model(): void
     {
         $model = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now()->subDay(),
@@ -92,7 +94,7 @@ class ClosedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_close_model()
+    public function it_can_close_model(): void
     {
         $model = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,

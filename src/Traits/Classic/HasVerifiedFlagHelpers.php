@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 trait HasVerifiedFlagHelpers
@@ -42,7 +44,7 @@ trait HasVerifiedFlagHelpers
      *
      * @return bool
      */
-    public function isVerified()
+    public function isVerified(): bool
     {
         return (bool) $this->getAttributeValue('is_verified');
     }
@@ -52,7 +54,7 @@ trait HasVerifiedFlagHelpers
      *
      * @return bool
      */
-    public function isUnverified()
+    public function isUnverified(): bool
     {
         return !$this->isVerified();
     }
@@ -62,7 +64,7 @@ trait HasVerifiedFlagHelpers
      *
      * @return void
      */
-    public function verify()
+    public function verify(): void
     {
         $this->setVerifiedFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasVerifiedFlagHelpers
      *
      * @return void
      */
-    public function unverify()
+    public function unverify(): void
     {
         $this->unsetVerifiedFlag()->save();
 

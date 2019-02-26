@@ -9,16 +9,18 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class HasAcceptedAtHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_accepted_flag()
+    public function it_can_set_accepted_flag(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
@@ -30,7 +32,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_accepted_flag()
+    public function it_can_unset_accepted_flag(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),
@@ -42,7 +44,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_accepted()
+    public function it_can_check_if_entity_is_accepted(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),
@@ -57,7 +59,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_rejected()
+    public function it_can_check_if_entity_is_rejected(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),
@@ -72,7 +74,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_accept_entity()
+    public function it_can_accept_entity(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
@@ -84,7 +86,7 @@ class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_entity()
+    public function it_can_reject_entity(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now(),

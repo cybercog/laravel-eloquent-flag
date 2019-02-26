@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 trait HasApprovedAtHelpers
 {
@@ -44,7 +46,7 @@ trait HasApprovedAtHelpers
      *
      * @return bool
      */
-    public function isApproved()
+    public function isApproved(): bool
     {
         return !is_null($this->getAttributeValue('approved_at'));
     }
@@ -54,7 +56,7 @@ trait HasApprovedAtHelpers
      *
      * @return bool
      */
-    public function isDisapproved()
+    public function isDisapproved(): bool
     {
         return !$this->isApproved();
     }
@@ -64,7 +66,7 @@ trait HasApprovedAtHelpers
      *
      * @return void
      */
-    public function approve()
+    public function approve(): void
     {
         $this->setApprovedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasApprovedAtHelpers
      *
      * @return void
      */
-    public function disapprove()
+    public function disapprove(): void
     {
         $this->unsetApprovedFlag()->save();
 

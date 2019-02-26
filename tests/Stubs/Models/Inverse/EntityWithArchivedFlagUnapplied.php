@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
 class EntityWithArchivedFlagUnapplied extends EntityWithArchivedFlag
@@ -18,7 +20,7 @@ class EntityWithArchivedFlagUnapplied extends EntityWithArchivedFlag
      *
      * @return bool
      */
-    public function shouldApplyArchivedFlagScope()
+    public function shouldApplyArchivedFlagScope(): bool
     {
         return false;
     }

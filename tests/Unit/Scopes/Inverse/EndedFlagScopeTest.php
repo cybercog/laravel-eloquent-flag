@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class EndedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_ended()
+    public function it_can_get_only_not_ended(): void
     {
         factory(EntityWithEndedFlag::class, 2)->create([
             'is_ended' => true,
@@ -33,7 +35,7 @@ class EndedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_ended()
+    public function it_can_get_without_ended(): void
     {
         factory(EntityWithEndedFlag::class, 2)->create([
             'is_ended' => true,
@@ -48,7 +50,7 @@ class EndedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_ended()
+    public function it_can_get_with_ended(): void
     {
         factory(EntityWithEndedFlag::class, 2)->create([
             'is_ended' => true,
@@ -63,7 +65,7 @@ class EndedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_ended()
+    public function it_can_get_only_ended(): void
     {
         factory(EntityWithEndedFlag::class, 2)->create([
             'is_ended' => true,
@@ -78,7 +80,7 @@ class EndedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unend_model()
+    public function it_can_unend_model(): void
     {
         $model = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,
@@ -92,7 +94,7 @@ class EndedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_end_model()
+    public function it_can_end_model(): void
     {
         $model = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => false,
@@ -106,7 +108,7 @@ class EndedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithEndedFlag::class, 3)->create([
             'is_ended' => true,

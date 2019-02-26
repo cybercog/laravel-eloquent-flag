@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Inverse;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,15 +37,15 @@ class ExpiredFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyExpiredFlagScope') && !$model->shouldApplyExpiredFlagScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->where('is_expired', 0);
+        $builder->where('is_expired', 0);
     }
 
     /**
@@ -52,7 +54,7 @@ class ExpiredFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -65,7 +67,7 @@ class ExpiredFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnexpire(Builder $builder)
+    protected function addUnexpire(Builder $builder): void
     {
         $builder->macro('unexpire', function (Builder $builder) {
             $builder->withExpired();
@@ -80,7 +82,7 @@ class ExpiredFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addExpire(Builder $builder)
+    protected function addExpire(Builder $builder): void
     {
         $builder->macro('expire', function (Builder $builder) {
             return $builder->update(['is_expired' => 1]);
@@ -93,7 +95,7 @@ class ExpiredFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithExpired(Builder $builder)
+    protected function addWithExpired(Builder $builder): void
     {
         $builder->macro('withExpired', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -106,7 +108,7 @@ class ExpiredFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutExpired(Builder $builder)
+    protected function addWithoutExpired(Builder $builder): void
     {
         $builder->macro('withoutExpired', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_expired', 0);
@@ -119,7 +121,7 @@ class ExpiredFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyExpired(Builder $builder)
+    protected function addOnlyExpired(Builder $builder): void
     {
         $builder->macro('onlyExpired', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_expired', 1);

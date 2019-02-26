@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\PublishedAtScope;
@@ -20,8 +22,8 @@ trait HasPublishedAtScope
      *
      * @return void
      */
-    public static function bootHasPublishedAtScope()
+    public static function bootHasPublishedAtScope(): void
     {
-        static::addGlobalScope(new PublishedAtScope);
+        static::addGlobalScope(new PublishedAtScope());
     }
 }

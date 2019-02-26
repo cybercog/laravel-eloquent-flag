@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
 class EntityWithEndedAtUnapplied extends EntityWithEndedAt
@@ -18,7 +20,7 @@ class EntityWithEndedAtUnapplied extends EntityWithEndedAt
      *
      * @return bool
      */
-    public function shouldApplyEndedAtScope()
+    public function shouldApplyEndedAtScope(): bool
     {
         return false;
     }

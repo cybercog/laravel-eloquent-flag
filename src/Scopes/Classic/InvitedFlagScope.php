@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,15 +37,15 @@ class InvitedFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyInvitedFlagScope') && !$model->shouldApplyInvitedFlagScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->where('is_invited', 1);
+        $builder->where('is_invited', 1);
     }
 
     /**
@@ -52,7 +54,7 @@ class InvitedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -65,7 +67,7 @@ class InvitedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addInvite(Builder $builder)
+    protected function addInvite(Builder $builder): void
     {
         $builder->macro('invite', function (Builder $builder) {
             $builder->withUninvited();
@@ -80,7 +82,7 @@ class InvitedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUninvite(Builder $builder)
+    protected function addUninvite(Builder $builder): void
     {
         $builder->macro('uninvite', function (Builder $builder) {
             return $builder->update(['is_invited' => 0]);
@@ -93,7 +95,7 @@ class InvitedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUninvited(Builder $builder)
+    protected function addWithUninvited(Builder $builder): void
     {
         $builder->macro('withUninvited', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -106,7 +108,7 @@ class InvitedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUninvited(Builder $builder)
+    protected function addWithoutUninvited(Builder $builder): void
     {
         $builder->macro('withoutUninvited', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_invited', 1);
@@ -119,7 +121,7 @@ class InvitedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUninvited(Builder $builder)
+    protected function addOnlyUninvited(Builder $builder): void
     {
         $builder->macro('onlyUninvited', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_invited', 0);

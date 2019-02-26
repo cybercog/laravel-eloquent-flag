@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\InvitedFlagScope;
@@ -20,8 +22,8 @@ trait HasInvitedFlagScope
      *
      * @return void
      */
-    public static function bootHasInvitedFlagScope()
+    public static function bootHasInvitedFlagScope(): void
     {
-        static::addGlobalScope(new InvitedFlagScope);
+        static::addGlobalScope(new InvitedFlagScope());
     }
 }

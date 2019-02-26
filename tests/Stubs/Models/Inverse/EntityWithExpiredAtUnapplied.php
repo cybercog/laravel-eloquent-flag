@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
 class EntityWithExpiredAtUnapplied extends EntityWithExpiredAt
@@ -18,7 +20,7 @@ class EntityWithExpiredAtUnapplied extends EntityWithExpiredAt
      *
      * @return bool
      */
-    public function shouldApplyExpiredAtScope()
+    public function shouldApplyExpiredAtScope(): bool
     {
         return false;
     }

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 trait HasInvitedFlagHelpers
@@ -42,7 +44,7 @@ trait HasInvitedFlagHelpers
      *
      * @return bool
      */
-    public function isInvited()
+    public function isInvited(): bool
     {
         return (bool) $this->getAttributeValue('is_invited');
     }
@@ -52,7 +54,7 @@ trait HasInvitedFlagHelpers
      *
      * @return bool
      */
-    public function isUninvited()
+    public function isUninvited(): bool
     {
         return !$this->isInvited();
     }
@@ -62,7 +64,7 @@ trait HasInvitedFlagHelpers
      *
      * @return void
      */
-    public function invite()
+    public function invite(): void
     {
         $this->setInvitedFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasInvitedFlagHelpers
      *
      * @return void
      */
-    public function uninvite()
+    public function uninvite(): void
     {
         $this->unsetInvitedFlag()->save();
 

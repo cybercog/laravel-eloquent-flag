@@ -9,17 +9,19 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class ArchivedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_archived()
+    public function it_can_get_only_not_archived(): void
     {
         factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => Carbon::now()->subDay(),
@@ -34,7 +36,7 @@ class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_archived()
+    public function it_can_get_without_archived(): void
     {
         factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => Carbon::now()->subDay(),
@@ -49,7 +51,7 @@ class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_archived()
+    public function it_can_get_with_archived(): void
     {
         factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => Carbon::now()->subDay(),
@@ -64,7 +66,7 @@ class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_archived()
+    public function it_can_get_only_archived(): void
     {
         factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => Carbon::now()->subDay(),
@@ -79,7 +81,7 @@ class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unarchive_model()
+    public function it_can_unarchive_model(): void
     {
         $model = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => Carbon::now()->subDay(),
@@ -93,7 +95,7 @@ class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_archive_model()
+    public function it_can_archive_model(): void
     {
         $model = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => null,
@@ -107,7 +109,7 @@ class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithArchivedAt::class, 3)->create([
             'archived_at' => Carbon::now()->subDay(),

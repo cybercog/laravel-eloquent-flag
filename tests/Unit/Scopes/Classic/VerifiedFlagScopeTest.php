@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class VerifiedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_verified()
+    public function it_can_get_only_verified(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,
@@ -33,7 +35,7 @@ class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unverified()
+    public function it_can_get_without_unverified(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,
@@ -48,7 +50,7 @@ class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_unverified()
+    public function it_can_get_with_unverified(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,
@@ -63,7 +65,7 @@ class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_unverified()
+    public function it_can_get_only_unverified(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,
@@ -78,7 +80,7 @@ class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_verify_model()
+    public function it_can_verify_model(): void
     {
         $model = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => false,
@@ -92,7 +94,7 @@ class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unverify_model()
+    public function it_can_unverify_model(): void
     {
         $model = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,
@@ -106,7 +108,7 @@ class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,

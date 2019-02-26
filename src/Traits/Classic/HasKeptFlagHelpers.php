@@ -9,11 +9,13 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
-use Carbon\Carbon;
 use Cog\Flag\Scopes\Classic\KeptFlagScope;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 
 trait HasKeptFlagHelpers
 {
@@ -50,7 +52,7 @@ trait HasKeptFlagHelpers
      *
      * @return bool
      */
-    public function isKept()
+    public function isKept(): bool
     {
         return (bool) $this->getAttributeValue('is_kept');
     }
@@ -60,7 +62,7 @@ trait HasKeptFlagHelpers
      *
      * @return bool
      */
-    public function isUnkept()
+    public function isUnkept(): bool
     {
         return !$this->isKept();
     }
@@ -70,7 +72,7 @@ trait HasKeptFlagHelpers
      *
      * @return void
      */
-    public function keep()
+    public function keep(): void
     {
         $this->setKeptFlag()->save();
 
@@ -82,7 +84,7 @@ trait HasKeptFlagHelpers
      *
      * @return void
      */
-    public function unkeep()
+    public function unkeep(): void
     {
         $this->unsetKeptFlag()->save();
 

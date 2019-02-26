@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
 class EntityWithArchivedAtUnapplied extends EntityWithArchivedAt
@@ -18,7 +20,7 @@ class EntityWithArchivedAtUnapplied extends EntityWithArchivedAt
      *
      * @return bool
      */
-    public function shouldApplyArchivedAtScope()
+    public function shouldApplyArchivedAtScope(): bool
     {
         return false;
     }

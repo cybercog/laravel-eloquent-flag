@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
 class EntityWithInvitedFlagUnapplied extends EntityWithInvitedFlag
@@ -18,7 +20,7 @@ class EntityWithInvitedFlagUnapplied extends EntityWithInvitedFlag
      *
      * @return bool
      */
-    public function shouldApplyInvitedFlagScope()
+    public function shouldApplyInvitedFlagScope(): bool
     {
         return false;
     }

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\AcceptedAtScope;
@@ -20,8 +22,8 @@ trait HasAcceptedAtScope
      *
      * @return void
      */
-    public static function bootHasAcceptedAtScope()
+    public static function bootHasAcceptedAtScope(): void
     {
-        static::addGlobalScope(new AcceptedAtScope);
+        static::addGlobalScope(new AcceptedAtScope());
     }
 }

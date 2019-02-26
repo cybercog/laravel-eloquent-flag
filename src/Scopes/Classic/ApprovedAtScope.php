@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Support\Carbon;
 
 class ApprovedAtScope implements Scope
 {
@@ -36,11 +38,11 @@ class ApprovedAtScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
-        return $builder->whereNotNull('approved_at');
+        $builder->whereNotNull('approved_at');
     }
 
     /**
@@ -49,7 +51,7 @@ class ApprovedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -62,7 +64,7 @@ class ApprovedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addApprove(Builder $builder)
+    protected function addApprove(Builder $builder): void
     {
         $builder->macro('approve', function (Builder $builder) {
             $builder->withDisapproved();
@@ -77,7 +79,7 @@ class ApprovedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addDisapprove(Builder $builder)
+    protected function addDisapprove(Builder $builder): void
     {
         $builder->macro('disapprove', function (Builder $builder) {
             return $builder->update(['approved_at' => null]);
@@ -90,7 +92,7 @@ class ApprovedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithDisapproved(Builder $builder)
+    protected function addWithDisapproved(Builder $builder): void
     {
         $builder->macro('withDisapproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -103,7 +105,7 @@ class ApprovedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutDisapproved(Builder $builder)
+    protected function addWithoutDisapproved(Builder $builder): void
     {
         $builder->macro('withoutDisapproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNotNull('approved_at');
@@ -116,7 +118,7 @@ class ApprovedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyDisapproved(Builder $builder)
+    protected function addOnlyDisapproved(Builder $builder): void
     {
         $builder->macro('onlyDisapproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNull('approved_at');

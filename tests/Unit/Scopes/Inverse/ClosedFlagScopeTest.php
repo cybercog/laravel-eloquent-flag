@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class ClosedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_closed()
+    public function it_can_get_only_not_closed(): void
     {
         factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => true,
@@ -32,7 +34,7 @@ class ClosedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_closed()
+    public function it_can_get_without_closed(): void
     {
         factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => true,
@@ -47,7 +49,7 @@ class ClosedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_closed()
+    public function it_can_get_with_closed(): void
     {
         factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => true,
@@ -62,7 +64,7 @@ class ClosedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_closed()
+    public function it_can_get_only_closed(): void
     {
         factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => true,
@@ -77,7 +79,7 @@ class ClosedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_model()
+    public function it_can_open_model(): void
     {
         $model = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => true,
@@ -91,7 +93,7 @@ class ClosedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_close_model()
+    public function it_can_close_model(): void
     {
         $model = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => false,

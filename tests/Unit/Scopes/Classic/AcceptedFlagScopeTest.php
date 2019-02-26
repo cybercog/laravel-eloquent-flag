@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class AcceptedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_accepted()
+    public function it_can_get_only_accepted(): void
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -32,7 +34,7 @@ class AcceptedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_rejected()
+    public function it_can_get_without_rejected(): void
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -47,7 +49,7 @@ class AcceptedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_rejected()
+    public function it_can_get_with_rejected(): void
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -62,7 +64,7 @@ class AcceptedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_rejected()
+    public function it_can_get_only_rejected(): void
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -77,7 +79,7 @@ class AcceptedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_accept_model()
+    public function it_can_accept_model(): void
     {
         $model = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => false,
@@ -91,7 +93,7 @@ class AcceptedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_model()
+    public function it_can_reject_model(): void
     {
         $model = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\DraftedFlagScope;
@@ -20,8 +22,8 @@ trait HasDraftedFlagScope
      *
      * @return void
      */
-    public static function bootHasDraftedFlagScope()
+    public static function bootHasDraftedFlagScope(): void
     {
-        static::addGlobalScope(new DraftedFlagScope);
+        static::addGlobalScope(new DraftedFlagScope());
     }
 }

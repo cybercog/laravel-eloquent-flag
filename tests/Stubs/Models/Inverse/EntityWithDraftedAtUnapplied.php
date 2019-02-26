@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
 class EntityWithDraftedAtUnapplied extends EntityWithDraftedAt
@@ -18,7 +20,7 @@ class EntityWithDraftedAtUnapplied extends EntityWithDraftedAt
      *
      * @return bool
      */
-    public function shouldApplyDraftedAtScope()
+    public function shouldApplyDraftedAtScope(): bool
     {
         return false;
     }

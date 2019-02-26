@@ -9,17 +9,19 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class PublishedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_published()
+    public function it_can_get_only_published(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Carbon::now()->subDay(),
@@ -34,7 +36,7 @@ class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unpublished()
+    public function it_can_get_without_unpublished(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Carbon::now()->subDay(),
@@ -49,7 +51,7 @@ class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_unpublished()
+    public function it_can_get_with_unpublished(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Carbon::now()->subDay(),
@@ -64,7 +66,7 @@ class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_unpublished()
+    public function it_can_get_only_unpublished(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Carbon::now()->subDay(),
@@ -79,7 +81,7 @@ class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_publish_model()
+    public function it_can_publish_model(): void
     {
         $model = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
@@ -93,7 +95,7 @@ class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unpublish_model()
+    public function it_can_unpublish_model(): void
     {
         $model = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now()->subDay(),
@@ -107,7 +109,7 @@ class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Carbon::now()->subDay(),

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\EndedFlagScope;
@@ -20,8 +22,8 @@ trait HasEndedFlagScope
      *
      * @return void
      */
-    public static function bootHasEndedFlagScope()
+    public static function bootHasEndedFlagScope(): void
     {
-        static::addGlobalScope(new EndedFlagScope);
+        static::addGlobalScope(new EndedFlagScope());
     }
 }

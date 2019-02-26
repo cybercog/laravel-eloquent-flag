@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Inverse;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Support\Carbon;
 
 class ExpiredAtScope implements Scope
 {
@@ -36,15 +38,15 @@ class ExpiredAtScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyExpiredAtScope') && !$model->shouldApplyExpiredAtScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->whereNull('expired_at');
+        $builder->whereNull('expired_at');
     }
 
     /**
@@ -53,7 +55,7 @@ class ExpiredAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -66,7 +68,7 @@ class ExpiredAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnexpire(Builder $builder)
+    protected function addUnexpire(Builder $builder): void
     {
         $builder->macro('unexpire', function (Builder $builder) {
             $builder->withExpired();
@@ -81,7 +83,7 @@ class ExpiredAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addExpire(Builder $builder)
+    protected function addExpire(Builder $builder): void
     {
         $builder->macro('expire', function (Builder $builder) {
             return $builder->update(['expired_at' => Carbon::now()]);
@@ -94,7 +96,7 @@ class ExpiredAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithExpired(Builder $builder)
+    protected function addWithExpired(Builder $builder): void
     {
         $builder->macro('withExpired', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -107,7 +109,7 @@ class ExpiredAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutExpired(Builder $builder)
+    protected function addWithoutExpired(Builder $builder): void
     {
         $builder->macro('withoutExpired', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNull('expired_at');
@@ -120,7 +122,7 @@ class ExpiredAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyExpired(Builder $builder)
+    protected function addOnlyExpired(Builder $builder): void
     {
         $builder->macro('onlyExpired', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNotNull('expired_at');

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasKeptFlagBehaviorTest extends TestCase
 {
     /** @test */
-    public function it_sets_is_kept_false_on_create()
+    public function it_sets_is_kept_false_on_create(): void
     {
         $entity = new EntityWithKeptFlag([
             'name' => 'test',
@@ -28,7 +30,7 @@ class HasKeptFlagBehaviorTest extends TestCase
     }
 
     /** @test */
-    public function it_sets_is_kept_true_on_any_update()
+    public function it_sets_is_kept_true_on_any_update(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => false,

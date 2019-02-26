@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
 class EntityWithDraftedFlagUnapplied extends EntityWithDraftedFlag
@@ -18,7 +20,7 @@ class EntityWithDraftedFlagUnapplied extends EntityWithDraftedFlag
      *
      * @return bool
      */
-    public function shouldApplyDraftedFlagScope()
+    public function shouldApplyDraftedFlagScope(): bool
     {
         return false;
     }

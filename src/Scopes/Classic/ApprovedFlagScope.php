@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,11 +37,11 @@ class ApprovedFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
-        return $builder->where('is_approved', 1);
+        $builder->where('is_approved', 1);
     }
 
     /**
@@ -48,7 +50,7 @@ class ApprovedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -61,7 +63,7 @@ class ApprovedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addApprove(Builder $builder)
+    protected function addApprove(Builder $builder): void
     {
         $builder->macro('approve', function (Builder $builder) {
             $builder->withDisapproved();
@@ -76,7 +78,7 @@ class ApprovedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addDisapprove(Builder $builder)
+    protected function addDisapprove(Builder $builder): void
     {
         $builder->macro('disapprove', function (Builder $builder) {
             return $builder->update(['is_approved' => 0]);
@@ -89,7 +91,7 @@ class ApprovedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithDisapproved(Builder $builder)
+    protected function addWithDisapproved(Builder $builder): void
     {
         $builder->macro('withDisapproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -102,7 +104,7 @@ class ApprovedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutDisapproved(Builder $builder)
+    protected function addWithoutDisapproved(Builder $builder): void
     {
         $builder->macro('withoutDisapproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_approved', 1);
@@ -115,7 +117,7 @@ class ApprovedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyDisapproved(Builder $builder)
+    protected function addOnlyDisapproved(Builder $builder): void
     {
         $builder->macro('onlyDisapproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_approved', 0);

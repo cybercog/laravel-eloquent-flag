@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,11 +37,11 @@ class ActiveFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
-        return $builder->where('is_active', 1);
+        $builder->where('is_active', 1);
     }
 
     /**
@@ -48,7 +50,7 @@ class ActiveFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -61,7 +63,7 @@ class ActiveFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addActivate(Builder $builder)
+    protected function addActivate(Builder $builder): void
     {
         $builder->macro('activate', function (Builder $builder) {
             $builder->withDeactivated();
@@ -76,7 +78,7 @@ class ActiveFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addDeactivate(Builder $builder)
+    protected function addDeactivate(Builder $builder): void
     {
         $builder->macro('deactivate', function (Builder $builder) {
             return $builder->update(['is_active' => 0]);
@@ -89,7 +91,7 @@ class ActiveFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithDeactivated(Builder $builder)
+    protected function addWithDeactivated(Builder $builder): void
     {
         $builder->macro('withDeactivated', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -102,7 +104,7 @@ class ActiveFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutDeactivated(Builder $builder)
+    protected function addWithoutDeactivated(Builder $builder): void
     {
         $builder->macro('withoutDeactivated', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_active', 1);
@@ -115,7 +117,7 @@ class ActiveFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyDeactivated(Builder $builder)
+    protected function addOnlyDeactivated(Builder $builder): void
     {
         $builder->macro('onlyDeactivated', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_active', 0);

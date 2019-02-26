@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 trait HasClosedFlagHelpers
@@ -42,7 +44,7 @@ trait HasClosedFlagHelpers
      *
      * @return bool
      */
-    public function isClosed()
+    public function isClosed(): bool
     {
         return (bool) $this->getAttributeValue('is_closed');
     }
@@ -52,7 +54,7 @@ trait HasClosedFlagHelpers
      *
      * @return bool
      */
-    public function isOpened()
+    public function isOpened(): bool
     {
         return !$this->isClosed();
     }
@@ -62,7 +64,7 @@ trait HasClosedFlagHelpers
      *
      * @return void
      */
-    public function close()
+    public function close(): void
     {
         $this->setClosedFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasClosedFlagHelpers
      *
      * @return void
      */
-    public function open()
+    public function open(): void
     {
         $this->unsetClosedFlag()->save();
 

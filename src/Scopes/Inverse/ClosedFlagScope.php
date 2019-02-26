@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Inverse;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,11 +37,11 @@ class ClosedFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
-        return $builder->where('is_closed', 0);
+        $builder->where('is_closed', 0);
     }
 
     /**
@@ -48,7 +50,7 @@ class ClosedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -61,7 +63,7 @@ class ClosedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOpen(Builder $builder)
+    protected function addOpen(Builder $builder): void
     {
         $builder->macro('open', function (Builder $builder) {
             $builder->withClosed();
@@ -76,7 +78,7 @@ class ClosedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addClose(Builder $builder)
+    protected function addClose(Builder $builder): void
     {
         $builder->macro('close', function (Builder $builder) {
             return $builder->update(['is_closed' => 1]);
@@ -89,7 +91,7 @@ class ClosedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithClosed(Builder $builder)
+    protected function addWithClosed(Builder $builder): void
     {
         $builder->macro('withClosed', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -102,7 +104,7 @@ class ClosedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutClosed(Builder $builder)
+    protected function addWithoutClosed(Builder $builder): void
     {
         $builder->macro('withoutClosed', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_closed', 0);
@@ -115,7 +117,7 @@ class ClosedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyClosed(Builder $builder)
+    protected function addOnlyClosed(Builder $builder): void
     {
         $builder->macro('onlyClosed', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_closed', 1);

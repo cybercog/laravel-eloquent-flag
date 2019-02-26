@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\InvitedAtScope;
@@ -20,8 +22,8 @@ trait HasInvitedAtScope
      *
      * @return void
      */
-    public static function bootHasInvitedAtScope()
+    public static function bootHasInvitedAtScope(): void
     {
-        static::addGlobalScope(new InvitedAtScope);
+        static::addGlobalScope(new InvitedAtScope());
     }
 }

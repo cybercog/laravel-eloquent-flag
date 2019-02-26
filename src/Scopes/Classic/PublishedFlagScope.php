@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,15 +37,15 @@ class PublishedFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyPublishedFlagScope') && !$model->shouldApplyPublishedFlagScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->where('is_published', 1);
+        $builder->where('is_published', 1);
     }
 
     /**
@@ -52,7 +54,7 @@ class PublishedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -65,7 +67,7 @@ class PublishedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addPublish(Builder $builder)
+    protected function addPublish(Builder $builder): void
     {
         $builder->macro('publish', function (Builder $builder) {
             $builder->withUnpublished();
@@ -80,7 +82,7 @@ class PublishedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnpublish(Builder $builder)
+    protected function addUnpublish(Builder $builder): void
     {
         $builder->macro('unpublish', function (Builder $builder) {
             return $builder->update(['is_published' => 0]);
@@ -93,7 +95,7 @@ class PublishedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnpublished(Builder $builder)
+    protected function addWithUnpublished(Builder $builder): void
     {
         $builder->macro('withUnpublished', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -106,7 +108,7 @@ class PublishedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnpublished(Builder $builder)
+    protected function addWithoutUnpublished(Builder $builder): void
     {
         $builder->macro('withoutUnpublished', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_published', 1);
@@ -119,7 +121,7 @@ class PublishedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnpublished(Builder $builder)
+    protected function addOnlyUnpublished(Builder $builder): void
     {
         $builder->macro('onlyUnpublished', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_published', 0);

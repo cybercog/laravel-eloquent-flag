@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
 class EntityWithVerifiedAtUnapplied extends EntityWithVerifiedAt
@@ -18,7 +20,7 @@ class EntityWithVerifiedAtUnapplied extends EntityWithVerifiedAt
      *
      * @return bool
      */
-    public function shouldApplyVerifiedAtScope()
+    public function shouldApplyVerifiedAtScope(): bool
     {
         return false;
     }

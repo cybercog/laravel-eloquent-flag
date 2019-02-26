@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasExpiredFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_expired_flag()
+    public function it_can_set_expired_flag(): void
     {
         $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => false,
@@ -29,7 +31,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_expired_flag()
+    public function it_can_unset_expired_flag(): void
     {
         $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
@@ -41,7 +43,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_expired()
+    public function it_can_check_if_entity_is_expired(): void
     {
         $expiredEntity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
@@ -56,7 +58,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unexpired()
+    public function it_can_check_if_entity_is_unexpired(): void
     {
         $expiredEntity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
@@ -71,7 +73,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_expire_entity()
+    public function it_can_expire_entity(): void
     {
         $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => false,
@@ -83,7 +85,7 @@ class HasExpiredFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unexpire_entity()
+    public function it_can_unexpire_entity(): void
     {
         $entity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,

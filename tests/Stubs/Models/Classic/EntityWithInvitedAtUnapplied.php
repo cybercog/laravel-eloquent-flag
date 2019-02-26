@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
 class EntityWithInvitedAtUnapplied extends EntityWithInvitedAt
@@ -18,7 +20,7 @@ class EntityWithInvitedAtUnapplied extends EntityWithInvitedAt
      *
      * @return bool
      */
-    public function shouldApplyInvitedAtScope()
+    public function shouldApplyInvitedAtScope(): bool
     {
         return false;
     }

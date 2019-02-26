@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Support\Carbon;
 
 class VerifiedAtScope implements Scope
 {
@@ -36,15 +38,15 @@ class VerifiedAtScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyVerifiedAtScope') && !$model->shouldApplyVerifiedAtScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->whereNotNull('verified_at');
+        $builder->whereNotNull('verified_at');
     }
 
     /**
@@ -53,7 +55,7 @@ class VerifiedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -66,7 +68,7 @@ class VerifiedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addVerify(Builder $builder)
+    protected function addVerify(Builder $builder): void
     {
         $builder->macro('verify', function (Builder $builder) {
             $builder->withUnverified();
@@ -81,7 +83,7 @@ class VerifiedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnverify(Builder $builder)
+    protected function addUnverify(Builder $builder): void
     {
         $builder->macro('unverify', function (Builder $builder) {
             return $builder->update(['verified_at' => null]);
@@ -94,7 +96,7 @@ class VerifiedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnverified(Builder $builder)
+    protected function addWithUnverified(Builder $builder): void
     {
         $builder->macro('withUnverified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -107,7 +109,7 @@ class VerifiedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnverified(Builder $builder)
+    protected function addWithoutUnverified(Builder $builder): void
     {
         $builder->macro('withoutUnverified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNotNull('verified_at');
@@ -120,7 +122,7 @@ class VerifiedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnverified(Builder $builder)
+    protected function addOnlyUnverified(Builder $builder): void
     {
         $builder->macro('onlyUnverified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNull('verified_at');

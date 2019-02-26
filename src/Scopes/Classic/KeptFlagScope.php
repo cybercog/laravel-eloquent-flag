@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,11 +37,11 @@ class KeptFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
-        return $builder->where('is_kept', 1);
+        $builder->where('is_kept', 1);
     }
 
     /**
@@ -48,7 +50,7 @@ class KeptFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -61,7 +63,7 @@ class KeptFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addKeep(Builder $builder)
+    protected function addKeep(Builder $builder): void
     {
         $builder->macro('keep', function (Builder $builder) {
             $builder->withUnkept();
@@ -76,7 +78,7 @@ class KeptFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnkeep(Builder $builder)
+    protected function addUnkeep(Builder $builder): void
     {
         $builder->macro('unkeep', function (Builder $builder) {
             return $builder->update(['is_kept' => 0]);
@@ -89,7 +91,7 @@ class KeptFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnkept(Builder $builder)
+    protected function addWithUnkept(Builder $builder): void
     {
         $builder->macro('withUnkept', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -102,7 +104,7 @@ class KeptFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnkept(Builder $builder)
+    protected function addWithoutUnkept(Builder $builder): void
     {
         $builder->macro('withoutUnkept', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_kept', 1);
@@ -115,7 +117,7 @@ class KeptFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnkept(Builder $builder)
+    protected function addOnlyUnkept(Builder $builder): void
     {
         $builder->macro('onlyUnkept', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_kept', 0);

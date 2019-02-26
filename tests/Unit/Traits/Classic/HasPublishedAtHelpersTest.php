@@ -9,16 +9,18 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class HasPublishedAtHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_published_flag()
+    public function it_can_set_published_flag(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
@@ -30,7 +32,7 @@ class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_published_flag()
+    public function it_can_unset_published_flag(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),
@@ -42,7 +44,7 @@ class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_published()
+    public function it_can_check_if_entity_is_published(): void
     {
         $publishedEntity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),
@@ -57,7 +59,7 @@ class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unpublished()
+    public function it_can_check_if_entity_is_unpublished(): void
     {
         $publishedEntity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),
@@ -72,7 +74,7 @@ class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_publish_entity()
+    public function it_can_publish_entity(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
@@ -84,7 +86,7 @@ class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unpublish_entity()
+    public function it_can_unpublish_entity(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Carbon::now(),

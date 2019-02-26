@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 trait HasAcceptedFlagHelpers
@@ -42,7 +44,7 @@ trait HasAcceptedFlagHelpers
      *
      * @return bool
      */
-    public function isAccepted()
+    public function isAccepted(): bool
     {
         return (bool) $this->getAttributeValue('is_accepted');
     }
@@ -52,7 +54,7 @@ trait HasAcceptedFlagHelpers
      *
      * @return bool
      */
-    public function isRejected()
+    public function isRejected(): bool
     {
         return !$this->isAccepted();
     }
@@ -62,7 +64,7 @@ trait HasAcceptedFlagHelpers
      *
      * @return void
      */
-    public function accept()
+    public function accept(): void
     {
         $this->setAcceptedFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasAcceptedFlagHelpers
      *
      * @return void
      */
-    public function reject()
+    public function reject(): void
     {
         $this->unsetAcceptedFlag()->save();
 

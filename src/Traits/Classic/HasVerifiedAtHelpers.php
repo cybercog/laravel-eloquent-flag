@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 trait HasVerifiedAtHelpers
 {
@@ -44,7 +46,7 @@ trait HasVerifiedAtHelpers
      *
      * @return bool
      */
-    public function isVerified()
+    public function isVerified(): bool
     {
         return !is_null($this->getAttributeValue('verified_at'));
     }
@@ -54,7 +56,7 @@ trait HasVerifiedAtHelpers
      *
      * @return bool
      */
-    public function isUnverified()
+    public function isUnverified(): bool
     {
         return !$this->isVerified();
     }
@@ -64,7 +66,7 @@ trait HasVerifiedAtHelpers
      *
      * @return void
      */
-    public function verify()
+    public function verify(): void
     {
         $this->setVerifiedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasVerifiedAtHelpers
      *
      * @return void
      */
-    public function unverify()
+    public function unverify(): void
     {
         $this->unsetVerifiedFlag()->save();
 
