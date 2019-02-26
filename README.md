@@ -140,7 +140,7 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 ## License
 
-- `Laravel Eloquent Flag` package is open-sourced software licensed under the [MIT license](LICENSE) by Anton Komarev.
+- `Laravel Eloquent Flag` package is open-sourced software licensed under the [MIT license](LICENSE) by [Anton Komarev](https://github.com/antonkomarev).
 - `Clock` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Rudez Studio.
 
 ## About CyberCog
