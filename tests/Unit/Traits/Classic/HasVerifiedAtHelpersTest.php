@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasVerifiedAtHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Classic
- */
 class HasVerifiedAtHelpersTest extends TestCase
 {
     /** @test */

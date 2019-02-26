@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasArchivedAt.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasArchivedAt
 {
     use HasArchivedAtHelpers;

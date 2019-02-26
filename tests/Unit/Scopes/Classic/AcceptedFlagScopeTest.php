@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class AcceptedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class AcceptedFlagScopeTest extends TestCase
 {
     /** @test */

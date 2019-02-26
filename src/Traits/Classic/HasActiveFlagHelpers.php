@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasActiveFlagHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasActiveFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasActiveFlagHelpers
      */
     public function setActivatedFlag()
     {
-        $this->is_active = true;
+        $this->setAttribute('is_active', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasActiveFlagHelpers
      */
     public function unsetActivatedFlag()
     {
-        $this->is_active = false;
+        $this->setAttribute('is_active', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasActiveFlagHelpers
      */
     public function isActivated()
     {
-        return (bool) $this->is_active;
+        return (bool) $this->getAttributeValue('is_active');
     }
 
     /**

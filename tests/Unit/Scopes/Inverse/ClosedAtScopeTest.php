@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class ClosedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class ClosedAtScopeTest extends TestCase
 {
     /** @test */

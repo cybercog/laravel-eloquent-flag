@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-/**
- * Class EntityWithInvitedFlagUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithInvitedFlagUnapplied extends EntityWithInvitedFlag
 {
     /**

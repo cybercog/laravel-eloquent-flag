@@ -13,11 +13,6 @@ namespace Cog\Flag\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-/**
- * Class FlagServiceProvider.
- *
- * @package Cog\Flag\Providers
- */
 class FlagServiceProvider extends ServiceProvider
 {
     // :TODO: Register console commands to create migrations from stubs

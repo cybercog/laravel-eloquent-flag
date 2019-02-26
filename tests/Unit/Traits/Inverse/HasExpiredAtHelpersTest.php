@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasExpiredAtHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Inverse
- */
 class HasExpiredAtHelpersTest extends TestCase
 {
     /** @test */

@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasApprovedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasApprovedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasApprovedFlagHelpers
      */
     public function setApprovedFlag()
     {
-        $this->is_approved = true;
+        $this->setAttribute('is_approved', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasApprovedFlagHelpers
      */
     public function unsetApprovedFlag()
     {
-        $this->is_approved = false;
+        $this->setAttribute('is_approved', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasApprovedFlagHelpers
      */
     public function isApproved()
     {
-        return (bool) $this->is_approved;
+        return (bool) $this->getAttributeValue('is_approved');
     }
 
     /**

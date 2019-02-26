@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasInvitedFlagHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Classic
- */
 class HasInvitedFlagHelpersTest extends TestCase
 {
     /** @test */

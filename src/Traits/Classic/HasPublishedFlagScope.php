@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\PublishedFlagScope;
 
-/**
- * Class HasPublishedFlagScope.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasPublishedFlagScope
 {
     /**

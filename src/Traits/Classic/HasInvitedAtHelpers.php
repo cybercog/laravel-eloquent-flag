@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
 
-/**
- * Class HasInvitedAtHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasInvitedAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasInvitedAtHelpers
      */
     public function setInvitedFlag()
     {
-        $this->invited_at = Carbon::now();
+        $this->setAttribute('invited_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasInvitedAtHelpers
      */
     public function unsetInvitedFlag()
     {
-        $this->invited_at = null;
+        $this->setAttribute('invited_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasInvitedAtHelpers
      */
     public function isInvited()
     {
-        return !is_null($this->invited_at);
+        return !is_null($this->getAttributeValue('invited_at'));
     }
 
     /**

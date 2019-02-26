@@ -16,11 +16,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class ArchivedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class ArchivedAtScopeTest extends TestCase
 {
     /** @test */

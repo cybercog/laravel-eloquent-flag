@@ -16,11 +16,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class VerifiedAtScope.
- *
- * @package Cog\Flag\Scopes\Classic
- */
 class VerifiedAtScope implements Scope
 {
     /**
@@ -28,7 +23,13 @@ class VerifiedAtScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Verify', 'Unverify', 'WithUnverified', 'WithoutUnverified', 'OnlyUnverified'];
+    protected $extensions = [
+        'Verify',
+        'Unverify',
+        'WithUnverified',
+        'WithoutUnverified',
+        'OnlyUnverified',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

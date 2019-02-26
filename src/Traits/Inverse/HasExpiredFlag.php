@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasExpiredFlag.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasExpiredFlag
 {
     use HasExpiredFlagHelpers;

@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasEndedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasEndedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasEndedFlagHelpers
      */
     public function setEndedFlag()
     {
-        $this->is_ended = true;
+        $this->setAttribute('is_ended', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasEndedFlagHelpers
      */
     public function unsetEndedFlag()
     {
-        $this->is_ended = false;
+        $this->setAttribute('is_ended', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasEndedFlagHelpers
      */
     public function isEnded()
     {
-        return (bool) $this->is_ended;
+        return (bool) $this->getAttributeValue('is_ended');
     }
 
     /**

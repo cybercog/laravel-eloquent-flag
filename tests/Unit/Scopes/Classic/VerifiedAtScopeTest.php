@@ -16,11 +16,6 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class VerifiedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class VerifiedAtScopeTest extends TestCase
 {
     /** @test */

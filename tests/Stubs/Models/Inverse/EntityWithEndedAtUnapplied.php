@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-/**
- * Class EntityWithEndedAtUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Inverse
- */
 class EntityWithEndedAtUnapplied extends EntityWithEndedAt
 {
     /**

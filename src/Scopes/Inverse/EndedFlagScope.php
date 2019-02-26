@@ -15,11 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class EndedFlagScope.
- *
- * @package Cog\Flag\Scopes\Inverse
- */
 class EndedFlagScope implements Scope
 {
     /**
@@ -27,7 +22,13 @@ class EndedFlagScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Unend', 'End', 'WithEnded', 'WithoutEnded', 'OnlyEnded'];
+    protected $extensions = [
+        'Unend',
+        'End',
+        'WithEnded',
+        'WithoutEnded',
+        'OnlyEnded',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

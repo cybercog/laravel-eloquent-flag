@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasExpiredFlag;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithExpiredFlag.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Inverse
- */
 class EntityWithExpiredFlag extends Model
 {
     use HasExpiredFlag;

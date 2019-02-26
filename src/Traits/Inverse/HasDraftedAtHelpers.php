@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
 
-/**
- * Class HasDraftedAtHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasDraftedAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasDraftedAtHelpers
      */
     public function setDraftedFlag()
     {
-        $this->drafted_at = Carbon::now();
+        $this->setAttribute('drafted_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasDraftedAtHelpers
      */
     public function unsetDraftedFlag()
     {
-        $this->drafted_at = null;
+        $this->setAttribute('drafted_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasDraftedAtHelpers
      */
     public function isDrafted()
     {
-        return !is_null($this->drafted_at);
+        return !is_null($this->getAttributeValue('drafted_at'));
     }
 
     /**

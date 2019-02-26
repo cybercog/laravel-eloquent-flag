@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasPublishedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasPublishedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasPublishedFlagHelpers
      */
     public function setPublishedFlag()
     {
-        $this->is_published = true;
+        $this->setAttribute('is_published', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasPublishedFlagHelpers
      */
     public function unsetPublishedFlag()
     {
-        $this->is_published = false;
+        $this->setAttribute('is_published', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasPublishedFlagHelpers
      */
     public function isPublished()
     {
-        return (bool) $this->is_published;
+        return (bool) $this->getAttributeValue('is_published');
     }
 
     /**

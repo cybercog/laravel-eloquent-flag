@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasKeptFlagHelperTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Classic
- */
 class HasKeptFlagHelperTest extends TestCase
 {
     /** @test */

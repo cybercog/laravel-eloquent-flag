@@ -16,11 +16,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class PublishedAtScope.
- *
- * @package Cog\Flag\Scopes\Classic
- */
 class PublishedAtScope implements Scope
 {
     /**
@@ -28,7 +23,13 @@ class PublishedAtScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Publish', 'Unpublish', 'WithUnpublished', 'WithoutUnpublished', 'OnlyUnpublished'];
+    protected $extensions = [
+        'Publish',
+        'Unpublish',
+        'WithUnpublished',
+        'WithoutUnpublished',
+        'OnlyUnpublished',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

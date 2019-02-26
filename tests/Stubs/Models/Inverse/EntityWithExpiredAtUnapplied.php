@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-/**
- * Class EntityWithExpiredAtUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Inverse
- */
 class EntityWithExpiredAtUnapplied extends EntityWithExpiredAt
 {
     /**

@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasClosedFlag;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithClosedFlag.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Inverse
- */
 class EntityWithClosedFlag extends Model
 {
     use HasClosedFlag;

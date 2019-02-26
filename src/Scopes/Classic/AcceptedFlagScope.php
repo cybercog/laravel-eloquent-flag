@@ -15,11 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class AcceptedFlagScope.
- *
- * @package Cog\Flag\Scopes\Classic
- */
 class AcceptedFlagScope implements Scope
 {
     /**
@@ -27,7 +22,13 @@ class AcceptedFlagScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Accept', 'Reject', 'WithRejected', 'WithoutRejected', 'OnlyRejected'];
+    protected $extensions = [
+        'Accept',
+        'Reject',
+        'WithRejected',
+        'WithoutRejected',
+        'OnlyRejected',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

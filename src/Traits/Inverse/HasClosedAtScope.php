@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\ClosedAtScope;
 
-/**
- * Class HasClosedAtScope.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasClosedAtScope
 {
     /**

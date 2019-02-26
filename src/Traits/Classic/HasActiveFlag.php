@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasActiveFlag.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasActiveFlag
 {
     use HasActiveFlagHelpers;

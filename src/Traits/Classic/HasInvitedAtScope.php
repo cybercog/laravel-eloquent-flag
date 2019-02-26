@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\InvitedAtScope;
 
-/**
- * Class HasInvitedAtScope.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasInvitedAtScope
 {
     /**

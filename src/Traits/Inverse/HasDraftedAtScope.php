@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\DraftedAtScope;
 
-/**
- * Class HasDraftedAtScope.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasDraftedAtScope
 {
     /**

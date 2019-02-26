@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasExpiredAt;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithExpiredAt.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Inverse
- */
 class EntityWithExpiredAt extends Model
 {
     use HasExpiredAt;

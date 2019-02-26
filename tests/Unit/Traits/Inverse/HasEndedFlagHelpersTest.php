@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasEndedFlagHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Inverse
- */
 class HasEndedFlagHelpersTest extends TestCase
 {
     /** @test */

@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\AcceptedAtScope;
 
-/**
- * Class HasAcceptedAtScope.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasAcceptedAtScope
 {
     /**

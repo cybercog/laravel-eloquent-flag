@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasInvitedAt;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithInvitedAt.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithInvitedAt extends Model
 {
     use HasInvitedAt;

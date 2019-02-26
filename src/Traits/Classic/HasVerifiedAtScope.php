@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\VerifiedAtScope;
 
-/**
- * Class HasVerifiedAtScope.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasVerifiedAtScope
 {
     /**

@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
 
-/**
- * Class HasEndedAtHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasEndedAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasEndedAtHelpers
      */
     public function setEndedFlag()
     {
-        $this->ended_at = Carbon::now();
+        $this->setAttribute('ended_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasEndedAtHelpers
      */
     public function unsetEndedFlag()
     {
-        $this->ended_at = null;
+        $this->setAttribute('ended_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasEndedAtHelpers
      */
     public function isEnded()
     {
-        return !is_null($this->ended_at);
+        return !is_null($this->getAttributeValue('ended_at'));
     }
 
     /**

@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasVerifiedFlag;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithVerifiedFlag.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithVerifiedFlag extends Model
 {
     use HasVerifiedFlag;

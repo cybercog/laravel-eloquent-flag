@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
 
-/**
- * Class HasExpiredAtHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasExpiredAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasExpiredAtHelpers
      */
     public function setExpiredFlag()
     {
-        $this->expired_at = Carbon::now();
+        $this->setAttribute('expired_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasExpiredAtHelpers
      */
     public function unsetExpiredFlag()
     {
-        $this->expired_at = null;
+        $this->setAttribute('expired_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasExpiredAtHelpers
      */
     public function isExpired()
     {
-        return !is_null($this->expired_at);
+        return !is_null($this->getAttributeValue('expired_at'));
     }
 
     /**

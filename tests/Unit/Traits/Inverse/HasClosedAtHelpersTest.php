@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasClosedAtHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Inverse
- */
 class HasClosedAtHelpersTest extends TestCase
 {
     /** @test */

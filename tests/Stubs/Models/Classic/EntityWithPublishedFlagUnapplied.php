@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-/**
- * Class EntityWithPublishedFlagUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithPublishedFlagUnapplied extends EntityWithPublishedFlag
 {
     /**

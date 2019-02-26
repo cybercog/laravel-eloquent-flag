@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class ActiveFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class ActiveFlagScopeTest extends TestCase
 {
     /** @test */

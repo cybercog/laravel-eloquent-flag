@@ -16,11 +16,6 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class PublishedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class PublishedAtScopeTest extends TestCase
 {
     /** @test */

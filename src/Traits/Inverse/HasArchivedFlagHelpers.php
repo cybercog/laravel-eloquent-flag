@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasArchivedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasArchivedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasArchivedFlagHelpers
      */
     public function setArchivedFlag()
     {
-        $this->is_archived = true;
+        $this->setAttribute('is_archived', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasArchivedFlagHelpers
      */
     public function unsetArchivedFlag()
     {
-        $this->is_archived = false;
+        $this->setAttribute('is_archived', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasArchivedFlagHelpers
      */
     public function isArchived()
     {
-        return (bool) $this->is_archived;
+        return (bool) $this->getAttributeValue('is_archived');
     }
 
     /**

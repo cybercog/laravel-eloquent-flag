@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-/**
- * Class EntityWithVerifiedFlagUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithVerifiedFlagUnapplied extends EntityWithVerifiedFlag
 {
     /**

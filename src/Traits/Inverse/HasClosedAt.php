@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasClosedAt.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasClosedAt
 {
     use HasClosedAtHelpers;

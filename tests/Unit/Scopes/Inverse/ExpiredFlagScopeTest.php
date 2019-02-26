@@ -15,11 +15,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class ExpiredFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class ExpiredFlagScopeTest extends TestCase
 {
     /** @test */

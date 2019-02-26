@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasInvitedAt.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasInvitedAt
 {
     use HasInvitedAtHelpers;

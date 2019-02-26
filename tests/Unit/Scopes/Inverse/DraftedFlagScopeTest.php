@@ -15,11 +15,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class DraftedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class DraftedFlagScopeTest extends TestCase
 {
     /** @test */

@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasVerifiedAt;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithVerifiedAt.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithVerifiedAt extends Model
 {
     use HasVerifiedAt;
