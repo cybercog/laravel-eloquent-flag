@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasVerifiedFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_verified_flag()
+    public function it_can_set_verified_flag(): void
     {
         $entity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => false,
@@ -29,7 +31,7 @@ class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_verified_flag()
+    public function it_can_unset_verified_flag(): void
     {
         $entity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,
@@ -41,7 +43,7 @@ class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_verified()
+    public function it_can_check_if_entity_is_verified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,
@@ -56,7 +58,7 @@ class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unverified()
+    public function it_can_check_if_entity_is_unverified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,
@@ -71,7 +73,7 @@ class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_verify_entity()
+    public function it_can_verify_entity(): void
     {
         $entity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => false,
@@ -83,7 +85,7 @@ class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unverify_entity()
+    public function it_can_unverify_entity(): void
     {
         $entity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,

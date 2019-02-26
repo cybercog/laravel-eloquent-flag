@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class HasKeptFlagHelperTest extends TestCase
 {
     /** @test */
-    public function it_can_set_kept_flag()
+    public function it_can_set_kept_flag(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => false,
@@ -30,7 +32,7 @@ class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_kept_flag()
+    public function it_can_unset_kept_flag(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
@@ -42,7 +44,7 @@ class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_kept()
+    public function it_can_check_if_entity_is_kept(): void
     {
         $keptEntity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
@@ -57,7 +59,7 @@ class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unkept()
+    public function it_can_check_if_entity_is_unkept(): void
     {
         $keptEntity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
@@ -72,7 +74,7 @@ class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_verify_entity()
+    public function it_can_verify_entity(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => false,
@@ -84,7 +86,7 @@ class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unkeep_entity()
+    public function it_can_unkeep_entity(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
@@ -96,7 +98,7 @@ class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_unkept_older_than_hours()
+    public function it_can_get_unkept_older_than_hours(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,

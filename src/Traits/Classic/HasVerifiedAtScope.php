@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\VerifiedAtScope;
@@ -20,7 +22,7 @@ trait HasVerifiedAtScope
      *
      * @return void
      */
-    public static function bootHasVerifiedAtScope()
+    public static function bootHasVerifiedAtScope(): void
     {
         static::addGlobalScope(new VerifiedAtScope);
     }

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class ApprovedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_approved()
+    public function it_can_get_only_approved(): void
     {
         factory(EntityWithApprovedFlag::class, 3)->create([
             'is_approved' => true,
@@ -32,7 +34,7 @@ class ApprovedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_disapproved()
+    public function it_can_get_without_disapproved(): void
     {
         factory(EntityWithApprovedFlag::class, 3)->create([
             'is_approved' => true,
@@ -47,7 +49,7 @@ class ApprovedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_disapproved()
+    public function it_can_get_with_disapproved(): void
     {
         factory(EntityWithApprovedFlag::class, 3)->create([
             'is_approved' => true,
@@ -62,7 +64,7 @@ class ApprovedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_disapproved()
+    public function it_can_get_only_disapproved(): void
     {
         factory(EntityWithApprovedFlag::class, 3)->create([
             'is_approved' => true,
@@ -77,7 +79,7 @@ class ApprovedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_approve_model()
+    public function it_can_approve_model(): void
     {
         $model = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => false,
@@ -91,7 +93,7 @@ class ApprovedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_disapprove_model()
+    public function it_can_disapprove_model(): void
     {
         $model = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,

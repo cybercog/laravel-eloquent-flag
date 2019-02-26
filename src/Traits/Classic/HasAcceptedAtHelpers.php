@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
@@ -44,7 +46,7 @@ trait HasAcceptedAtHelpers
      *
      * @return bool
      */
-    public function isAccepted()
+    public function isAccepted(): bool
     {
         return !is_null($this->getAttributeValue('accepted_at'));
     }
@@ -54,7 +56,7 @@ trait HasAcceptedAtHelpers
      *
      * @return bool
      */
-    public function isRejected()
+    public function isRejected(): bool
     {
         return !$this->isAccepted();
     }
@@ -64,7 +66,7 @@ trait HasAcceptedAtHelpers
      *
      * @return void
      */
-    public function accept()
+    public function accept(): void
     {
         $this->setAcceptedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasAcceptedAtHelpers
      *
      * @return void
      */
-    public function reject()
+    public function reject(): void
     {
         $this->unsetAcceptedFlag()->save();
 

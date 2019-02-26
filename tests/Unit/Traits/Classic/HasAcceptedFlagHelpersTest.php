@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasAcceptedFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_accepted_flag()
+    public function it_can_set_accepted_flag(): void
     {
         $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => false,
@@ -29,7 +31,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_accepted_flag()
+    public function it_can_unset_accepted_flag(): void
     {
         $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
@@ -41,7 +43,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_accepted()
+    public function it_can_check_if_entity_is_accepted(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
@@ -56,7 +58,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_rejected()
+    public function it_can_check_if_entity_is_rejected(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
@@ -71,7 +73,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_accept_entity()
+    public function it_can_accept_entity(): void
     {
         $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => false,
@@ -83,7 +85,7 @@ class HasAcceptedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_entity()
+    public function it_can_reject_entity(): void
     {
         $entity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,

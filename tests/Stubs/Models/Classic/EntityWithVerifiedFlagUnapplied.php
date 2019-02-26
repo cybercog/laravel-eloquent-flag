@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
 class EntityWithVerifiedFlagUnapplied extends EntityWithVerifiedFlag
@@ -18,7 +20,7 @@ class EntityWithVerifiedFlagUnapplied extends EntityWithVerifiedFlag
      *
      * @return bool
      */
-    public function shouldApplyVerifiedFlagScope()
+    public function shouldApplyVerifiedFlagScope(): bool
     {
         return false;
     }

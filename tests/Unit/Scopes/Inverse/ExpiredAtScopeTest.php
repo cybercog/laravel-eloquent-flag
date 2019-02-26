@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Carbon\Carbon;
@@ -19,7 +21,7 @@ use Cog\Tests\Flag\TestCase;
 class ExpiredAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_expired()
+    public function it_can_get_only_not_expired(): void
     {
         factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => Carbon::now()->subDay(),
@@ -34,7 +36,7 @@ class ExpiredAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_expired()
+    public function it_can_get_without_expired(): void
     {
         factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => Carbon::now()->subDay(),
@@ -49,7 +51,7 @@ class ExpiredAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_expired()
+    public function it_can_get_with_expired(): void
     {
         factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => Carbon::now()->subDay(),
@@ -64,7 +66,7 @@ class ExpiredAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_expired()
+    public function it_can_get_only_expired(): void
     {
         factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => Carbon::now()->subDay(),
@@ -79,7 +81,7 @@ class ExpiredAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unexpire_model()
+    public function it_can_unexpire_model(): void
     {
         $model = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => Carbon::now()->subDay(),
@@ -93,7 +95,7 @@ class ExpiredAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_expire_model()
+    public function it_can_expire_model(): void
     {
         $model = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => null,
@@ -107,7 +109,7 @@ class ExpiredAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithExpiredAt::class, 3)->create([
             'expired_at' => Carbon::now()->subDay(),

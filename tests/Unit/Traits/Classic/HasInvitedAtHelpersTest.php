@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class HasInvitedAtHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_invited_flag()
+    public function it_can_set_invited_flag(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => null,
@@ -30,7 +32,7 @@ class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_invited_flag()
+    public function it_can_unset_invited_flag(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => Carbon::now(),
@@ -42,7 +44,7 @@ class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_invited()
+    public function it_can_check_if_entity_is_invited(): void
     {
         $invitedEntity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => Carbon::now(),
@@ -57,7 +59,7 @@ class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_uninvited()
+    public function it_can_check_if_entity_is_uninvited(): void
     {
         $invitedEntity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => Carbon::now(),
@@ -72,7 +74,7 @@ class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_invite_entity()
+    public function it_can_invite_entity(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => null,
@@ -84,7 +86,7 @@ class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_uninvite_entity()
+    public function it_can_uninvite_entity(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => Carbon::now(),

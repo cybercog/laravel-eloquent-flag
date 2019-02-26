@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class ExpiredFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_expired()
+    public function it_can_get_only_not_expired(): void
     {
         factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => true,
@@ -33,7 +35,7 @@ class ExpiredFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_expired()
+    public function it_can_get_without_expired(): void
     {
         factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => true,
@@ -48,7 +50,7 @@ class ExpiredFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_expired()
+    public function it_can_get_with_expired(): void
     {
         factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => true,
@@ -63,7 +65,7 @@ class ExpiredFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_expired()
+    public function it_can_get_only_expired(): void
     {
         factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => true,
@@ -78,7 +80,7 @@ class ExpiredFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unexpire_model()
+    public function it_can_unexpire_model(): void
     {
         $model = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
@@ -92,7 +94,7 @@ class ExpiredFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_expire_model()
+    public function it_can_expire_model(): void
     {
         $model = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => false,
@@ -106,7 +108,7 @@ class ExpiredFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithExpiredFlag::class, 3)->create([
             'is_expired' => true,

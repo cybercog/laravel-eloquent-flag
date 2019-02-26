@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
@@ -44,7 +46,7 @@ trait HasEndedAtHelpers
      *
      * @return bool
      */
-    public function isEnded()
+    public function isEnded(): bool
     {
         return !is_null($this->getAttributeValue('ended_at'));
     }
@@ -54,7 +56,7 @@ trait HasEndedAtHelpers
      *
      * @return bool
      */
-    public function isUnended()
+    public function isUnended(): bool
     {
         return !$this->isEnded();
     }
@@ -64,7 +66,7 @@ trait HasEndedAtHelpers
      *
      * @return void
      */
-    public function end()
+    public function end(): void
     {
         $this->setEndedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasEndedAtHelpers
      *
      * @return void
      */
-    public function unend()
+    public function unend(): void
     {
         $this->unsetEndedFlag()->save();
 

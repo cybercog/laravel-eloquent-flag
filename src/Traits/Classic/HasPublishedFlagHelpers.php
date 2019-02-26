@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 trait HasPublishedFlagHelpers
@@ -42,7 +44,7 @@ trait HasPublishedFlagHelpers
      *
      * @return bool
      */
-    public function isPublished()
+    public function isPublished(): bool
     {
         return (bool) $this->getAttributeValue('is_published');
     }
@@ -52,7 +54,7 @@ trait HasPublishedFlagHelpers
      *
      * @return bool
      */
-    public function isUnpublished()
+    public function isUnpublished(): bool
     {
         return !$this->isPublished();
     }
@@ -62,7 +64,7 @@ trait HasPublishedFlagHelpers
      *
      * @return void
      */
-    public function publish()
+    public function publish(): void
     {
         $this->setPublishedFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasPublishedFlagHelpers
      *
      * @return void
      */
-    public function unpublish()
+    public function unpublish(): void
     {
         $this->unsetPublishedFlag()->save();
 

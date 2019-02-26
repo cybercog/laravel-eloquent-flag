@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
@@ -44,7 +46,7 @@ trait HasInvitedAtHelpers
      *
      * @return bool
      */
-    public function isInvited()
+    public function isInvited(): bool
     {
         return !is_null($this->getAttributeValue('invited_at'));
     }
@@ -54,7 +56,7 @@ trait HasInvitedAtHelpers
      *
      * @return bool
      */
-    public function isUninvited()
+    public function isUninvited(): bool
     {
         return !$this->isInvited();
     }
@@ -64,7 +66,7 @@ trait HasInvitedAtHelpers
      *
      * @return void
      */
-    public function invite()
+    public function invite(): void
     {
         $this->setInvitedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasInvitedAtHelpers
      *
      * @return void
      */
-    public function uninvite()
+    public function uninvite(): void
     {
         $this->unsetInvitedFlag()->save();
 

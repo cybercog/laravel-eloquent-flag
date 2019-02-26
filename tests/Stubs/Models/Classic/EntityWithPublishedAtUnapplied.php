@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
 class EntityWithPublishedAtUnapplied extends EntityWithPublishedAt
@@ -18,7 +20,7 @@ class EntityWithPublishedAtUnapplied extends EntityWithPublishedAt
      *
      * @return bool
      */
-    public function shouldApplyPublishedAtScope()
+    public function shouldApplyPublishedAtScope(): bool
     {
         return false;
     }

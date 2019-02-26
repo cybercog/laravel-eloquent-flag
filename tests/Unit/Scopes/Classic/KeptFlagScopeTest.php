@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class KeptFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_kept_models()
+    public function it_can_get_only_kept_models(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
@@ -32,7 +34,7 @@ class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unkept()
+    public function it_can_get_without_unkept(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
@@ -47,7 +49,7 @@ class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_unkept()
+    public function it_can_get_with_unkept(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
@@ -62,7 +64,7 @@ class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_unkept()
+    public function it_can_get_only_unkept(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
@@ -77,7 +79,7 @@ class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_keep_model()
+    public function it_can_keep_model(): void
     {
         $model = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => false,
@@ -91,7 +93,7 @@ class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unkeep_model()
+    public function it_can_unkeep_model(): void
     {
         $model = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasActiveFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_active_flag()
+    public function it_can_set_active_flag(): void
     {
         $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
@@ -29,7 +31,7 @@ class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_active_flag()
+    public function it_can_unset_active_flag(): void
     {
         $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
@@ -41,7 +43,7 @@ class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_active()
+    public function it_can_check_if_entity_is_active(): void
     {
         $activatedEntity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
@@ -56,7 +58,7 @@ class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_deactivated()
+    public function it_can_check_if_entity_is_deactivated(): void
     {
         $activatedEntity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
@@ -71,7 +73,7 @@ class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_accept_entity()
+    public function it_can_accept_entity(): void
     {
         $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
@@ -83,7 +85,7 @@ class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_entity()
+    public function it_can_reject_entity(): void
     {
         $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,

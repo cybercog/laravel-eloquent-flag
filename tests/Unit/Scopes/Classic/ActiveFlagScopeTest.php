@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class ActiveFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_active()
+    public function it_can_get_only_active(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -32,7 +34,7 @@ class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_deactivated()
+    public function it_can_get_without_deactivated(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -47,7 +49,7 @@ class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_deactivated()
+    public function it_can_get_with_deactivated(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -62,7 +64,7 @@ class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_deactivated()
+    public function it_can_get_only_deactivated(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -77,7 +79,7 @@ class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_activate_model()
+    public function it_can_activate_model(): void
     {
         $model = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
@@ -91,7 +93,7 @@ class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_deactivate_model()
+    public function it_can_deactivate_model(): void
     {
         $model = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,

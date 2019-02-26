@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class ArchivedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_archived()
+    public function it_can_get_only_not_archived(): void
     {
         factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => true,
@@ -33,7 +35,7 @@ class ArchivedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_archived()
+    public function it_can_get_without_archived(): void
     {
         factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => true,
@@ -48,7 +50,7 @@ class ArchivedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_archived()
+    public function it_can_get_with_archived(): void
     {
         factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => true,
@@ -63,7 +65,7 @@ class ArchivedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_archived()
+    public function it_can_get_only_archived(): void
     {
         factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => true,
@@ -78,7 +80,7 @@ class ArchivedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unarchive_model()
+    public function it_can_unarchive_model(): void
     {
         $model = factory(EntityWithArchivedFlag::class)->create([
             'is_archived' => true,
@@ -92,7 +94,7 @@ class ArchivedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_archive_model()
+    public function it_can_archive_model(): void
     {
         $model = factory(EntityWithArchivedFlag::class)->create([
             'is_archived' => false,
@@ -106,7 +108,7 @@ class ArchivedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithArchivedFlag::class, 3)->create([
             'is_archived' => true,

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasPublishedFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_published_flag()
+    public function it_can_set_published_flag(): void
     {
         $entity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => false,
@@ -29,7 +31,7 @@ class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_published_flag()
+    public function it_can_unset_published_flag(): void
     {
         $entity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,
@@ -41,7 +43,7 @@ class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_published()
+    public function it_can_check_if_entity_is_published(): void
     {
         $publishedEntity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,
@@ -56,7 +58,7 @@ class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unpublished()
+    public function it_can_check_if_entity_is_unpublished(): void
     {
         $publishedEntity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,
@@ -71,7 +73,7 @@ class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_publish_entity()
+    public function it_can_publish_entity(): void
     {
         $entity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => false,
@@ -83,7 +85,7 @@ class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unpublish_entity()
+    public function it_can_unpublish_entity(): void
     {
         $entity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,

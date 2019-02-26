@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 trait HasDraftedFlagHelpers
@@ -42,7 +44,7 @@ trait HasDraftedFlagHelpers
      *
      * @return bool
      */
-    public function isDrafted()
+    public function isDrafted(): bool
     {
         return (bool) $this->getAttributeValue('is_drafted');
     }
@@ -52,7 +54,7 @@ trait HasDraftedFlagHelpers
      *
      * @return bool
      */
-    public function isUndrafted()
+    public function isUndrafted(): bool
     {
         return !$this->isDrafted();
     }
@@ -62,7 +64,7 @@ trait HasDraftedFlagHelpers
      *
      * @return void
      */
-    public function draft()
+    public function draft(): void
     {
         $this->setDraftedFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasDraftedFlagHelpers
      *
      * @return void
      */
-    public function undraft()
+    public function undraft(): void
     {
         $this->unsetDraftedFlag()->save();
 

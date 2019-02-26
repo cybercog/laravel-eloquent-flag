@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class HasApprovedAtHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_approved_flag()
+    public function it_can_set_approved_flag(): void
     {
         $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => null,
@@ -30,7 +32,7 @@ class HasApprovedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_approved_flag()
+    public function it_can_unset_approved_flag(): void
     {
         $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),
@@ -42,7 +44,7 @@ class HasApprovedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_approved()
+    public function it_can_check_if_entity_is_approved(): void
     {
         $approvedEntity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),
@@ -57,7 +59,7 @@ class HasApprovedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_disapproved()
+    public function it_can_check_if_entity_is_disapproved(): void
     {
         $approvedEntity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),
@@ -72,7 +74,7 @@ class HasApprovedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_approve_entity()
+    public function it_can_approve_entity(): void
     {
         $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => null,
@@ -84,7 +86,7 @@ class HasApprovedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_disapprove_entity()
+    public function it_can_disapprove_entity(): void
     {
         $entity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Carbon::now(),

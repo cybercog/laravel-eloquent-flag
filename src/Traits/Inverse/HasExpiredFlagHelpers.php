@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 trait HasExpiredFlagHelpers
@@ -42,7 +44,7 @@ trait HasExpiredFlagHelpers
      *
      * @return bool
      */
-    public function isExpired()
+    public function isExpired(): bool
     {
         return (bool) $this->getAttributeValue('is_expired');
     }
@@ -52,7 +54,7 @@ trait HasExpiredFlagHelpers
      *
      * @return bool
      */
-    public function isUnexpired()
+    public function isUnexpired(): bool
     {
         return !$this->isExpired();
     }
@@ -62,7 +64,7 @@ trait HasExpiredFlagHelpers
      *
      * @return void
      */
-    public function expire()
+    public function expire(): void
     {
         $this->setExpiredFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasExpiredFlagHelpers
      *
      * @return void
      */
-    public function unexpire()
+    public function unexpire(): void
     {
         $this->unsetExpiredFlag()->save();
 

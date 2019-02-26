@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 trait HasKeptFlagBehavior
@@ -25,7 +27,7 @@ trait HasKeptFlagBehavior
      *
      * @return void
      */
-    public static function bootHasKeptFlagBehavior()
+    public static function bootHasKeptFlagBehavior(): void
     {
         static::creating(function ($entity) {
             if (!$entity->is_kept) {

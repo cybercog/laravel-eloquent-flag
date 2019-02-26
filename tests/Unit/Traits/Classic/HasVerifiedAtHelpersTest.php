@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class HasVerifiedAtHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_verified_flag()
+    public function it_can_set_verified_flag(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => null,
@@ -30,7 +32,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_verified_flag()
+    public function it_can_unset_verified_flag(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),
@@ -42,7 +44,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_verified()
+    public function it_can_check_if_entity_is_verified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),
@@ -57,7 +59,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unverified()
+    public function it_can_check_if_entity_is_unverified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),
@@ -72,7 +74,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_verify_entity()
+    public function it_can_verify_entity(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => null,
@@ -84,7 +86,7 @@ class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unverify_entity()
+    public function it_can_unverify_entity(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Carbon::now(),

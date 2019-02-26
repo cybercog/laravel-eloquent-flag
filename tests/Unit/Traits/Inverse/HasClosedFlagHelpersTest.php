@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasClosedFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_closed_flag()
+    public function it_can_set_closed_flag(): void
     {
         $entity = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => false,
@@ -29,7 +31,7 @@ class HasClosedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_closed_flag()
+    public function it_can_unset_closed_flag(): void
     {
         $entity = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => true,
@@ -41,7 +43,7 @@ class HasClosedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_closed()
+    public function it_can_check_if_entity_is_closed(): void
     {
         $closedEntity = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => true,
@@ -56,7 +58,7 @@ class HasClosedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_opened()
+    public function it_can_check_if_entity_is_opened(): void
     {
         $closedEntity = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => true,
@@ -71,7 +73,7 @@ class HasClosedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_close_entity()
+    public function it_can_close_entity(): void
     {
         $entity = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => false,
@@ -83,7 +85,7 @@ class HasClosedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_entity()
+    public function it_can_open_entity(): void
     {
         $entity = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => true,

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class InvitedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_invited()
+    public function it_can_get_only_invited(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -33,7 +35,7 @@ class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_uninvited()
+    public function it_can_get_without_uninvited(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -48,7 +50,7 @@ class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_uninvited()
+    public function it_can_get_with_uninvited(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -63,7 +65,7 @@ class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_uninvited()
+    public function it_can_get_only_uninvited(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -78,7 +80,7 @@ class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_invite_model()
+    public function it_can_invite_model(): void
     {
         $model = factory(EntityWithInvitedFlag::class)->create([
             'is_invited' => false,
@@ -92,7 +94,7 @@ class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_uninvite_model()
+    public function it_can_uninvite_model(): void
     {
         $model = factory(EntityWithInvitedFlag::class)->create([
             'is_invited' => true,
@@ -106,7 +108,7 @@ class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,

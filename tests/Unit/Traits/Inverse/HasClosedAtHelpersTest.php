@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class HasClosedAtHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_closed_flag()
+    public function it_can_set_closed_flag(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,
@@ -30,7 +32,7 @@ class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_closed_flag()
+    public function it_can_unset_closed_flag(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),
@@ -42,7 +44,7 @@ class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_closed()
+    public function it_can_check_if_entity_is_closed(): void
     {
         $closedEntity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),
@@ -57,7 +59,7 @@ class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_opened()
+    public function it_can_check_if_entity_is_opened(): void
     {
         $closedEntity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),
@@ -72,7 +74,7 @@ class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_close_entity()
+    public function it_can_close_entity(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,
@@ -84,7 +86,7 @@ class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_entity()
+    public function it_can_open_entity(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Carbon::now(),

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasEndedFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_ended_flag()
+    public function it_can_set_ended_flag(): void
     {
         $entity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => false,
@@ -29,7 +31,7 @@ class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_ended_flag()
+    public function it_can_unset_ended_flag(): void
     {
         $entity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,
@@ -41,7 +43,7 @@ class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_ended()
+    public function it_can_check_if_entity_is_ended(): void
     {
         $endedEntity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,
@@ -56,7 +58,7 @@ class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unended()
+    public function it_can_check_if_entity_is_unended(): void
     {
         $endedEntity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,
@@ -71,7 +73,7 @@ class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_end_entity()
+    public function it_can_end_entity(): void
     {
         $entity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => false,
@@ -83,7 +85,7 @@ class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unend_entity()
+    public function it_can_unend_entity(): void
     {
         $entity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,

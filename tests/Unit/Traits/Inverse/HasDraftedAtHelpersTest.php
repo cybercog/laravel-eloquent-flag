@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class HasDraftedAtHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_drafted_flag()
+    public function it_can_set_drafted_flag(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => null,
@@ -30,7 +32,7 @@ class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_drafted_flag()
+    public function it_can_unset_drafted_flag(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => Carbon::now(),
@@ -42,7 +44,7 @@ class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_drafted()
+    public function it_can_check_if_entity_is_drafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => Carbon::now(),
@@ -57,7 +59,7 @@ class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_undrafted()
+    public function it_can_check_if_entity_is_undrafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => Carbon::now(),
@@ -72,7 +74,7 @@ class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_draft_entity()
+    public function it_can_draft_entity(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => null,
@@ -84,7 +86,7 @@ class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_undraft_entity()
+    public function it_can_undraft_entity(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => Carbon::now(),

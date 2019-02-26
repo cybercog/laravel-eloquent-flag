@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\PublishedFlagScope;
@@ -20,7 +22,7 @@ trait HasPublishedFlagScope
      *
      * @return void
      */
-    public static function bootHasPublishedFlagScope()
+    public static function bootHasPublishedFlagScope(): void
     {
         static::addGlobalScope(new PublishedFlagScope);
     }

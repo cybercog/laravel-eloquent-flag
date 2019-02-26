@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 trait HasActiveFlagHelpers
@@ -42,7 +44,7 @@ trait HasActiveFlagHelpers
      *
      * @return bool
      */
-    public function isActivated()
+    public function isActivated(): bool
     {
         return (bool) $this->getAttributeValue('is_active');
     }
@@ -52,7 +54,7 @@ trait HasActiveFlagHelpers
      *
      * @return bool
      */
-    public function isDeactivated()
+    public function isDeactivated(): bool
     {
         return !$this->isActivated();
     }
@@ -62,7 +64,7 @@ trait HasActiveFlagHelpers
      *
      * @return void
      */
-    public function activate()
+    public function activate(): void
     {
         $this->setActivatedFlag()->save();
 
@@ -74,7 +76,7 @@ trait HasActiveFlagHelpers
      *
      * @return void
      */
-    public function deactivate()
+    public function deactivate(): void
     {
         $this->unsetActivatedFlag()->save();
 

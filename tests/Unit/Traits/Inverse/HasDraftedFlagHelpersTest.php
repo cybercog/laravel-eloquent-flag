@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
@@ -17,7 +19,7 @@ use Cog\Tests\Flag\TestCase;
 class HasDraftedFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_can_set_drafted_flag()
+    public function it_can_set_drafted_flag(): void
     {
         $entity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => false,
@@ -29,7 +31,7 @@ class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unset_drafted_flag()
+    public function it_can_unset_drafted_flag(): void
     {
         $entity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,
@@ -41,7 +43,7 @@ class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_drafted()
+    public function it_can_check_if_entity_is_drafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,
@@ -56,7 +58,7 @@ class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_undrafted()
+    public function it_can_check_if_entity_is_undrafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,
@@ -71,7 +73,7 @@ class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_draft_entity()
+    public function it_can_draft_entity(): void
     {
         $entity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => false,
@@ -83,7 +85,7 @@ class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_undraft_entity()
+    public function it_can_undraft_entity(): void
     {
         $entity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,

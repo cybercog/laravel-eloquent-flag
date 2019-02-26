@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
 class EntityWithExpiredFlagUnapplied extends EntityWithExpiredFlag
@@ -18,7 +20,7 @@ class EntityWithExpiredFlagUnapplied extends EntityWithExpiredFlag
      *
      * @return bool
      */
-    public function shouldApplyExpiredFlagScope()
+    public function shouldApplyExpiredFlagScope(): bool
     {
         return false;
     }

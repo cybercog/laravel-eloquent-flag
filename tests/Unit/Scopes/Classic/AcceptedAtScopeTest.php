@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Carbon\Carbon;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class AcceptedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_accepted()
+    public function it_can_get_only_accepted(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
             'accepted_at' => Carbon::now()->subDay(),
@@ -33,7 +35,7 @@ class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_rejected()
+    public function it_can_get_without_rejected(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
             'accepted_at' => Carbon::now()->subDay(),
@@ -48,7 +50,7 @@ class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_rejected()
+    public function it_can_get_with_rejected(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
             'accepted_at' => Carbon::now()->subDay(),
@@ -63,7 +65,7 @@ class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_rejected()
+    public function it_can_get_only_rejected(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
             'accepted_at' => Carbon::now()->subDay(),
@@ -78,7 +80,7 @@ class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_accept_model()
+    public function it_can_accept_model(): void
     {
         $model = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
@@ -92,7 +94,7 @@ class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_model()
+    public function it_can_reject_model(): void
     {
         $model = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Carbon::now()->subDay(),

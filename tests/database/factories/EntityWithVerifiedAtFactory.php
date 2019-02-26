@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
 use Faker\Generator as Faker;
 

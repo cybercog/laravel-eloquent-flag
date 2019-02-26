@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
 use Carbon\Carbon;
@@ -36,11 +38,11 @@ class AcceptedAtScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
-        return $builder->whereNotNull('accepted_at');
+        $builder->whereNotNull('accepted_at');
     }
 
     /**
@@ -49,7 +51,7 @@ class AcceptedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -62,7 +64,7 @@ class AcceptedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addAccept(Builder $builder)
+    protected function addAccept(Builder $builder): void
     {
         $builder->macro('accept', function (Builder $builder) {
             $builder->withRejected();
@@ -77,7 +79,7 @@ class AcceptedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addReject(Builder $builder)
+    protected function addReject(Builder $builder): void
     {
         $builder->macro('reject', function (Builder $builder) {
             return $builder->update(['accepted_at' => null]);
@@ -90,7 +92,7 @@ class AcceptedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithRejected(Builder $builder)
+    protected function addWithRejected(Builder $builder): void
     {
         $builder->macro('withRejected', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -103,7 +105,7 @@ class AcceptedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutRejected(Builder $builder)
+    protected function addWithoutRejected(Builder $builder): void
     {
         $builder->macro('withoutRejected', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNotNull('accepted_at');
@@ -116,7 +118,7 @@ class AcceptedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyRejected(Builder $builder)
+    protected function addOnlyRejected(Builder $builder): void
     {
         $builder->macro('onlyRejected', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNull('accepted_at');

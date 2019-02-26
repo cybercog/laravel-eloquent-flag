@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlag;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class PublishedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_published()
+    public function it_can_get_only_published(): void
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,
@@ -33,7 +35,7 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unpublished()
+    public function it_can_get_without_unpublished(): void
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,
@@ -48,7 +50,7 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_unpublished()
+    public function it_can_get_with_unpublished(): void
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,
@@ -63,7 +65,7 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_unpublished()
+    public function it_can_get_only_unpublished(): void
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,
@@ -78,7 +80,7 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_publish_model()
+    public function it_can_publish_model(): void
     {
         $model = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => false,
@@ -92,7 +94,7 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unpublish_model()
+    public function it_can_unpublish_model(): void
     {
         $model = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,
@@ -106,7 +108,7 @@ class PublishedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithPublishedFlag::class, 3)->create([
             'is_published' => true,

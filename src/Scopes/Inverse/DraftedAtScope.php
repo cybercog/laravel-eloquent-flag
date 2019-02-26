@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Inverse;
 
 use Carbon\Carbon;
@@ -36,15 +38,15 @@ class DraftedAtScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyDraftedAtScope') && !$model->shouldApplyDraftedAtScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->whereNull('drafted_at');
+        $builder->whereNull('drafted_at');
     }
 
     /**
@@ -53,7 +55,7 @@ class DraftedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -66,7 +68,7 @@ class DraftedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUndraft(Builder $builder)
+    protected function addUndraft(Builder $builder): void
     {
         $builder->macro('undraft', function (Builder $builder) {
             $builder->withDrafted();
@@ -81,7 +83,7 @@ class DraftedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addDraft(Builder $builder)
+    protected function addDraft(Builder $builder): void
     {
         $builder->macro('draft', function (Builder $builder) {
             return $builder->update(['drafted_at' => Carbon::now()]);
@@ -94,7 +96,7 @@ class DraftedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithDrafted(Builder $builder)
+    protected function addWithDrafted(Builder $builder): void
     {
         $builder->macro('withDrafted', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -107,7 +109,7 @@ class DraftedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutDrafted(Builder $builder)
+    protected function addWithoutDrafted(Builder $builder): void
     {
         $builder->macro('withoutDrafted', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNull('drafted_at');
@@ -120,7 +122,7 @@ class DraftedAtScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyDrafted(Builder $builder)
+    protected function addOnlyDrafted(Builder $builder): void
     {
         $builder->macro('onlyDrafted', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNotNull('drafted_at');

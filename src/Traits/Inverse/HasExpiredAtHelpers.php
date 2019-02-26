@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
@@ -44,7 +46,7 @@ trait HasExpiredAtHelpers
      *
      * @return bool
      */
-    public function isExpired()
+    public function isExpired(): bool
     {
         return !is_null($this->getAttributeValue('expired_at'));
     }
@@ -54,7 +56,7 @@ trait HasExpiredAtHelpers
      *
      * @return bool
      */
-    public function isUnexpired()
+    public function isUnexpired(): bool
     {
         return !$this->isExpired();
     }
@@ -64,7 +66,7 @@ trait HasExpiredAtHelpers
      *
      * @return void
      */
-    public function expire()
+    public function expire(): void
     {
         $this->setExpiredFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasExpiredAtHelpers
      *
      * @return void
      */
-    public function unexpire()
+    public function unexpire(): void
     {
         $this->unsetExpiredFlag()->save();
 

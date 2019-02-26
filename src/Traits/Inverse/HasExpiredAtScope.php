@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\ExpiredAtScope;
@@ -20,7 +22,7 @@ trait HasExpiredAtScope
      *
      * @return void
      */
-    public static function bootHasExpiredAtScope()
+    public static function bootHasExpiredAtScope(): void
     {
         static::addGlobalScope(new ExpiredAtScope);
     }

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
@@ -44,7 +46,7 @@ trait HasArchivedAtHelpers
      *
      * @return bool
      */
-    public function isArchived()
+    public function isArchived(): bool
     {
         return !is_null($this->getAttributeValue('archived_at'));
     }
@@ -54,7 +56,7 @@ trait HasArchivedAtHelpers
      *
      * @return bool
      */
-    public function isUnarchived()
+    public function isUnarchived(): bool
     {
         return !$this->isArchived();
     }
@@ -64,7 +66,7 @@ trait HasArchivedAtHelpers
      *
      * @return void
      */
-    public function archive()
+    public function archive(): void
     {
         $this->setArchivedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasArchivedAtHelpers
      *
      * @return void
      */
-    public function unarchive()
+    public function unarchive(): void
     {
         $this->unsetArchivedFlag()->save();
 

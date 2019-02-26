@@ -9,9 +9,10 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag;
 
-use Cog\Flag\Providers\FlagServiceProvider;
 use Illuminate\Support\Facades\File;
 use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -21,7 +22,7 @@ abstract class TestCase extends Orchestra
     /**
      * Actions to be performed on PHPUnit start.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -37,10 +38,9 @@ abstract class TestCase extends Orchestra
      * @param \Illuminate\Foundation\Application $app
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
-            FlagServiceProvider::class,
             ConsoleServiceProvider::class,
         ];
     }
@@ -50,7 +50,7 @@ abstract class TestCase extends Orchestra
      *
      * @return void
      */
-    protected function destroyPackageMigrations()
+    protected function destroyPackageMigrations(): void
     {
         File::cleanDirectory('vendor/orchestra/testbench-core/laravel/database/migrations');
     }
@@ -60,7 +60,7 @@ abstract class TestCase extends Orchestra
      *
      * @return void
      */
-    protected function registerMigrations()
+    protected function registerMigrations(): void
     {
         $this->loadMigrationsFrom([
             //'--database' => 'sqlite',
@@ -73,7 +73,7 @@ abstract class TestCase extends Orchestra
      *
      * @return void
      */
-    protected function migrateUnitTestTables()
+    protected function migrateUnitTestTables(): void
     {
         $this->artisan('migrate');
     }
@@ -83,7 +83,7 @@ abstract class TestCase extends Orchestra
      *
      * @return void
      */
-    protected function migrateTablesUndo()
+    protected function migrateTablesUndo(): void
     {
         $this->artisan('migrate:reset');
     }
@@ -93,7 +93,7 @@ abstract class TestCase extends Orchestra
      *
      * @return void
      */
-    private function registerPackageFactories()
+    private function registerPackageFactories(): void
     {
         $pathToFactories = realpath(__DIR__ . '/database/factories');
         $this->withFactories($pathToFactories);

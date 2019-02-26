@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
@@ -18,7 +20,7 @@ use Cog\Tests\Flag\TestCase;
 class DraftedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_drafted()
+    public function it_can_get_only_not_drafted(): void
     {
         factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => true,
@@ -33,7 +35,7 @@ class DraftedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_drafted()
+    public function it_can_get_without_drafted(): void
     {
         factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => true,
@@ -48,7 +50,7 @@ class DraftedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_drafted()
+    public function it_can_get_with_drafted(): void
     {
         factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => true,
@@ -63,7 +65,7 @@ class DraftedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_drafted()
+    public function it_can_get_only_drafted(): void
     {
         factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => true,
@@ -78,7 +80,7 @@ class DraftedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_undraft_model()
+    public function it_can_undraft_model(): void
     {
         $model = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,
@@ -92,7 +94,7 @@ class DraftedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_draft_model()
+    public function it_can_draft_model(): void
     {
         $model = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => false,
@@ -106,7 +108,7 @@ class DraftedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,

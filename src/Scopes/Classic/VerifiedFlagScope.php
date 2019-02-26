@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Classic;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,15 +37,15 @@ class VerifiedFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyVerifiedFlagScope') && !$model->shouldApplyVerifiedFlagScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->where('is_verified', 1);
+        $builder->where('is_verified', 1);
     }
 
     /**
@@ -52,7 +54,7 @@ class VerifiedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -65,7 +67,7 @@ class VerifiedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addVerify(Builder $builder)
+    protected function addVerify(Builder $builder): void
     {
         $builder->macro('verify', function (Builder $builder) {
             $builder->withUnverified();
@@ -80,7 +82,7 @@ class VerifiedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnverify(Builder $builder)
+    protected function addUnverify(Builder $builder): void
     {
         $builder->macro('unverify', function (Builder $builder) {
             return $builder->update(['is_verified' => 0]);
@@ -93,7 +95,7 @@ class VerifiedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnverified(Builder $builder)
+    protected function addWithUnverified(Builder $builder): void
     {
         $builder->macro('withUnverified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -106,7 +108,7 @@ class VerifiedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnverified(Builder $builder)
+    protected function addWithoutUnverified(Builder $builder): void
     {
         $builder->macro('withoutUnverified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_verified', 1);
@@ -119,7 +121,7 @@ class VerifiedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnverified(Builder $builder)
+    protected function addOnlyUnverified(Builder $builder): void
     {
         $builder->macro('onlyUnverified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_verified', 0);

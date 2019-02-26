@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\ClosedAtScope;
@@ -20,7 +22,7 @@ trait HasClosedAtScope
      *
      * @return void
      */
-    public static function bootHasClosedAtScope()
+    public static function bootHasClosedAtScope(): void
     {
         static::addGlobalScope(new ClosedAtScope);
     }

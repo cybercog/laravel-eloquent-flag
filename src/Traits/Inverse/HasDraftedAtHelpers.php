@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
@@ -44,7 +46,7 @@ trait HasDraftedAtHelpers
      *
      * @return bool
      */
-    public function isDrafted()
+    public function isDrafted(): bool
     {
         return !is_null($this->getAttributeValue('drafted_at'));
     }
@@ -54,7 +56,7 @@ trait HasDraftedAtHelpers
      *
      * @return bool
      */
-    public function isUndrafted()
+    public function isUndrafted(): bool
     {
         return !$this->isDrafted();
     }
@@ -64,7 +66,7 @@ trait HasDraftedAtHelpers
      *
      * @return void
      */
-    public function draft()
+    public function draft(): void
     {
         $this->setDraftedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasDraftedAtHelpers
      *
      * @return void
      */
-    public function undraft()
+    public function undraft(): void
     {
         $this->unsetDraftedFlag()->save();
 

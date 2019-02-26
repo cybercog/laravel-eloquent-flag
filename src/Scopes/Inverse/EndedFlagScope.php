@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Scopes\Inverse;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -35,15 +37,15 @@ class EndedFlagScope implements Scope
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @param \Illuminate\Database\Eloquent\Model $model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyEndedFlagScope') && !$model->shouldApplyEndedFlagScope()) {
-            return $builder;
+            return;
         }
 
-        return $builder->where('is_ended', 0);
+        $builder->where('is_ended', 0);
     }
 
     /**
@@ -52,7 +54,7 @@ class EndedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    public function extend(Builder $builder)
+    public function extend(Builder $builder): void
     {
         foreach ($this->extensions as $extension) {
             $this->{"add{$extension}"}($builder);
@@ -65,7 +67,7 @@ class EndedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnend(Builder $builder)
+    protected function addUnend(Builder $builder): void
     {
         $builder->macro('unend', function (Builder $builder) {
             $builder->withEnded();
@@ -80,7 +82,7 @@ class EndedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addEnd(Builder $builder)
+    protected function addEnd(Builder $builder): void
     {
         $builder->macro('end', function (Builder $builder) {
             return $builder->update(['is_ended' => 1]);
@@ -93,7 +95,7 @@ class EndedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithEnded(Builder $builder)
+    protected function addWithEnded(Builder $builder): void
     {
         $builder->macro('withEnded', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
@@ -106,7 +108,7 @@ class EndedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutEnded(Builder $builder)
+    protected function addWithoutEnded(Builder $builder): void
     {
         $builder->macro('withoutEnded', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_ended', 0);
@@ -119,7 +121,7 @@ class EndedFlagScope implements Scope
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyEnded(Builder $builder)
+    protected function addOnlyEnded(Builder $builder): void
     {
         $builder->macro('onlyEnded', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_ended', 1);

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
@@ -44,7 +46,7 @@ trait HasPublishedAtHelpers
      *
      * @return bool
      */
-    public function isPublished()
+    public function isPublished(): bool
     {
         return !is_null($this->getAttributeValue('published_at'));
     }
@@ -54,7 +56,7 @@ trait HasPublishedAtHelpers
      *
      * @return bool
      */
-    public function isUnpublished()
+    public function isUnpublished(): bool
     {
         return !$this->isPublished();
     }
@@ -64,7 +66,7 @@ trait HasPublishedAtHelpers
      *
      * @return void
      */
-    public function publish()
+    public function publish(): void
     {
         $this->setPublishedFlag()->save();
 
@@ -76,7 +78,7 @@ trait HasPublishedAtHelpers
      *
      * @return void
      */
-    public function unpublish()
+    public function unpublish(): void
     {
         $this->unsetPublishedFlag()->save();
 

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Carbon\Carbon;
@@ -19,7 +21,7 @@ use Cog\Tests\Flag\TestCase;
 class EndedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_ended()
+    public function it_can_get_only_not_ended(): void
     {
         factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => Carbon::now()->subDay(),
@@ -34,7 +36,7 @@ class EndedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_ended()
+    public function it_can_get_without_ended(): void
     {
         factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => Carbon::now()->subDay(),
@@ -49,7 +51,7 @@ class EndedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_with_ended()
+    public function it_can_get_with_ended(): void
     {
         factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => Carbon::now()->subDay(),
@@ -64,7 +66,7 @@ class EndedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_only_ended()
+    public function it_can_get_only_ended(): void
     {
         factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => Carbon::now()->subDay(),
@@ -79,7 +81,7 @@ class EndedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unend_model()
+    public function it_can_unend_model(): void
     {
         $model = factory(EntityWithEndedAt::class)->create([
             'ended_at' => Carbon::now()->subDay(),
@@ -93,7 +95,7 @@ class EndedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_end_model()
+    public function it_can_end_model(): void
     {
         $model = factory(EntityWithEndedAt::class)->create([
             'ended_at' => null,
@@ -107,7 +109,7 @@ class EndedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply()
+    public function it_can_skip_apply(): void
     {
         factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Carbon::now()->subDay(),
