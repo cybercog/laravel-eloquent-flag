@@ -1,4 +1,6 @@
-![cog-laravel-eloquent-flag-3](https://cloud.githubusercontent.com/assets/1849174/21735581/feb857cc-d47b-11e6-80fa-126be1a1d871.png)
+# Laravel Eloquent Flag
+
+![cog-laravel-eloquent-flag](https://user-images.githubusercontent.com/1849174/53454214-7d38d680-3a37-11e9-953d-8daee98fb087.png)
 
 <p align="center">
 <a href="https://github.com/cybercog/laravel-eloquent-flag/releases"><img src="https://img.shields.io/github/release/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="Releases"></a>
@@ -10,7 +12,7 @@
 
 ## Introduction
 
-Eloquent boolean & timestamp flagged attributes behavior. Enhance eloquent models with commonly used state flags like `Active`, `Published`, `Approved` and others in a minutes!
+Eloquent boolean & timestamp flagged attributes behavior. Enhance Eloquent Models with commonly used state flags like `Active`, `Published`, `Approved` and others in a minutes!
 
 ## Contents
 
@@ -134,15 +136,12 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 ## Alternatives
 
-*Not found.*
-
 *Feel free to add more alternatives as Pull Request.*
 
 ## License
 
 - `Laravel Eloquent Flag` package is open-sourced software licensed under the [MIT license](LICENSE) by Anton Komarev.
-- `Check Mark` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Kimmi Studio.
-- `Clock Check` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Harsha Rai.
+- `Clock` image licensed under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/us/) by Rudez Studio.
 
 ## About CyberCog
 
