@@ -2,6 +2,21 @@
 
 All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
+## [5.0.0] - WIP
+
+### Added
+
+- Laravel 5.8 support
+
+### Changed
+
+- All methods are strict typed now
+
+### Removed
+
+- PHP 5.6, 7.0 support
+- Laravel 5.2, 5.3, 5.4 support
+
 ## [4.0.0] - 2018-09-09
 
 ### Added
@@ -172,6 +187,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[5.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/4.0.0...v5.0.0
 [4.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.13.0...4.0.0
 [3.13.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.12.0...3.13.0
 [3.12.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.11.0...3.12.0
