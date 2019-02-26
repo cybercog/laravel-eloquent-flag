@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class InvitedAtScopeTest extends TestCase
 {

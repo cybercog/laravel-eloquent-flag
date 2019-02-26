@@ -11,6 +11,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 ### Changed
 
 - All methods are strict typed now
+- `Carbon\Carbon` replaced with `Illuminate\Support\Carbon`
 
 ### Removed
 

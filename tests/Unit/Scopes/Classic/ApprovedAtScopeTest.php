@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class ApprovedAtScopeTest extends TestCase
 {

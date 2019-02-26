@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class PublishedAtScopeTest extends TestCase
 {

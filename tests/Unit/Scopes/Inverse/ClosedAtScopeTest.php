@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class ClosedAtScopeTest extends TestCase
 {

@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Classic;
 
-use Carbon\Carbon;
 use Cog\Flag\Scopes\Classic\KeptFlagScope;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 
 trait HasKeptFlagHelpers
 {

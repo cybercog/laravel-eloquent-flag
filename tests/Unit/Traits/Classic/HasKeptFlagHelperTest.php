@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
-use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Tests\Flag\TestCase;
+use Illuminate\Support\Carbon;
 
 class HasKeptFlagHelperTest extends TestCase
 {

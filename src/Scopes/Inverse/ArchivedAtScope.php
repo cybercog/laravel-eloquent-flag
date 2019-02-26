@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Scopes\Inverse;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
+use Illuminate\Support\Carbon;
 
 class ArchivedAtScope implements Scope
 {

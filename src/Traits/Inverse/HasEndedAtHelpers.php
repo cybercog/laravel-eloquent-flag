@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Inverse;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 trait HasEndedAtHelpers
 {
