@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class ClosedFlagScopeTest extends TestCase
+final class ClosedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_closed(): void

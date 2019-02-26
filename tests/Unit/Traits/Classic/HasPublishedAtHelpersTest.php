@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasPublishedAtHelpersTest extends TestCase
+final class HasPublishedAtHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_published_flag(): void

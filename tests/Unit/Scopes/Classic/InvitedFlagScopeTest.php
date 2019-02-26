@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-class InvitedFlagScopeTest extends TestCase
+final class InvitedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_invited(): void

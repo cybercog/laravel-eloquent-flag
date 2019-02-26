@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasInvitedFlagHelpersTest extends TestCase
+final class HasInvitedFlagHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_invited_flag(): void

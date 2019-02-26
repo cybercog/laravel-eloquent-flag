@@ -15,7 +15,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntityWithKeptFlagTable extends Migration
+final class CreateEntityWithKeptFlagTable extends Migration
 {
     /**
      * Run the migrations.

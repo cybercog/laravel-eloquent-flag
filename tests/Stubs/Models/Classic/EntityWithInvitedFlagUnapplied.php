@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-class EntityWithInvitedFlagUnapplied extends EntityWithInvitedFlag
+use Cog\Flag\Traits\Classic\HasInvitedFlag;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithInvitedFlagUnapplied extends Model
 {
+    use HasInvitedFlag;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_invited_flag';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_invited' => 'bool',
+    ];
+
     /**
      * Determine if InvitedFlagScope should be applied by default.
      *

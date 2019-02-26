@@ -18,7 +18,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class VerifiedAtScopeTest extends TestCase
+final class VerifiedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_verified(): void

@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class ClosedAtScopeTest extends TestCase
+final class ClosedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_closed(): void

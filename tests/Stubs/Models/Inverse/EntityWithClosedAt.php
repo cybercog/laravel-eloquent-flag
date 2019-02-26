@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasClosedAt;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithClosedAt extends Model
+final class EntityWithClosedAt extends Model
 {
     use HasClosedAt;
 

@@ -18,7 +18,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class DraftedAtScopeTest extends TestCase
+final class DraftedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_drafted(): void

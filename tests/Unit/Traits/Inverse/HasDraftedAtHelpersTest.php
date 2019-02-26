@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasDraftedAtHelpersTest extends TestCase
+final class HasDraftedAtHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_drafted_flag(): void

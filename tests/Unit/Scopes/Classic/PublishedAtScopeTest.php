@@ -18,7 +18,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class PublishedAtScopeTest extends TestCase
+final class PublishedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_published(): void

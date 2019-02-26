@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasDraftedFlagHelpersTest extends TestCase
+final class HasDraftedFlagHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_drafted_flag(): void

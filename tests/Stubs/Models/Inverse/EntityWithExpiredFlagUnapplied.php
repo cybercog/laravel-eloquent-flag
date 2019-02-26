@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-class EntityWithExpiredFlagUnapplied extends EntityWithExpiredFlag
+use Cog\Flag\Traits\Inverse\HasExpiredFlag;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithExpiredFlagUnapplied extends Model
 {
+    use HasExpiredFlag;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_expired_flag';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_expired' => 'bool',
+    ];
+
     /**
      * Determine if ExpiredFlagScope should be applied by default.
      *

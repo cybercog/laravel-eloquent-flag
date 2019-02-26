@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-class VerifiedFlagScopeTest extends TestCase
+final class VerifiedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_verified(): void

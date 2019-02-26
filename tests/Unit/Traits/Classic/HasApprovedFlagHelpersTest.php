@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasApprovedFlagHelpersTest extends TestCase
+final class HasApprovedFlagHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_approved_flag(): void

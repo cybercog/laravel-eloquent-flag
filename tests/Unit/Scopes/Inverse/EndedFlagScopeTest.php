@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-class EndedFlagScopeTest extends TestCase
+final class EndedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_ended(): void

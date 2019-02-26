@@ -15,7 +15,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntityWithExpiredAtTable extends Migration
+final class CreateEntityWithExpiredAtTable extends Migration
 {
     /**
      * Run the migrations.

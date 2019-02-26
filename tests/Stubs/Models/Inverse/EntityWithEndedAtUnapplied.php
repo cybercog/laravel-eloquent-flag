@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-class EntityWithEndedAtUnapplied extends EntityWithEndedAt
+use Cog\Flag\Traits\Inverse\HasEndedAt;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithEndedAtUnapplied extends Model
 {
+    use HasEndedAt;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_ended_at';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'ended_at' => 'datetime',
+    ];
+
     /**
      * Determine if EndedAtScope should be applied by default.
      *

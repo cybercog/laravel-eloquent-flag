@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-class EntityWithInvitedAtUnapplied extends EntityWithInvitedAt
+use Cog\Flag\Traits\Classic\HasInvitedAt;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithInvitedAtUnapplied extends Model
 {
+    use HasInvitedAt;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_invited_at';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'invited_at' => 'datetime',
+    ];
+
     /**
      * Determine if InvitedAtScope should be applied by default.
      *

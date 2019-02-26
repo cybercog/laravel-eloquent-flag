@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-class KeptFlagScope implements Scope
+final class KeptFlagScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.

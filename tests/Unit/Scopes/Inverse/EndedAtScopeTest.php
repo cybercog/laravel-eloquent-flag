@@ -18,7 +18,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class EndedAtScopeTest extends TestCase
+final class EndedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_ended(): void

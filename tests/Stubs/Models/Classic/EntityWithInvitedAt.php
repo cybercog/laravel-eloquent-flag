@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasInvitedAt;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithInvitedAt extends Model
+final class EntityWithInvitedAt extends Model
 {
     use HasInvitedAt;
 

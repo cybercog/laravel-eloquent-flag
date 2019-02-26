@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-class ArchivedFlagScopeTest extends TestCase
+final class ArchivedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_archived(): void

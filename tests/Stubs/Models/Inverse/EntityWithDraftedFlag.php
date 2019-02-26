@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasDraftedFlag;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithDraftedFlag extends Model
+final class EntityWithDraftedFlag extends Model
 {
     use HasDraftedFlag;
 

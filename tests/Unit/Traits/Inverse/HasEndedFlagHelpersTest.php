@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasEndedFlagHelpersTest extends TestCase
+final class HasEndedFlagHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_ended_flag(): void

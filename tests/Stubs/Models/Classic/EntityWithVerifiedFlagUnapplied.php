@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-class EntityWithVerifiedFlagUnapplied extends EntityWithVerifiedFlag
+use Cog\Flag\Traits\Classic\HasVerifiedFlag;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithVerifiedFlagUnapplied extends Model
 {
+    use HasVerifiedFlag;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_verified_flag';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_verified' => 'bool',
+    ];
+
     /**
      * Determine if VerifiedFlagScope should be applied by default.
      *

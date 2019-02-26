@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-class PublishedFlagScope implements Scope
+final class PublishedFlagScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.

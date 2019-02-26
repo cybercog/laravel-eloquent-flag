@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasInvitedFlag;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithInvitedFlag extends Model
+final class EntityWithInvitedFlag extends Model
 {
     use HasInvitedFlag;
 

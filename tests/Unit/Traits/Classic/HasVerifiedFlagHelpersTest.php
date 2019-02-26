@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasVerifiedFlagHelpersTest extends TestCase
+final class HasVerifiedFlagHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_verified_flag(): void

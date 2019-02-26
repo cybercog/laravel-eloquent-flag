@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasApprovedAt;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithApprovedAt extends Model
+final class EntityWithApprovedAt extends Model
 {
     use HasApprovedAt;
 

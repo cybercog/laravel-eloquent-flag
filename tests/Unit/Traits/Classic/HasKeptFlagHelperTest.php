@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasKeptFlagHelperTest extends TestCase
+final class HasKeptFlagHelperTest extends TestCase
 {
     /** @test */
     public function it_can_set_kept_flag(): void

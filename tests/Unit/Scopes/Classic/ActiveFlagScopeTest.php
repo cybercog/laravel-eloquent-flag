@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
 use Cog\Tests\Flag\TestCase;
 
-class ActiveFlagScopeTest extends TestCase
+final class ActiveFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_active(): void

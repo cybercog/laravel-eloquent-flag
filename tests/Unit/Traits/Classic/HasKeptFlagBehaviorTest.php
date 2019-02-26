@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasKeptFlagBehaviorTest extends TestCase
+final class HasKeptFlagBehaviorTest extends TestCase
 {
     /** @test */
     public function it_sets_is_kept_false_on_create(): void

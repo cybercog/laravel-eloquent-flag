@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-class EntityWithArchivedFlagUnapplied extends EntityWithArchivedFlag
+use Cog\Flag\Traits\Inverse\HasArchivedFlag;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithArchivedFlagUnapplied extends Model
 {
+    use HasArchivedFlag;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_archived_flag';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_archived' => 'bool',
+    ];
+
     /**
      * Determine if ArchivedFlagScope should be applied by default.
      *

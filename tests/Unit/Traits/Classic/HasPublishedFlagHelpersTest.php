@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasPublishedFlagHelpersTest extends TestCase
+final class HasPublishedFlagHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_published_flag(): void
