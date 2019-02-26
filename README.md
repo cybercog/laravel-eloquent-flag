@@ -34,7 +34,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance Eloquent Model
 ## Features
 
 - Designed to work with Laravel Eloquent models.
-- Each model can has as many flags as required.
+- Each model can has many flags.
 - Each flag adds global query scopes to models.
 - 2 logical groups of flags: `Classic`, `Inverse`.
 - 2 types of flags: `Boolean`, `Timestamp`.
