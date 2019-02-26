@@ -24,6 +24,6 @@ trait HasApprovedAtScope
      */
     public static function bootHasApprovedAtScope(): void
     {
-        static::addGlobalScope(new ApprovedAtScope);
+        static::addGlobalScope(new ApprovedAtScope());
     }
 }

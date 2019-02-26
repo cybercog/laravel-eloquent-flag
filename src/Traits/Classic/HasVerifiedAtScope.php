@@ -24,6 +24,6 @@ trait HasVerifiedAtScope
      */
     public static function bootHasVerifiedAtScope(): void
     {
-        static::addGlobalScope(new VerifiedAtScope);
+        static::addGlobalScope(new VerifiedAtScope());
     }
 }

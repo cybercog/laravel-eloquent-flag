@@ -24,6 +24,6 @@ trait HasClosedFlagScope
      */
     public static function bootHasClosedFlagScope(): void
     {
-        static::addGlobalScope(new ClosedFlagScope);
+        static::addGlobalScope(new ClosedFlagScope());
     }
 }

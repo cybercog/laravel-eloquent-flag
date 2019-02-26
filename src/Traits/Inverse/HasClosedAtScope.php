@@ -24,6 +24,6 @@ trait HasClosedAtScope
      */
     public static function bootHasClosedAtScope(): void
     {
-        static::addGlobalScope(new ClosedAtScope);
+        static::addGlobalScope(new ClosedAtScope());
     }
 }

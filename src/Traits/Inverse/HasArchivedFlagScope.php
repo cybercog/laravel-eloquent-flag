@@ -24,6 +24,6 @@ trait HasArchivedFlagScope
      */
     public static function bootHasArchivedFlagScope(): void
     {
-        static::addGlobalScope(new ArchivedFlagScope);
+        static::addGlobalScope(new ArchivedFlagScope());
     }
 }

@@ -24,6 +24,6 @@ trait HasArchivedAtScope
      */
     public static function bootHasArchivedAtScope(): void
     {
-        static::addGlobalScope(new ArchivedAtScope);
+        static::addGlobalScope(new ArchivedAtScope());
     }
 }

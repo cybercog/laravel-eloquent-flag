@@ -24,6 +24,6 @@ trait HasInvitedAtScope
      */
     public static function bootHasInvitedAtScope(): void
     {
-        static::addGlobalScope(new InvitedAtScope);
+        static::addGlobalScope(new InvitedAtScope());
     }
 }

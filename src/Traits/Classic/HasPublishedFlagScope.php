@@ -24,6 +24,6 @@ trait HasPublishedFlagScope
      */
     public static function bootHasPublishedFlagScope(): void
     {
-        static::addGlobalScope(new PublishedFlagScope);
+        static::addGlobalScope(new PublishedFlagScope());
     }
 }

@@ -24,6 +24,6 @@ trait HasDraftedAtScope
      */
     public static function bootHasDraftedAtScope(): void
     {
-        static::addGlobalScope(new DraftedAtScope);
+        static::addGlobalScope(new DraftedAtScope());
     }
 }

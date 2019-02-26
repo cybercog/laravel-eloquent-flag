@@ -24,6 +24,6 @@ trait HasExpiredFlagScope
      */
     public static function bootHasExpiredFlagScope(): void
     {
-        static::addGlobalScope(new ExpiredFlagScope);
+        static::addGlobalScope(new ExpiredFlagScope());
     }
 }

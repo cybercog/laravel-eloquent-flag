@@ -24,6 +24,6 @@ trait HasApprovedFlagScope
      */
     public static function bootHasApprovedFlagScope(): void
     {
-        static::addGlobalScope(new ApprovedFlagScope);
+        static::addGlobalScope(new ApprovedFlagScope());
     }
 }
