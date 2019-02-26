@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-class EntityWithDraftedAtUnapplied extends EntityWithDraftedAt
+use Cog\Flag\Traits\Inverse\HasDraftedAt;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithDraftedAtUnapplied extends Model
 {
+    use HasDraftedAt;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_drafted_at';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'drafted_at' => 'datetime',
+    ];
+
     /**
      * Determine if DraftedAtScope should be applied by default.
      *

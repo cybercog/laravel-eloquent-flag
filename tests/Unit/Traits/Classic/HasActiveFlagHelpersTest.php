@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
 use Cog\Tests\Flag\TestCase;
 
-class HasActiveFlagHelpersTest extends TestCase
+final class HasActiveFlagHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_active_flag(): void

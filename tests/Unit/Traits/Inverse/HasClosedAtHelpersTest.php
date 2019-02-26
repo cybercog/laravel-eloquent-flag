@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasClosedAtHelpersTest extends TestCase
+final class HasClosedAtHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_closed_flag(): void

@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlag;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-class PublishedFlagScopeTest extends TestCase
+final class PublishedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_published(): void

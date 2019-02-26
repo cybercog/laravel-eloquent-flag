@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-class EntityWithPublishedAtUnapplied extends EntityWithPublishedAt
+use Cog\Flag\Traits\Classic\HasPublishedAt;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithPublishedAtUnapplied extends Model
 {
+    use HasPublishedAt;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_published_at';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
     /**
      * Determine if PublishedAtScope should be applied by default.
      *

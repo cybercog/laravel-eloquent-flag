@@ -18,7 +18,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class ArchivedAtScopeTest extends TestCase
+final class ArchivedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_archived(): void

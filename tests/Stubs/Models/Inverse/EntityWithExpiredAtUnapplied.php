@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-class EntityWithExpiredAtUnapplied extends EntityWithExpiredAt
+use Cog\Flag\Traits\Inverse\HasExpiredAt;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithExpiredAtUnapplied extends Model
 {
+    use HasExpiredAt;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_expired_at';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'expired_at' => 'datetime',
+    ];
+
     /**
      * Determine if ExpiredAtScope should be applied by default.
      *

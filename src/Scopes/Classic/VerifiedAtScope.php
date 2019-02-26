@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Support\Carbon;
 
-class VerifiedAtScope implements Scope
+final class VerifiedAtScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.

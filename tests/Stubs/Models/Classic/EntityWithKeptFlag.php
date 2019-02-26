@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasKeptFlag;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithKeptFlag extends Model
+final class EntityWithKeptFlag extends Model
 {
     use HasKeptFlag;
 

@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Support\Carbon;
 
-class ArchivedAtScope implements Scope
+final class ArchivedAtScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.

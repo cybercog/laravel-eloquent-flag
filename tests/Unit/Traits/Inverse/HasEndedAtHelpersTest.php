@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasEndedAtHelpersTest extends TestCase
+final class HasEndedAtHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_ended_flag(): void

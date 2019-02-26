@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Tests\Flag\TestCase;
 
-class KeptFlagScopeTest extends TestCase
+final class KeptFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_kept_models(): void

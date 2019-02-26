@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-class ExpiredFlagScopeTest extends TestCase
+final class ExpiredFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_not_expired(): void

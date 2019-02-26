@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasArchivedAt;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithArchivedAt extends Model
+final class EntityWithArchivedAt extends Model
 {
     use HasArchivedAt;
 

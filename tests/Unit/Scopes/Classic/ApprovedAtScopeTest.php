@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class ApprovedAtScopeTest extends TestCase
+final class ApprovedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_approved(): void

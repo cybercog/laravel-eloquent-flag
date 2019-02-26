@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasExpiredAtHelpersTest extends TestCase
+final class HasExpiredAtHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_expired_flag(): void

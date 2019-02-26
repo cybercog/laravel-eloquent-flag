@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-class EntityWithVerifiedAtUnapplied extends EntityWithVerifiedAt
+use Cog\Flag\Traits\Classic\HasVerifiedAt;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithVerifiedAtUnapplied extends Model
 {
+    use HasVerifiedAt;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_verified_at';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'verified_at' => 'datetime',
+    ];
+
     /**
      * Determine if VerifiedAtScope should be applied by default.
      *

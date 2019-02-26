@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedFlag;
 use Cog\Tests\Flag\TestCase;
 
-class AcceptedFlagScopeTest extends TestCase
+final class AcceptedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_accepted(): void

@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasVerifiedAtHelpersTest extends TestCase
+final class HasVerifiedAtHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_verified_flag(): void

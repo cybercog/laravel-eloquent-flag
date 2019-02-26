@@ -17,7 +17,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class HasApprovedAtHelpersTest extends TestCase
+final class HasApprovedAtHelpersTest extends TestCase
 {
     /** @test */
     public function it_can_set_approved_flag(): void

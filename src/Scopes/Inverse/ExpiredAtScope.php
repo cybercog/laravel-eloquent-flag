@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Support\Carbon;
 
-class ExpiredAtScope implements Scope
+final class ExpiredAtScope implements Scope
 {
     /**
      * All of the extensions to be added to the builder.

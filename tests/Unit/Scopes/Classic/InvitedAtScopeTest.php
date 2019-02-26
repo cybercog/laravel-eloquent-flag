@@ -18,7 +18,7 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
 
-class InvitedAtScopeTest extends TestCase
+final class InvitedAtScopeTest extends TestCase
 {
     /** @test */
     public function it_can_get_only_invited(): void

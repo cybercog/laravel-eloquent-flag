@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasDraftedAt;
 use Illuminate\Database\Eloquent\Model;
 
-class EntityWithDraftedAt extends Model
+final class EntityWithDraftedAt extends Model
 {
     use HasDraftedAt;
 

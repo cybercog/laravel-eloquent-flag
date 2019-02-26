@@ -15,7 +15,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntityWithDraftedFlagTable extends Migration
+final class CreateEntityWithDraftedFlagTable extends Migration
 {
     /**
      * Run the migrations.

@@ -13,8 +13,38 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-class EntityWithArchivedAtUnapplied extends EntityWithArchivedAt
+use Cog\Flag\Traits\Inverse\HasArchivedAt;
+use Illuminate\Database\Eloquent\Model;
+
+final class EntityWithArchivedAtUnapplied extends Model
 {
+    use HasArchivedAt;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'entity_with_archived_at';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'archived_at' => 'datetime',
+    ];
+
     /**
      * Determine if ArchivedAtScope should be applied by default.
      *
