@@ -18,7 +18,7 @@ class EntityWithVerifiedFlagUnapplied extends EntityWithVerifiedFlag
      *
      * @return bool
      */
-    public function shouldApplyVerifiedFlagScope(): bool
+    public function shouldApplyVerifiedFlagScope()
     {
         return false;
     }

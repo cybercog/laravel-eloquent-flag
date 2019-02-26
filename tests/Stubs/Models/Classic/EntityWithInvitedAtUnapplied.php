@@ -18,7 +18,7 @@ class EntityWithInvitedAtUnapplied extends EntityWithInvitedAt
      *
      * @return bool
      */
-    public function shouldApplyInvitedAtScope(): bool
+    public function shouldApplyInvitedAtScope()
     {
         return false;
     }

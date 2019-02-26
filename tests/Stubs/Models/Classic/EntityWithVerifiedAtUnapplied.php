@@ -18,7 +18,7 @@ class EntityWithVerifiedAtUnapplied extends EntityWithVerifiedAt
      *
      * @return bool
      */
-    public function shouldApplyVerifiedAtScope(): bool
+    public function shouldApplyVerifiedAtScope()
     {
         return false;
     }

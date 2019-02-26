@@ -18,7 +18,7 @@ class EntityWithPublishedAtUnapplied extends EntityWithPublishedAt
      *
      * @return bool
      */
-    public function shouldApplyPublishedAtScope(): bool
+    public function shouldApplyPublishedAtScope()
     {
         return false;
     }

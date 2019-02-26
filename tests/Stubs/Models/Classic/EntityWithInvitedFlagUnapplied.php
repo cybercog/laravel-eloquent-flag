@@ -18,7 +18,7 @@ class EntityWithInvitedFlagUnapplied extends EntityWithInvitedFlag
      *
      * @return bool
      */
-    public function shouldApplyInvitedFlagScope(): bool
+    public function shouldApplyInvitedFlagScope()
     {
         return false;
     }

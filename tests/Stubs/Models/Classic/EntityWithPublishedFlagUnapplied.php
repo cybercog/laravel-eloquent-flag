@@ -18,7 +18,7 @@ class EntityWithPublishedFlagUnapplied extends EntityWithPublishedFlag
      *
      * @return bool
      */
-    public function shouldApplyPublishedFlagScope(): bool
+    public function shouldApplyPublishedFlagScope()
     {
         return false;
     }
