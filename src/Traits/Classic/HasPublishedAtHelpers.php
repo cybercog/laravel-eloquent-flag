@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
 
-/**
- * Class HasPublishedAtHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasPublishedAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasPublishedAtHelpers
      */
     public function setPublishedFlag()
     {
-        $this->published_at = Carbon::now();
+        $this->setAttribute('published_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasPublishedAtHelpers
      */
     public function unsetPublishedFlag()
     {
-        $this->published_at = null;
+        $this->setAttribute('published_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasPublishedAtHelpers
      */
     public function isPublished()
     {
-        return !is_null($this->published_at);
+        return !is_null($this->getAttributeValue('published_at'));
     }
 
     /**

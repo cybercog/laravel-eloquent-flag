@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\EndedAtScope;
 
-/**
- * Class HasEndedAtScope.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasEndedAtScope
 {
     /**

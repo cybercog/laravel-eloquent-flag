@@ -15,11 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class ActiveFlagScope.
- *
- * @package Cog\Flag\Scopes\Classic
- */
 class ActiveFlagScope implements Scope
 {
     /**
@@ -27,7 +22,13 @@ class ActiveFlagScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Activate', 'Deactivate', 'WithDeactivated', 'WithoutDeactivated', 'OnlyDeactivated'];
+    protected $extensions = [
+        'Activate',
+        'Deactivate',
+        'WithDeactivated',
+        'WithoutDeactivated',
+        'OnlyDeactivated',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

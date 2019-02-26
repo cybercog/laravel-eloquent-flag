@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasExpiredFlagHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasExpiredFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasExpiredFlagHelpers
      */
     public function setExpiredFlag()
     {
-        $this->is_expired = true;
+        $this->setAttribute('is_expired', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasExpiredFlagHelpers
      */
     public function unsetExpiredFlag()
     {
-        $this->is_expired = false;
+        $this->setAttribute('is_expired', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasExpiredFlagHelpers
      */
     public function isExpired()
     {
-        return (bool) $this->is_expired;
+        return (bool) $this->getAttributeValue('is_expired');
     }
 
     /**

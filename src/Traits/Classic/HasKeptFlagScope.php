@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\KeptFlagScope;
 
-/**
- * Class HasKeptFlagScope.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasKeptFlagScope
 {
     /**

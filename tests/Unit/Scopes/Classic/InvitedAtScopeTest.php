@@ -16,11 +16,6 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class InvitedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class InvitedAtScopeTest extends TestCase
 {
     /** @test */

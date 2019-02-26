@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 use Cog\Flag\Traits\Inverse\HasArchivedFlag;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithArchivedFlag.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Inverse
- */
 class EntityWithArchivedFlag extends Model
 {
     use HasArchivedFlag;

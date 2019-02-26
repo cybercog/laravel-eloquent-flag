@@ -13,13 +13,9 @@ namespace Cog\Tests\Flag;
 
 use Cog\Flag\Providers\FlagServiceProvider;
 use Illuminate\Support\Facades\File;
+use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
-/**
- * Class TestCase.
- *
- * @package Cog\Tests\Flag
- */
 abstract class TestCase extends Orchestra
 {
     /**
@@ -45,14 +41,16 @@ abstract class TestCase extends Orchestra
     {
         return [
             FlagServiceProvider::class,
-            \Orchestra\Database\ConsoleServiceProvider::class,
+            ConsoleServiceProvider::class,
         ];
     }
 
     /**
      * Delete all published package migrations.
+     *
+     * @return void
      */
-    protected function destroyPackageMigrations()
+    protected function destroyPackageMigrations(): void
     {
         File::cleanDirectory('vendor/orchestra/testbench-core/laravel/database/migrations');
     }
@@ -72,6 +70,8 @@ abstract class TestCase extends Orchestra
 
     /**
      * Perform unit test database migrations.
+     *
+     * @return void
      */
     protected function migrateUnitTestTables()
     {
@@ -80,6 +80,8 @@ abstract class TestCase extends Orchestra
 
     /**
      * Cleanup database after unit test.
+     *
+     * @return void
      */
     protected function migrateTablesUndo()
     {
@@ -88,6 +90,8 @@ abstract class TestCase extends Orchestra
 
     /**
      * Register package related model factories.
+     *
+     * @return void
      */
     private function registerPackageFactories()
     {

@@ -16,11 +16,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAt;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class ExpiredAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class ExpiredAtScopeTest extends TestCase
 {
     /** @test */

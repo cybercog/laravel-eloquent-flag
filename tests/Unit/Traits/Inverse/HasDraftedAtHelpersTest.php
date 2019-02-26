@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasDraftedAtHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Inverse
- */
 class HasDraftedAtHelpersTest extends TestCase
 {
     /** @test */

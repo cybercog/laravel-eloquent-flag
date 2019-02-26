@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasDraftedFlag.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasDraftedFlag
 {
     use HasDraftedFlagHelpers;

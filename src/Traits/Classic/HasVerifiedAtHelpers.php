@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
 
-/**
- * Class HasVerifiedAtHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasVerifiedAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasVerifiedAtHelpers
      */
     public function setVerifiedFlag()
     {
-        $this->verified_at = Carbon::now();
+        $this->setAttribute('verified_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasVerifiedAtHelpers
      */
     public function unsetVerifiedFlag()
     {
-        $this->verified_at = null;
+        $this->setAttribute('verified_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasVerifiedAtHelpers
      */
     public function isVerified()
     {
-        return !is_null($this->verified_at);
+        return !is_null($this->getAttributeValue('verified_at'));
     }
 
     /**

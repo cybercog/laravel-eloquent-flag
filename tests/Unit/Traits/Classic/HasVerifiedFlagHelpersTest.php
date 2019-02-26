@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasVerifiedFlagHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Classic
- */
 class HasVerifiedFlagHelpersTest extends TestCase
 {
     /** @test */

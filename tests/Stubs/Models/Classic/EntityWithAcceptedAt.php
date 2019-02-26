@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasAcceptedAt;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithAcceptedAt.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithAcceptedAt extends Model
 {
     use HasAcceptedAt;

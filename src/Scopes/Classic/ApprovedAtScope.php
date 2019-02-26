@@ -16,11 +16,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class ApprovedAtScope.
- *
- * @package Cog\Flag\Scopes\Classic
- */
 class ApprovedAtScope implements Scope
 {
     /**
@@ -28,7 +23,13 @@ class ApprovedAtScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Approve', 'Disapprove', 'WithDisapproved', 'WithoutDisapproved', 'OnlyDisapproved'];
+    protected $extensions = [
+        'Approve',
+        'Disapprove',
+        'WithDisapproved',
+        'WithoutDisapproved',
+        'OnlyDisapproved',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

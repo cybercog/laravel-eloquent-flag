@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Inverse;
 
-/**
- * Class EntityWithDraftedAtUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Inverse
- */
 class EntityWithDraftedAtUnapplied extends EntityWithDraftedAt
 {
     /**

@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasVerifiedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasVerifiedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasVerifiedFlagHelpers
      */
     public function setVerifiedFlag()
     {
-        $this->is_verified = true;
+        $this->setAttribute('is_verified', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasVerifiedFlagHelpers
      */
     public function unsetVerifiedFlag()
     {
-        $this->is_verified = false;
+        $this->setAttribute('is_verified', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasVerifiedFlagHelpers
      */
     public function isVerified()
     {
-        return (bool) $this->is_verified;
+        return (bool) $this->getAttributeValue('is_verified');
     }
 
     /**

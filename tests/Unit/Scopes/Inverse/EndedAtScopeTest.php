@@ -16,11 +16,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class EndedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class EndedAtScopeTest extends TestCase
 {
     /** @test */

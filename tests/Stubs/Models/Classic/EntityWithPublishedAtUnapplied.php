@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-/**
- * Class EntityWithPublishedAtUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithPublishedAtUnapplied extends EntityWithPublishedAt
 {
     /**
@@ -23,7 +18,7 @@ class EntityWithPublishedAtUnapplied extends EntityWithPublishedAt
      *
      * @return bool
      */
-    public function shouldApplyPublishedAtScope()
+    public function shouldApplyPublishedAtScope(): bool
     {
         return false;
     }

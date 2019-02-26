@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Classic;
 
 use Carbon\Carbon;
 
-/**
- * Class HasAcceptedAtHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasAcceptedAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasAcceptedAtHelpers
      */
     public function setAcceptedFlag()
     {
-        $this->accepted_at = Carbon::now();
+        $this->setAttribute('accepted_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasAcceptedAtHelpers
      */
     public function unsetAcceptedFlag()
     {
-        $this->accepted_at = null;
+        $this->setAttribute('accepted_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasAcceptedAtHelpers
      */
     public function isAccepted()
     {
-        return !is_null($this->accepted_at);
+        return !is_null($this->getAttributeValue('accepted_at'));
     }
 
     /**

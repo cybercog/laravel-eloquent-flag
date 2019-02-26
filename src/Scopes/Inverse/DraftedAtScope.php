@@ -16,11 +16,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class DraftedAtScope.
- *
- * @package Cog\Flag\Scopes\Inverse
- */
 class DraftedAtScope implements Scope
 {
     /**
@@ -28,7 +23,13 @@ class DraftedAtScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Undraft', 'Draft', 'WithDrafted', 'WithoutDrafted', 'OnlyDrafted'];
+    protected $extensions = [
+        'Undraft',
+        'Draft',
+        'WithDrafted',
+        'WithoutDrafted',
+        'OnlyDrafted',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

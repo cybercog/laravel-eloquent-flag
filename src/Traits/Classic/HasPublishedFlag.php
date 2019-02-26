@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasPublishedFlag.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasPublishedFlag
 {
     use HasPublishedFlagHelpers;

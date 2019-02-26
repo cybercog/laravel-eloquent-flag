@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Flag\Scopes\Classic\KeptFlagScope;
 use Illuminate\Database\Eloquent\Builder;
 
-/**
- * Class HasKeptFlagHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasKeptFlagHelpers
 {
     /**
@@ -29,7 +24,7 @@ trait HasKeptFlagHelpers
      */
     public function setKeptFlag()
     {
-        $this->is_kept = true;
+        $this->setAttribute('is_kept', true);
 
         return $this;
     }
@@ -41,7 +36,8 @@ trait HasKeptFlagHelpers
      */
     public function unsetKeptFlag()
     {
-        $this->is_kept = false;
+        $this->setAttribute('is_kept', false);
+
         if (property_exists($this, 'setKeptOnUpdate')) {
             $this->setKeptOnUpdate = false;
         }
@@ -56,7 +52,7 @@ trait HasKeptFlagHelpers
      */
     public function isKept()
     {
-        return (bool) $this->is_kept;
+        return (bool) $this->getAttributeValue('is_kept');
     }
 
     /**

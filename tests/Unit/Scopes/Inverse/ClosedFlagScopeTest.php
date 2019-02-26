@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class ClosedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class ClosedFlagScopeTest extends TestCase
 {
     /** @test */

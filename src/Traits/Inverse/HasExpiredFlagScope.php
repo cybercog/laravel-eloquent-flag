@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Cog\Flag\Scopes\Inverse\ExpiredFlagScope;
 
-/**
- * Class HasExpiredFlagScope.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasExpiredFlagScope
 {
     /**

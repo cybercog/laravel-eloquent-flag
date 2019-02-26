@@ -15,11 +15,6 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class InvitedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class InvitedFlagScopeTest extends TestCase
 {
     /** @test */

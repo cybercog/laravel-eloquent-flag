@@ -15,11 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class ClosedFlagScope.
- *
- * @package Cog\Flag\Scopes\Inverse
- */
 class ClosedFlagScope implements Scope
 {
     /**
@@ -27,7 +22,13 @@ class ClosedFlagScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Open', 'Close', 'WithClosed', 'WithoutClosed', 'OnlyClosed'];
+    protected $extensions = [
+        'Open',
+        'Close',
+        'WithClosed',
+        'WithoutClosed',
+        'OnlyClosed',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class AcceptedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class AcceptedAtScopeTest extends TestCase
 {
     /** @test */

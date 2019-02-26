@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasInvitedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasInvitedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasInvitedFlagHelpers
      */
     public function setInvitedFlag()
     {
-        $this->is_invited = true;
+        $this->setAttribute('is_invited', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasInvitedFlagHelpers
      */
     public function unsetInvitedFlag()
     {
-        $this->is_invited = false;
+        $this->setAttribute('is_invited', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasInvitedFlagHelpers
      */
     public function isInvited()
     {
-        return (bool) $this->is_invited;
+        return (bool) $this->getAttributeValue('is_invited');
     }
 
     /**

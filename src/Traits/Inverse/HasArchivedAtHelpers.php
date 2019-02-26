@@ -13,11 +13,6 @@ namespace Cog\Flag\Traits\Inverse;
 
 use Carbon\Carbon;
 
-/**
- * Class HasArchivedAtHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasArchivedAtHelpers
 {
     /**
@@ -27,7 +22,7 @@ trait HasArchivedAtHelpers
      */
     public function setArchivedFlag()
     {
-        $this->archived_at = Carbon::now();
+        $this->setAttribute('archived_at', Carbon::now());
 
         return $this;
     }
@@ -39,7 +34,7 @@ trait HasArchivedAtHelpers
      */
     public function unsetArchivedFlag()
     {
-        $this->archived_at = null;
+        $this->setAttribute('archived_at', null);
 
         return $this;
     }
@@ -51,7 +46,7 @@ trait HasArchivedAtHelpers
      */
     public function isArchived()
     {
-        return !is_null($this->archived_at);
+        return !is_null($this->getAttributeValue('archived_at'));
     }
 
     /**

@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasPublishedFlag;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithPublishedFlag.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithPublishedFlag extends Model
 {
     use HasPublishedFlag;

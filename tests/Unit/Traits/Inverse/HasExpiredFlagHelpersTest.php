@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasExpiredFlagHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Inverse
- */
 class HasExpiredFlagHelpersTest extends TestCase
 {
     /** @test */

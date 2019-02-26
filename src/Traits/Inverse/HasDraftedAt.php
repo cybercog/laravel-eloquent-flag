@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasDraftedAt.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasDraftedAt
 {
     use HasDraftedAtHelpers;

@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasVerifiedFlag.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasVerifiedFlag
 {
     use HasVerifiedFlagHelpers;

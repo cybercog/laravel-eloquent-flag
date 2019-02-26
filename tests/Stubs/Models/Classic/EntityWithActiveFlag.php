@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasActiveFlag;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithActiveFlag.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithActiveFlag extends Model
 {
     use HasActiveFlag;

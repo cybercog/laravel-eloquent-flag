@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasPublishedAt;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithPublishedAt.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithPublishedAt extends Model
 {
     use HasPublishedAt;

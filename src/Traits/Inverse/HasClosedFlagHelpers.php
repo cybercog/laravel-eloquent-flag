@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasClosedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasClosedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasClosedFlagHelpers
      */
     public function setClosedFlag()
     {
-        $this->is_closed = true;
+        $this->setAttribute('is_closed', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasClosedFlagHelpers
      */
     public function unsetClosedFlag()
     {
-        $this->is_closed = false;
+        $this->setAttribute('is_closed', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasClosedFlagHelpers
      */
     public function isClosed()
     {
-        return (bool) $this->is_closed;
+        return (bool) $this->getAttributeValue('is_closed');
     }
 
     /**

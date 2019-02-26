@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-/**
- * Class EntityWithVerifiedFlagUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithVerifiedFlagUnapplied extends EntityWithVerifiedFlag
 {
     /**
@@ -23,7 +18,7 @@ class EntityWithVerifiedFlagUnapplied extends EntityWithVerifiedFlag
      *
      * @return bool
      */
-    public function shouldApplyVerifiedFlagScope()
+    public function shouldApplyVerifiedFlagScope(): bool
     {
         return false;
     }

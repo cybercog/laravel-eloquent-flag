@@ -15,11 +15,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class EndedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class EndedFlagScopeTest extends TestCase
 {
     /** @test */

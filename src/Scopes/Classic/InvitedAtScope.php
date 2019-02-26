@@ -16,11 +16,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class InvitedAtScope.
- *
- * @package Cog\Flag\Scopes\Classic
- */
 class InvitedAtScope implements Scope
 {
     /**
@@ -28,7 +23,13 @@ class InvitedAtScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Invite', 'Uninvite', 'WithUninvited', 'WithoutUninvited', 'OnlyUninvited'];
+    protected $extensions = [
+        'Invite',
+        'Uninvite',
+        'WithUninvited',
+        'WithoutUninvited',
+        'OnlyUninvited',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

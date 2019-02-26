@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Stubs\Models\Classic;
 use Cog\Flag\Traits\Classic\HasAcceptedFlag;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class EntityWithAcceptedFlag.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithAcceptedFlag extends Model
 {
     use HasAcceptedFlag;

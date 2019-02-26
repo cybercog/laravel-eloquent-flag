@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasEndedAt.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasEndedAt
 {
     use HasEndedAtHelpers;

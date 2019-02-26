@@ -15,11 +15,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class ArchivedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class ArchivedFlagScopeTest extends TestCase
 {
     /** @test */

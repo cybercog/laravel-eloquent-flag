@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasAcceptedAtHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Classic
- */
 class HasAcceptedAtHelpersTest extends TestCase
 {
     /** @test */

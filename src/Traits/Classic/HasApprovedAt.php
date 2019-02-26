@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasApprovedAt.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasApprovedAt
 {
     use HasApprovedAtHelpers;

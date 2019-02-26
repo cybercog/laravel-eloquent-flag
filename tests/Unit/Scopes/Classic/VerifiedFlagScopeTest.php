@@ -15,11 +15,6 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlag;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class VerifiedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class VerifiedFlagScopeTest extends TestCase
 {
     /** @test */

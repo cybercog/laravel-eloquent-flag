@@ -15,11 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class ExpiredFlagScope.
- *
- * @package Cog\Flag\Scopes\Inverse
- */
 class ExpiredFlagScope implements Scope
 {
     /**
@@ -27,7 +22,13 @@ class ExpiredFlagScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Unexpire', 'Expire', 'WithExpired', 'WithoutExpired', 'OnlyExpired'];
+    protected $extensions = [
+        'Unexpire',
+        'Expire',
+        'WithExpired',
+        'WithoutExpired',
+        'OnlyExpired',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

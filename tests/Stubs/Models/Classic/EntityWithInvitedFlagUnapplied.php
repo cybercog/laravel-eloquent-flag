@@ -11,11 +11,6 @@
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-/**
- * Class EntityWithInvitedFlagUnapplied.
- *
- * @package Cog\Tests\Flag\Stubs\Models\Classic
- */
 class EntityWithInvitedFlagUnapplied extends EntityWithInvitedFlag
 {
     /**
@@ -23,7 +18,7 @@ class EntityWithInvitedFlagUnapplied extends EntityWithInvitedFlag
      *
      * @return bool
      */
-    public function shouldApplyInvitedFlagScope()
+    public function shouldApplyInvitedFlagScope(): bool
     {
         return false;
     }

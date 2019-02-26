@@ -15,11 +15,6 @@ use Carbon\Carbon;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasPublishedAtHelpersTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Classic
- */
 class HasPublishedAtHelpersTest extends TestCase
 {
     /** @test */

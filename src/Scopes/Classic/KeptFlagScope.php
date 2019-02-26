@@ -15,11 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-/**
- * Class KeptFlagScope.
- *
- * @package Cog\Flag\Scopes\Classic
- */
 class KeptFlagScope implements Scope
 {
     /**
@@ -27,7 +22,13 @@ class KeptFlagScope implements Scope
      *
      * @var array
      */
-    protected $extensions = ['Keep', 'Unkeep', 'WithUnkept', 'WithoutUnkept', 'OnlyUnkept'];
+    protected $extensions = [
+        'Keep',
+        'Unkeep',
+        'WithUnkept',
+        'WithoutUnkept',
+        'OnlyUnkept',
+    ];
 
     /**
      * Apply the scope to a given Eloquent query builder.

@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Classic;
 
-/**
- * Class HasPublishedAt.
- *
- * @package Cog\Flag\Traits\Classic
- */
 trait HasPublishedAt
 {
     use HasPublishedAtHelpers;

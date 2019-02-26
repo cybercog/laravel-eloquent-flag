@@ -16,11 +16,6 @@ use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class DraftedAtScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Inverse
- */
 class DraftedAtScopeTest extends TestCase
 {
     /** @test */

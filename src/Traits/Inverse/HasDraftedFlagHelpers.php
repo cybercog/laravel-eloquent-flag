@@ -11,11 +11,6 @@
 
 namespace Cog\Flag\Traits\Inverse;
 
-/**
- * Class HasDraftedFlagHelpers.
- *
- * @package Cog\Flag\Traits\Inverse
- */
 trait HasDraftedFlagHelpers
 {
     /**
@@ -25,7 +20,7 @@ trait HasDraftedFlagHelpers
      */
     public function setDraftedFlag()
     {
-        $this->is_drafted = true;
+        $this->setAttribute('is_drafted', true);
 
         return $this;
     }
@@ -37,7 +32,7 @@ trait HasDraftedFlagHelpers
      */
     public function unsetDraftedFlag()
     {
-        $this->is_drafted = false;
+        $this->setAttribute('is_drafted', false);
 
         return $this;
     }
@@ -49,7 +44,7 @@ trait HasDraftedFlagHelpers
      */
     public function isDrafted()
     {
-        return (bool) $this->is_drafted;
+        return (bool) $this->getAttributeValue('is_drafted');
     }
 
     /**

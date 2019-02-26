@@ -15,11 +15,6 @@ use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlag;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class PublishedFlagScopeTest.
- *
- * @package Cog\Tests\Flag\Unit\Scopes\Classic
- */
 class PublishedFlagScopeTest extends TestCase
 {
     /** @test */

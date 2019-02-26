@@ -14,11 +14,6 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Tests\Flag\TestCase;
 
-/**
- * Class HasKeptFlagBehaviorTest.
- *
- * @package Cog\Tests\Flag\Unit\Traits\Classic
- */
 class HasKeptFlagBehaviorTest extends TestCase
 {
     /** @test */
