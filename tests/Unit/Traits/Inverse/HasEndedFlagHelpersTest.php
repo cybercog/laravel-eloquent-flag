@@ -36,7 +36,8 @@ final class HasEndedFlagHelpersTest extends TestCase
         ]);
 
         $this->assertNull($entity->is_ended);
-}
+    }
+
     /** @test */
     public function it_can_set_ended_flag(): void
     {
