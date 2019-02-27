@@ -19,6 +19,26 @@ use Cog\Tests\Flag\TestCase;
 final class HasAcceptedFlagHelpersTest extends TestCase
 {
     /** @test */
+    public function it_casts_is_accepted_to_boolean(): void
+    {
+        $entity = factory(EntityWithAcceptedFlag::class)->create([
+            'is_accepted' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_accepted);
+    }
+
+    /** @test */
+    public function it_not_casts_is_accepted_to_boolean(): void
+    {
+        $entity = factory(EntityWithAcceptedFlag::class)->make([
+            'is_accepted' => null,
+        ]);
+
+        $this->assertNull($entity->is_accepted);
+    }
+
+    /** @test */
     public function it_can_set_accepted_flag(): void
     {
         $entity = factory(EntityWithAcceptedFlag::class)->create([

@@ -61,16 +61,16 @@ final class HasArchivedAtHelpersTest extends TestCase
             'archived_at' => Carbon::now(),
         ]);
 
-        $openedEntity = factory(EntityWithArchivedAt::class)->create([
+        $unarchivedEntity = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => null,
         ]);
 
         $this->assertTrue($archivedEntity->isArchived());
-        $this->assertFalse($openedEntity->isArchived());
+        $this->assertFalse($unarchivedEntity->isArchived());
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_opened(): void
+    public function it_can_check_if_entity_is_unarchived(): void
     {
         $archivedEntity = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => Carbon::now(),

@@ -20,6 +20,26 @@ use Illuminate\Support\Carbon;
 final class HasKeptFlagHelperTest extends TestCase
 {
     /** @test */
+    public function it_casts_is_kept_to_boolean(): void
+    {
+        $entity = factory(EntityWithKeptFlag::class)->create([
+            'is_kept' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_kept);
+    }
+
+    /** @test */
+    public function it_not_casts_is_kept_to_boolean(): void
+    {
+        $entity = factory(EntityWithKeptFlag::class)->make([
+            'is_kept' => null,
+        ]);
+
+        $this->assertNull($entity->is_kept);
+    }
+
+    /** @test */
     public function it_can_set_kept_flag(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([

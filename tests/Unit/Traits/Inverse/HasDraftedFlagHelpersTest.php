@@ -19,6 +19,26 @@ use Cog\Tests\Flag\TestCase;
 final class HasDraftedFlagHelpersTest extends TestCase
 {
     /** @test */
+    public function it_casts_is_drafted_to_boolean(): void
+    {
+        $entity = factory(EntityWithDraftedFlag::class)->create([
+            'is_drafted' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_drafted);
+    }
+
+    /** @test */
+    public function it_not_casts_is_drafted_to_boolean(): void
+    {
+        $entity = factory(EntityWithDraftedFlag::class)->make([
+            'is_drafted' => null,
+        ]);
+
+        $this->assertNull($entity->is_drafted);
+    }
+
+    /** @test */
     public function it_can_set_drafted_flag(): void
     {
         $entity = factory(EntityWithDraftedFlag::class)->create([
