@@ -20,6 +20,17 @@ use Illuminate\Support\Carbon;
 final class HasApprovedAtHelpersTest extends TestCase
 {
     /** @test */
+    public function it_casts_approved_at_to_datetime(): void
+    {
+        $entity = factory(EntityWithApprovedAt::class)->create([
+            'approved_at' => '1986-03-28 00:00:00',
+        ]);
+
+        $this->assertInstanceOf(Carbon::class, $entity->approved_at);
+        $this->assertSame('1986-03-28 00:00:00', $entity->approved_at->format('Y-m-d H:i:s'));
+    }
+
+    /** @test */
     public function it_can_set_approved_flag(): void
     {
         $entity = factory(EntityWithApprovedAt::class)->create([

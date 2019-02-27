@@ -19,6 +19,26 @@ use Cog\Tests\Flag\TestCase;
 final class HasInvitedFlagHelpersTest extends TestCase
 {
     /** @test */
+    public function it_casts_is_invited_to_boolean(): void
+    {
+        $entity = factory(EntityWithInvitedFlag::class)->create([
+            'is_invited' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_invited);
+    }
+
+    /** @test */
+    public function it_not_casts_is_invited_to_boolean(): void
+    {
+        $entity = factory(EntityWithInvitedFlag::class)->make([
+            'is_invited' => null,
+        ]);
+
+        $this->assertNull($entity->is_invited);
+    }
+
+    /** @test */
     public function it_can_set_invited_flag(): void
     {
         $entity = factory(EntityWithInvitedFlag::class)->create([

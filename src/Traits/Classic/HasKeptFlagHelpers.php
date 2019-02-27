@@ -19,6 +19,11 @@ use Illuminate\Support\Carbon;
 
 trait HasKeptFlagHelpers
 {
+    public function initializeHasKeptFlagHelpers(): void
+    {
+        $this->casts['is_kept'] = 'boolean';
+    }
+
     /**
      * Set kept flag.
      *
@@ -54,7 +59,7 @@ trait HasKeptFlagHelpers
      */
     public function isKept(): bool
     {
-        return (bool) $this->getAttributeValue('is_kept');
+        return $this->getAttributeValue('is_kept');
     }
 
     /**

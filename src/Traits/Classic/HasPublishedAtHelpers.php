@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasPublishedAtHelpers
 {
+    public function initializeHasPublishedAtHelpers(): void
+    {
+        $this->dates[] = 'published_at';
+    }
+
     /**
      * Set published flag.
      *

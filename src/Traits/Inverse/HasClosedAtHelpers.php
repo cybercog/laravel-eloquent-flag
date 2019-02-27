@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasClosedAtHelpers
 {
+    public function initializeHasClosedAtHelpers(): void
+    {
+        $this->dates[] = 'closed_at';
+    }
+
     /**
      * Set closed flag.
      *

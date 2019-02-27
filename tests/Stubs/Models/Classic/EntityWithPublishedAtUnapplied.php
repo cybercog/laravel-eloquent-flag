@@ -37,15 +37,6 @@ final class EntityWithPublishedAtUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'published_at' => 'datetime',
-    ];
-
-    /**
      * Determine if PublishedAtScope should be applied by default.
      *
      * @return bool

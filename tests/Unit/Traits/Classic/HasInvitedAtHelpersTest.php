@@ -20,6 +20,17 @@ use Illuminate\Support\Carbon;
 final class HasInvitedAtHelpersTest extends TestCase
 {
     /** @test */
+    public function it_casts_invited_at_to_datetime(): void
+    {
+        $entity = factory(EntityWithInvitedAt::class)->create([
+            'invited_at' => '1986-03-28 00:00:00',
+        ]);
+
+        $this->assertInstanceOf(Carbon::class, $entity->invited_at);
+        $this->assertSame('1986-03-28 00:00:00', $entity->invited_at->format('Y-m-d H:i:s'));
+    }
+
+    /** @test */
     public function it_can_set_invited_flag(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([

@@ -37,15 +37,6 @@ final class EntityWithInvitedAtUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'invited_at' => 'datetime',
-    ];
-
-    /**
      * Determine if InvitedAtScope should be applied by default.
      *
      * @return bool

@@ -11,13 +11,33 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
 use Cog\Tests\Flag\TestCase;
 
 final class HasEndedFlagHelpersTest extends TestCase
 {
+    /** @test */
+    public function it_casts_is_ended_to_boolean(): void
+    {
+        $entity = factory(EntityWithEndedFlag::class)->create([
+            'is_ended' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_ended);
+    }
+
+    /** @test */
+    public function it_not_casts_is_ended_to_boolean(): void
+    {
+        $entity = factory(EntityWithEndedFlag::class)->make([
+            'is_ended' => null,
+        ]);
+
+        $this->assertNull($entity->is_ended);
+    }
+
     /** @test */
     public function it_can_set_ended_flag(): void
     {

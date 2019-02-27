@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
@@ -19,6 +19,17 @@ use Illuminate\Support\Carbon;
 
 final class HasClosedAtHelpersTest extends TestCase
 {
+    /** @test */
+    public function it_casts_closed_at_to_datetime(): void
+    {
+        $entity = factory(EntityWithClosedAt::class)->create([
+            'closed_at' => '1986-03-28 00:00:00',
+        ]);
+
+        $this->assertInstanceOf(Carbon::class, $entity->closed_at);
+        $this->assertSame('1986-03-28 00:00:00', $entity->closed_at->format('Y-m-d H:i:s'));
+    }
+
     /** @test */
     public function it_can_set_closed_flag(): void
     {

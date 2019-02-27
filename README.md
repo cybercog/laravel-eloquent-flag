@@ -38,6 +38,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance Eloquent Model
 - Each flag adds global query scopes to models.
 - 2 logical groups of flags: `Classic`, `Inverse`.
 - 2 types of flags: `Boolean`, `Timestamp`.
+- Flag fields auto-casting to `bool` & `DateTime`.
 - Following PHP Standard Recommendations:
   - [PSR-1 (Basic Coding Standard)](http://www.php-fig.org/psr/psr-1/).
   - [PSR-2 (Coding Style Guide)](http://www.php-fig.org/psr/psr-2/).
@@ -90,6 +91,8 @@ All flags separated on 2 logical groups:
 Omitted entities could be retrieved by using special global scope methods, unique for each flag.
 
 > **Example:** If your `Article` model has `PublishedAt` flag then `Article::get()` will return you only published records. When you need to get only unpublished records you could call `Article::onlyUnpublished()->get()` and `Article::withUnpublished()->get()` will return you published and unpublished articles as well.
+
+Helper traits will automatically cast flag attributes to a `DateTime` / `Carbon` instance or `bool` for you.
 
 ## Installation
 

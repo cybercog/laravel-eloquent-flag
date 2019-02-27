@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasInvitedAtHelpers
 {
+    public function initializeHasInvitedAtHelpers(): void
+    {
+        $this->dates[] = 'invited_at';
+    }
+
     /**
      * Set invited flag.
      *

@@ -19,6 +19,26 @@ use Cog\Tests\Flag\TestCase;
 final class HasPublishedFlagHelpersTest extends TestCase
 {
     /** @test */
+    public function it_casts_is_published_to_boolean(): void
+    {
+        $entity = factory(EntityWithPublishedFlag::class)->create([
+            'is_published' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_published);
+    }
+
+    /** @test */
+    public function it_not_casts_is_published_to_boolean(): void
+    {
+        $entity = factory(EntityWithPublishedFlag::class)->make([
+            'is_published' => null,
+        ]);
+
+        $this->assertNull($entity->is_published);
+    }
+
+    /** @test */
     public function it_can_set_published_flag(): void
     {
         $entity = factory(EntityWithPublishedFlag::class)->create([

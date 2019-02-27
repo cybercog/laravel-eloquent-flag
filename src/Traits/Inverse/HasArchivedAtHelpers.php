@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasArchivedAtHelpers
 {
+    public function initializeHasArchivedAtHelpers(): void
+    {
+        $this->dates[] = 'archived_at';
+    }
+
     /**
      * Set archived flag.
      *

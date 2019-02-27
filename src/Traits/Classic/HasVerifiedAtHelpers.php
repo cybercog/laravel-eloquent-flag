@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasVerifiedAtHelpers
 {
+    public function initializeHasVerifiedAtHelpers(): void
+    {
+        $this->dates[] = 'verified_at';
+    }
+
     /**
      * Set verified flag.
      *

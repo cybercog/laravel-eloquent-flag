@@ -35,13 +35,4 @@ final class EntityWithAcceptedAt extends Model
     protected $fillable = [
         'name',
     ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'accepted_at' => 'datetime',
-    ];
 }

@@ -37,15 +37,6 @@ final class EntityWithDraftedAtUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'drafted_at' => 'datetime',
-    ];
-
-    /**
      * Determine if DraftedAtScope should be applied by default.
      *
      * @return bool

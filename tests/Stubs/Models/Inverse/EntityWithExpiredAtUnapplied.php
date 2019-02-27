@@ -37,15 +37,6 @@ final class EntityWithExpiredAtUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'expired_at' => 'datetime',
-    ];
-
-    /**
      * Determine if ExpiredAtScope should be applied by default.
      *
      * @return bool

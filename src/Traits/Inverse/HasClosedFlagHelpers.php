@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Inverse;
 
 trait HasClosedFlagHelpers
 {
+    public function initializeHasClosedFlagHelpers(): void
+    {
+        $this->casts['is_closed'] = 'boolean';
+    }
+
     /**
      * Set closed flag.
      *
@@ -46,7 +51,7 @@ trait HasClosedFlagHelpers
      */
     public function isClosed(): bool
     {
-        return (bool) $this->getAttributeValue('is_closed');
+        return $this->getAttributeValue('is_closed');
     }
 
     /**

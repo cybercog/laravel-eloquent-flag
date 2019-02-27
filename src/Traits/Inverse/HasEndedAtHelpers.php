@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasEndedAtHelpers
 {
+    public function initializeHasEndedAtHelpers(): void
+    {
+        $this->dates[] = 'ended_at';
+    }
+
     /**
      * Set end flag.
      *

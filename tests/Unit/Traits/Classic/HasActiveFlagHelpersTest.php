@@ -19,6 +19,26 @@ use Cog\Tests\Flag\TestCase;
 final class HasActiveFlagHelpersTest extends TestCase
 {
     /** @test */
+    public function it_casts_is_active_to_boolean(): void
+    {
+        $entity = factory(EntityWithActiveFlag::class)->create([
+            'is_active' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_active);
+    }
+
+    /** @test */
+    public function it_not_casts_is_active_to_boolean(): void
+    {
+        $entity = factory(EntityWithActiveFlag::class)->make([
+            'is_active' => null,
+        ]);
+
+        $this->assertNull($entity->is_active);
+    }
+
+    /** @test */
     public function it_can_set_active_flag(): void
     {
         $entity = factory(EntityWithActiveFlag::class)->create([

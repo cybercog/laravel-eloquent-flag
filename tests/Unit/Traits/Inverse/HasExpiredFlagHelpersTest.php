@@ -11,13 +11,33 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
 use Cog\Tests\Flag\TestCase;
 
 final class HasExpiredFlagHelpersTest extends TestCase
 {
+    /** @test */
+    public function it_casts_is_expired_to_boolean(): void
+    {
+        $entity = factory(EntityWithExpiredFlag::class)->create([
+            'is_expired' => 1,
+        ]);
+
+        $this->assertTrue($entity->is_expired);
+    }
+
+    /** @test */
+    public function it_not_casts_is_expired_to_boolean(): void
+    {
+        $entity = factory(EntityWithExpiredFlag::class)->make([
+            'is_expired' => null,
+        ]);
+
+        $this->assertNull($entity->is_expired);
+    }
+
     /** @test */
     public function it_can_set_expired_flag(): void
     {

@@ -37,15 +37,6 @@ final class EntityWithEndedFlagUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'is_ended' => 'bool',
-    ];
-
-    /**
      * Determine if EndedFlagScope should be applied by default.
      *
      * @return bool

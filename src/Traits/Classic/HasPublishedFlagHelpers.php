@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Classic;
 
 trait HasPublishedFlagHelpers
 {
+    public function initializeHasPublishedFlagHelpers(): void
+    {
+        $this->casts['is_published'] = 'boolean';
+    }
+
     /**
      * Set published flag.
      *
@@ -46,7 +51,7 @@ trait HasPublishedFlagHelpers
      */
     public function isPublished(): bool
     {
-        return (bool) $this->getAttributeValue('is_published');
+        return $this->getAttributeValue('is_published');
     }
 
     /**

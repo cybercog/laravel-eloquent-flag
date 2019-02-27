@@ -7,6 +7,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 ### Added
 
 - Laravel 5.8 support
+- Flag fields auto-casting
 
 ### Changed
 
@@ -15,8 +16,8 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 ### Removed
 
-- PHP 5.6, 7.0 support
-- Laravel 5.2, 5.3, 5.4 support
+- Dropped PHP 5.6, 7.0 support
+- Dropped Laravel 5.2, 5.3, 5.4, 5.5, 5.6 support
 
 ## [4.0.0] - 2018-09-09
 
