@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Classic;
 
 trait HasActiveFlagHelpers
 {
+    public function initializeHasActiveFlagHelpers(): void
+    {
+        $this->casts['is_active'] = 'boolean';
+    }
+
     /**
      * Set active flag.
      *
@@ -46,7 +51,7 @@ trait HasActiveFlagHelpers
      */
     public function isActivated(): bool
     {
-        return (bool) $this->getAttributeValue('is_active');
+        return $this->getAttributeValue('is_active');
     }
 
     /**

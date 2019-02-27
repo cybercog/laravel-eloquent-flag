@@ -37,15 +37,6 @@ final class EntityWithArchivedAtUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'archived_at' => 'datetime',
-    ];
-
-    /**
      * Determine if ArchivedAtScope should be applied by default.
      *
      * @return bool

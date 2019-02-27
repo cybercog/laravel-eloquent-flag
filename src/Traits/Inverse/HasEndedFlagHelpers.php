@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Inverse;
 
 trait HasEndedFlagHelpers
 {
+    public function initializeHasEndedFlagHelpers(): void
+    {
+        $this->casts['is_ended'] = 'boolean';
+    }
+
     /**
      * Set ended flag.
      *
@@ -46,7 +51,7 @@ trait HasEndedFlagHelpers
      */
     public function isEnded(): bool
     {
-        return (bool) $this->getAttributeValue('is_ended');
+        return $this->getAttributeValue('is_ended');
     }
 
     /**

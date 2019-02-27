@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Inverse;
 
 trait HasExpiredFlagHelpers
 {
+    public function initializeHasExpiredFlagHelpers(): void
+    {
+        $this->casts['is_expired'] = 'boolean';
+    }
+
     /**
      * Set expired flag.
      *
@@ -46,7 +51,7 @@ trait HasExpiredFlagHelpers
      */
     public function isExpired(): bool
     {
-        return (bool) $this->getAttributeValue('is_expired');
+        return $this->getAttributeValue('is_expired');
     }
 
     /**

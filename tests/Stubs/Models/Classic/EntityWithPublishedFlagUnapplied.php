@@ -37,15 +37,6 @@ final class EntityWithPublishedFlagUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'is_published' => 'bool',
-    ];
-
-    /**
      * Determine if PublishedFlagScope should be applied by default.
      *
      * @return bool

@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Classic;
 
 trait HasVerifiedFlagHelpers
 {
+    public function initializeHasVerifiedFlagHelpers(): void
+    {
+        $this->casts['is_verified'] = 'boolean';
+    }
+
     /**
      * Set verified flag.
      *
@@ -46,7 +51,7 @@ trait HasVerifiedFlagHelpers
      */
     public function isVerified(): bool
     {
-        return (bool) $this->getAttributeValue('is_verified');
+        return $this->getAttributeValue('is_verified');
     }
 
     /**

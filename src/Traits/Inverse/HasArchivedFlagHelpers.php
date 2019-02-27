@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Inverse;
 
 trait HasArchivedFlagHelpers
 {
+    public function initializeHasArchivedFlagHelpers(): void
+    {
+        $this->casts['is_archived'] = 'boolean';
+    }
+
     /**
      * Set archived flag.
      *
@@ -46,7 +51,7 @@ trait HasArchivedFlagHelpers
      */
     public function isArchived(): bool
     {
-        return (bool) $this->getAttributeValue('is_archived');
+        return $this->getAttributeValue('is_archived');
     }
 
     /**

@@ -37,15 +37,6 @@ final class EntityWithVerifiedAtUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'verified_at' => 'datetime',
-    ];
-
-    /**
      * Determine if VerifiedAtScope should be applied by default.
      *
      * @return bool

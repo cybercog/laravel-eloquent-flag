@@ -37,15 +37,6 @@ final class EntityWithEndedAtUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'ended_at' => 'datetime',
-    ];
-
-    /**
      * Determine if EndedAtScope should be applied by default.
      *
      * @return bool

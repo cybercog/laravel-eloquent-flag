@@ -37,15 +37,6 @@ final class EntityWithExpiredFlagUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'is_expired' => 'bool',
-    ];
-
-    /**
      * Determine if ExpiredFlagScope should be applied by default.
      *
      * @return bool

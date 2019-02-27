@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Classic;
 
 trait HasInvitedFlagHelpers
 {
+    public function initializeHasInvitedFlagHelpers(): void
+    {
+        $this->casts['is_invited'] = 'boolean';
+    }
+
     /**
      * Set invited flag.
      *
@@ -46,7 +51,7 @@ trait HasInvitedFlagHelpers
      */
     public function isInvited(): bool
     {
-        return (bool) $this->getAttributeValue('is_invited');
+        return $this->getAttributeValue('is_invited');
     }
 
     /**

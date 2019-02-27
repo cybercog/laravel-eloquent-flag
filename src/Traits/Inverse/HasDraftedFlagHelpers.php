@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Inverse;
 
 trait HasDraftedFlagHelpers
 {
+    public function initializeHasDraftedFlagHelpers(): void
+    {
+        $this->casts['is_drafted'] = 'boolean';
+    }
+
     /**
      * Set drafted flag.
      *
@@ -46,7 +51,7 @@ trait HasDraftedFlagHelpers
      */
     public function isDrafted(): bool
     {
-        return (bool) $this->getAttributeValue('is_drafted');
+        return $this->getAttributeValue('is_drafted');
     }
 
     /**

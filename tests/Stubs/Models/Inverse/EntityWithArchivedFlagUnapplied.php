@@ -37,15 +37,6 @@ final class EntityWithArchivedFlagUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'is_archived' => 'bool',
-    ];
-
-    /**
      * Determine if ArchivedFlagScope should be applied by default.
      *
      * @return bool

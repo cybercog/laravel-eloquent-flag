@@ -37,15 +37,6 @@ final class EntityWithInvitedFlagUnapplied extends Model
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'is_invited' => 'bool',
-    ];
-
-    /**
      * Determine if InvitedFlagScope should be applied by default.
      *
      * @return bool

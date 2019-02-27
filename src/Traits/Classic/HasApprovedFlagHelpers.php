@@ -15,6 +15,11 @@ namespace Cog\Flag\Traits\Classic;
 
 trait HasApprovedFlagHelpers
 {
+    public function initializeHasApprovedFlagHelpers(): void
+    {
+        $this->casts['is_approved'] = 'boolean';
+    }
+
     /**
      * Set approved flag.
      *
@@ -46,7 +51,7 @@ trait HasApprovedFlagHelpers
      */
     public function isApproved(): bool
     {
-        return (bool) $this->getAttributeValue('is_approved');
+        return $this->getAttributeValue('is_approved');
     }
 
     /**
