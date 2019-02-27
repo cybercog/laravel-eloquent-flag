@@ -92,7 +92,7 @@ Omitted entities could be retrieved by using special global scope methods, uniqu
 
 > **Example:** If your `Article` model has `PublishedAt` flag then `Article::get()` will return you only published records. When you need to get only unpublished records you could call `Article::onlyUnpublished()->get()` and `Article::withUnpublished()->get()` will return you published and unpublished articles as well.
 
-The helper traits will automatically cast flag attributes to a DateTime / Carbon instance or Boolean for you.
+Helper traits will automatically cast flag attributes to a DateTime / Carbon instance or Boolean for you.
 
 ## Installation
 
