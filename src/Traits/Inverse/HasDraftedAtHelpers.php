@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasDraftedAtHelpers
 {
+    public function initializeHasDraftedAtHelpers(): void
+    {
+        $this->dates[] = 'drafted_at';
+    }
+
     /**
      * Set drafted flag.
      *

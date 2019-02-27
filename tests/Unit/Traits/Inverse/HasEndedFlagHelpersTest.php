@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
 use Cog\Tests\Flag\TestCase;

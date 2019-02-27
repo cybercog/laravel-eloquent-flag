@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
 use Cog\Tests\Flag\TestCase;
@@ -19,6 +19,17 @@ use Illuminate\Support\Carbon;
 
 final class HasEndedAtHelpersTest extends TestCase
 {
+    /** @test */
+    public function it_casts_ended_at_to_datetime(): void
+    {
+        $entity = factory(EntityWithEndedAt::class)->create([
+            'ended_at' => '1986-03-28 00:00:00',
+        ]);
+
+        $this->assertInstanceOf(Carbon::class, $entity->ended_at);
+        $this->assertSame('1986-03-28 00:00:00', $entity->ended_at->format('Y-m-d H:i:s'));
+    }
+
     /** @test */
     public function it_can_set_ended_flag(): void
     {

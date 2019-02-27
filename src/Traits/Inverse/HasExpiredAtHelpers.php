@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasExpiredAtHelpers
 {
+    public function initializeHasExpiredAtHelpers(): void
+    {
+        $this->dates[] = 'expired_at';
+    }
+
     /**
      * Set expired flag.
      *

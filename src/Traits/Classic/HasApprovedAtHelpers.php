@@ -17,6 +17,11 @@ use Illuminate\Support\Carbon;
 
 trait HasApprovedAtHelpers
 {
+    public function initializeHasApprovedAtHelpers(): void
+    {
+        $this->dates[] = 'approved_at';
+    }
+
     /**
      * Set approved flag.
      *
