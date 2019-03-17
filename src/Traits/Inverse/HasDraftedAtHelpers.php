@@ -22,31 +22,16 @@ trait HasDraftedAtHelpers
         $this->dates[] = 'drafted_at';
     }
 
-    /**
-     * If entity is drafted.
-     *
-     * @return bool
-     */
     public function isDrafted(): bool
     {
         return !is_null($this->getAttributeValue('drafted_at'));
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUndrafted(): bool
+    public function isNotDrafted(): bool
     {
         return !$this->isDrafted();
     }
 
-    /**
-     * Mark entity as drafted.
-     *
-     * @return void
-     */
     public function draft(): void
     {
         $this->setAttribute('drafted_at', Date::now());
@@ -55,11 +40,6 @@ trait HasDraftedAtHelpers
         $this->fireModelEvent('drafted', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function undraft(): void
     {
         $this->setAttribute('drafted_at', null);

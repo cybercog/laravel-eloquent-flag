@@ -20,31 +20,16 @@ trait HasDraftedFlagHelpers
         $this->casts['is_drafted'] = 'boolean';
     }
 
-    /**
-     * If entity is drafted.
-     *
-     * @return bool
-     */
     public function isDrafted(): bool
     {
         return $this->getAttributeValue('is_drafted');
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUndrafted(): bool
+    public function isNotDrafted(): bool
     {
         return !$this->isDrafted();
     }
 
-    /**
-     * Mark entity as drafted.
-     *
-     * @return void
-     */
     public function draft(): void
     {
         $this->setAttribute('is_drafted', true);
@@ -53,11 +38,6 @@ trait HasDraftedFlagHelpers
         $this->fireModelEvent('drafted', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function undraft(): void
     {
         $this->setAttribute('is_drafted', false);

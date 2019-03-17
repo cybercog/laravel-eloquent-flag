@@ -20,31 +20,16 @@ trait HasApprovedFlagHelpers
         $this->casts['is_approved'] = 'boolean';
     }
 
-    /**
-     * If entity is approved.
-     *
-     * @return bool
-     */
     public function isApproved(): bool
     {
         return $this->getAttributeValue('is_approved');
     }
 
-    /**
-     * If entity is disapproved.
-     *
-     * @return bool
-     */
-    public function isDisapproved(): bool
+    public function isNotApproved(): bool
     {
         return !$this->isApproved();
     }
 
-    /**
-     * Mark entity as approved.
-     *
-     * @return void
-     */
     public function approve(): void
     {
         $this->setAttribute('is_approved', true);
@@ -53,11 +38,6 @@ trait HasApprovedFlagHelpers
         $this->fireModelEvent('approved', false);
     }
 
-    /**
-     * Mark entity as disapproved.
-     *
-     * @return void
-     */
     public function disapprove(): void
     {
         $this->setAttribute('is_approved', false);

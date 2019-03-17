@@ -54,7 +54,7 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unverified(): void
+    public function it_can_check_if_entity_is_not_verified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,
@@ -64,8 +64,8 @@ final class HasVerifiedFlagHelpersTest extends TestCase
             'is_verified' => false,
         ]);
 
-        $this->assertFalse($verifiedEntity->isUnverified());
-        $this->assertTrue($unverifiedEntity->isUnverified());
+        $this->assertFalse($verifiedEntity->isNotVerified());
+        $this->assertTrue($unverifiedEntity->isNotVerified());
     }
 
     /** @test */

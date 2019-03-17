@@ -20,31 +20,16 @@ trait HasExpiredFlagHelpers
         $this->casts['is_expired'] = 'boolean';
     }
 
-    /**
-     * If entity is expired.
-     *
-     * @return bool
-     */
     public function isExpired(): bool
     {
         return $this->getAttributeValue('is_expired');
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUnexpired(): bool
+    public function isNotExpired(): bool
     {
         return !$this->isExpired();
     }
 
-    /**
-     * Mark entity as expired.
-     *
-     * @return void
-     */
     public function expire(): void
     {
         $this->setAttribute('is_expired', true);
@@ -53,11 +38,6 @@ trait HasExpiredFlagHelpers
         $this->fireModelEvent('expired', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function unexpire(): void
     {
         $this->setAttribute('is_expired', false);

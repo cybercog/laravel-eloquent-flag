@@ -55,7 +55,7 @@ final class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unkept(): void
+    public function it_can_check_if_entity_is_not_kept(): void
     {
         $keptEntity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
@@ -65,8 +65,8 @@ final class HasKeptFlagHelperTest extends TestCase
             'is_kept' => false,
         ]);
 
-        $this->assertFalse($keptEntity->isUnkept());
-        $this->assertTrue($unkeptEntity->isUnkept());
+        $this->assertFalse($keptEntity->isNotKept());
+        $this->assertTrue($unkeptEntity->isNotKept());
     }
 
     /** @test */

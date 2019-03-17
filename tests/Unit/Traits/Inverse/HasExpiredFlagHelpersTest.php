@@ -54,7 +54,7 @@ final class HasExpiredFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unexpired(): void
+    public function it_can_check_if_entity_is_not_expired(): void
     {
         $expiredEntity = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
@@ -64,8 +64,8 @@ final class HasExpiredFlagHelpersTest extends TestCase
             'is_expired' => false,
         ]);
 
-        $this->assertFalse($expiredEntity->isUnexpired());
-        $this->assertTrue($unexpiredEntity->isUnexpired());
+        $this->assertFalse($expiredEntity->isNotExpired());
+        $this->assertTrue($unexpiredEntity->isNotExpired());
     }
 
     /** @test */

@@ -22,31 +22,16 @@ trait HasInvitedAtHelpers
         $this->dates[] = 'invited_at';
     }
 
-    /**
-     * If entity is invited.
-     *
-     * @return bool
-     */
     public function isInvited(): bool
     {
         return !is_null($this->getAttributeValue('invited_at'));
     }
 
-    /**
-     * If entity is uninvited.
-     *
-     * @return bool
-     */
-    public function isUninvited(): bool
+    public function isNotInvited(): bool
     {
         return !$this->isInvited();
     }
 
-    /**
-     * Mark entity as invited.
-     *
-     * @return void
-     */
     public function invite(): void
     {
         $this->setAttribute('invited_at', Date::now());
@@ -55,11 +40,6 @@ trait HasInvitedAtHelpers
         $this->fireModelEvent('invited', false);
     }
 
-    /**
-     * Mark entity as uninvited.
-     *
-     * @return void
-     */
     public function uninvite(): void
     {
         $this->setAttribute('invited_at', null);

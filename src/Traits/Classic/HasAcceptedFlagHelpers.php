@@ -20,31 +20,16 @@ trait HasAcceptedFlagHelpers
         $this->casts['is_accepted'] = 'boolean';
     }
 
-    /**
-     * If entity is accepted.
-     *
-     * @return bool
-     */
     public function isAccepted(): bool
     {
         return $this->getAttributeValue('is_accepted');
     }
 
-    /**
-     * If entity is rejected.
-     *
-     * @return bool
-     */
-    public function isRejected(): bool
+    public function isNotAccepted(): bool
     {
         return !$this->isAccepted();
     }
 
-    /**
-     * Mark entity as accepted.
-     *
-     * @return void
-     */
     public function accept(): void
     {
         $this->setAttribute('is_accepted', true);
@@ -53,11 +38,6 @@ trait HasAcceptedFlagHelpers
         $this->fireModelEvent('accepted', false);
     }
 
-    /**
-     * Mark entity as rejected.
-     *
-     * @return void
-     */
     public function reject(): void
     {
         $this->setAttribute('is_accepted', false);

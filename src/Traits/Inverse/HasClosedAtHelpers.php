@@ -22,31 +22,16 @@ trait HasClosedAtHelpers
         $this->dates[] = 'closed_at';
     }
 
-    /**
-     * If entity is closed.
-     *
-     * @return bool
-     */
     public function isClosed(): bool
     {
         return !is_null($this->getAttributeValue('closed_at'));
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isOpened(): bool
+    public function isNotClosed(): bool
     {
         return !$this->isClosed();
     }
 
-    /**
-     * Mark entity as closed.
-     *
-     * @return void
-     */
     public function close(): void
     {
         $this->setAttribute('closed_at', Date::now());
@@ -55,11 +40,6 @@ trait HasClosedAtHelpers
         $this->fireModelEvent('closed', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function open(): void
     {
         $this->setAttribute('closed_at', null);

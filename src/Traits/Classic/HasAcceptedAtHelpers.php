@@ -22,31 +22,16 @@ trait HasAcceptedAtHelpers
         $this->dates[] = 'accepted_at';
     }
 
-    /**
-     * If entity is accepted.
-     *
-     * @return bool
-     */
     public function isAccepted(): bool
     {
         return !is_null($this->getAttributeValue('accepted_at'));
     }
 
-    /**
-     * If entity is rejected.
-     *
-     * @return bool
-     */
-    public function isRejected(): bool
+    public function isNotAccepted(): bool
     {
         return !$this->isAccepted();
     }
 
-    /**
-     * Mark entity as accepted.
-     *
-     * @return void
-     */
     public function accept(): void
     {
         $this->setAttribute('accepted_at', Date::now());
@@ -55,11 +40,6 @@ trait HasAcceptedAtHelpers
         $this->fireModelEvent('accepted', false);
     }
 
-    /**
-     * Mark entity as rejected.
-     *
-     * @return void
-     */
     public function reject(): void
     {
         $this->setAttribute('accepted_at', null);

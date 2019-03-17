@@ -54,7 +54,7 @@ final class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unended(): void
+    public function it_can_check_if_entity_is_not_ended(): void
     {
         $endedEntity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,
@@ -64,8 +64,8 @@ final class HasEndedFlagHelpersTest extends TestCase
             'is_ended' => false,
         ]);
 
-        $this->assertFalse($endedEntity->isUnended());
-        $this->assertTrue($unendedEntity->isUnended());
+        $this->assertFalse($endedEntity->isNotEnded());
+        $this->assertTrue($unendedEntity->isNotEnded());
     }
 
     /** @test */

@@ -47,7 +47,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unverified(): void
+    public function it_can_check_if_entity_is_not_verified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasVerifiedAtHelpersTest extends TestCase
             'verified_at' => null,
         ]);
 
-        $this->assertFalse($verifiedEntity->isUnverified());
-        $this->assertTrue($unverifiedEntity->isUnverified());
+        $this->assertFalse($verifiedEntity->isNotVerified());
+        $this->assertTrue($unverifiedEntity->isNotVerified());
     }
 
     /** @test */

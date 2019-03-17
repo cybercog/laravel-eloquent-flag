@@ -22,31 +22,16 @@ trait HasArchivedAtHelpers
         $this->dates[] = 'archived_at';
     }
 
-    /**
-     * If entity is archived.
-     *
-     * @return bool
-     */
     public function isArchived(): bool
     {
         return !is_null($this->getAttributeValue('archived_at'));
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUnarchived(): bool
+    public function isNotArchived(): bool
     {
         return !$this->isArchived();
     }
 
-    /**
-     * Mark entity as archived.
-     *
-     * @return void
-     */
     public function archive(): void
     {
         $this->setAttribute('archived_at', Date::now());
@@ -55,11 +40,6 @@ trait HasArchivedAtHelpers
         $this->fireModelEvent('archived', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function unarchive(): void
     {
         $this->setAttribute('archived_at', null);

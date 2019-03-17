@@ -20,31 +20,16 @@ trait HasVerifiedFlagHelpers
         $this->casts['is_verified'] = 'boolean';
     }
 
-    /**
-     * If entity is verified.
-     *
-     * @return bool
-     */
     public function isVerified(): bool
     {
         return $this->getAttributeValue('is_verified');
     }
 
-    /**
-     * If entity is unverified.
-     *
-     * @return bool
-     */
-    public function isUnverified(): bool
+    public function isNotVerified(): bool
     {
         return !$this->isVerified();
     }
 
-    /**
-     * Mark entity as verified.
-     *
-     * @return void
-     */
     public function verify(): void
     {
         $this->setAttribute('is_verified', true);
@@ -53,11 +38,6 @@ trait HasVerifiedFlagHelpers
         $this->fireModelEvent('verified', false);
     }
 
-    /**
-     * Mark entity as unverified.
-     *
-     * @return void
-     */
     public function unverify(): void
     {
         $this->setAttribute('is_verified', false);

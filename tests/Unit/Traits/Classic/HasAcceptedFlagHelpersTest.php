@@ -54,7 +54,7 @@ final class HasAcceptedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_rejected(): void
+    public function it_can_check_if_entity_is_not_accepted(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedFlag::class)->create([
             'is_accepted' => true,
@@ -64,8 +64,8 @@ final class HasAcceptedFlagHelpersTest extends TestCase
             'is_accepted' => false,
         ]);
 
-        $this->assertFalse($acceptedEntity->isRejected());
-        $this->assertTrue($rejectedEntity->isRejected());
+        $this->assertFalse($acceptedEntity->isNotAccepted());
+        $this->assertTrue($rejectedEntity->isNotAccepted());
     }
 
     /** @test */

@@ -47,7 +47,7 @@ final class HasEndedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unended(): void
+    public function it_can_check_if_entity_is_not_ended(): void
     {
         $endedEntity = factory(EntityWithEndedAt::class)->create([
             'ended_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasEndedAtHelpersTest extends TestCase
             'ended_at' => null,
         ]);
 
-        $this->assertFalse($endedEntity->isUnended());
-        $this->assertTrue($unendedEntity->isUnended());
+        $this->assertFalse($endedEntity->isNotEnded());
+        $this->assertTrue($unendedEntity->isNotEnded());
     }
 
     /** @test */

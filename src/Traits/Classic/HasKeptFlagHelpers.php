@@ -24,31 +24,16 @@ trait HasKeptFlagHelpers
         $this->casts['is_kept'] = 'boolean';
     }
 
-    /**
-     * If entity is kept.
-     *
-     * @return bool
-     */
     public function isKept(): bool
     {
         return $this->getAttributeValue('is_kept');
     }
 
-    /**
-     * If entity is unkept.
-     *
-     * @return bool
-     */
-    public function isUnkept(): bool
+    public function isNotKept(): bool
     {
         return !$this->isKept();
     }
 
-    /**
-     * Mark entity as kept.
-     *
-     * @return void
-     */
     public function keep(): void
     {
         $this->setAttribute('is_kept', true);
@@ -57,11 +42,6 @@ trait HasKeptFlagHelpers
         $this->fireModelEvent('kept', false);
     }
 
-    /**
-     * Mark entity as unkept.
-     *
-     * @return void
-     */
     public function unkeep(): void
     {
         $this->setAttribute('is_kept', false);

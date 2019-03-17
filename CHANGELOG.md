@@ -13,6 +13,18 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - All methods are strict typed now
 - `Carbon\Carbon` replaced with `Illuminate\Support\Facades\Date`
+- `isRejected` method renamed to `isNotAccepted`
+- `isDeactivated` method renamed to `isNotActivated`
+- `isDisapproved` method renamed to `isNotApproved`
+- `isUninvited` method renamed to `isNotInvited`
+- `isUnkept` method renamed to `isNotKept`
+- `isUnpublished` method renamed to `isNotPublished`
+- `isUnverified` method renamed to `isNotVerified`
+- `isUnarchived` method renamed to `isNotArchived`
+- `isOpened` method renamed to `isNotClosed`
+- `isUndrafted` method renamed to `isNotDrafted`
+- `isUnended` method renamed to `isNotEnded`
+- `isUnexpired` method renamed to `isNotExpired`
 
 ### Removed
 

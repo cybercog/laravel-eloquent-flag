@@ -20,31 +20,16 @@ trait HasArchivedFlagHelpers
         $this->casts['is_archived'] = 'boolean';
     }
 
-    /**
-     * If entity is archived.
-     *
-     * @return bool
-     */
     public function isArchived(): bool
     {
         return $this->getAttributeValue('is_archived');
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUnarchived(): bool
+    public function isNotArchived(): bool
     {
         return !$this->isArchived();
     }
 
-    /**
-     * Mark entity as archived.
-     *
-     * @return void
-     */
     public function archive(): void
     {
         $this->setAttribute('is_archived', true);
@@ -53,11 +38,6 @@ trait HasArchivedFlagHelpers
         $this->fireModelEvent('archived', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function unarchive(): void
     {
         $this->setAttribute('is_archived', false);

@@ -20,31 +20,16 @@ trait HasPublishedFlagHelpers
         $this->casts['is_published'] = 'boolean';
     }
 
-    /**
-     * If entity is published.
-     *
-     * @return bool
-     */
     public function isPublished(): bool
     {
         return $this->getAttributeValue('is_published');
     }
 
-    /**
-     * If entity is unpublished.
-     *
-     * @return bool
-     */
-    public function isUnpublished(): bool
+    public function isNotPublished(): bool
     {
         return !$this->isPublished();
     }
 
-    /**
-     * Mark entity as published.
-     *
-     * @return void
-     */
     public function publish(): void
     {
         $this->setAttribute('is_published', true);
@@ -53,11 +38,6 @@ trait HasPublishedFlagHelpers
         $this->fireModelEvent('published', false);
     }
 
-    /**
-     * Mark entity as unpublished.
-     *
-     * @return void
-     */
     public function unpublish(): void
     {
         $this->setAttribute('is_published', false);

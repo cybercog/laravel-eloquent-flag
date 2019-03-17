@@ -22,31 +22,16 @@ trait HasPublishedAtHelpers
         $this->dates[] = 'published_at';
     }
 
-    /**
-     * If entity is published.
-     *
-     * @return bool
-     */
     public function isPublished(): bool
     {
         return !is_null($this->getAttributeValue('published_at'));
     }
 
-    /**
-     * If entity is unpublished.
-     *
-     * @return bool
-     */
-    public function isUnpublished(): bool
+    public function isNotPublished(): bool
     {
         return !$this->isPublished();
     }
 
-    /**
-     * Mark entity as published.
-     *
-     * @return void
-     */
     public function publish(): void
     {
         $this->setAttribute('published_at', Date::now());
@@ -55,11 +40,6 @@ trait HasPublishedAtHelpers
         $this->fireModelEvent('published', false);
     }
 
-    /**
-     * Mark entity as unpublished.
-     *
-     * @return void
-     */
     public function unpublish(): void
     {
         $this->setAttribute('published_at', null);
