@@ -23,30 +23,6 @@ trait HasEndedAtHelpers
     }
 
     /**
-     * Set end flag.
-     *
-     * @return static
-     */
-    public function setEndedFlag()
-    {
-        $this->setAttribute('ended_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset end flag.
-     *
-     * @return static
-     */
-    public function unsetEndedFlag()
-    {
-        $this->setAttribute('ended_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is end.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasEndedAtHelpers
      */
     public function end(): void
     {
-        $this->setEndedFlag()->save();
+        $this->setAttribute('ended_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('ended', false);
     }
@@ -85,7 +62,8 @@ trait HasEndedAtHelpers
      */
     public function unend(): void
     {
-        $this->unsetEndedFlag()->save();
+        $this->setAttribute('ended_at', null);
+        $this->save();
 
         $this->fireModelEvent('unended', false);
     }

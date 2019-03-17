@@ -21,30 +21,6 @@ trait HasInvitedFlagHelpers
     }
 
     /**
-     * Set invited flag.
-     *
-     * @return static
-     */
-    public function setInvitedFlag()
-    {
-        $this->setAttribute('is_invited', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset invited flag.
-     *
-     * @return static
-     */
-    public function unsetInvitedFlag()
-    {
-        $this->setAttribute('is_invited', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is invited.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasInvitedFlagHelpers
      */
     public function invite(): void
     {
-        $this->setInvitedFlag()->save();
+        $this->setAttribute('is_invited', true);
+        $this->save();
 
         $this->fireModelEvent('invited', false);
     }
@@ -83,7 +60,8 @@ trait HasInvitedFlagHelpers
      */
     public function uninvite(): void
     {
-        $this->unsetInvitedFlag()->save();
+        $this->setAttribute('is_invited', false);
+        $this->save();
 
         $this->fireModelEvent('uninvited', false);
     }

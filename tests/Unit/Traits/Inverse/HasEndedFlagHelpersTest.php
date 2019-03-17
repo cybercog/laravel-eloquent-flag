@@ -39,30 +39,6 @@ final class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_ended_flag(): void
-    {
-        $entity = factory(EntityWithEndedFlag::class)->create([
-            'is_ended' => false,
-        ]);
-
-        $entity->setEndedFlag();
-
-        $this->assertTrue($entity->is_ended);
-    }
-
-    /** @test */
-    public function it_can_unset_ended_flag(): void
-    {
-        $entity = factory(EntityWithEndedFlag::class)->create([
-            'is_ended' => true,
-        ]);
-
-        $entity->unsetEndedFlag();
-
-        $this->assertFalse($entity->is_ended);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_ended(): void
     {
         $endedEntity = factory(EntityWithEndedFlag::class)->create([

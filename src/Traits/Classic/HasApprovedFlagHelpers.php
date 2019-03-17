@@ -21,30 +21,6 @@ trait HasApprovedFlagHelpers
     }
 
     /**
-     * Set approved flag.
-     *
-     * @return static
-     */
-    public function setApprovedFlag()
-    {
-        $this->setAttribute('is_approved', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset approved flag.
-     *
-     * @return static
-     */
-    public function unsetApprovedFlag()
-    {
-        $this->setAttribute('is_approved', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is approved.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasApprovedFlagHelpers
      */
     public function approve(): void
     {
-        $this->setApprovedFlag()->save();
+        $this->setAttribute('is_approved', true);
+        $this->save();
 
         $this->fireModelEvent('approved', false);
     }
@@ -83,7 +60,8 @@ trait HasApprovedFlagHelpers
      */
     public function disapprove(): void
     {
-        $this->unsetApprovedFlag()->save();
+        $this->setAttribute('is_approved', false);
+        $this->save();
 
         $this->fireModelEvent('disapproved', false);
     }

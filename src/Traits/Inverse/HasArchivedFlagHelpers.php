@@ -21,30 +21,6 @@ trait HasArchivedFlagHelpers
     }
 
     /**
-     * Set archived flag.
-     *
-     * @return static
-     */
-    public function setArchivedFlag()
-    {
-        $this->setAttribute('is_archived', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset archived flag.
-     *
-     * @return static
-     */
-    public function unsetArchivedFlag()
-    {
-        $this->setAttribute('is_archived', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is archived.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasArchivedFlagHelpers
      */
     public function archive(): void
     {
-        $this->setArchivedFlag()->save();
+        $this->setAttribute('is_archived', true);
+        $this->save();
 
         $this->fireModelEvent('archived', false);
     }
@@ -83,7 +60,8 @@ trait HasArchivedFlagHelpers
      */
     public function unarchive(): void
     {
-        $this->unsetArchivedFlag()->save();
+        $this->setAttribute('is_archived', false);
+        $this->save();
 
         $this->fireModelEvent('unarchived', false);
     }

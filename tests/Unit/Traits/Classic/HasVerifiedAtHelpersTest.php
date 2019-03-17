@@ -32,30 +32,6 @@ final class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_verified_flag(): void
-    {
-        $entity = factory(EntityWithVerifiedAt::class)->create([
-            'verified_at' => null,
-        ]);
-
-        $entity->setVerifiedFlag();
-
-        $this->assertNotNull($entity->verified_at);
-    }
-
-    /** @test */
-    public function it_can_unset_verified_flag(): void
-    {
-        $entity = factory(EntityWithVerifiedAt::class)->create([
-            'verified_at' => Date::now(),
-        ]);
-
-        $entity->unsetVerifiedFlag();
-
-        $this->assertNull($entity->verified_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_verified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([

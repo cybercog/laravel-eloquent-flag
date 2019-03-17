@@ -21,30 +21,6 @@ trait HasPublishedFlagHelpers
     }
 
     /**
-     * Set published flag.
-     *
-     * @return static
-     */
-    public function setPublishedFlag()
-    {
-        $this->setAttribute('is_published', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset published flag.
-     *
-     * @return static
-     */
-    public function unsetPublishedFlag()
-    {
-        $this->setAttribute('is_published', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is published.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasPublishedFlagHelpers
      */
     public function publish(): void
     {
-        $this->setPublishedFlag()->save();
+        $this->setAttribute('is_published', true);
+        $this->save();
 
         $this->fireModelEvent('published', false);
     }
@@ -83,7 +60,8 @@ trait HasPublishedFlagHelpers
      */
     public function unpublish(): void
     {
-        $this->unsetPublishedFlag()->save();
+        $this->setAttribute('is_published', false);
+        $this->save();
 
         $this->fireModelEvent('unpublished', false);
     }

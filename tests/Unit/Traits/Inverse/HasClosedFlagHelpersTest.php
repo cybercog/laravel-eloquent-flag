@@ -39,30 +39,6 @@ final class HasClosedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_closed_flag(): void
-    {
-        $entity = factory(EntityWithClosedFlag::class)->create([
-            'is_closed' => false,
-        ]);
-
-        $entity->setClosedFlag();
-
-        $this->assertTrue($entity->is_closed);
-    }
-
-    /** @test */
-    public function it_can_unset_closed_flag(): void
-    {
-        $entity = factory(EntityWithClosedFlag::class)->create([
-            'is_closed' => true,
-        ]);
-
-        $entity->unsetClosedFlag();
-
-        $this->assertFalse($entity->is_closed);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_closed(): void
     {
         $closedEntity = factory(EntityWithClosedFlag::class)->create([

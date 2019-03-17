@@ -18,6 +18,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - Dropped PHP 5.6, 7.0 support
 - Dropped Laravel 5.2, 5.3, 5.4, 5.5, 5.6, 5.7 support
+- Removed attribute mutator `set*` & `unset*` methods from all helper classes
 
 ## [4.0.0] - 2018-09-09
 

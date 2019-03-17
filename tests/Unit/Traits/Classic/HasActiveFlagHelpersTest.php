@@ -39,30 +39,6 @@ final class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_active_flag(): void
-    {
-        $entity = factory(EntityWithActiveFlag::class)->create([
-            'is_active' => false,
-        ]);
-
-        $entity->setActivatedFlag();
-
-        $this->assertTrue($entity->is_active);
-    }
-
-    /** @test */
-    public function it_can_unset_active_flag(): void
-    {
-        $entity = factory(EntityWithActiveFlag::class)->create([
-            'is_active' => true,
-        ]);
-
-        $entity->unsetActivatedFlag();
-
-        $this->assertFalse($entity->is_active);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_active(): void
     {
         $activatedEntity = factory(EntityWithActiveFlag::class)->create([

@@ -21,30 +21,6 @@ trait HasDraftedFlagHelpers
     }
 
     /**
-     * Set drafted flag.
-     *
-     * @return static
-     */
-    public function setDraftedFlag()
-    {
-        $this->setAttribute('is_drafted', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset drafted flag.
-     *
-     * @return static
-     */
-    public function unsetDraftedFlag()
-    {
-        $this->setAttribute('is_drafted', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is drafted.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasDraftedFlagHelpers
      */
     public function draft(): void
     {
-        $this->setDraftedFlag()->save();
+        $this->setAttribute('is_drafted', true);
+        $this->save();
 
         $this->fireModelEvent('drafted', false);
     }
@@ -83,7 +60,8 @@ trait HasDraftedFlagHelpers
      */
     public function undraft(): void
     {
-        $this->unsetDraftedFlag()->save();
+        $this->setAttribute('is_drafted', false);
+        $this->save();
 
         $this->fireModelEvent('undrafted', false);
     }

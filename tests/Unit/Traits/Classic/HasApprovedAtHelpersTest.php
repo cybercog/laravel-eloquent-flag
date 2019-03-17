@@ -32,30 +32,6 @@ final class HasApprovedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_approved_flag(): void
-    {
-        $entity = factory(EntityWithApprovedAt::class)->create([
-            'approved_at' => null,
-        ]);
-
-        $entity->setApprovedFlag();
-
-        $this->assertNotNull($entity->approved_at);
-    }
-
-    /** @test */
-    public function it_can_unset_approved_flag(): void
-    {
-        $entity = factory(EntityWithApprovedAt::class)->create([
-            'approved_at' => Date::now(),
-        ]);
-
-        $entity->unsetApprovedFlag();
-
-        $this->assertNull($entity->approved_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_approved(): void
     {
         $approvedEntity = factory(EntityWithApprovedAt::class)->create([

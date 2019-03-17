@@ -23,30 +23,6 @@ trait HasAcceptedAtHelpers
     }
 
     /**
-     * Set accepted flag.
-     *
-     * @return static
-     */
-    public function setAcceptedFlag()
-    {
-        $this->setAttribute('accepted_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset accepted flag.
-     *
-     * @return static
-     */
-    public function unsetAcceptedFlag()
-    {
-        $this->setAttribute('accepted_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is accepted.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasAcceptedAtHelpers
      */
     public function accept(): void
     {
-        $this->setAcceptedFlag()->save();
+        $this->setAttribute('accepted_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('accepted', false);
     }
@@ -85,7 +62,8 @@ trait HasAcceptedAtHelpers
      */
     public function reject(): void
     {
-        $this->unsetAcceptedFlag()->save();
+        $this->setAttribute('accepted_at', null);
+        $this->save();
 
         $this->fireModelEvent('rejected', false);
     }

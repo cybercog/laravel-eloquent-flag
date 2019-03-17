@@ -23,30 +23,6 @@ trait HasDraftedAtHelpers
     }
 
     /**
-     * Set drafted flag.
-     *
-     * @return static
-     */
-    public function setDraftedFlag()
-    {
-        $this->setAttribute('drafted_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset drafted flag.
-     *
-     * @return static
-     */
-    public function unsetDraftedFlag()
-    {
-        $this->setAttribute('drafted_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is drafted.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasDraftedAtHelpers
      */
     public function draft(): void
     {
-        $this->setDraftedFlag()->save();
+        $this->setAttribute('drafted_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('drafted', false);
     }
@@ -85,7 +62,8 @@ trait HasDraftedAtHelpers
      */
     public function undraft(): void
     {
-        $this->unsetDraftedFlag()->save();
+        $this->setAttribute('drafted_at', null);
+        $this->save();
 
         $this->fireModelEvent('undrafted', false);
     }

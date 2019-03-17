@@ -21,30 +21,6 @@ trait HasEndedFlagHelpers
     }
 
     /**
-     * Set ended flag.
-     *
-     * @return static
-     */
-    public function setEndedFlag()
-    {
-        $this->setAttribute('is_ended', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset ended flag.
-     *
-     * @return static
-     */
-    public function unsetEndedFlag()
-    {
-        $this->setAttribute('is_ended', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is ended.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasEndedFlagHelpers
      */
     public function end(): void
     {
-        $this->setEndedFlag()->save();
+        $this->setAttribute('is_ended', true);
+        $this->save();
 
         $this->fireModelEvent('ended', false);
     }
@@ -83,7 +60,8 @@ trait HasEndedFlagHelpers
      */
     public function unend(): void
     {
-        $this->unsetEndedFlag()->save();
+        $this->setAttribute('is_ended', false);
+        $this->save();
 
         $this->fireModelEvent('unended', false);
     }

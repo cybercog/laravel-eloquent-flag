@@ -21,30 +21,6 @@ trait HasExpiredFlagHelpers
     }
 
     /**
-     * Set expired flag.
-     *
-     * @return static
-     */
-    public function setExpiredFlag()
-    {
-        $this->setAttribute('is_expired', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset expired flag.
-     *
-     * @return static
-     */
-    public function unsetExpiredFlag()
-    {
-        $this->setAttribute('is_expired', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is expired.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasExpiredFlagHelpers
      */
     public function expire(): void
     {
-        $this->setExpiredFlag()->save();
+        $this->setAttribute('is_expired', true);
+        $this->save();
 
         $this->fireModelEvent('expired', false);
     }
@@ -83,7 +60,8 @@ trait HasExpiredFlagHelpers
      */
     public function unexpire(): void
     {
-        $this->unsetExpiredFlag()->save();
+        $this->setAttribute('is_expired', false);
+        $this->save();
 
         $this->fireModelEvent('unexpired', false);
     }

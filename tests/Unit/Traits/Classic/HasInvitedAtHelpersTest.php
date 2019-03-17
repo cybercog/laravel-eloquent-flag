@@ -32,30 +32,6 @@ final class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_invited_flag(): void
-    {
-        $entity = factory(EntityWithInvitedAt::class)->create([
-            'invited_at' => null,
-        ]);
-
-        $entity->setInvitedFlag();
-
-        $this->assertNotNull($entity->invited_at);
-    }
-
-    /** @test */
-    public function it_can_unset_invited_flag(): void
-    {
-        $entity = factory(EntityWithInvitedAt::class)->create([
-            'invited_at' => Date::now(),
-        ]);
-
-        $entity->unsetInvitedFlag();
-
-        $this->assertNull($entity->invited_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_invited(): void
     {
         $invitedEntity = factory(EntityWithInvitedAt::class)->create([

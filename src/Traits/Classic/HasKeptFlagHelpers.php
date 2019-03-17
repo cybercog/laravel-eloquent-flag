@@ -25,34 +25,6 @@ trait HasKeptFlagHelpers
     }
 
     /**
-     * Set kept flag.
-     *
-     * @return static
-     */
-    public function setKeptFlag()
-    {
-        $this->setAttribute('is_kept', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset kept flag.
-     *
-     * @return static
-     */
-    public function unsetKeptFlag()
-    {
-        $this->setAttribute('is_kept', false);
-
-        if (property_exists($this, 'setKeptOnUpdate')) {
-            $this->setKeptOnUpdate = false;
-        }
-
-        return $this;
-    }
-
-    /**
      * If entity is kept.
      *
      * @return bool
@@ -79,7 +51,8 @@ trait HasKeptFlagHelpers
      */
     public function keep(): void
     {
-        $this->setKeptFlag()->save();
+        $this->setAttribute('is_kept', true);
+        $this->save();
 
         $this->fireModelEvent('kept', false);
     }
@@ -91,7 +64,11 @@ trait HasKeptFlagHelpers
      */
     public function unkeep(): void
     {
-        $this->unsetKeptFlag()->save();
+        $this->setAttribute('is_kept', false);
+        if (property_exists($this, 'setKeptOnUpdate')) {
+            $this->setKeptOnUpdate = false;
+        }
+        $this->save();
 
         $this->fireModelEvent('unkept', false);
     }

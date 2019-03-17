@@ -32,30 +32,6 @@ final class HasArchivedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_archived_flag(): void
-    {
-        $entity = factory(EntityWithArchivedAt::class)->create([
-            'archived_at' => null,
-        ]);
-
-        $entity->setArchivedFlag();
-
-        $this->assertNotNull($entity->archived_at);
-    }
-
-    /** @test */
-    public function it_can_unset_archived_flag(): void
-    {
-        $entity = factory(EntityWithArchivedAt::class)->create([
-            'archived_at' => Date::now(),
-        ]);
-
-        $entity->unsetArchivedFlag();
-
-        $this->assertNull($entity->archived_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_archived(): void
     {
         $archivedEntity = factory(EntityWithArchivedAt::class)->create([

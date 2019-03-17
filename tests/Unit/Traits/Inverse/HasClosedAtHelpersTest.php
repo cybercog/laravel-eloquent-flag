@@ -32,30 +32,6 @@ final class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_closed_flag(): void
-    {
-        $entity = factory(EntityWithClosedAt::class)->create([
-            'closed_at' => null,
-        ]);
-
-        $entity->setClosedFlag();
-
-        $this->assertNotNull($entity->closed_at);
-    }
-
-    /** @test */
-    public function it_can_unset_closed_flag(): void
-    {
-        $entity = factory(EntityWithClosedAt::class)->create([
-            'closed_at' => Date::now(),
-        ]);
-
-        $entity->unsetClosedFlag();
-
-        $this->assertNull($entity->closed_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_closed(): void
     {
         $closedEntity = factory(EntityWithClosedAt::class)->create([

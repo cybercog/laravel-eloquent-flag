@@ -32,30 +32,6 @@ final class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_drafted_flag(): void
-    {
-        $entity = factory(EntityWithDraftedAt::class)->create([
-            'drafted_at' => null,
-        ]);
-
-        $entity->setDraftedFlag();
-
-        $this->assertNotNull($entity->drafted_at);
-    }
-
-    /** @test */
-    public function it_can_unset_drafted_flag(): void
-    {
-        $entity = factory(EntityWithDraftedAt::class)->create([
-            'drafted_at' => Date::now(),
-        ]);
-
-        $entity->unsetDraftedFlag();
-
-        $this->assertNull($entity->drafted_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_drafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedAt::class)->create([

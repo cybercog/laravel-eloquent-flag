@@ -23,30 +23,6 @@ trait HasVerifiedAtHelpers
     }
 
     /**
-     * Set verified flag.
-     *
-     * @return static
-     */
-    public function setVerifiedFlag()
-    {
-        $this->setAttribute('verified_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset verified flag.
-     *
-     * @return static
-     */
-    public function unsetVerifiedFlag()
-    {
-        $this->setAttribute('verified_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is verified.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasVerifiedAtHelpers
      */
     public function verify(): void
     {
-        $this->setVerifiedFlag()->save();
+        $this->setAttribute('verified_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('verified', false);
     }
@@ -85,7 +62,8 @@ trait HasVerifiedAtHelpers
      */
     public function unverify(): void
     {
-        $this->unsetVerifiedFlag()->save();
+        $this->setAttribute('verified_at', null);
+        $this->save();
 
         $this->fireModelEvent('unverified', false);
     }

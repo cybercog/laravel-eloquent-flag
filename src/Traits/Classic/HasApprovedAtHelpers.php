@@ -23,30 +23,6 @@ trait HasApprovedAtHelpers
     }
 
     /**
-     * Set approved flag.
-     *
-     * @return static
-     */
-    public function setApprovedFlag()
-    {
-        $this->setAttribute('approved_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset approved flag.
-     *
-     * @return static
-     */
-    public function unsetApprovedFlag()
-    {
-        $this->setAttribute('approved_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is approved.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasApprovedAtHelpers
      */
     public function approve(): void
     {
-        $this->setApprovedFlag()->save();
+        $this->setAttribute('approved_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('approved', false);
     }
@@ -85,7 +62,8 @@ trait HasApprovedAtHelpers
      */
     public function disapprove(): void
     {
-        $this->unsetApprovedFlag()->save();
+        $this->setAttribute('approved_at', null);
+        $this->save();
 
         $this->fireModelEvent('disapproved', false);
     }
