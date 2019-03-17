@@ -43,6 +43,6 @@ trait HasEndedFlagHelpers
         $this->setAttribute('is_ended', false);
         $this->save();
 
-        $this->fireModelEvent('unended', false);
+        $this->fireModelEvent('endedUndone', false);
     }
 }

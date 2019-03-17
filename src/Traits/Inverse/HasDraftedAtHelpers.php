@@ -45,6 +45,6 @@ trait HasDraftedAtHelpers
         $this->setAttribute('drafted_at', null);
         $this->save();
 
-        $this->fireModelEvent('undrafted', false);
+        $this->fireModelEvent('draftedUndone', false);
     }
 }

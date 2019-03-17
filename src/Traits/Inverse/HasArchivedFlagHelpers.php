@@ -43,6 +43,6 @@ trait HasArchivedFlagHelpers
         $this->setAttribute('is_archived', false);
         $this->save();
 
-        $this->fireModelEvent('unarchived', false);
+        $this->fireModelEvent('archivedUndone', false);
     }
 }

@@ -43,6 +43,6 @@ trait HasVerifiedFlagHelpers
         $this->setAttribute('is_verified', false);
         $this->save();
 
-        $this->fireModelEvent('unverified', false);
+        $this->fireModelEvent('verifiedUndone', false);
     }
 }

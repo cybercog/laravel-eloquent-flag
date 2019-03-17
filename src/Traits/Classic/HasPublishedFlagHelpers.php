@@ -43,6 +43,6 @@ trait HasPublishedFlagHelpers
         $this->setAttribute('is_published', false);
         $this->save();
 
-        $this->fireModelEvent('unpublished', false);
+        $this->fireModelEvent('publishedUndone', false);
     }
 }

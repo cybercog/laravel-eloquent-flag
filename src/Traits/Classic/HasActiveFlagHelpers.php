@@ -43,6 +43,6 @@ trait HasActiveFlagHelpers
         $this->save();
         $this->setAttribute('is_active', false);
 
-        $this->fireModelEvent('deactivated', false);
+        $this->fireModelEvent('activatedUndone', false);
     }
 }

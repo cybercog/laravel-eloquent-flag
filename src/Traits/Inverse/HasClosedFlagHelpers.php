@@ -43,6 +43,6 @@ trait HasClosedFlagHelpers
         $this->setAttribute('is_closed', false);
         $this->save();
 
-        $this->fireModelEvent('opened', false);
+        $this->fireModelEvent('closedUndone', false);
     }
 }

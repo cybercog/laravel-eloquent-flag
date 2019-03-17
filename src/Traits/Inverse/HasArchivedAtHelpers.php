@@ -45,6 +45,6 @@ trait HasArchivedAtHelpers
         $this->setAttribute('archived_at', null);
         $this->save();
 
-        $this->fireModelEvent('unarchived', false);
+        $this->fireModelEvent('archivedUndone', false);
     }
 }

@@ -45,6 +45,6 @@ trait HasVerifiedAtHelpers
         $this->setAttribute('verified_at', null);
         $this->save();
 
-        $this->fireModelEvent('unverified', false);
+        $this->fireModelEvent('verifiedUndone', false);
     }
 }

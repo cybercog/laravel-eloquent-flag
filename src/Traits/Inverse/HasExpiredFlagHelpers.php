@@ -43,6 +43,6 @@ trait HasExpiredFlagHelpers
         $this->setAttribute('is_expired', false);
         $this->save();
 
-        $this->fireModelEvent('unexpired', false);
+        $this->fireModelEvent('expiredUndone', false);
     }
 }
