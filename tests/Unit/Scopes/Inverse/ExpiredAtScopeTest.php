@@ -24,10 +24,10 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_get_with_expired_by_default(): void
     {
-        factory(EntityWithExpiredAt::class, 2)->create([
+        factory(EntityWithExpiredAt::class, 3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 3)->create([
+        factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => null,
         ]);
 
@@ -39,25 +39,25 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_expired(): void
     {
-        factory(EntityWithExpiredAt::class, 2)->create([
+        factory(EntityWithExpiredAt::class, 3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 3)->create([
+        factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => null,
         ]);
 
         $entities = EntityWithExpiredAt::withoutExpired()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_expired(): void
     {
-        factory(EntityWithExpiredAt::class, 2)->create([
+        factory(EntityWithExpiredAt::class, 3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 3)->create([
+        factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => null,
         ]);
 
@@ -69,16 +69,16 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_expired(): void
     {
-        factory(EntityWithExpiredAt::class, 2)->create([
+        factory(EntityWithExpiredAt::class, 3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 3)->create([
+        factory(EntityWithExpiredAt::class, 2)->create([
             'expired_at' => null,
         ]);
 
         $entities = EntityWithExpiredAt::onlyExpired()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */

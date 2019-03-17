@@ -24,10 +24,10 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_get_with_drafted_by_default(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
@@ -39,25 +39,25 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
         $entities = EntityWithDraftedAt::withoutDrafted()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
@@ -69,16 +69,16 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
         $entities = EntityWithDraftedAt::onlyDrafted()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */

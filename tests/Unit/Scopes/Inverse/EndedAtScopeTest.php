@@ -24,10 +24,10 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_get_with_ended_by_default(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
@@ -39,25 +39,25 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_ended(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
         $entities = EntityWithEndedAt::withoutEnded()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_ended(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
@@ -69,16 +69,16 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_ended(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
         $entities = EntityWithEndedAt::onlyEnded()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */

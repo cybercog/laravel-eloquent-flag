@@ -23,10 +23,10 @@ final class DraftedFlagScopeTest extends TestCase
     /** @test */
     public function it_get_with_drafted_by_default(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
@@ -38,25 +38,25 @@ final class DraftedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_drafted(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
         $entities = EntityWithDraftedFlag::withoutDrafted()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_drafted(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
@@ -68,16 +68,16 @@ final class DraftedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_drafted(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
         $entities = EntityWithDraftedFlag::onlyDrafted()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */

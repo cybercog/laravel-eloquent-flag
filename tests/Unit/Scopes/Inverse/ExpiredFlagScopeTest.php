@@ -23,10 +23,10 @@ final class ExpiredFlagScopeTest extends TestCase
     /** @test */
     public function it_get_with_expired_by_default(): void
     {
-        factory(EntityWithExpiredFlag::class, 2)->create([
+        factory(EntityWithExpiredFlag::class, 3)->create([
             'is_expired' => true,
         ]);
-        factory(EntityWithExpiredFlag::class, 3)->create([
+        factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => false,
         ]);
 
@@ -38,25 +38,25 @@ final class ExpiredFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_expired(): void
     {
-        factory(EntityWithExpiredFlag::class, 2)->create([
+        factory(EntityWithExpiredFlag::class, 3)->create([
             'is_expired' => true,
         ]);
-        factory(EntityWithExpiredFlag::class, 3)->create([
+        factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => false,
         ]);
 
         $entities = EntityWithExpiredFlag::withoutExpired()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_expired(): void
     {
-        factory(EntityWithExpiredFlag::class, 2)->create([
+        factory(EntityWithExpiredFlag::class, 3)->create([
             'is_expired' => true,
         ]);
-        factory(EntityWithExpiredFlag::class, 3)->create([
+        factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => false,
         ]);
 
@@ -68,16 +68,16 @@ final class ExpiredFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_expired(): void
     {
-        factory(EntityWithExpiredFlag::class, 2)->create([
+        factory(EntityWithExpiredFlag::class, 3)->create([
             'is_expired' => true,
         ]);
-        factory(EntityWithExpiredFlag::class, 3)->create([
+        factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => false,
         ]);
 
         $entities = EntityWithExpiredFlag::onlyExpired()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */
