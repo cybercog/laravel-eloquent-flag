@@ -25,6 +25,18 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 - `isUndrafted` method renamed to `isNotDrafted`
 - `isUnended` method renamed to `isNotEnded`
 - `isUnexpired` method renamed to `isNotExpired`
+- `reject` method renamed to `undoAccept`
+- `deactivate` method renamed to `undoActivate`
+- `disapprove` method renamed to `undoApprove`
+- `uninvite` method renamed to `undoInvite`
+- `unkeep` method renamed to `undoKeep`
+- `unpublish` method renamed to `undoPublish`
+- `unverify` method renamed to `undoVerify`
+- `unarchive` method renamed to `undoArchive`
+- `open` method renamed to `undoClose`
+- `undraft` method renamed to `undoDraft`
+- `unend` method renamed to `undoEnd`
+- `unexpire` method renamed to `undoExpire`
 
 ### Removed
 
