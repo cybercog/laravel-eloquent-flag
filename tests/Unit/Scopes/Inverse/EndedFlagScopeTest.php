@@ -14,13 +14,14 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlag;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlagApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class EndedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_ended(): void
+    public function it_get_with_ended_by_default(): void
     {
         factory(EntityWithEndedFlag::class, 2)->create([
             'is_ended' => true,
@@ -31,7 +32,7 @@ final class EndedFlagScopeTest extends TestCase
 
         $entities = EntityWithEndedFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -120,5 +121,20 @@ final class EndedFlagScopeTest extends TestCase
         $entities = EntityWithEndedFlagUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithEndedFlag::class, 3)->create([
+            'is_ended' => true,
+        ]);
+        factory(EntityWithEndedFlag::class, 2)->create([
+            'is_ended' => false,
+        ]);
+
+        $entities = EntityWithEndedFlagApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

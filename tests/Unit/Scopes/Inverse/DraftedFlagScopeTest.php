@@ -14,13 +14,14 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class DraftedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_drafted(): void
+    public function it_get_with_drafted_by_default(): void
     {
         factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => true,
@@ -31,7 +32,7 @@ final class DraftedFlagScopeTest extends TestCase
 
         $entities = EntityWithDraftedFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -120,5 +121,20 @@ final class DraftedFlagScopeTest extends TestCase
         $entities = EntityWithDraftedFlagUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithDraftedFlag::class, 3)->create([
+            'is_drafted' => true,
+        ]);
+        factory(EntityWithDraftedFlag::class, 2)->create([
+            'is_drafted' => false,
+        ]);
+
+        $entities = EntityWithDraftedFlagApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

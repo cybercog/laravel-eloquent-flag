@@ -14,13 +14,14 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class ExpiredFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_expired(): void
+    public function it_get_with_expired_by_default(): void
     {
         factory(EntityWithExpiredFlag::class, 2)->create([
             'is_expired' => true,
@@ -31,7 +32,7 @@ final class ExpiredFlagScopeTest extends TestCase
 
         $entities = EntityWithExpiredFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -120,5 +121,20 @@ final class ExpiredFlagScopeTest extends TestCase
         $entities = EntityWithExpiredFlagUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithExpiredFlag::class, 3)->create([
+            'is_expired' => true,
+        ]);
+        factory(EntityWithExpiredFlag::class, 2)->create([
+            'is_expired' => false,
+        ]);
+
+        $entities = EntityWithExpiredFlagApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

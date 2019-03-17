@@ -14,47 +14,49 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedFlag;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedFlagApplied;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class ClosedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_closed(): void
+    public function it_get_with_closed_by_default(): void
     {
-        factory(EntityWithClosedFlag::class, 2)->create([
+        factory(EntityWithClosedFlag::class, 3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 3)->create([
+        factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => false,
         ]);
 
         $entities = EntityWithClosedFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
     public function it_can_get_without_closed(): void
     {
-        factory(EntityWithClosedFlag::class, 2)->create([
+        factory(EntityWithClosedFlag::class, 3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 3)->create([
+        factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => false,
         ]);
 
         $entities = EntityWithClosedFlag::withoutClosed()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_closed(): void
     {
-        factory(EntityWithClosedFlag::class, 2)->create([
+        factory(EntityWithClosedFlag::class, 3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 3)->create([
+        factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => false,
         ]);
 
@@ -66,16 +68,16 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_closed(): void
     {
-        factory(EntityWithClosedFlag::class, 2)->create([
+        factory(EntityWithClosedFlag::class, 3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 3)->create([
+        factory(EntityWithClosedFlag::class, 2)->create([
             'is_closed' => false,
         ]);
 
         $entities = EntityWithClosedFlag::onlyClosed()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */
@@ -104,5 +106,35 @@ final class ClosedFlagScopeTest extends TestCase
         $model = EntityWithClosedFlag::withClosed()->where('id', $model->id)->first();
 
         $this->assertTrue($model->is_closed);
+    }
+
+    /** @test */
+    public function it_can_skip_auto_apply(): void
+    {
+        factory(EntityWithClosedFlag::class, 3)->create([
+            'is_closed' => true,
+        ]);
+        factory(EntityWithClosedFlag::class, 2)->create([
+            'is_closed' => false,
+        ]);
+
+        $entities = EntityWithClosedFlagUnapplied::all();
+
+        $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithClosedFlag::class, 3)->create([
+            'is_closed' => true,
+        ]);
+        factory(EntityWithClosedFlag::class, 2)->create([
+            'is_closed' => false,
+        ]);
+
+        $entities = EntityWithClosedFlagApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

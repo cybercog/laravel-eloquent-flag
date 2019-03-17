@@ -14,48 +14,49 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class ArchivedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_archived(): void
+    public function it_get_with_archived_by_default(): void
     {
-        factory(EntityWithArchivedFlag::class, 2)->create([
+        factory(EntityWithArchivedFlag::class, 3)->create([
             'is_archived' => true,
         ]);
-        factory(EntityWithArchivedFlag::class, 3)->create([
+        factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => false,
         ]);
 
         $entities = EntityWithArchivedFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
     public function it_can_get_without_archived(): void
     {
-        factory(EntityWithArchivedFlag::class, 2)->create([
+        factory(EntityWithArchivedFlag::class, 3)->create([
             'is_archived' => true,
         ]);
-        factory(EntityWithArchivedFlag::class, 3)->create([
+        factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => false,
         ]);
 
         $entities = EntityWithArchivedFlag::withoutArchived()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_archived(): void
     {
-        factory(EntityWithArchivedFlag::class, 2)->create([
+        factory(EntityWithArchivedFlag::class, 3)->create([
             'is_archived' => true,
         ]);
-        factory(EntityWithArchivedFlag::class, 3)->create([
+        factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => false,
         ]);
 
@@ -67,16 +68,16 @@ final class ArchivedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_archived(): void
     {
-        factory(EntityWithArchivedFlag::class, 2)->create([
+        factory(EntityWithArchivedFlag::class, 3)->create([
             'is_archived' => true,
         ]);
-        factory(EntityWithArchivedFlag::class, 3)->create([
+        factory(EntityWithArchivedFlag::class, 2)->create([
             'is_archived' => false,
         ]);
 
         $entities = EntityWithArchivedFlag::onlyArchived()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */
@@ -120,5 +121,20 @@ final class ArchivedFlagScopeTest extends TestCase
         $entities = EntityWithArchivedFlagUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithArchivedFlag::class, 3)->create([
+            'is_archived' => true,
+        ]);
+        factory(EntityWithArchivedFlag::class, 2)->create([
+            'is_archived' => false,
+        ]);
+
+        $entities = EntityWithArchivedFlagApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }
