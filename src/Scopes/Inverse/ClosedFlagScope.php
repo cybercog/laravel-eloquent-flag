@@ -41,11 +41,9 @@ final class ClosedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (!method_exists($model, 'shouldApplyClosedFlagScope') || !$model->shouldApplyClosedFlagScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyClosedFlagScope') && $model->shouldApplyClosedFlagScope()) {
+            $builder->where('is_closed', 0);
         }
-
-        $builder->where('is_closed', 0);
     }
 
     /**

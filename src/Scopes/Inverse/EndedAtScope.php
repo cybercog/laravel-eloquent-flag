@@ -42,11 +42,9 @@ final class EndedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (!method_exists($model, 'shouldApplyEndedAtScope') || !$model->shouldApplyEndedAtScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyEndedAtScope') && $model->shouldApplyEndedAtScope()) {
+            $builder->whereNull('ended_at');
         }
-
-        $builder->whereNull('ended_at');
     }
 
     /**

@@ -42,11 +42,9 @@ final class ClosedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (!method_exists($model, 'shouldApplyClosedAtScope') || !$model->shouldApplyClosedAtScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyClosedAtScope') && $model->shouldApplyClosedAtScope()) {
+            $builder->whereNull('closed_at');
         }
-
-        $builder->whereNull('closed_at');
     }
 
     /**

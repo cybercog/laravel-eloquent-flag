@@ -41,11 +41,9 @@ final class ArchivedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (!method_exists($model, 'shouldApplyArchivedFlagScope') || !$model->shouldApplyArchivedFlagScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyArchivedFlagScope') && $model->shouldApplyArchivedFlagScope()) {
+            $builder->where('is_archived', 0);
         }
-
-        $builder->where('is_archived', 0);
     }
 
     /**

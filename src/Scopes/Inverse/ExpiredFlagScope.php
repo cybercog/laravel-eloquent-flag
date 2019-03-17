@@ -41,11 +41,9 @@ final class ExpiredFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (!method_exists($model, 'shouldApplyExpiredFlagScope') || !$model->shouldApplyExpiredFlagScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyExpiredFlagScope') && $model->shouldApplyExpiredFlagScope()) {
+            $builder->where('is_expired', 0);
         }
-
-        $builder->where('is_expired', 0);
     }
 
     /**

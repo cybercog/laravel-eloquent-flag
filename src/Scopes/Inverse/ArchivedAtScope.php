@@ -42,11 +42,9 @@ final class ArchivedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (!method_exists($model, 'shouldApplyArchivedAtScope') || !$model->shouldApplyArchivedAtScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyArchivedAtScope') && $model->shouldApplyArchivedAtScope()) {
+            $builder->whereNull('archived_at');
         }
-
-        $builder->whereNull('archived_at');
     }
 
     /**
