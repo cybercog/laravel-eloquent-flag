@@ -70,7 +70,7 @@ final class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_verify_entity(): void
+    public function it_can_keep(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => false,
@@ -82,13 +82,13 @@ final class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unkeep_entity(): void
+    public function it_can_undo_keep(): void
     {
         $entity = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
         ]);
 
-        $entity->unkeep();
+        $entity->undoKeep();
 
         $this->assertFalse($entity->is_kept);
     }

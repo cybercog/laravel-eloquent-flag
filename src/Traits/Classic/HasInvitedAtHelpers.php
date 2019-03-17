@@ -40,7 +40,7 @@ trait HasInvitedAtHelpers
         $this->fireModelEvent('invited', false);
     }
 
-    public function uninvite(): void
+    public function undoInvite(): void
     {
         $this->setAttribute('invited_at', null);
         $this->save();

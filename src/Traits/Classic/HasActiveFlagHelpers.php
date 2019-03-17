@@ -38,7 +38,7 @@ trait HasActiveFlagHelpers
         $this->fireModelEvent('activated', false);
     }
 
-    public function deactivate(): void
+    public function undoActivate(): void
     {
         $this->save();
         $this->setAttribute('is_active', false);

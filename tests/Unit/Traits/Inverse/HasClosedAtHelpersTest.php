@@ -62,7 +62,7 @@ final class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_close_entity(): void
+    public function it_can_close(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => null,
@@ -74,13 +74,13 @@ final class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_entity(): void
+    public function it_can_undo_close(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Date::now(),
         ]);
 
-        $entity->open();
+        $entity->undoClose();
 
         $this->assertNull($entity->closed_at);
     }

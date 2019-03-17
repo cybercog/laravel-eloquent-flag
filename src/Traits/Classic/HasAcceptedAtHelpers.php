@@ -40,7 +40,7 @@ trait HasAcceptedAtHelpers
         $this->fireModelEvent('accepted', false);
     }
 
-    public function reject(): void
+    public function undoAccept(): void
     {
         $this->setAttribute('accepted_at', null);
         $this->save();

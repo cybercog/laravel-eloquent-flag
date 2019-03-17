@@ -38,7 +38,7 @@ trait HasDraftedFlagHelpers
         $this->fireModelEvent('drafted', false);
     }
 
-    public function undraft(): void
+    public function undoDraft(): void
     {
         $this->setAttribute('is_drafted', false);
         $this->save();

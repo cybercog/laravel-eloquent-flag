@@ -38,7 +38,7 @@ trait HasArchivedFlagHelpers
         $this->fireModelEvent('archived', false);
     }
 
-    public function unarchive(): void
+    public function undoArchive(): void
     {
         $this->setAttribute('is_archived', false);
         $this->save();

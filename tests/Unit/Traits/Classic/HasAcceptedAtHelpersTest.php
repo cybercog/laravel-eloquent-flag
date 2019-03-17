@@ -62,7 +62,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_accept_entity(): void
+    public function it_can_accept(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => null,
@@ -74,13 +74,13 @@ final class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_entity(): void
+    public function it_can_undo_accept(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Date::now(),
         ]);
 
-        $entity->reject();
+        $entity->undoAccept();
 
         $this->assertNull($entity->accepted_at);
     }

@@ -38,7 +38,7 @@ trait HasInvitedFlagHelpers
         $this->fireModelEvent('invited', false);
     }
 
-    public function uninvite(): void
+    public function undoInvite(): void
     {
         $this->setAttribute('is_invited', false);
         $this->save();

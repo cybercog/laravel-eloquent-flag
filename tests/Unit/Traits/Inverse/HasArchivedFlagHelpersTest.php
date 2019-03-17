@@ -69,7 +69,7 @@ final class HasArchivedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_close_entity(): void
+    public function it_can_archive(): void
     {
         $entity = factory(EntityWithArchivedFlag::class)->create([
             'is_archived' => false,
@@ -81,13 +81,13 @@ final class HasArchivedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_entity(): void
+    public function it_can_undo_archive(): void
     {
         $entity = factory(EntityWithArchivedFlag::class)->create([
             'is_archived' => true,
         ]);
 
-        $entity->unarchive();
+        $entity->undoArchive();
 
         $this->assertFalse($entity->is_archived);
     }

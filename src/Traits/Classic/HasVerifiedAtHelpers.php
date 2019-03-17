@@ -40,7 +40,7 @@ trait HasVerifiedAtHelpers
         $this->fireModelEvent('verified', false);
     }
 
-    public function unverify(): void
+    public function undoVerify(): void
     {
         $this->setAttribute('verified_at', null);
         $this->save();

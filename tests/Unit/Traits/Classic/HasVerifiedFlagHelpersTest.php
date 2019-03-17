@@ -69,7 +69,7 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_verify_entity(): void
+    public function it_can_verify(): void
     {
         $entity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => false,
@@ -81,13 +81,13 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unverify_entity(): void
+    public function it_can_undo_verify(): void
     {
         $entity = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,
         ]);
 
-        $entity->unverify();
+        $entity->undoVerify();
 
         $this->assertFalse($entity->is_verified);
     }

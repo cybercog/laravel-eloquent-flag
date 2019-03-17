@@ -69,7 +69,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_publish_entity(): void
+    public function it_can_publish(): void
     {
         $entity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => false,
@@ -81,13 +81,13 @@ final class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unpublish_entity(): void
+    public function it_can_undo_publish(): void
     {
         $entity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,
         ]);
 
-        $entity->unpublish();
+        $entity->undoPublish();
 
         $this->assertFalse($entity->is_published);
     }

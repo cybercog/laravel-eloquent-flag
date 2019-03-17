@@ -62,7 +62,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_invite_entity(): void
+    public function it_can_invite(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => null,
@@ -74,13 +74,13 @@ final class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_uninvite_entity(): void
+    public function it_can_undo_invite(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => Date::now(),
         ]);
 
-        $entity->uninvite();
+        $entity->undoInvite();
 
         $this->assertNull($entity->invited_at);
     }

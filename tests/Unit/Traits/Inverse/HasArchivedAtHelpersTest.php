@@ -62,7 +62,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_archive_entity(): void
+    public function it_can_archive(): void
     {
         $entity = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => null,
@@ -74,13 +74,13 @@ final class HasArchivedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unarchive_entity(): void
+    public function it_can_undo_archive(): void
     {
         $entity = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => Date::now(),
         ]);
 
-        $entity->unarchive();
+        $entity->undoArchive();
 
         $this->assertNull($entity->archived_at);
     }

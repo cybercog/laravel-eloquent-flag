@@ -69,7 +69,7 @@ final class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_accept_entity(): void
+    public function it_can_activate(): void
     {
         $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => false,
@@ -81,13 +81,13 @@ final class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_entity(): void
+    public function it_can_undo_activate(): void
     {
         $entity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
         ]);
 
-        $entity->deactivate();
+        $entity->undoActivate();
 
         $this->assertFalse($entity->is_active);
     }

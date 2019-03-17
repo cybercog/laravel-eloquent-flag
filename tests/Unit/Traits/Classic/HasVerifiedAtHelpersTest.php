@@ -62,7 +62,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_verify_entity(): void
+    public function it_can_verify(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => null,
@@ -74,13 +74,13 @@ final class HasVerifiedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unverify_entity(): void
+    public function it_can_undo_verify(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Date::now(),
         ]);
 
-        $entity->unverify();
+        $entity->undoVerify();
 
         $this->assertNull($entity->verified_at);
     }

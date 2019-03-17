@@ -62,7 +62,7 @@ final class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_publish_entity(): void
+    public function it_can_publish(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => null,
@@ -74,13 +74,13 @@ final class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unpublish_entity(): void
+    public function it_can_undo_publish(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Date::now(),
         ]);
 
-        $entity->unpublish();
+        $entity->undoPublish();
 
         $this->assertNull($entity->published_at);
     }

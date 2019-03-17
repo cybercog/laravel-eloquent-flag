@@ -38,7 +38,7 @@ trait HasClosedFlagHelpers
         $this->fireModelEvent('closed', false);
     }
 
-    public function open(): void
+    public function undoClose(): void
     {
         $this->setAttribute('is_closed', false);
         $this->save();

@@ -38,7 +38,7 @@ trait HasExpiredFlagHelpers
         $this->fireModelEvent('expired', false);
     }
 
-    public function unexpire(): void
+    public function undoExpire(): void
     {
         $this->setAttribute('is_expired', false);
         $this->save();

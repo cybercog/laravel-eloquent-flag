@@ -38,7 +38,7 @@ trait HasPublishedFlagHelpers
         $this->fireModelEvent('published', false);
     }
 
-    public function unpublish(): void
+    public function undoPublish(): void
     {
         $this->setAttribute('is_published', false);
         $this->save();

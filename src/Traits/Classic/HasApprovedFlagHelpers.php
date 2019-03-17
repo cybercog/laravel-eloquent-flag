@@ -38,7 +38,7 @@ trait HasApprovedFlagHelpers
         $this->fireModelEvent('approved', false);
     }
 
-    public function disapprove(): void
+    public function undoApprove(): void
     {
         $this->setAttribute('is_approved', false);
         $this->save();

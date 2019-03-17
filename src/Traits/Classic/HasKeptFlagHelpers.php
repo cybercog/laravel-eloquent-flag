@@ -42,7 +42,7 @@ trait HasKeptFlagHelpers
         $this->fireModelEvent('kept', false);
     }
 
-    public function unkeep(): void
+    public function undoKeep(): void
     {
         $this->setAttribute('is_kept', false);
         if (property_exists($this, 'setKeptOnUpdate')) {

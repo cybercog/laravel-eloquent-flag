@@ -62,7 +62,7 @@ final class HasExpiredAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_expire_entity(): void
+    public function it_can_expire(): void
     {
         $entity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => null,
@@ -74,13 +74,13 @@ final class HasExpiredAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unexpire_entity(): void
+    public function it_can_undo_expire(): void
     {
         $entity = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => Date::now(),
         ]);
 
-        $entity->unexpire();
+        $entity->undoExpire();
 
         $this->assertNull($entity->expired_at);
     }

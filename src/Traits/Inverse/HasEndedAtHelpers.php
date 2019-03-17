@@ -40,7 +40,7 @@ trait HasEndedAtHelpers
         $this->fireModelEvent('ended', false);
     }
 
-    public function unend(): void
+    public function undoEnd(): void
     {
         $this->setAttribute('ended_at', null);
         $this->save();
