@@ -50,7 +50,7 @@ trait HasKeptFlagHelpers
         }
         $this->save();
 
-        $this->fireModelEvent('unkept', false);
+        $this->fireModelEvent('keptUndone', false);
     }
 
     /**

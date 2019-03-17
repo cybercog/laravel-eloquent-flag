@@ -45,6 +45,6 @@ trait HasPublishedAtHelpers
         $this->setAttribute('published_at', null);
         $this->save();
 
-        $this->fireModelEvent('unpublished', false);
+        $this->fireModelEvent('publishedUndone', false);
     }
 }

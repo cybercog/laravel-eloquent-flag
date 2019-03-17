@@ -45,6 +45,6 @@ trait HasApprovedAtHelpers
         $this->setAttribute('approved_at', null);
         $this->save();
 
-        $this->fireModelEvent('disapproved', false);
+        $this->fireModelEvent('approvedUndone', false);
     }
 }

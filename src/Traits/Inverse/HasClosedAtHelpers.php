@@ -45,6 +45,6 @@ trait HasClosedAtHelpers
         $this->setAttribute('closed_at', null);
         $this->save();
 
-        $this->fireModelEvent('opened', false);
+        $this->fireModelEvent('closedUndone', false);
     }
 }

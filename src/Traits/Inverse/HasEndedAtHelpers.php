@@ -45,6 +45,6 @@ trait HasEndedAtHelpers
         $this->setAttribute('ended_at', null);
         $this->save();
 
-        $this->fireModelEvent('unended', false);
+        $this->fireModelEvent('endedUndone', false);
     }
 }

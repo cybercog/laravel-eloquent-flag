@@ -43,6 +43,6 @@ trait HasApprovedFlagHelpers
         $this->setAttribute('is_approved', false);
         $this->save();
 
-        $this->fireModelEvent('disapproved', false);
+        $this->fireModelEvent('approvedUndone', false);
     }
 }

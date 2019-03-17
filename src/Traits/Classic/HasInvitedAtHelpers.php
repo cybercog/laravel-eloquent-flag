@@ -45,6 +45,6 @@ trait HasInvitedAtHelpers
         $this->setAttribute('invited_at', null);
         $this->save();
 
-        $this->fireModelEvent('uninvited', false);
+        $this->fireModelEvent('invitedUndone', false);
     }
 }

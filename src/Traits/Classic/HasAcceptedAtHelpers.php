@@ -45,6 +45,6 @@ trait HasAcceptedAtHelpers
         $this->setAttribute('accepted_at', null);
         $this->save();
 
-        $this->fireModelEvent('rejected', false);
+        $this->fireModelEvent('acceptedUndone', false);
     }
 }

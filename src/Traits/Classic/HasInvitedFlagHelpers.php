@@ -43,6 +43,6 @@ trait HasInvitedFlagHelpers
         $this->setAttribute('is_invited', false);
         $this->save();
 
-        $this->fireModelEvent('uninvited', false);
+        $this->fireModelEvent('invitedUndone', false);
     }
 }

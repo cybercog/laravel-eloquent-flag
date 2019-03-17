@@ -43,6 +43,6 @@ trait HasDraftedFlagHelpers
         $this->setAttribute('is_drafted', false);
         $this->save();
 
-        $this->fireModelEvent('undrafted', false);
+        $this->fireModelEvent('draftedUndone', false);
     }
 }
