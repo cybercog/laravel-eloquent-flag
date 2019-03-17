@@ -26,7 +26,7 @@ final class ArchivedAtScope implements Scope
      * @var array
      */
     protected $extensions = [
-        'Unarchive',
+        'UndoArchive',
         'Archive',
         'WithArchived',
         'WithoutArchived',
@@ -63,14 +63,14 @@ final class ArchivedAtScope implements Scope
     }
 
     /**
-     * Add the `unarchive` extension to the builder.
+     * Add the `undoArchive` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnarchive(Builder $builder): void
+    protected function addUndoArchive(Builder $builder): void
     {
-        $builder->macro('unarchive', function (Builder $builder) {
+        $builder->macro('undoArchive', function (Builder $builder) {
             $builder->withArchived();
 
             return $builder->update(['archived_at' => null]);

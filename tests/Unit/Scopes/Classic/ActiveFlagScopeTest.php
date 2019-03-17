@@ -34,7 +34,7 @@ final class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_deactivated(): void
+    public function it_can_get_without_not_activated(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -43,13 +43,13 @@ final class ActiveFlagScopeTest extends TestCase
             'is_active' => false,
         ]);
 
-        $entities = EntityWithActiveFlag::withoutDeactivated()->get();
+        $entities = EntityWithActiveFlag::withoutNotActivated()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_deactivated(): void
+    public function it_can_get_with_not_activated(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -58,13 +58,13 @@ final class ActiveFlagScopeTest extends TestCase
             'is_active' => false,
         ]);
 
-        $entities = EntityWithActiveFlag::withDeactivated()->get();
+        $entities = EntityWithActiveFlag::withNotActivated()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_deactivated(): void
+    public function it_can_get_only_not_activated(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -73,7 +73,7 @@ final class ActiveFlagScopeTest extends TestCase
             'is_active' => false,
         ]);
 
-        $entities = EntityWithActiveFlag::onlyDeactivated()->get();
+        $entities = EntityWithActiveFlag::onlyNotActivated()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -93,15 +93,15 @@ final class ActiveFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_deactivate_model(): void
+    public function it_can_undo_activate_model(): void
     {
         $model = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
         ]);
 
-        EntityWithActiveFlag::where('id', $model->id)->deactivate();
+        EntityWithActiveFlag::where('id', $model->id)->undoActivate();
 
-        $model = EntityWithActiveFlag::withDeactivated()->where('id', $model->id)->first();
+        $model = EntityWithActiveFlag::withNotActivated()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_active);
     }

@@ -80,13 +80,13 @@ final class EndedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unend_model(): void
+    public function it_can_undo_end_model(): void
     {
         $model = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,
         ]);
 
-        EntityWithEndedFlag::where('id', $model->id)->unend();
+        EntityWithEndedFlag::where('id', $model->id)->undoEnd();
 
         $model = EntityWithEndedFlag::where('id', $model->id)->first();
 

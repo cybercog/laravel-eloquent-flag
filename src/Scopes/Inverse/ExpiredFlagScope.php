@@ -25,7 +25,7 @@ final class ExpiredFlagScope implements Scope
      * @var array
      */
     protected $extensions = [
-        'Unexpire',
+        'UndoExpire',
         'Expire',
         'WithExpired',
         'WithoutExpired',
@@ -62,14 +62,14 @@ final class ExpiredFlagScope implements Scope
     }
 
     /**
-     * Add the `unexpire` extension to the builder.
+     * Add the `undoExpire` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnexpire(Builder $builder): void
+    protected function addUndoExpire(Builder $builder): void
     {
-        $builder->macro('unexpire', function (Builder $builder) {
+        $builder->macro('undoExpire', function (Builder $builder) {
             $builder->withExpired();
 
             return $builder->update(['is_expired' => 0]);

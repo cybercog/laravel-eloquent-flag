@@ -35,7 +35,7 @@ final class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_uninvited(): void
+    public function it_can_get_without_not_invited(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -44,13 +44,13 @@ final class InvitedFlagScopeTest extends TestCase
             'is_invited' => false,
         ]);
 
-        $entities = EntityWithInvitedFlag::withoutUninvited()->get();
+        $entities = EntityWithInvitedFlag::withoutNotInvited()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_uninvited(): void
+    public function it_can_get_with_not_invited(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -59,13 +59,13 @@ final class InvitedFlagScopeTest extends TestCase
             'is_invited' => false,
         ]);
 
-        $entities = EntityWithInvitedFlag::withUninvited()->get();
+        $entities = EntityWithInvitedFlag::withNotInvited()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_uninvited(): void
+    public function it_can_get_only_not_invited(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -74,7 +74,7 @@ final class InvitedFlagScopeTest extends TestCase
             'is_invited' => false,
         ]);
 
-        $entities = EntityWithInvitedFlag::onlyUninvited()->get();
+        $entities = EntityWithInvitedFlag::onlyNotInvited()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -94,15 +94,15 @@ final class InvitedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_uninvite_model(): void
+    public function it_can_undo_invite_model(): void
     {
         $model = factory(EntityWithInvitedFlag::class)->create([
             'is_invited' => true,
         ]);
 
-        EntityWithInvitedFlag::where('id', $model->id)->uninvite();
+        EntityWithInvitedFlag::where('id', $model->id)->undoInvite();
 
-        $model = EntityWithInvitedFlag::withUninvited()->where('id', $model->id)->first();
+        $model = EntityWithInvitedFlag::withNotInvited()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_invited);
     }

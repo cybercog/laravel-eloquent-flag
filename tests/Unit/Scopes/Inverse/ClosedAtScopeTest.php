@@ -80,13 +80,13 @@ final class ClosedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_model(): void
+    public function it_can_undo_close_model(): void
     {
         $model = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithClosedAt::where('id', $model->id)->open();
+        EntityWithClosedAt::where('id', $model->id)->undoClose();
 
         $model = EntityWithClosedAt::where('id', $model->id)->first();
 

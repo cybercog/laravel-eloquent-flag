@@ -36,7 +36,7 @@ final class InvitedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_uninvited(): void
+    public function it_can_get_without_not_invited(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
             'invited_at' => Date::now()->subDay(),
@@ -45,13 +45,13 @@ final class InvitedAtScopeTest extends TestCase
             'invited_at' => null,
         ]);
 
-        $entities = EntityWithInvitedAt::withoutUninvited()->get();
+        $entities = EntityWithInvitedAt::withoutNotInvited()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_uninvited(): void
+    public function it_can_get_with_not_invited(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
             'invited_at' => Date::now()->subDay(),
@@ -60,13 +60,13 @@ final class InvitedAtScopeTest extends TestCase
             'invited_at' => null,
         ]);
 
-        $entities = EntityWithInvitedAt::withUninvited()->get();
+        $entities = EntityWithInvitedAt::withNotInvited()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_uninvited(): void
+    public function it_can_get_only_not_invited(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
             'invited_at' => Date::now()->subDay(),
@@ -75,7 +75,7 @@ final class InvitedAtScopeTest extends TestCase
             'invited_at' => null,
         ]);
 
-        $entities = EntityWithInvitedAt::onlyUninvited()->get();
+        $entities = EntityWithInvitedAt::onlyNotInvited()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -95,15 +95,15 @@ final class InvitedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_uninvite_model(): void
+    public function it_can_undo_invite_model(): void
     {
         $model = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithInvitedAt::where('id', $model->id)->uninvite();
+        EntityWithInvitedAt::where('id', $model->id)->undoInvite();
 
-        $model = EntityWithInvitedAt::withUninvited()->where('id', $model->id)->first();
+        $model = EntityWithInvitedAt::withNotInvited()->where('id', $model->id)->first();
 
         $this->assertNull($model->invited_at);
     }

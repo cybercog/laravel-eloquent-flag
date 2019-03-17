@@ -25,7 +25,7 @@ final class EndedFlagScope implements Scope
      * @var array
      */
     protected $extensions = [
-        'Unend',
+        'UndoEnd',
         'End',
         'WithEnded',
         'WithoutEnded',
@@ -62,14 +62,14 @@ final class EndedFlagScope implements Scope
     }
 
     /**
-     * Add the `unend` extension to the builder.
+     * Add the `undoEnd` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnend(Builder $builder): void
+    protected function addUndoEnd(Builder $builder): void
     {
-        $builder->macro('unend', function (Builder $builder) {
+        $builder->macro('undoEnd', function (Builder $builder) {
             $builder->withEnded();
 
             return $builder->update(['is_ended' => 0]);

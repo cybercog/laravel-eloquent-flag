@@ -80,13 +80,13 @@ final class ArchivedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unarchive_model(): void
+    public function it_can_undo_archive_model(): void
     {
         $model = factory(EntityWithArchivedFlag::class)->create([
             'is_archived' => true,
         ]);
 
-        EntityWithArchivedFlag::where('id', $model->id)->unarchive();
+        EntityWithArchivedFlag::where('id', $model->id)->undoArchive();
 
         $model = EntityWithArchivedFlag::where('id', $model->id)->first();
 

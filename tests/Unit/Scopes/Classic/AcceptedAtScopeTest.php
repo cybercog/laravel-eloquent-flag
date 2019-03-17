@@ -35,7 +35,7 @@ final class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_rejected(): void
+    public function it_can_get_without_not_accepted(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
             'accepted_at' => Date::now()->subDay(),
@@ -44,13 +44,13 @@ final class AcceptedAtScopeTest extends TestCase
             'accepted_at' => null,
         ]);
 
-        $entities = EntityWithAcceptedAt::withoutRejected()->get();
+        $entities = EntityWithAcceptedAt::withoutNotAccepted()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_rejected(): void
+    public function it_can_get_with_not_accepted(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
             'accepted_at' => Date::now()->subDay(),
@@ -59,13 +59,13 @@ final class AcceptedAtScopeTest extends TestCase
             'accepted_at' => null,
         ]);
 
-        $entities = EntityWithAcceptedAt::withRejected()->get();
+        $entities = EntityWithAcceptedAt::withNotAccepted()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_rejected(): void
+    public function it_can_get_only_not_accepted(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
             'accepted_at' => Date::now()->subDay(),
@@ -74,7 +74,7 @@ final class AcceptedAtScopeTest extends TestCase
             'accepted_at' => null,
         ]);
 
-        $entities = EntityWithAcceptedAt::onlyRejected()->get();
+        $entities = EntityWithAcceptedAt::onlyNotAccepted()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -94,15 +94,15 @@ final class AcceptedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reject_model(): void
+    public function it_can_undo_accept(): void
     {
         $model = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithAcceptedAt::where('id', $model->id)->reject();
+        EntityWithAcceptedAt::where('id', $model->id)->undoAccept();
 
-        $model = EntityWithAcceptedAt::withRejected()->where('id', $model->id)->first();
+        $model = EntityWithAcceptedAt::withNotAccepted()->where('id', $model->id)->first();
 
         $this->assertNull($model->accepted_at);
     }

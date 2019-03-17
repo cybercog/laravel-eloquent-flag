@@ -36,7 +36,7 @@ final class VerifiedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unverified(): void
+    public function it_can_get_without_not_verified(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
             'verified_at' => Date::now()->subDay(),
@@ -45,13 +45,13 @@ final class VerifiedAtScopeTest extends TestCase
             'verified_at' => null,
         ]);
 
-        $entities = EntityWithVerifiedAt::withoutUnverified()->get();
+        $entities = EntityWithVerifiedAt::withoutNotVerified()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_unverified(): void
+    public function it_can_get_with_not_verified(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
             'verified_at' => Date::now()->subDay(),
@@ -60,13 +60,13 @@ final class VerifiedAtScopeTest extends TestCase
             'verified_at' => null,
         ]);
 
-        $entities = EntityWithVerifiedAt::withUnverified()->get();
+        $entities = EntityWithVerifiedAt::withNotVerified()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_unverified(): void
+    public function it_can_get_only_not_verified(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
             'verified_at' => Date::now()->subDay(),
@@ -75,7 +75,7 @@ final class VerifiedAtScopeTest extends TestCase
             'verified_at' => null,
         ]);
 
-        $entities = EntityWithVerifiedAt::onlyUnverified()->get();
+        $entities = EntityWithVerifiedAt::onlyNotVerified()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -95,15 +95,15 @@ final class VerifiedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unverify_model(): void
+    public function it_can_undo_verify_model(): void
     {
         $model = factory(EntityWithVerifiedAt::class)->create([
             'verified_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithVerifiedAt::where('id', $model->id)->unverify();
+        EntityWithVerifiedAt::where('id', $model->id)->undoVerify();
 
-        $model = EntityWithVerifiedAt::withUnverified()->where('id', $model->id)->first();
+        $model = EntityWithVerifiedAt::withNotVerified()->where('id', $model->id)->first();
 
         $this->assertNull($model->verified_at);
     }

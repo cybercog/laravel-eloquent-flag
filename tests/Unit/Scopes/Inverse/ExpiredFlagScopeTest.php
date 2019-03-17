@@ -80,13 +80,13 @@ final class ExpiredFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unexpire_model(): void
+    public function it_can_undo_expire_model(): void
     {
         $model = factory(EntityWithExpiredFlag::class)->create([
             'is_expired' => true,
         ]);
 
-        EntityWithExpiredFlag::where('id', $model->id)->unexpire();
+        EntityWithExpiredFlag::where('id', $model->id)->undoExpire();
 
         $model = EntityWithExpiredFlag::where('id', $model->id)->first();
 

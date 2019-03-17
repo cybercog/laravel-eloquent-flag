@@ -26,7 +26,7 @@ final class DraftedAtScope implements Scope
      * @var array
      */
     protected $extensions = [
-        'Undraft',
+        'UndoDraft',
         'Draft',
         'WithDrafted',
         'WithoutDrafted',
@@ -63,14 +63,14 @@ final class DraftedAtScope implements Scope
     }
 
     /**
-     * Add the `undraft` extension to the builder.
+     * Add the `undoDraft` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUndraft(Builder $builder): void
+    protected function addUndoDraft(Builder $builder): void
     {
-        $builder->macro('undraft', function (Builder $builder) {
+        $builder->macro('undoDraft', function (Builder $builder) {
             $builder->withDrafted();
 
             return $builder->update(['drafted_at' => null]);

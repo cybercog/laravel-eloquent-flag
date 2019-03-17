@@ -26,10 +26,10 @@ final class KeptFlagScope implements Scope
      */
     protected $extensions = [
         'Keep',
-        'Unkeep',
-        'WithUnkept',
-        'WithoutUnkept',
-        'OnlyUnkept',
+        'UndoKeep',
+        'WithNotKept',
+        'WithoutNotKept',
+        'OnlyNotKept',
     ];
 
     /**
@@ -66,60 +66,60 @@ final class KeptFlagScope implements Scope
     protected function addKeep(Builder $builder): void
     {
         $builder->macro('keep', function (Builder $builder) {
-            $builder->withUnkept();
+            $builder->withNotKept();
 
             return $builder->update(['is_kept' => 1]);
         });
     }
 
     /**
-     * Add the `unkeep` extension to the builder.
+     * Add the `undoKeep` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnkeep(Builder $builder): void
+    protected function addUndoKeep(Builder $builder): void
     {
-        $builder->macro('unkeep', function (Builder $builder) {
+        $builder->macro('undoKeep', function (Builder $builder) {
             return $builder->update(['is_kept' => 0]);
         });
     }
 
     /**
-     * Add the `withUnkept` extension to the builder.
+     * Add the `withNotKept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnkept(Builder $builder): void
+    protected function addWithNotKept(Builder $builder): void
     {
-        $builder->macro('withUnkept', function (Builder $builder) {
+        $builder->macro('withNotKept', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUnkept` extension to the builder.
+     * Add the `withoutNotKept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnkept(Builder $builder): void
+    protected function addWithoutNotKept(Builder $builder): void
     {
-        $builder->macro('withoutUnkept', function (Builder $builder) {
+        $builder->macro('withoutNotKept', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_kept', 1);
         });
     }
 
     /**
-     * Add the `onlyUnkept` extension to the builder.
+     * Add the `onlyNotKept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnkept(Builder $builder): void
+    protected function addOnlyNotKept(Builder $builder): void
     {
-        $builder->macro('onlyUnkept', function (Builder $builder) {
+        $builder->macro('onlyNotKept', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_kept', 0);
         });
     }
