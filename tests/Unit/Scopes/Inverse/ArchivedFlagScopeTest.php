@@ -21,7 +21,7 @@ use Cog\Tests\Flag\TestCase;
 final class ArchivedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_get_with_archived_by_default(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithArchivedFlag::class, 3)->create([
             'is_archived' => true,

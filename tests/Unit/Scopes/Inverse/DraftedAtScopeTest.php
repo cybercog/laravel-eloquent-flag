@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Date;
 final class DraftedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_get_with_drafted_by_default(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),

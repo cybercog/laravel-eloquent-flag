@@ -14,12 +14,14 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedFlag;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedFlagApplied;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class AcceptedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_accepted(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithAcceptedFlag::class, 3)->create([
             'is_accepted' => true,
@@ -30,7 +32,7 @@ final class AcceptedFlagScopeTest extends TestCase
 
         $entities = EntityWithAcceptedFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -104,5 +106,35 @@ final class AcceptedFlagScopeTest extends TestCase
         $model = EntityWithAcceptedFlag::withNotAccepted()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_accepted);
+    }
+
+    /** @test */
+    public function it_can_skip_apply(): void
+    {
+        factory(EntityWithAcceptedFlag::class, 3)->create([
+            'is_accepted' => true,
+        ]);
+        factory(EntityWithAcceptedFlag::class, 2)->create([
+            'is_accepted' => false,
+        ]);
+
+        $entities = EntityWithAcceptedFlagUnapplied::all();
+
+        $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithAcceptedFlag::class, 3)->create([
+            'is_accepted' => true,
+        ]);
+        factory(EntityWithAcceptedFlag::class, 2)->create([
+            'is_accepted' => false,
+        ]);
+
+        $entities = EntityWithAcceptedFlagApplied::all();
+
+        $this->assertCount(3, $entities);
     }
 }

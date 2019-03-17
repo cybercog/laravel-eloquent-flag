@@ -14,13 +14,14 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlagApplied;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class InvitedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_invited(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithInvitedFlag::class, 3)->create([
             'is_invited' => true,
@@ -31,7 +32,7 @@ final class InvitedFlagScopeTest extends TestCase
 
         $entities = EntityWithInvitedFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -120,5 +121,20 @@ final class InvitedFlagScopeTest extends TestCase
         $entities = EntityWithInvitedFlagUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithInvitedFlag::class, 3)->create([
+            'is_invited' => true,
+        ]);
+        factory(EntityWithInvitedFlag::class, 2)->create([
+            'is_invited' => false,
+        ]);
+
+        $entities = EntityWithInvitedFlagApplied::all();
+
+        $this->assertCount(3, $entities);
     }
 }

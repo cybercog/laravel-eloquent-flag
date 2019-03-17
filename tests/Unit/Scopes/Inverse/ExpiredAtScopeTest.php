@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Date;
 final class ExpiredAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_get_with_expired_by_default(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithExpiredAt::class, 3)->create([
             'expired_at' => Date::now()->subDay(),

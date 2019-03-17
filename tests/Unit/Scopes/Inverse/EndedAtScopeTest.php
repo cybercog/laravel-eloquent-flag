@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Date;
 final class EndedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_get_with_ended_by_default(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),

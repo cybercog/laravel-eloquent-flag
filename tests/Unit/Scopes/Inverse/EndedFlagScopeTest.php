@@ -21,7 +21,7 @@ use Cog\Tests\Flag\TestCase;
 final class EndedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_get_with_ended_by_default(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithEndedFlag::class, 3)->create([
             'is_ended' => true,

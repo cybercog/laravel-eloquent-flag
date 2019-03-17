@@ -21,7 +21,7 @@ use Cog\Tests\Flag\TestCase;
 final class ClosedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_get_with_closed_by_default(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithClosedFlag::class, 3)->create([
             'is_closed' => true,

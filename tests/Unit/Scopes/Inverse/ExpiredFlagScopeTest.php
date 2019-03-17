@@ -21,7 +21,7 @@ use Cog\Tests\Flag\TestCase;
 final class ExpiredFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_get_with_expired_by_default(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithExpiredFlag::class, 3)->create([
             'is_expired' => true,
