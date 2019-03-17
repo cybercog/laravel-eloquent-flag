@@ -41,7 +41,7 @@ final class DraftedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyDraftedFlagScope') && !$model->shouldApplyDraftedFlagScope()) {
+        if (!method_exists($model, 'shouldApplyDraftedFlagScope') || !$model->shouldApplyDraftedFlagScope()) {
             return;
         }
 

@@ -41,6 +41,10 @@ final class ActiveFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
+        if (!method_exists($model, 'shouldApplyActiveFlagScope') || !$model->shouldApplyActiveFlagScope()) {
+            return;
+        }
+
         $builder->where('is_active', 1);
     }
 

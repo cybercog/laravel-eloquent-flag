@@ -41,6 +41,10 @@ final class KeptFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
+        if (!method_exists($model, 'shouldApplyKeptFlagScope') || !$model->shouldApplyKeptFlagScope()) {
+            return;
+        }
+
         $builder->where('is_kept', 1);
     }
 

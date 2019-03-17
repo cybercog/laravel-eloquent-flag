@@ -42,7 +42,7 @@ final class InvitedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyInvitedAtScope') && !$model->shouldApplyInvitedAtScope()) {
+        if (!method_exists($model, 'shouldApplyInvitedAtScope') || !$model->shouldApplyInvitedAtScope()) {
             return;
         }
 

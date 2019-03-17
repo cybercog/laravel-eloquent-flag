@@ -41,7 +41,7 @@ final class VerifiedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyVerifiedFlagScope') && !$model->shouldApplyVerifiedFlagScope()) {
+        if (!method_exists($model, 'shouldApplyVerifiedFlagScope') || !$model->shouldApplyVerifiedFlagScope()) {
             return;
         }
 

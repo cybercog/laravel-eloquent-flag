@@ -41,7 +41,7 @@ final class EndedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyEndedFlagScope') && !$model->shouldApplyEndedFlagScope()) {
+        if (!method_exists($model, 'shouldApplyEndedFlagScope') || !$model->shouldApplyEndedFlagScope()) {
             return;
         }
 

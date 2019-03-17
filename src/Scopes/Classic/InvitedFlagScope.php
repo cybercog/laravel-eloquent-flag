@@ -41,7 +41,7 @@ final class InvitedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyInvitedFlagScope') && !$model->shouldApplyInvitedFlagScope()) {
+        if (!method_exists($model, 'shouldApplyInvitedFlagScope') || !$model->shouldApplyInvitedFlagScope()) {
             return;
         }
 

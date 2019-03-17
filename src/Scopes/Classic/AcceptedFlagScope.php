@@ -41,6 +41,10 @@ final class AcceptedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
+        if (!method_exists($model, 'shouldApplyAcceptedFlagScope') || !$model->shouldApplyAcceptedFlagScope()) {
+            return;
+        }
+
         $builder->where('is_accepted', 1);
     }
 

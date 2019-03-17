@@ -42,7 +42,7 @@ final class ExpiredAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyExpiredAtScope') && !$model->shouldApplyExpiredAtScope()) {
+        if (!method_exists($model, 'shouldApplyExpiredAtScope') || !$model->shouldApplyExpiredAtScope()) {
             return;
         }
 
