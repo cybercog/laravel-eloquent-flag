@@ -13,30 +13,63 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - All methods are strict typed now
 - `Carbon\Carbon` replaced with `Illuminate\Support\Facades\Date`
-- `isRejected` method renamed to `isNotAccepted`
-- `isDeactivated` method renamed to `isNotActivated`
-- `isDisapproved` method renamed to `isNotApproved`
-- `isUninvited` method renamed to `isNotInvited`
-- `isUnkept` method renamed to `isNotKept`
-- `isUnpublished` method renamed to `isNotPublished`
-- `isUnverified` method renamed to `isNotVerified`
-- `isUnarchived` method renamed to `isNotArchived`
-- `isOpened` method renamed to `isNotClosed`
-- `isUndrafted` method renamed to `isNotDrafted`
-- `isUnended` method renamed to `isNotEnded`
-- `isUnexpired` method renamed to `isNotExpired`
-- `reject` method renamed to `undoAccept`
-- `deactivate` method renamed to `undoActivate`
-- `disapprove` method renamed to `undoApprove`
-- `uninvite` method renamed to `undoInvite`
-- `unkeep` method renamed to `undoKeep`
-- `unpublish` method renamed to `undoPublish`
-- `unverify` method renamed to `undoVerify`
-- `unarchive` method renamed to `undoArchive`
-- `open` method renamed to `undoClose`
-- `undraft` method renamed to `undoDraft`
-- `unend` method renamed to `undoEnd`
-- `unexpire` method renamed to `undoExpire`
+- `isRejected` instance method renamed to `isNotAccepted`
+- `isDeactivated` instance method renamed to `isNotActivated`
+- `isDisapproved` instance method renamed to `isNotApproved`
+- `isUninvited` instance method renamed to `isNotInvited`
+- `isUnkept` instance method renamed to `isNotKept`
+- `isUnpublished` instance method renamed to `isNotPublished`
+- `isUnverified` instance method renamed to `isNotVerified`
+- `isUnarchived` instance method renamed to `isNotArchived`
+- `isOpened` instance method renamed to `isNotClosed`
+- `isUndrafted` instance method renamed to `isNotDrafted`
+- `isUnended` instance method renamed to `isNotEnded`
+- `isUnexpired` instance method renamed to `isNotExpired`
+- `reject` instance method renamed to `undoAccept`
+- `deactivate` instance method renamed to `undoActivate`
+- `disapprove` instance method renamed to `undoApprove`
+- `uninvite` instance method renamed to `undoInvite`
+- `unkeep` instance method renamed to `undoKeep`
+- `unpublish` instance method renamed to `undoPublish`
+- `unverify` instance method renamed to `undoVerify`
+- `unarchive` instance method renamed to `undoArchive`
+- `open` instance method renamed to `undoClose`
+- `undraft` instance method renamed to `undoDraft`
+- `unend` instance method renamed to `undoEnd`
+- `unexpire` instance method renamed to `undoExpire`
+- `reject` global scope method renamed to `undoAccept`
+- `withRejected` global scope method renamed to `withNotAccepted`
+- `withoutRejected` global scope method renamed to `withoutNotAccepted`
+- `onlyRejected` global scope method renamed to `onlyNotAccepted`
+- `deactivate` global scope method renamed to `undoActivate`
+- `withDeactivated` global scope method renamed to `withNotActivated`
+- `withoutDeactivated` global scope method renamed to `withoutNotActivated`
+- `onlyDeactivated` global scope method renamed to `onlyNotActivated`
+- `disapprove` global scope method renamed to `undoApprove`
+- `withDisapproved` global scope method renamed to `withNotApproved`
+- `withoutDisapproved` global scope method renamed to `withoutNotApproved`
+- `onlyDisapproved` global scope method renamed to `onlyNotApproved`
+- `uninvite` global scope method renamed to `undoInvite`
+- `withUninvited` global scope method renamed to `withNotInvited`
+- `withoutUninvited` global scope method renamed to `withoutNotInvited`
+- `onlyUninvited` global scope method renamed to `onlyNotInvited`
+- `unkeep` global scope method renamed to `undoKeep`
+- `withUnkept` global scope method renamed to `withNotKept`
+- `withoutUnkept` global scope method renamed to `withoutNotKept`
+- `onlyUnkept` global scope method renamed to `onlyNotKept`
+- `unpublish` global scope method renamed to `undoPublish`
+- `withUnpublished` global scope method renamed to `withNotPublished`
+- `withoutUnpublished` global scope method renamed to `withoutNotPublished`
+- `onlyUnpublished` global scope method renamed to `onlyNotPublished`
+- `unverify` global scope method renamed to `undoVerify`
+- `withUnverified` global scope method renamed to `withNotVerified`
+- `withoutUnverified` global scope method renamed to `withoutNotVerified`
+- `onlyUnverified` global scope method renamed to `onlyNotVerified`
+- `unarchive` global scope method renamed to `undoArchive`
+- `open` global scope method renamed to `undoClose`
+- `undraft` global scope method renamed to `undoDraft`
+- `unend` global scope method renamed to `undoEnd`
+- `unexpire` global scope method renamed to `undoExpire`
 
 ### Removed
 
