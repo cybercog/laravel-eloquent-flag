@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasInvitedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     public function it_can_unset_invited_flag(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
-            'invited_at' => Carbon::now(),
+            'invited_at' => Date::now(),
         ]);
 
         $entity->unsetInvitedFlag();
@@ -58,7 +59,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_invited(): void
     {
         $invitedEntity = factory(EntityWithInvitedAt::class)->create([
-            'invited_at' => Carbon::now(),
+            'invited_at' => Date::now(),
         ]);
 
         $uninvitedEntity = factory(EntityWithInvitedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_uninvited(): void
     {
         $invitedEntity = factory(EntityWithInvitedAt::class)->create([
-            'invited_at' => Carbon::now(),
+            'invited_at' => Date::now(),
         ]);
 
         $uninvitedEntity = factory(EntityWithInvitedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     public function it_can_uninvite_entity(): void
     {
         $entity = factory(EntityWithInvitedAt::class)->create([
-            'invited_at' => Carbon::now(),
+            'invited_at' => Date::now(),
         ]);
 
         $entity->uninvite();

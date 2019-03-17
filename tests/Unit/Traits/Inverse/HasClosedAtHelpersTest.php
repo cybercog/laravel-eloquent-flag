@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasClosedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasClosedAtHelpersTest extends TestCase
     public function it_can_unset_closed_flag(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
-            'closed_at' => Carbon::now(),
+            'closed_at' => Date::now(),
         ]);
 
         $entity->unsetClosedFlag();
@@ -58,7 +59,7 @@ final class HasClosedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_closed(): void
     {
         $closedEntity = factory(EntityWithClosedAt::class)->create([
-            'closed_at' => Carbon::now(),
+            'closed_at' => Date::now(),
         ]);
 
         $openedEntity = factory(EntityWithClosedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasClosedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_opened(): void
     {
         $closedEntity = factory(EntityWithClosedAt::class)->create([
-            'closed_at' => Carbon::now(),
+            'closed_at' => Date::now(),
         ]);
 
         $openedEntity = factory(EntityWithClosedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasClosedAtHelpersTest extends TestCase
     public function it_can_open_entity(): void
     {
         $entity = factory(EntityWithClosedAt::class)->create([
-            'closed_at' => Carbon::now(),
+            'closed_at' => Date::now(),
         ]);
 
         $entity->open();

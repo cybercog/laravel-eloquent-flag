@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Inverse;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class EndedAtScope implements Scope
 {
@@ -86,7 +86,7 @@ final class EndedAtScope implements Scope
     protected function addEnd(Builder $builder): void
     {
         $builder->macro('end', function (Builder $builder) {
-            return $builder->update(['ended_at' => Carbon::now()]);
+            return $builder->update(['ended_at' => Date::now()]);
         });
     }
 

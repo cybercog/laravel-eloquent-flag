@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasAcceptedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     public function it_can_unset_accepted_flag(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
-            'accepted_at' => Carbon::now(),
+            'accepted_at' => Date::now(),
         ]);
 
         $entity->unsetAcceptedFlag();
@@ -58,7 +59,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_accepted(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
-            'accepted_at' => Carbon::now(),
+            'accepted_at' => Date::now(),
         ]);
 
         $rejectedEntity = factory(EntityWithAcceptedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_rejected(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
-            'accepted_at' => Carbon::now(),
+            'accepted_at' => Date::now(),
         ]);
 
         $rejectedEntity = factory(EntityWithAcceptedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     public function it_can_reject_entity(): void
     {
         $entity = factory(EntityWithAcceptedAt::class)->create([
-            'accepted_at' => Carbon::now(),
+            'accepted_at' => Date::now(),
         ]);
 
         $entity->reject();

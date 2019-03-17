@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Classic;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class AcceptedAtScope implements Scope
 {
@@ -69,7 +69,7 @@ final class AcceptedAtScope implements Scope
         $builder->macro('accept', function (Builder $builder) {
             $builder->withRejected();
 
-            return $builder->update(['accepted_at' => Carbon::now()]);
+            return $builder->update(['accepted_at' => Date::now()]);
         });
     }
 

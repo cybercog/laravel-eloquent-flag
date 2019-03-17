@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Inverse;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class DraftedAtScope implements Scope
 {
@@ -86,7 +86,7 @@ final class DraftedAtScope implements Scope
     protected function addDraft(Builder $builder): void
     {
         $builder->macro('draft', function (Builder $builder) {
-            return $builder->update(['drafted_at' => Carbon::now()]);
+            return $builder->update(['drafted_at' => Date::now()]);
         });
     }
 

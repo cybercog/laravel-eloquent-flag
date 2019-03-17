@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class DraftedAtScopeTest extends TestCase
 {
@@ -24,7 +24,7 @@ final class DraftedAtScopeTest extends TestCase
     public function it_can_get_only_not_drafted(): void
     {
         factory(EntityWithDraftedAt::class, 2)->create([
-            'drafted_at' => Carbon::now()->subDay(),
+            'drafted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => null,
@@ -39,7 +39,7 @@ final class DraftedAtScopeTest extends TestCase
     public function it_can_get_without_drafted(): void
     {
         factory(EntityWithDraftedAt::class, 2)->create([
-            'drafted_at' => Carbon::now()->subDay(),
+            'drafted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => null,
@@ -54,7 +54,7 @@ final class DraftedAtScopeTest extends TestCase
     public function it_can_get_with_drafted(): void
     {
         factory(EntityWithDraftedAt::class, 2)->create([
-            'drafted_at' => Carbon::now()->subDay(),
+            'drafted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => null,
@@ -69,7 +69,7 @@ final class DraftedAtScopeTest extends TestCase
     public function it_can_get_only_drafted(): void
     {
         factory(EntityWithDraftedAt::class, 2)->create([
-            'drafted_at' => Carbon::now()->subDay(),
+            'drafted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => null,
@@ -84,7 +84,7 @@ final class DraftedAtScopeTest extends TestCase
     public function it_can_undraft_model(): void
     {
         $model = factory(EntityWithDraftedAt::class)->create([
-            'drafted_at' => Carbon::now()->subDay(),
+            'drafted_at' => Date::now()->subDay(),
         ]);
 
         EntityWithDraftedAt::where('id', $model->id)->undraft();
@@ -112,7 +112,7 @@ final class DraftedAtScopeTest extends TestCase
     public function it_can_skip_apply(): void
     {
         factory(EntityWithDraftedAt::class, 3)->create([
-            'drafted_at' => Carbon::now()->subDay(),
+            'drafted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,

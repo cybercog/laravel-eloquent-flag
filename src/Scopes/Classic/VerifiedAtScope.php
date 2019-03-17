@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Classic;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class VerifiedAtScope implements Scope
 {
@@ -73,7 +73,7 @@ final class VerifiedAtScope implements Scope
         $builder->macro('verify', function (Builder $builder) {
             $builder->withUnverified();
 
-            return $builder->update(['verified_at' => Carbon::now()]);
+            return $builder->update(['verified_at' => Date::now()]);
         });
     }
 

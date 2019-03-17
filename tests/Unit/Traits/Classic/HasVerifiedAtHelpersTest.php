@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasVerifiedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     public function it_can_unset_verified_flag(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
-            'verified_at' => Carbon::now(),
+            'verified_at' => Date::now(),
         ]);
 
         $entity->unsetVerifiedFlag();
@@ -58,7 +59,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_verified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
-            'verified_at' => Carbon::now(),
+            'verified_at' => Date::now(),
         ]);
 
         $unverifiedEntity = factory(EntityWithVerifiedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_unverified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
-            'verified_at' => Carbon::now(),
+            'verified_at' => Date::now(),
         ]);
 
         $unverifiedEntity = factory(EntityWithVerifiedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     public function it_can_unverify_entity(): void
     {
         $entity = factory(EntityWithVerifiedAt::class)->create([
-            'verified_at' => Carbon::now(),
+            'verified_at' => Date::now(),
         ]);
 
         $entity->unverify();
