@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAtApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
@@ -21,42 +22,42 @@ use Illuminate\Support\Facades\Date;
 final class EndedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_ended(): void
+    public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
         $entities = EntityWithEndedAt::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
     public function it_can_get_without_ended(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
         $entities = EntityWithEndedAt::withoutEnded()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_ended(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
@@ -68,16 +69,16 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_ended(): void
     {
-        factory(EntityWithEndedAt::class, 2)->create([
+        factory(EntityWithEndedAt::class, 3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 3)->create([
+        factory(EntityWithEndedAt::class, 2)->create([
             'ended_at' => null,
         ]);
 
         $entities = EntityWithEndedAt::onlyEnded()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */
@@ -121,5 +122,20 @@ final class EndedAtScopeTest extends TestCase
         $entities = EntityWithEndedAtUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithEndedAt::class, 3)->create([
+            'ended_at' => Date::now()->subDay(),
+        ]);
+        factory(EntityWithEndedAt::class, 2)->create([
+            'ended_at' => null,
+        ]);
+
+        $entities = EntityWithEndedAtApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

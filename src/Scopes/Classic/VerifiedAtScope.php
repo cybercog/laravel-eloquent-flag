@@ -42,11 +42,9 @@ final class VerifiedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyVerifiedAtScope') && !$model->shouldApplyVerifiedAtScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyVerifiedAtScope') && $model->shouldApplyVerifiedAtScope()) {
+            $builder->whereNotNull('verified_at');
         }
-
-        $builder->whereNotNull('verified_at');
     }
 
     /**

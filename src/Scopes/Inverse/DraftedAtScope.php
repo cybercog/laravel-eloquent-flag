@@ -42,11 +42,9 @@ final class DraftedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyDraftedAtScope') && !$model->shouldApplyDraftedAtScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyDraftedAtScope') && $model->shouldApplyDraftedAtScope()) {
+            $builder->whereNull('drafted_at');
         }
-
-        $builder->whereNull('drafted_at');
     }
 
     /**

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAtApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
@@ -21,42 +22,42 @@ use Illuminate\Support\Facades\Date;
 final class ArchivedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_archived(): void
+    public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithArchivedAt::class, 2)->create([
+        factory(EntityWithArchivedAt::class, 3)->create([
             'archived_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithArchivedAt::class, 3)->create([
+        factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => null,
         ]);
 
         $entities = EntityWithArchivedAt::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
     public function it_can_get_without_archived(): void
     {
-        factory(EntityWithArchivedAt::class, 2)->create([
+        factory(EntityWithArchivedAt::class, 3)->create([
             'archived_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithArchivedAt::class, 3)->create([
+        factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => null,
         ]);
 
         $entities = EntityWithArchivedAt::withoutArchived()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_archived(): void
     {
-        factory(EntityWithArchivedAt::class, 2)->create([
+        factory(EntityWithArchivedAt::class, 3)->create([
             'archived_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithArchivedAt::class, 3)->create([
+        factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => null,
         ]);
 
@@ -68,16 +69,16 @@ final class ArchivedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_archived(): void
     {
-        factory(EntityWithArchivedAt::class, 2)->create([
+        factory(EntityWithArchivedAt::class, 3)->create([
             'archived_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithArchivedAt::class, 3)->create([
+        factory(EntityWithArchivedAt::class, 2)->create([
             'archived_at' => null,
         ]);
 
         $entities = EntityWithArchivedAt::onlyArchived()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */
@@ -109,7 +110,7 @@ final class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_skip_apply(): void
+    public function it_can_skip_auto_apply(): void
     {
         factory(EntityWithArchivedAt::class, 3)->create([
             'archived_at' => Date::now()->subDay(),
@@ -121,5 +122,20 @@ final class ArchivedAtScopeTest extends TestCase
         $entities = EntityWithArchivedAtUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithArchivedAt::class, 3)->create([
+            'archived_at' => Date::now()->subDay(),
+        ]);
+        factory(EntityWithArchivedAt::class, 2)->create([
+            'archived_at' => null,
+        ]);
+
+        $entities = EntityWithArchivedAtApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

@@ -7,7 +7,11 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 ### Added
 
 - Laravel 5.8 support
-- Flag fields auto-casting
+- ([#48](https://github.com/cybercog/laravel-eloquent-flag/pull/48)) Flag fields auto-casting
+- Added `shouldApplyAcceptedAtScope` & `shouldApplyAcceptedFlagScope` methods to control Accepted flags global scope auto apply.
+- Added `shouldApplyActiveFlagScope` methods to control Active flag global scope auto apply.
+- Added `shouldApplyApprovedAtScope` & `shouldApplyApprovedFlagScope` methods to control Approved flags global scope auto apply.
+- Added `shouldApplyClosedAtScope` & `shouldApplyClosedFlagScope` methods to control Closed flags global scope auto apply.
 
 ### Changed
 
@@ -87,7 +91,8 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - Dropped PHP 5.6, 7.0 support
 - Dropped Laravel 5.2, 5.3, 5.4, 5.5, 5.6, 5.7 support
-- Removed attribute mutator `set*` & `unset*` methods from all helper classes
+- ([#50](https://github.com/cybercog/laravel-eloquent-flag/pull/50)) Removed attribute mutator `set*` & `unset*` methods from all helper classes
+- ([#56](https://github.com/cybercog/laravel-eloquent-flag/pull/56)) Removed global scopes auto-apply
 
 ## [4.0.0] - 2018-09-09
 

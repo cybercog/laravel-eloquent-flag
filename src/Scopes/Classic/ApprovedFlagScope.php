@@ -41,7 +41,9 @@ final class ApprovedFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->where('is_approved', 1);
+        if (method_exists($model, 'shouldApplyApprovedFlagScope') && $model->shouldApplyApprovedFlagScope()) {
+            $builder->where('is_approved', 1);
+        }
     }
 
     /**

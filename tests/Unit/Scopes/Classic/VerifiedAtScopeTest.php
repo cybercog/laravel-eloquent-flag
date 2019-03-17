@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAtApplied;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Date;
 final class VerifiedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_verified(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
             'verified_at' => Date::now()->subDay(),
@@ -32,7 +33,7 @@ final class VerifiedAtScopeTest extends TestCase
 
         $entities = EntityWithVerifiedAt::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -121,5 +122,20 @@ final class VerifiedAtScopeTest extends TestCase
         $entities = EntityWithVerifiedAtUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithVerifiedAt::class, 3)->create([
+            'verified_at' => Date::now()->subDay(),
+        ]);
+        factory(EntityWithVerifiedAt::class, 2)->create([
+            'verified_at' => null,
+        ]);
+
+        $entities = EntityWithVerifiedAtApplied::all();
+
+        $this->assertCount(3, $entities);
     }
 }

@@ -42,11 +42,9 @@ final class PublishedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyPublishedAtScope') && !$model->shouldApplyPublishedAtScope()) {
-            return;
+        if (method_exists($model, 'shouldApplyPublishedAtScope') && $model->shouldApplyPublishedAtScope()) {
+            $builder->whereNotNull('published_at');
         }
-
-        $builder->whereNotNull('published_at');
     }
 
     /**

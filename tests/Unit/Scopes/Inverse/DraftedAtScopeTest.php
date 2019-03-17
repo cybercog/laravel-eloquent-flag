@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAtApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
@@ -21,42 +22,42 @@ use Illuminate\Support\Facades\Date;
 final class DraftedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_drafted(): void
+    public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
         $entities = EntityWithDraftedAt::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
     public function it_can_get_without_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
         $entities = EntityWithDraftedAt::withoutDrafted()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
@@ -68,16 +69,16 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 2)->create([
+        factory(EntityWithDraftedAt::class, 3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 3)->create([
+        factory(EntityWithDraftedAt::class, 2)->create([
             'drafted_at' => null,
         ]);
 
         $entities = EntityWithDraftedAt::onlyDrafted()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */
@@ -121,5 +122,20 @@ final class DraftedAtScopeTest extends TestCase
         $entities = EntityWithDraftedAtUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithDraftedAt::class, 3)->create([
+            'drafted_at' => Date::now()->subDay(),
+        ]);
+        factory(EntityWithDraftedAt::class, 2)->create([
+            'drafted_at' => null,
+        ]);
+
+        $entities = EntityWithDraftedAtApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

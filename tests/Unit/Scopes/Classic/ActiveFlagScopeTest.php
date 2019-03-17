@@ -14,12 +14,14 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlagApplied;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class ActiveFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_active(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithActiveFlag::class, 3)->create([
             'is_active' => true,
@@ -30,7 +32,7 @@ final class ActiveFlagScopeTest extends TestCase
 
         $entities = EntityWithActiveFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -104,5 +106,35 @@ final class ActiveFlagScopeTest extends TestCase
         $model = EntityWithActiveFlag::withNotActivated()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_active);
+    }
+
+    /** @test */
+    public function it_can_skip_apply(): void
+    {
+        factory(EntityWithActiveFlag::class, 3)->create([
+            'is_active' => true,
+        ]);
+        factory(EntityWithActiveFlag::class, 2)->create([
+            'is_active' => false,
+        ]);
+
+        $entities = EntityWithActiveFlagUnapplied::all();
+
+        $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithActiveFlag::class, 3)->create([
+            'is_active' => true,
+        ]);
+        factory(EntityWithActiveFlag::class, 2)->create([
+            'is_active' => false,
+        ]);
+
+        $entities = EntityWithActiveFlagApplied::all();
+
+        $this->assertCount(3, $entities);
     }
 }

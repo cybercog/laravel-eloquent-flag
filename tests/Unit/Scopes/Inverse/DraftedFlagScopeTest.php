@@ -14,48 +14,49 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
+use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagApplied;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagUnapplied;
 use Cog\Tests\Flag\TestCase;
 
 final class DraftedFlagScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_not_drafted(): void
+    public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
         $entities = EntityWithDraftedFlag::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
     public function it_can_get_without_drafted(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
         $entities = EntityWithDraftedFlag::withoutDrafted()->get();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(2, $entities);
     }
 
     /** @test */
     public function it_can_get_with_drafted(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
@@ -67,16 +68,16 @@ final class DraftedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_drafted(): void
     {
-        factory(EntityWithDraftedFlag::class, 2)->create([
+        factory(EntityWithDraftedFlag::class, 3)->create([
             'is_drafted' => true,
         ]);
-        factory(EntityWithDraftedFlag::class, 3)->create([
+        factory(EntityWithDraftedFlag::class, 2)->create([
             'is_drafted' => false,
         ]);
 
         $entities = EntityWithDraftedFlag::onlyDrafted()->get();
 
-        $this->assertCount(2, $entities);
+        $this->assertCount(3, $entities);
     }
 
     /** @test */
@@ -120,5 +121,20 @@ final class DraftedFlagScopeTest extends TestCase
         $entities = EntityWithDraftedFlagUnapplied::all();
 
         $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithDraftedFlag::class, 3)->create([
+            'is_drafted' => true,
+        ]);
+        factory(EntityWithDraftedFlag::class, 2)->create([
+            'is_drafted' => false,
+        ]);
+
+        $entities = EntityWithDraftedFlagApplied::all();
+
+        $this->assertCount(2, $entities);
     }
 }

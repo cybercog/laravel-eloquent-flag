@@ -42,7 +42,9 @@ final class AcceptedAtScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->whereNotNull('accepted_at');
+        if (method_exists($model, 'shouldApplyAcceptedAtScope') && $model->shouldApplyAcceptedAtScope()) {
+            $builder->whereNotNull('accepted_at');
+        }
     }
 
     /**

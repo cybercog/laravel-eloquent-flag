@@ -14,13 +14,15 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAtApplied;
+use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class ApprovedAtScopeTest extends TestCase
 {
     /** @test */
-    public function it_can_get_only_approved(): void
+    public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
             'approved_at' => Date::now()->subDay(),
@@ -31,7 +33,7 @@ final class ApprovedAtScopeTest extends TestCase
 
         $entities = EntityWithApprovedAt::all();
 
-        $this->assertCount(3, $entities);
+        $this->assertCount(5, $entities);
     }
 
     /** @test */
@@ -105,5 +107,35 @@ final class ApprovedAtScopeTest extends TestCase
         $model = EntityWithApprovedAt::withNotApproved()->where('id', $model->id)->first();
 
         $this->assertNull($model->approved_at);
+    }
+
+    /** @test */
+    public function it_can_skip_apply(): void
+    {
+        factory(EntityWithApprovedAt::class, 3)->create([
+            'approved_at' => Date::now()->subDay(),
+        ]);
+        factory(EntityWithApprovedAt::class, 2)->create([
+            'approved_at' => null,
+        ]);
+
+        $entities = EntityWithApprovedAtUnapplied::all();
+
+        $this->assertCount(5, $entities);
+    }
+
+    /** @test */
+    public function it_can_auto_apply(): void
+    {
+        factory(EntityWithApprovedAt::class, 3)->create([
+            'approved_at' => Date::now()->subDay(),
+        ]);
+        factory(EntityWithApprovedAt::class, 2)->create([
+            'approved_at' => null,
+        ]);
+
+        $entities = EntityWithApprovedAtApplied::all();
+
+        $this->assertCount(3, $entities);
     }
 }
