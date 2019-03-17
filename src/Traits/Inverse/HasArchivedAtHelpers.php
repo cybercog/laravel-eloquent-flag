@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Inverse;
 
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 trait HasArchivedAtHelpers
 {
@@ -29,7 +29,7 @@ trait HasArchivedAtHelpers
      */
     public function setArchivedFlag()
     {
-        $this->setAttribute('archived_at', Carbon::now());
+        $this->setAttribute('archived_at', Date::now());
 
         return $this;
     }

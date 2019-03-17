@@ -15,7 +15,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
 use Cog\Tests\Flag\TestCase;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class AcceptedAtScopeTest extends TestCase
 {
@@ -23,7 +23,7 @@ final class AcceptedAtScopeTest extends TestCase
     public function it_can_get_only_accepted(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
-            'accepted_at' => Carbon::now()->subDay(),
+            'accepted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithAcceptedAt::class, 2)->create([
             'accepted_at' => null,
@@ -38,7 +38,7 @@ final class AcceptedAtScopeTest extends TestCase
     public function it_can_get_without_rejected(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
-            'accepted_at' => Carbon::now()->subDay(),
+            'accepted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithAcceptedAt::class, 2)->create([
             'accepted_at' => null,
@@ -53,7 +53,7 @@ final class AcceptedAtScopeTest extends TestCase
     public function it_can_get_with_rejected(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
-            'accepted_at' => Carbon::now()->subDay(),
+            'accepted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithAcceptedAt::class, 2)->create([
             'accepted_at' => null,
@@ -68,7 +68,7 @@ final class AcceptedAtScopeTest extends TestCase
     public function it_can_get_only_rejected(): void
     {
         factory(EntityWithAcceptedAt::class, 3)->create([
-            'accepted_at' => Carbon::now()->subDay(),
+            'accepted_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithAcceptedAt::class, 2)->create([
             'accepted_at' => null,
@@ -97,7 +97,7 @@ final class AcceptedAtScopeTest extends TestCase
     public function it_can_reject_model(): void
     {
         $model = factory(EntityWithAcceptedAt::class)->create([
-            'accepted_at' => Carbon::now()->subDay(),
+            'accepted_at' => Date::now()->subDay(),
         ]);
 
         EntityWithAcceptedAt::where('id', $model->id)->reject();

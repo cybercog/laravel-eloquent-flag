@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class InvitedAtScopeTest extends TestCase
 {
@@ -24,7 +24,7 @@ final class InvitedAtScopeTest extends TestCase
     public function it_can_get_only_invited(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
-            'invited_at' => Carbon::now()->subDay(),
+            'invited_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithInvitedAt::class, 2)->create([
             'invited_at' => null,
@@ -39,7 +39,7 @@ final class InvitedAtScopeTest extends TestCase
     public function it_can_get_without_uninvited(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
-            'invited_at' => Carbon::now()->subDay(),
+            'invited_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithInvitedAt::class, 2)->create([
             'invited_at' => null,
@@ -54,7 +54,7 @@ final class InvitedAtScopeTest extends TestCase
     public function it_can_get_with_uninvited(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
-            'invited_at' => Carbon::now()->subDay(),
+            'invited_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithInvitedAt::class, 2)->create([
             'invited_at' => null,
@@ -69,7 +69,7 @@ final class InvitedAtScopeTest extends TestCase
     public function it_can_get_only_uninvited(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
-            'invited_at' => Carbon::now()->subDay(),
+            'invited_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithInvitedAt::class, 2)->create([
             'invited_at' => null,
@@ -98,7 +98,7 @@ final class InvitedAtScopeTest extends TestCase
     public function it_can_uninvite_model(): void
     {
         $model = factory(EntityWithInvitedAt::class)->create([
-            'invited_at' => Carbon::now()->subDay(),
+            'invited_at' => Date::now()->subDay(),
         ]);
 
         EntityWithInvitedAt::where('id', $model->id)->uninvite();
@@ -112,7 +112,7 @@ final class InvitedAtScopeTest extends TestCase
     public function it_can_skip_apply(): void
     {
         factory(EntityWithInvitedAt::class, 3)->create([
-            'invited_at' => Carbon::now()->subDay(),
+            'invited_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithInvitedAt::class, 2)->create([
             'invited_at' => null,

@@ -15,7 +15,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
 use Cog\Tests\Flag\TestCase;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class ApprovedAtScopeTest extends TestCase
 {
@@ -23,7 +23,7 @@ final class ApprovedAtScopeTest extends TestCase
     public function it_can_get_only_approved(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
-            'approved_at' => Carbon::now()->subDay(),
+            'approved_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithApprovedAt::class, 2)->create([
             'approved_at' => null,
@@ -38,7 +38,7 @@ final class ApprovedAtScopeTest extends TestCase
     public function it_can_get_without_disapproved(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
-            'approved_at' => Carbon::now()->subDay(),
+            'approved_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithApprovedAt::class, 2)->create([
             'approved_at' => null,
@@ -53,7 +53,7 @@ final class ApprovedAtScopeTest extends TestCase
     public function it_can_get_with_disapproved(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
-            'approved_at' => Carbon::now()->subDay(),
+            'approved_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithApprovedAt::class, 2)->create([
             'approved_at' => null,
@@ -68,7 +68,7 @@ final class ApprovedAtScopeTest extends TestCase
     public function it_can_get_only_disapproved(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
-            'approved_at' => Carbon::now()->subDay(),
+            'approved_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithApprovedAt::class, 2)->create([
             'approved_at' => null,
@@ -97,7 +97,7 @@ final class ApprovedAtScopeTest extends TestCase
     public function it_can_disapprove_model(): void
     {
         $model = factory(EntityWithApprovedAt::class)->create([
-            'approved_at' => Carbon::now()->subDay(),
+            'approved_at' => Date::now()->subDay(),
         ]);
 
         EntityWithApprovedAt::where('id', $model->id)->disapprove();

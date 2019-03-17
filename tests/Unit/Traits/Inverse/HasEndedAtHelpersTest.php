@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasEndedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasEndedAtHelpersTest extends TestCase
     public function it_can_unset_ended_flag(): void
     {
         $entity = factory(EntityWithEndedAt::class)->create([
-            'ended_at' => Carbon::now(),
+            'ended_at' => Date::now(),
         ]);
 
         $entity->unsetEndedFlag();
@@ -58,7 +59,7 @@ final class HasEndedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_ended(): void
     {
         $endedEntity = factory(EntityWithEndedAt::class)->create([
-            'ended_at' => Carbon::now(),
+            'ended_at' => Date::now(),
         ]);
 
         $unendedEntity = factory(EntityWithEndedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasEndedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_unended(): void
     {
         $endedEntity = factory(EntityWithEndedAt::class)->create([
-            'ended_at' => Carbon::now(),
+            'ended_at' => Date::now(),
         ]);
 
         $unendedEntity = factory(EntityWithEndedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasEndedAtHelpersTest extends TestCase
     public function it_can_unend_entity(): void
     {
         $entity = factory(EntityWithEndedAt::class)->create([
-            'ended_at' => Carbon::now(),
+            'ended_at' => Date::now(),
         ]);
 
         $entity->unend();

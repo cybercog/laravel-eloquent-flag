@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Classic;
 
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 trait HasAcceptedAtHelpers
 {
@@ -29,7 +29,7 @@ trait HasAcceptedAtHelpers
      */
     public function setAcceptedFlag()
     {
-        $this->setAttribute('accepted_at', Carbon::now());
+        $this->setAttribute('accepted_at', Date::now());
 
         return $this;
     }

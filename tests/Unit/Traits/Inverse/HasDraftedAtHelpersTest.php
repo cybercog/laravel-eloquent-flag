@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasDraftedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     public function it_can_unset_drafted_flag(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
-            'drafted_at' => Carbon::now(),
+            'drafted_at' => Date::now(),
         ]);
 
         $entity->unsetDraftedFlag();
@@ -58,7 +59,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_drafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedAt::class)->create([
-            'drafted_at' => Carbon::now(),
+            'drafted_at' => Date::now(),
         ]);
 
         $undraftedEntity = factory(EntityWithDraftedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_undrafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedAt::class)->create([
-            'drafted_at' => Carbon::now(),
+            'drafted_at' => Date::now(),
         ]);
 
         $undraftedEntity = factory(EntityWithDraftedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     public function it_can_undraft_entity(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
-            'drafted_at' => Carbon::now(),
+            'drafted_at' => Date::now(),
         ]);
 
         $entity->undraft();

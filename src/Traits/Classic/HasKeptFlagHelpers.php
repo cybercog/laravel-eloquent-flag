@@ -15,7 +15,7 @@ namespace Cog\Flag\Traits\Classic;
 
 use Cog\Flag\Scopes\Classic\KeptFlagScope;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 trait HasKeptFlagHelpers
 {
@@ -108,6 +108,6 @@ trait HasKeptFlagHelpers
         return $builder
             ->withoutGlobalScope(KeptFlagScope::class)
             ->where('is_kept', 0)
-            ->where(static::getCreatedAtColumn(), '<=', Carbon::now()->subHours($hours)->toDateTimeString());
+            ->where(static::getCreatedAtColumn(), '<=', Date::now()->subHours($hours)->toDateTimeString());
     }
 }

@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasApprovedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     public function it_can_unset_approved_flag(): void
     {
         $entity = factory(EntityWithApprovedAt::class)->create([
-            'approved_at' => Carbon::now(),
+            'approved_at' => Date::now(),
         ]);
 
         $entity->unsetApprovedFlag();
@@ -58,7 +59,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_approved(): void
     {
         $approvedEntity = factory(EntityWithApprovedAt::class)->create([
-            'approved_at' => Carbon::now(),
+            'approved_at' => Date::now(),
         ]);
 
         $disapprovedEntity = factory(EntityWithApprovedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_disapproved(): void
     {
         $approvedEntity = factory(EntityWithApprovedAt::class)->create([
-            'approved_at' => Carbon::now(),
+            'approved_at' => Date::now(),
         ]);
 
         $disapprovedEntity = factory(EntityWithApprovedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     public function it_can_disapprove_entity(): void
     {
         $entity = factory(EntityWithApprovedAt::class)->create([
-            'approved_at' => Carbon::now(),
+            'approved_at' => Date::now(),
         ]);
 
         $entity->disapprove();

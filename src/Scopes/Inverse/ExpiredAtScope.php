@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Inverse;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class ExpiredAtScope implements Scope
 {
@@ -86,7 +86,7 @@ final class ExpiredAtScope implements Scope
     protected function addExpire(Builder $builder): void
     {
         $builder->macro('expire', function (Builder $builder) {
-            return $builder->update(['expired_at' => Carbon::now()]);
+            return $builder->update(['expired_at' => Date::now()]);
         });
     }
 

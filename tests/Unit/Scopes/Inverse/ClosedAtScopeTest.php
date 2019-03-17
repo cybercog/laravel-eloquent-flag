@@ -15,7 +15,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
 
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
 use Cog\Tests\Flag\TestCase;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class ClosedAtScopeTest extends TestCase
 {
@@ -23,7 +23,7 @@ final class ClosedAtScopeTest extends TestCase
     public function it_can_get_only_not_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
-            'closed_at' => Carbon::now()->subDay(),
+            'closed_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithClosedAt::class, 3)->create([
             'closed_at' => null,
@@ -38,7 +38,7 @@ final class ClosedAtScopeTest extends TestCase
     public function it_can_get_without_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
-            'closed_at' => Carbon::now()->subDay(),
+            'closed_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithClosedAt::class, 3)->create([
             'closed_at' => null,
@@ -53,7 +53,7 @@ final class ClosedAtScopeTest extends TestCase
     public function it_can_get_with_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
-            'closed_at' => Carbon::now()->subDay(),
+            'closed_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithClosedAt::class, 3)->create([
             'closed_at' => null,
@@ -68,7 +68,7 @@ final class ClosedAtScopeTest extends TestCase
     public function it_can_get_only_closed(): void
     {
         factory(EntityWithClosedAt::class, 2)->create([
-            'closed_at' => Carbon::now()->subDay(),
+            'closed_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithClosedAt::class, 3)->create([
             'closed_at' => null,
@@ -83,7 +83,7 @@ final class ClosedAtScopeTest extends TestCase
     public function it_can_open_model(): void
     {
         $model = factory(EntityWithClosedAt::class)->create([
-            'closed_at' => Carbon::now()->subDay(),
+            'closed_at' => Date::now()->subDay(),
         ]);
 
         EntityWithClosedAt::where('id', $model->id)->open();

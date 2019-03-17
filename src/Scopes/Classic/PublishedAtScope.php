@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Classic;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class PublishedAtScope implements Scope
 {
@@ -73,7 +73,7 @@ final class PublishedAtScope implements Scope
         $builder->macro('publish', function (Builder $builder) {
             $builder->withUnpublished();
 
-            return $builder->update(['published_at' => Carbon::now()]);
+            return $builder->update(['published_at' => Date::now()]);
         });
     }
 

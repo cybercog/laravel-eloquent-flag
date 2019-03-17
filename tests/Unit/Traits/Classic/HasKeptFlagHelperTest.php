@@ -15,7 +15,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Cog\Tests\Flag\TestCase;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasKeptFlagHelperTest extends TestCase
 {
@@ -122,15 +122,15 @@ final class HasKeptFlagHelperTest extends TestCase
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
-            'created_at' => Carbon::now()->subHours(4)->toDateTimeString(),
+            'created_at' => Date::now()->subHours(4)->toDateTimeString(),
         ]);
         factory(EntityWithKeptFlag::class, 2)->create([
             'is_kept' => false,
-            'created_at' => Carbon::now()->subHours(4)->toDateTimeString(),
+            'created_at' => Date::now()->subHours(4)->toDateTimeString(),
         ]);
         factory(EntityWithKeptFlag::class, 2)->create([
             'is_kept' => false,
-            'created_at' => Carbon::now()->subHours(2)->toDateTimeString(),
+            'created_at' => Date::now()->subHours(2)->toDateTimeString(),
         ]);
         factory(EntityWithKeptFlag::class, 2)->create([
             'is_kept' => false,

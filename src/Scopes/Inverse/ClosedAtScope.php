@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Inverse;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class ClosedAtScope implements Scope
 {
@@ -82,7 +82,7 @@ final class ClosedAtScope implements Scope
     protected function addClose(Builder $builder): void
     {
         $builder->macro('close', function (Builder $builder) {
-            return $builder->update(['closed_at' => Carbon::now()]);
+            return $builder->update(['closed_at' => Date::now()]);
         });
     }
 

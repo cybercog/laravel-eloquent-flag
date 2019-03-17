@@ -16,7 +16,7 @@ namespace Cog\Tests\Flag\Unit\Scopes\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAtUnapplied;
 use Cog\Tests\Flag\TestCase;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class VerifiedAtScopeTest extends TestCase
 {
@@ -24,7 +24,7 @@ final class VerifiedAtScopeTest extends TestCase
     public function it_can_get_only_verified(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
-            'verified_at' => Carbon::now()->subDay(),
+            'verified_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithVerifiedAt::class, 2)->create([
             'verified_at' => null,
@@ -39,7 +39,7 @@ final class VerifiedAtScopeTest extends TestCase
     public function it_can_get_without_unverified(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
-            'verified_at' => Carbon::now()->subDay(),
+            'verified_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithVerifiedAt::class, 2)->create([
             'verified_at' => null,
@@ -54,7 +54,7 @@ final class VerifiedAtScopeTest extends TestCase
     public function it_can_get_with_unverified(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
-            'verified_at' => Carbon::now()->subDay(),
+            'verified_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithVerifiedAt::class, 2)->create([
             'verified_at' => null,
@@ -69,7 +69,7 @@ final class VerifiedAtScopeTest extends TestCase
     public function it_can_get_only_unverified(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
-            'verified_at' => Carbon::now()->subDay(),
+            'verified_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithVerifiedAt::class, 2)->create([
             'verified_at' => null,
@@ -98,7 +98,7 @@ final class VerifiedAtScopeTest extends TestCase
     public function it_can_unverify_model(): void
     {
         $model = factory(EntityWithVerifiedAt::class)->create([
-            'verified_at' => Carbon::now()->subDay(),
+            'verified_at' => Date::now()->subDay(),
         ]);
 
         EntityWithVerifiedAt::where('id', $model->id)->unverify();
@@ -112,7 +112,7 @@ final class VerifiedAtScopeTest extends TestCase
     public function it_can_skip_apply(): void
     {
         factory(EntityWithVerifiedAt::class, 3)->create([
-            'verified_at' => Carbon::now()->subDay(),
+            'verified_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithVerifiedAt::class, 2)->create([
             'verified_at' => null,

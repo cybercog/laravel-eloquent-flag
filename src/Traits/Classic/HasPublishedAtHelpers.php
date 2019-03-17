@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Classic;
 
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 trait HasPublishedAtHelpers
 {
@@ -29,7 +29,7 @@ trait HasPublishedAtHelpers
      */
     public function setPublishedFlag()
     {
-        $this->setAttribute('published_at', Carbon::now());
+        $this->setAttribute('published_at', Date::now());
 
         return $this;
     }

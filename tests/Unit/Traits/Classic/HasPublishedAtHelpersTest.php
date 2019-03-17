@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Classic;
 use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasPublishedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasPublishedAtHelpersTest extends TestCase
     public function it_can_unset_published_flag(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Date::now(),
         ]);
 
         $entity->unsetPublishedFlag();
@@ -58,7 +59,7 @@ final class HasPublishedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_published(): void
     {
         $publishedEntity = factory(EntityWithPublishedAt::class)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Date::now(),
         ]);
 
         $unpublishedEntity = factory(EntityWithPublishedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasPublishedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_unpublished(): void
     {
         $publishedEntity = factory(EntityWithPublishedAt::class)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Date::now(),
         ]);
 
         $unpublishedEntity = factory(EntityWithPublishedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasPublishedAtHelpersTest extends TestCase
     public function it_can_unpublish_entity(): void
     {
         $entity = factory(EntityWithPublishedAt::class)->create([
-            'published_at' => Carbon::now(),
+            'published_at' => Date::now(),
         ]);
 
         $entity->unpublish();

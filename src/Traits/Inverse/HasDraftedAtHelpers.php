@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Inverse;
 
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 trait HasDraftedAtHelpers
 {
@@ -29,7 +29,7 @@ trait HasDraftedAtHelpers
      */
     public function setDraftedFlag()
     {
-        $this->setAttribute('drafted_at', Carbon::now());
+        $this->setAttribute('drafted_at', Date::now());
 
         return $this;
     }

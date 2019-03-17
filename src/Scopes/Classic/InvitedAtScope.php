@@ -16,7 +16,7 @@ namespace Cog\Flag\Scopes\Classic;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class InvitedAtScope implements Scope
 {
@@ -73,7 +73,7 @@ final class InvitedAtScope implements Scope
         $builder->macro('invite', function (Builder $builder) {
             $builder->withUninvited();
 
-            return $builder->update(['invited_at' => Carbon::now()]);
+            return $builder->update(['invited_at' => Date::now()]);
         });
     }
 

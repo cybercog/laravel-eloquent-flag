@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Inverse;
 
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 trait HasExpiredAtHelpers
 {
@@ -29,7 +29,7 @@ trait HasExpiredAtHelpers
      */
     public function setExpiredFlag()
     {
-        $this->setAttribute('expired_at', Carbon::now());
+        $this->setAttribute('expired_at', Date::now());
 
         return $this;
     }

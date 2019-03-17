@@ -16,6 +16,7 @@ namespace Cog\Tests\Flag\Unit\Traits\Inverse;
 use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
 use Cog\Tests\Flag\TestCase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 
 final class HasArchivedAtHelpersTest extends TestCase
 {
@@ -46,7 +47,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     public function it_can_unset_archived_flag(): void
     {
         $entity = factory(EntityWithArchivedAt::class)->create([
-            'archived_at' => Carbon::now(),
+            'archived_at' => Date::now(),
         ]);
 
         $entity->unsetArchivedFlag();
@@ -58,7 +59,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_archived(): void
     {
         $archivedEntity = factory(EntityWithArchivedAt::class)->create([
-            'archived_at' => Carbon::now(),
+            'archived_at' => Date::now(),
         ]);
 
         $unarchivedEntity = factory(EntityWithArchivedAt::class)->create([
@@ -73,7 +74,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     public function it_can_check_if_entity_is_unarchived(): void
     {
         $archivedEntity = factory(EntityWithArchivedAt::class)->create([
-            'archived_at' => Carbon::now(),
+            'archived_at' => Date::now(),
         ]);
 
         $unarchivedEntity = factory(EntityWithArchivedAt::class)->create([
@@ -100,7 +101,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     public function it_can_unarchive_entity(): void
     {
         $entity = factory(EntityWithArchivedAt::class)->create([
-            'archived_at' => Carbon::now(),
+            'archived_at' => Date::now(),
         ]);
 
         $entity->unarchive();
