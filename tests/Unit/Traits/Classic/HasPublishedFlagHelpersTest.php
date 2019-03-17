@@ -39,30 +39,6 @@ final class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_published_flag(): void
-    {
-        $entity = factory(EntityWithPublishedFlag::class)->create([
-            'is_published' => false,
-        ]);
-
-        $entity->setPublishedFlag();
-
-        $this->assertTrue($entity->is_published);
-    }
-
-    /** @test */
-    public function it_can_unset_published_flag(): void
-    {
-        $entity = factory(EntityWithPublishedFlag::class)->create([
-            'is_published' => true,
-        ]);
-
-        $entity->unsetPublishedFlag();
-
-        $this->assertFalse($entity->is_published);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_published(): void
     {
         $publishedEntity = factory(EntityWithPublishedFlag::class)->create([

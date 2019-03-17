@@ -39,30 +39,6 @@ final class HasInvitedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_invited_flag(): void
-    {
-        $entity = factory(EntityWithInvitedFlag::class)->create([
-            'is_invited' => false,
-        ]);
-
-        $entity->setInvitedFlag();
-
-        $this->assertTrue($entity->is_invited);
-    }
-
-    /** @test */
-    public function it_can_unset_invited_flag(): void
-    {
-        $entity = factory(EntityWithInvitedFlag::class)->create([
-            'is_invited' => true,
-        ]);
-
-        $entity->unsetInvitedFlag();
-
-        $this->assertFalse($entity->is_invited);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_invited(): void
     {
         $invitedEntity = factory(EntityWithInvitedFlag::class)->create([

@@ -23,30 +23,6 @@ trait HasExpiredAtHelpers
     }
 
     /**
-     * Set expired flag.
-     *
-     * @return static
-     */
-    public function setExpiredFlag()
-    {
-        $this->setAttribute('expired_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset expired flag.
-     *
-     * @return static
-     */
-    public function unsetExpiredFlag()
-    {
-        $this->setAttribute('expired_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is expired.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasExpiredAtHelpers
      */
     public function expire(): void
     {
-        $this->setExpiredFlag()->save();
+        $this->setAttribute('expired_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('expired', false);
     }
@@ -85,7 +62,8 @@ trait HasExpiredAtHelpers
      */
     public function unexpire(): void
     {
-        $this->unsetExpiredFlag()->save();
+        $this->setAttribute('expired_at', null);
+        $this->save();
 
         $this->fireModelEvent('unexpired', false);
     }

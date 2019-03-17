@@ -32,30 +32,6 @@ final class HasPublishedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_published_flag(): void
-    {
-        $entity = factory(EntityWithPublishedAt::class)->create([
-            'published_at' => null,
-        ]);
-
-        $entity->setPublishedFlag();
-
-        $this->assertNotNull($entity->published_at);
-    }
-
-    /** @test */
-    public function it_can_unset_published_flag(): void
-    {
-        $entity = factory(EntityWithPublishedAt::class)->create([
-            'published_at' => Date::now(),
-        ]);
-
-        $entity->unsetPublishedFlag();
-
-        $this->assertNull($entity->published_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_published(): void
     {
         $publishedEntity = factory(EntityWithPublishedAt::class)->create([

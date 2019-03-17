@@ -39,30 +39,6 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_verified_flag(): void
-    {
-        $entity = factory(EntityWithVerifiedFlag::class)->create([
-            'is_verified' => false,
-        ]);
-
-        $entity->setVerifiedFlag();
-
-        $this->assertTrue($entity->is_verified);
-    }
-
-    /** @test */
-    public function it_can_unset_verified_flag(): void
-    {
-        $entity = factory(EntityWithVerifiedFlag::class)->create([
-            'is_verified' => true,
-        ]);
-
-        $entity->unsetVerifiedFlag();
-
-        $this->assertFalse($entity->is_verified);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_verified(): void
     {
         $verifiedEntity = factory(EntityWithVerifiedFlag::class)->create([

@@ -39,30 +39,6 @@ final class HasArchivedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_archived_flag(): void
-    {
-        $entity = factory(EntityWithArchivedFlag::class)->create([
-            'is_archived' => false,
-        ]);
-
-        $entity->setArchivedFlag();
-
-        $this->assertTrue($entity->is_archived);
-    }
-
-    /** @test */
-    public function it_can_unset_archived_flag(): void
-    {
-        $entity = factory(EntityWithArchivedFlag::class)->create([
-            'is_archived' => true,
-        ]);
-
-        $entity->unsetArchivedFlag();
-
-        $this->assertFalse($entity->is_archived);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_archived(): void
     {
         $archivedEntity = factory(EntityWithArchivedFlag::class)->create([

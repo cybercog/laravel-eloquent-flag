@@ -23,30 +23,6 @@ trait HasClosedAtHelpers
     }
 
     /**
-     * Set closed flag.
-     *
-     * @return static
-     */
-    public function setClosedFlag()
-    {
-        $this->setAttribute('closed_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset closed flag.
-     *
-     * @return static
-     */
-    public function unsetClosedFlag()
-    {
-        $this->setAttribute('closed_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is closed.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasClosedAtHelpers
      */
     public function close(): void
     {
-        $this->setClosedFlag()->save();
+        $this->setAttribute('closed_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('closed', false);
     }
@@ -85,7 +62,8 @@ trait HasClosedAtHelpers
      */
     public function open(): void
     {
-        $this->unsetClosedFlag()->save();
+        $this->setAttribute('closed_at', null);
+        $this->save();
 
         $this->fireModelEvent('opened', false);
     }

@@ -39,30 +39,6 @@ final class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_drafted_flag(): void
-    {
-        $entity = factory(EntityWithDraftedFlag::class)->create([
-            'is_drafted' => false,
-        ]);
-
-        $entity->setDraftedFlag();
-
-        $this->assertTrue($entity->is_drafted);
-    }
-
-    /** @test */
-    public function it_can_unset_drafted_flag(): void
-    {
-        $entity = factory(EntityWithDraftedFlag::class)->create([
-            'is_drafted' => true,
-        ]);
-
-        $entity->unsetDraftedFlag();
-
-        $this->assertFalse($entity->is_drafted);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_drafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedFlag::class)->create([

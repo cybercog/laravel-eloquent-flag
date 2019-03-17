@@ -21,30 +21,6 @@ trait HasVerifiedFlagHelpers
     }
 
     /**
-     * Set verified flag.
-     *
-     * @return static
-     */
-    public function setVerifiedFlag()
-    {
-        $this->setAttribute('is_verified', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset verified flag.
-     *
-     * @return static
-     */
-    public function unsetVerifiedFlag()
-    {
-        $this->setAttribute('is_verified', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is verified.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasVerifiedFlagHelpers
      */
     public function verify(): void
     {
-        $this->setVerifiedFlag()->save();
+        $this->setAttribute('is_verified', true);
+        $this->save();
 
         $this->fireModelEvent('verified', false);
     }
@@ -83,7 +60,8 @@ trait HasVerifiedFlagHelpers
      */
     public function unverify(): void
     {
-        $this->unsetVerifiedFlag()->save();
+        $this->setAttribute('is_verified', false);
+        $this->save();
 
         $this->fireModelEvent('unverified', false);
     }

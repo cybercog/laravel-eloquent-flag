@@ -23,30 +23,6 @@ trait HasPublishedAtHelpers
     }
 
     /**
-     * Set published flag.
-     *
-     * @return static
-     */
-    public function setPublishedFlag()
-    {
-        $this->setAttribute('published_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset published flag.
-     *
-     * @return static
-     */
-    public function unsetPublishedFlag()
-    {
-        $this->setAttribute('published_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is published.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasPublishedAtHelpers
      */
     public function publish(): void
     {
-        $this->setPublishedFlag()->save();
+        $this->setAttribute('published_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('published', false);
     }
@@ -85,7 +62,8 @@ trait HasPublishedAtHelpers
      */
     public function unpublish(): void
     {
-        $this->unsetPublishedFlag()->save();
+        $this->setAttribute('published_at', null);
+        $this->save();
 
         $this->fireModelEvent('unpublished', false);
     }

@@ -23,30 +23,6 @@ trait HasArchivedAtHelpers
     }
 
     /**
-     * Set archived flag.
-     *
-     * @return static
-     */
-    public function setArchivedFlag()
-    {
-        $this->setAttribute('archived_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset archived flag.
-     *
-     * @return static
-     */
-    public function unsetArchivedFlag()
-    {
-        $this->setAttribute('archived_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is archived.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasArchivedAtHelpers
      */
     public function archive(): void
     {
-        $this->setArchivedFlag()->save();
+        $this->setAttribute('archived_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('archived', false);
     }
@@ -85,7 +62,8 @@ trait HasArchivedAtHelpers
      */
     public function unarchive(): void
     {
-        $this->unsetArchivedFlag()->save();
+        $this->setAttribute('archived_at', null);
+        $this->save();
 
         $this->fireModelEvent('unarchived', false);
     }

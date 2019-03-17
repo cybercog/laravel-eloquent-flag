@@ -23,30 +23,6 @@ trait HasInvitedAtHelpers
     }
 
     /**
-     * Set invited flag.
-     *
-     * @return static
-     */
-    public function setInvitedFlag()
-    {
-        $this->setAttribute('invited_at', Date::now());
-
-        return $this;
-    }
-
-    /**
-     * Unset invited flag.
-     *
-     * @return static
-     */
-    public function unsetInvitedFlag()
-    {
-        $this->setAttribute('invited_at', null);
-
-        return $this;
-    }
-
-    /**
      * If entity is invited.
      *
      * @return bool
@@ -73,7 +49,8 @@ trait HasInvitedAtHelpers
      */
     public function invite(): void
     {
-        $this->setInvitedFlag()->save();
+        $this->setAttribute('invited_at', Date::now());
+        $this->save();
 
         $this->fireModelEvent('invited', false);
     }
@@ -85,7 +62,8 @@ trait HasInvitedAtHelpers
      */
     public function uninvite(): void
     {
-        $this->unsetInvitedFlag()->save();
+        $this->setAttribute('invited_at', null);
+        $this->save();
 
         $this->fireModelEvent('uninvited', false);
     }

@@ -39,30 +39,6 @@ final class HasAcceptedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_accepted_flag(): void
-    {
-        $entity = factory(EntityWithAcceptedFlag::class)->create([
-            'is_accepted' => false,
-        ]);
-
-        $entity->setAcceptedFlag();
-
-        $this->assertTrue($entity->is_accepted);
-    }
-
-    /** @test */
-    public function it_can_unset_accepted_flag(): void
-    {
-        $entity = factory(EntityWithAcceptedFlag::class)->create([
-            'is_accepted' => true,
-        ]);
-
-        $entity->unsetAcceptedFlag();
-
-        $this->assertFalse($entity->is_accepted);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_accepted(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedFlag::class)->create([

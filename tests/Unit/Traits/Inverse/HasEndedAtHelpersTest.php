@@ -32,30 +32,6 @@ final class HasEndedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_ended_flag(): void
-    {
-        $entity = factory(EntityWithEndedAt::class)->create([
-            'ended_at' => null,
-        ]);
-
-        $entity->setEndedFlag();
-
-        $this->assertNotNull($entity->ended_at);
-    }
-
-    /** @test */
-    public function it_can_unset_ended_flag(): void
-    {
-        $entity = factory(EntityWithEndedAt::class)->create([
-            'ended_at' => Date::now(),
-        ]);
-
-        $entity->unsetEndedFlag();
-
-        $this->assertNull($entity->ended_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_ended(): void
     {
         $endedEntity = factory(EntityWithEndedAt::class)->create([

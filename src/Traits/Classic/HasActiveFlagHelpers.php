@@ -21,30 +21,6 @@ trait HasActiveFlagHelpers
     }
 
     /**
-     * Set active flag.
-     *
-     * @return static
-     */
-    public function setActivatedFlag()
-    {
-        $this->setAttribute('is_active', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset active flag.
-     *
-     * @return static
-     */
-    public function unsetActivatedFlag()
-    {
-        $this->setAttribute('is_active', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is activated.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasActiveFlagHelpers
      */
     public function activate(): void
     {
-        $this->setActivatedFlag()->save();
+        $this->setAttribute('is_active', true);
+        $this->save();
 
         $this->fireModelEvent('activated', false);
     }
@@ -83,7 +60,8 @@ trait HasActiveFlagHelpers
      */
     public function deactivate(): void
     {
-        $this->unsetActivatedFlag()->save();
+        $this->save();
+        $this->setAttribute('is_active', false);
 
         $this->fireModelEvent('deactivated', false);
     }

@@ -21,30 +21,6 @@ trait HasClosedFlagHelpers
     }
 
     /**
-     * Set closed flag.
-     *
-     * @return static
-     */
-    public function setClosedFlag()
-    {
-        $this->setAttribute('is_closed', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset closed flag.
-     *
-     * @return static
-     */
-    public function unsetClosedFlag()
-    {
-        $this->setAttribute('is_closed', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is closed.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasClosedFlagHelpers
      */
     public function close(): void
     {
-        $this->setClosedFlag()->save();
+        $this->setAttribute('is_closed', true);
+        $this->save();
 
         $this->fireModelEvent('closed', false);
     }
@@ -83,7 +60,8 @@ trait HasClosedFlagHelpers
      */
     public function open(): void
     {
-        $this->unsetClosedFlag()->save();
+        $this->setAttribute('is_closed', false);
+        $this->save();
 
         $this->fireModelEvent('opened', false);
     }

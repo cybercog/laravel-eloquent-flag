@@ -21,30 +21,6 @@ trait HasAcceptedFlagHelpers
     }
 
     /**
-     * Set accepted flag.
-     *
-     * @return static
-     */
-    public function setAcceptedFlag()
-    {
-        $this->setAttribute('is_accepted', true);
-
-        return $this;
-    }
-
-    /**
-     * Unset accepted flag.
-     *
-     * @return static
-     */
-    public function unsetAcceptedFlag()
-    {
-        $this->setAttribute('is_accepted', false);
-
-        return $this;
-    }
-
-    /**
      * If entity is accepted.
      *
      * @return bool
@@ -71,7 +47,8 @@ trait HasAcceptedFlagHelpers
      */
     public function accept(): void
     {
-        $this->setAcceptedFlag()->save();
+        $this->setAttribute('is_accepted', true);
+        $this->save();
 
         $this->fireModelEvent('accepted', false);
     }
@@ -83,7 +60,8 @@ trait HasAcceptedFlagHelpers
      */
     public function reject(): void
     {
-        $this->unsetAcceptedFlag()->save();
+        $this->setAttribute('is_accepted', false);
+        $this->save();
 
         $this->fireModelEvent('rejected', false);
     }

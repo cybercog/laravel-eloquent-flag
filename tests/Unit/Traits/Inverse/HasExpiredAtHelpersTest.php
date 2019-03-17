@@ -32,30 +32,6 @@ final class HasExpiredAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_expired_flag(): void
-    {
-        $entity = factory(EntityWithExpiredAt::class)->create([
-            'expired_at' => null,
-        ]);
-
-        $entity->setExpiredFlag();
-
-        $this->assertNotNull($entity->expired_at);
-    }
-
-    /** @test */
-    public function it_can_unset_expired_flag(): void
-    {
-        $entity = factory(EntityWithExpiredAt::class)->create([
-            'expired_at' => Date::now(),
-        ]);
-
-        $entity->unsetExpiredFlag();
-
-        $this->assertNull($entity->expired_at);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_expired(): void
     {
         $expiredEntity = factory(EntityWithExpiredAt::class)->create([

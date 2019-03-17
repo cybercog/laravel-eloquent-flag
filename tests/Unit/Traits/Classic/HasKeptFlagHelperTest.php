@@ -40,30 +40,6 @@ final class HasKeptFlagHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_set_kept_flag(): void
-    {
-        $entity = factory(EntityWithKeptFlag::class)->create([
-            'is_kept' => false,
-        ]);
-
-        $entity->setKeptFlag();
-
-        $this->assertTrue($entity->is_kept);
-    }
-
-    /** @test */
-    public function it_can_unset_kept_flag(): void
-    {
-        $entity = factory(EntityWithKeptFlag::class)->create([
-            'is_kept' => true,
-        ]);
-
-        $entity->unsetKeptFlag();
-
-        $this->assertFalse($entity->is_kept);
-    }
-
-    /** @test */
     public function it_can_check_if_entity_is_kept(): void
     {
         $keptEntity = factory(EntityWithKeptFlag::class)->create([
