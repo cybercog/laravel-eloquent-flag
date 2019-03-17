@@ -70,6 +70,18 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 - `undraft` global scope method renamed to `undoDraft`
 - `unend` global scope method renamed to `undoEnd`
 - `unexpire` global scope method renamed to `undoExpire`
+- `rejected` model event renamed to `acceptedUndone`
+- `deactivated` model event renamed to `activatedUndone`
+- `disapproved` model event renamed to `approvedUndone`
+- `uninvited` model event renamed to `invitedUndone`
+- `unkept` model event renamed to `keptUndone`
+- `unpublished` model event renamed to `publishedUndone`
+- `unverified` model event renamed to `verifiedUndone`
+- `unarchived` model event renamed to `archivedUndone`
+- `opened` model event renamed to `closedUndone`
+- `undrafted` model event renamed to `draftedUndone`
+- `unended` model event renamed to `endedUndone`
+- `unexpired` model event renamed to `expiredUndone`
 
 ### Removed
 
