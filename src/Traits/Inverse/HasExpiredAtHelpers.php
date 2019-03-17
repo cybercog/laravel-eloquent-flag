@@ -40,7 +40,7 @@ trait HasExpiredAtHelpers
         $this->fireModelEvent('expired', false);
     }
 
-    public function unexpire(): void
+    public function undoExpire(): void
     {
         $this->setAttribute('expired_at', null);
         $this->save();

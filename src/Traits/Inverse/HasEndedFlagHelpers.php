@@ -38,7 +38,7 @@ trait HasEndedFlagHelpers
         $this->fireModelEvent('ended', false);
     }
 
-    public function unend(): void
+    public function undoEnd(): void
     {
         $this->setAttribute('is_ended', false);
         $this->save();

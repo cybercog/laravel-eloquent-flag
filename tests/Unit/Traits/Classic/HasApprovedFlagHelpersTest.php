@@ -69,7 +69,7 @@ final class HasApprovedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_approve_entity(): void
+    public function it_can_approve(): void
     {
         $entity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => false,
@@ -81,13 +81,13 @@ final class HasApprovedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_disapprove_entity(): void
+    public function it_can_undo_approve(): void
     {
         $entity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,
         ]);
 
-        $entity->disapprove();
+        $entity->undoApprove();
 
         $this->assertFalse($entity->is_approved);
     }

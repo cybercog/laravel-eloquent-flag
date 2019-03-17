@@ -69,7 +69,7 @@ final class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_end_entity(): void
+    public function it_can_end(): void
     {
         $entity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => false,
@@ -81,13 +81,13 @@ final class HasEndedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unend_entity(): void
+    public function it_can_undo_end(): void
     {
         $entity = factory(EntityWithEndedFlag::class)->create([
             'is_ended' => true,
         ]);
 
-        $entity->unend();
+        $entity->undoEnd();
 
         $this->assertFalse($entity->is_ended);
     }

@@ -40,7 +40,7 @@ trait HasArchivedAtHelpers
         $this->fireModelEvent('archived', false);
     }
 
-    public function unarchive(): void
+    public function undoArchive(): void
     {
         $this->setAttribute('archived_at', null);
         $this->save();

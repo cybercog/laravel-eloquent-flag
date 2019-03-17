@@ -40,7 +40,7 @@ trait HasPublishedAtHelpers
         $this->fireModelEvent('published', false);
     }
 
-    public function unpublish(): void
+    public function undoPublish(): void
     {
         $this->setAttribute('published_at', null);
         $this->save();

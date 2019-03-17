@@ -38,7 +38,7 @@ trait HasVerifiedFlagHelpers
         $this->fireModelEvent('verified', false);
     }
 
-    public function unverify(): void
+    public function undoVerify(): void
     {
         $this->setAttribute('is_verified', false);
         $this->save();

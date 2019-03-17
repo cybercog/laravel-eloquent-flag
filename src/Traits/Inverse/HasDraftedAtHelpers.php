@@ -40,7 +40,7 @@ trait HasDraftedAtHelpers
         $this->fireModelEvent('drafted', false);
     }
 
-    public function undraft(): void
+    public function undoDraft(): void
     {
         $this->setAttribute('drafted_at', null);
         $this->save();

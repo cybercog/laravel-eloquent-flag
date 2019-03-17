@@ -62,7 +62,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_draft_entity(): void
+    public function it_can_draft(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => null,
@@ -74,13 +74,13 @@ final class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_undraft_entity(): void
+    public function it_can_undo_draft(): void
     {
         $entity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => Date::now(),
         ]);
 
-        $entity->undraft();
+        $entity->undoDraft();
 
         $this->assertNull($entity->drafted_at);
     }

@@ -69,7 +69,7 @@ final class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_draft_entity(): void
+    public function it_can_draft(): void
     {
         $entity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => false,
@@ -81,13 +81,13 @@ final class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_undraft_entity(): void
+    public function it_can_undo_draft(): void
     {
         $entity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,
         ]);
 
-        $entity->undraft();
+        $entity->undoDraft();
 
         $this->assertFalse($entity->is_drafted);
     }
