@@ -26,10 +26,10 @@ final class ApprovedFlagScope implements Scope
      */
     protected $extensions = [
         'Approve',
-        'Disapprove',
-        'WithDisapproved',
-        'WithoutDisapproved',
-        'OnlyDisapproved',
+        'UndoApprove',
+        'WithNotApproved',
+        'WithoutNotApproved',
+        'OnlyNotApproved',
     ];
 
     /**
@@ -66,60 +66,60 @@ final class ApprovedFlagScope implements Scope
     protected function addApprove(Builder $builder): void
     {
         $builder->macro('approve', function (Builder $builder) {
-            $builder->withDisapproved();
+            $builder->withNotApproved();
 
             return $builder->update(['is_approved' => 1]);
         });
     }
 
     /**
-     * Add the `disapprove` extension to the builder.
+     * Add the `undoApprove` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addDisapprove(Builder $builder): void
+    protected function addUndoApprove(Builder $builder): void
     {
-        $builder->macro('disapprove', function (Builder $builder) {
+        $builder->macro('undoApprove', function (Builder $builder) {
             return $builder->update(['is_approved' => 0]);
         });
     }
 
     /**
-     * Add the `withDisapproved` extension to the builder.
+     * Add the `withNotApproved` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithDisapproved(Builder $builder): void
+    protected function addWithNotApproved(Builder $builder): void
     {
-        $builder->macro('withDisapproved', function (Builder $builder) {
+        $builder->macro('withNotApproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutDisapproved` extension to the builder.
+     * Add the `withoutNotApproved` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutDisapproved(Builder $builder): void
+    protected function addWithoutNotApproved(Builder $builder): void
     {
-        $builder->macro('withoutDisapproved', function (Builder $builder) {
+        $builder->macro('withoutNotApproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_approved', 1);
         });
     }
 
     /**
-     * Add the `onlyDisapproved` extension to the builder.
+     * Add the `onlyNotApproved` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyDisapproved(Builder $builder): void
+    protected function addOnlyNotApproved(Builder $builder): void
     {
-        $builder->macro('onlyDisapproved', function (Builder $builder) {
+        $builder->macro('onlyNotApproved', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_approved', 0);
         });
     }

@@ -34,7 +34,7 @@ final class ApprovedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_disapproved(): void
+    public function it_can_get_without_not_approved(): void
     {
         factory(EntityWithApprovedFlag::class, 3)->create([
             'is_approved' => true,
@@ -43,13 +43,13 @@ final class ApprovedFlagScopeTest extends TestCase
             'is_approved' => false,
         ]);
 
-        $entities = EntityWithApprovedFlag::withoutDisapproved()->get();
+        $entities = EntityWithApprovedFlag::withoutNotApproved()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_disapproved(): void
+    public function it_can_get_with_not_approved(): void
     {
         factory(EntityWithApprovedFlag::class, 3)->create([
             'is_approved' => true,
@@ -58,13 +58,13 @@ final class ApprovedFlagScopeTest extends TestCase
             'is_approved' => false,
         ]);
 
-        $entities = EntityWithApprovedFlag::withDisapproved()->get();
+        $entities = EntityWithApprovedFlag::withNotApproved()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_disapproved(): void
+    public function it_can_get_only_not_approved(): void
     {
         factory(EntityWithApprovedFlag::class, 3)->create([
             'is_approved' => true,
@@ -73,7 +73,7 @@ final class ApprovedFlagScopeTest extends TestCase
             'is_approved' => false,
         ]);
 
-        $entities = EntityWithApprovedFlag::onlyDisapproved()->get();
+        $entities = EntityWithApprovedFlag::onlyNotApproved()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -93,15 +93,15 @@ final class ApprovedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_disapprove_model(): void
+    public function it_can_undo_approve_model(): void
     {
         $model = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,
         ]);
 
-        EntityWithApprovedFlag::where('id', $model->id)->disapprove();
+        EntityWithApprovedFlag::where('id', $model->id)->undoApprove();
 
-        $model = EntityWithApprovedFlag::withDisapproved()->where('id', $model->id)->first();
+        $model = EntityWithApprovedFlag::withNotApproved()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_approved);
     }

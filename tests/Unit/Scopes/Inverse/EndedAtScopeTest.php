@@ -81,13 +81,13 @@ final class EndedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unend_model(): void
+    public function it_can_undo_end_model(): void
     {
         $model = factory(EntityWithEndedAt::class)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithEndedAt::where('id', $model->id)->unend();
+        EntityWithEndedAt::where('id', $model->id)->undoEnd();
 
         $model = EntityWithEndedAt::where('id', $model->id)->first();
 

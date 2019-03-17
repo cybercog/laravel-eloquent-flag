@@ -26,10 +26,10 @@ final class VerifiedFlagScope implements Scope
      */
     protected $extensions = [
         'Verify',
-        'Unverify',
-        'WithUnverified',
-        'WithoutUnverified',
-        'OnlyUnverified',
+        'UndoVerify',
+        'WithNotVerified',
+        'WithoutNotVerified',
+        'OnlyNotVerified',
     ];
 
     /**
@@ -70,60 +70,60 @@ final class VerifiedFlagScope implements Scope
     protected function addVerify(Builder $builder): void
     {
         $builder->macro('verify', function (Builder $builder) {
-            $builder->withUnverified();
+            $builder->withNotVerified();
 
             return $builder->update(['is_verified' => 1]);
         });
     }
 
     /**
-     * Add the `unverify` extension to the builder.
+     * Add the `undoVerify` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnverify(Builder $builder): void
+    protected function addUndoVerify(Builder $builder): void
     {
-        $builder->macro('unverify', function (Builder $builder) {
+        $builder->macro('undoVerify', function (Builder $builder) {
             return $builder->update(['is_verified' => 0]);
         });
     }
 
     /**
-     * Add the `withUnverified` extension to the builder.
+     * Add the `withNotVerified` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnverified(Builder $builder): void
+    protected function addWithNotVerified(Builder $builder): void
     {
-        $builder->macro('withUnverified', function (Builder $builder) {
+        $builder->macro('withNotVerified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUnverified` extension to the builder.
+     * Add the `withoutNotVerified` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnverified(Builder $builder): void
+    protected function addWithoutNotVerified(Builder $builder): void
     {
-        $builder->macro('withoutUnverified', function (Builder $builder) {
+        $builder->macro('withoutNotVerified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_verified', 1);
         });
     }
 
     /**
-     * Add the `onlyUnverified` extension to the builder.
+     * Add the `onlyNotVerified` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnverified(Builder $builder): void
+    protected function addOnlyNotVerified(Builder $builder): void
     {
-        $builder->macro('onlyUnverified', function (Builder $builder) {
+        $builder->macro('onlyNotVerified', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_verified', 0);
         });
     }

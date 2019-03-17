@@ -34,7 +34,7 @@ final class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unkept(): void
+    public function it_can_get_without_not_kept(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
@@ -43,13 +43,13 @@ final class KeptFlagScopeTest extends TestCase
             'is_kept' => false,
         ]);
 
-        $entities = EntityWithKeptFlag::withoutUnkept()->get();
+        $entities = EntityWithKeptFlag::withoutNotKept()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_unkept(): void
+    public function it_can_get_with_not_kept(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
@@ -58,13 +58,13 @@ final class KeptFlagScopeTest extends TestCase
             'is_kept' => false,
         ]);
 
-        $entities = EntityWithKeptFlag::withUnkept()->get();
+        $entities = EntityWithKeptFlag::withNotKept()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_unkept(): void
+    public function it_can_get_only_not_kept(): void
     {
         factory(EntityWithKeptFlag::class, 3)->create([
             'is_kept' => true,
@@ -73,7 +73,7 @@ final class KeptFlagScopeTest extends TestCase
             'is_kept' => false,
         ]);
 
-        $entities = EntityWithKeptFlag::onlyUnkept()->get();
+        $entities = EntityWithKeptFlag::onlyNotKept()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -93,15 +93,15 @@ final class KeptFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unkeep_model(): void
+    public function it_can_undo_keep_model(): void
     {
         $model = factory(EntityWithKeptFlag::class)->create([
             'is_kept' => true,
         ]);
 
-        EntityWithKeptFlag::where('id', $model->id)->unkeep();
+        EntityWithKeptFlag::where('id', $model->id)->undoKeep();
 
-        $model = EntityWithKeptFlag::withUnkept()->where('id', $model->id)->first();
+        $model = EntityWithKeptFlag::withNotKept()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_kept);
     }

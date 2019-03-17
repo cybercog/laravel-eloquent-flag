@@ -35,7 +35,7 @@ final class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unverified(): void
+    public function it_can_get_without_not_verified(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,
@@ -44,13 +44,13 @@ final class VerifiedFlagScopeTest extends TestCase
             'is_verified' => false,
         ]);
 
-        $entities = EntityWithVerifiedFlag::withoutUnverified()->get();
+        $entities = EntityWithVerifiedFlag::withoutNotVerified()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_unverified(): void
+    public function it_can_get_with_not_verified(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,
@@ -59,13 +59,13 @@ final class VerifiedFlagScopeTest extends TestCase
             'is_verified' => false,
         ]);
 
-        $entities = EntityWithVerifiedFlag::withUnverified()->get();
+        $entities = EntityWithVerifiedFlag::withNotVerified()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_unverified(): void
+    public function it_can_get_only_not_verified(): void
     {
         factory(EntityWithVerifiedFlag::class, 3)->create([
             'is_verified' => true,
@@ -74,7 +74,7 @@ final class VerifiedFlagScopeTest extends TestCase
             'is_verified' => false,
         ]);
 
-        $entities = EntityWithVerifiedFlag::onlyUnverified()->get();
+        $entities = EntityWithVerifiedFlag::onlyNotVerified()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -94,15 +94,15 @@ final class VerifiedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unverify_model(): void
+    public function it_can_undo_verify_model(): void
     {
         $model = factory(EntityWithVerifiedFlag::class)->create([
             'is_verified' => true,
         ]);
 
-        EntityWithVerifiedFlag::where('id', $model->id)->unverify();
+        EntityWithVerifiedFlag::where('id', $model->id)->undoVerify();
 
-        $model = EntityWithVerifiedFlag::withUnverified()->where('id', $model->id)->first();
+        $model = EntityWithVerifiedFlag::withNotVerified()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_verified);
     }

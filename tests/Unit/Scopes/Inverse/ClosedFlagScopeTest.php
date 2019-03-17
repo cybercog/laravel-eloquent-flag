@@ -79,13 +79,13 @@ final class ClosedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_open_model(): void
+    public function it_can_undo_close_model(): void
     {
         $model = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => true,
         ]);
 
-        EntityWithClosedFlag::where('id', $model->id)->open();
+        EntityWithClosedFlag::where('id', $model->id)->undoClose();
 
         $model = EntityWithClosedFlag::where('id', $model->id)->first();
 

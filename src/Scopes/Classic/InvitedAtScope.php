@@ -27,10 +27,10 @@ final class InvitedAtScope implements Scope
      */
     protected $extensions = [
         'Invite',
-        'Uninvite',
-        'WithUninvited',
-        'WithoutUninvited',
-        'OnlyUninvited',
+        'UndoInvite',
+        'WithNotInvited',
+        'WithoutNotInvited',
+        'OnlyNotInvited',
     ];
 
     /**
@@ -71,60 +71,60 @@ final class InvitedAtScope implements Scope
     protected function addInvite(Builder $builder): void
     {
         $builder->macro('invite', function (Builder $builder) {
-            $builder->withUninvited();
+            $builder->withNotInvited();
 
             return $builder->update(['invited_at' => Date::now()]);
         });
     }
 
     /**
-     * Add the `uninvite` extension to the builder.
+     * Add the `undoInvite` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUninvite(Builder $builder): void
+    protected function addUndoInvite(Builder $builder): void
     {
-        $builder->macro('uninvite', function (Builder $builder) {
+        $builder->macro('undoInvite', function (Builder $builder) {
             return $builder->update(['invited_at' => null]);
         });
     }
 
     /**
-     * Add the `withUninvited` extension to the builder.
+     * Add the `withNotInvited` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUninvited(Builder $builder): void
+    protected function addWithNotInvited(Builder $builder): void
     {
-        $builder->macro('withUninvited', function (Builder $builder) {
+        $builder->macro('withNotInvited', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUninvited` extension to the builder.
+     * Add the `withoutNotInvited` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUninvited(Builder $builder): void
+    protected function addWithoutNotInvited(Builder $builder): void
     {
-        $builder->macro('withoutUninvited', function (Builder $builder) {
+        $builder->macro('withoutNotInvited', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNotNull('invited_at');
         });
     }
 
     /**
-     * Add the `onlyUninvited` extension to the builder.
+     * Add the `onlyNotInvited` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUninvited(Builder $builder): void
+    protected function addOnlyNotInvited(Builder $builder): void
     {
-        $builder->macro('onlyUninvited', function (Builder $builder) {
+        $builder->macro('onlyNotInvited', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNull('invited_at');
         });
     }

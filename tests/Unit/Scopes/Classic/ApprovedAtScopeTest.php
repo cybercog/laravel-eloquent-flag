@@ -35,7 +35,7 @@ final class ApprovedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_disapproved(): void
+    public function it_can_get_without_not_approved(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
             'approved_at' => Date::now()->subDay(),
@@ -44,13 +44,13 @@ final class ApprovedAtScopeTest extends TestCase
             'approved_at' => null,
         ]);
 
-        $entities = EntityWithApprovedAt::withoutDisapproved()->get();
+        $entities = EntityWithApprovedAt::withoutNotApproved()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_disapproved(): void
+    public function it_can_get_with_not_approved(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
             'approved_at' => Date::now()->subDay(),
@@ -59,13 +59,13 @@ final class ApprovedAtScopeTest extends TestCase
             'approved_at' => null,
         ]);
 
-        $entities = EntityWithApprovedAt::withDisapproved()->get();
+        $entities = EntityWithApprovedAt::withNotApproved()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_disapproved(): void
+    public function it_can_get_only_not_approved(): void
     {
         factory(EntityWithApprovedAt::class, 3)->create([
             'approved_at' => Date::now()->subDay(),
@@ -74,7 +74,7 @@ final class ApprovedAtScopeTest extends TestCase
             'approved_at' => null,
         ]);
 
-        $entities = EntityWithApprovedAt::onlyDisapproved()->get();
+        $entities = EntityWithApprovedAt::onlyNotApproved()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -94,15 +94,15 @@ final class ApprovedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_disapprove_model(): void
+    public function it_can_undo_approve_model(): void
     {
         $model = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithApprovedAt::where('id', $model->id)->disapprove();
+        EntityWithApprovedAt::where('id', $model->id)->undoApprove();
 
-        $model = EntityWithApprovedAt::withDisapproved()->where('id', $model->id)->first();
+        $model = EntityWithApprovedAt::withNotApproved()->where('id', $model->id)->first();
 
         $this->assertNull($model->approved_at);
     }

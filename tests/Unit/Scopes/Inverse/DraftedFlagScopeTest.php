@@ -80,13 +80,13 @@ final class DraftedFlagScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_undraft_model(): void
+    public function it_can_undo_draft_model(): void
     {
         $model = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,
         ]);
 
-        EntityWithDraftedFlag::where('id', $model->id)->undraft();
+        EntityWithDraftedFlag::where('id', $model->id)->undoDraft();
 
         $model = EntityWithDraftedFlag::where('id', $model->id)->first();
 

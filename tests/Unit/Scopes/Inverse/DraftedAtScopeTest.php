@@ -81,13 +81,13 @@ final class DraftedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_undraft_model(): void
+    public function it_can_undo_draft_model(): void
     {
         $model = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithDraftedAt::where('id', $model->id)->undraft();
+        EntityWithDraftedAt::where('id', $model->id)->undoDraft();
 
         $model = EntityWithDraftedAt::where('id', $model->id)->first();
 

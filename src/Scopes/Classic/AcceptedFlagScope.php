@@ -26,10 +26,10 @@ final class AcceptedFlagScope implements Scope
      */
     protected $extensions = [
         'Accept',
-        'Reject',
-        'WithRejected',
-        'WithoutRejected',
-        'OnlyRejected',
+        'UndoAccept',
+        'WithNotAccepted',
+        'WithoutNotAccepted',
+        'OnlyNotAccepted',
     ];
 
     /**
@@ -66,60 +66,60 @@ final class AcceptedFlagScope implements Scope
     protected function addAccept(Builder $builder): void
     {
         $builder->macro('accept', function (Builder $builder) {
-            $builder->withRejected();
+            $builder->withNotAccepted();
 
             return $builder->update(['is_accepted' => 1]);
         });
     }
 
     /**
-     * Add the `reject` extension to the builder.
+     * Add the `undoAccept` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addReject(Builder $builder): void
+    protected function addUndoAccept(Builder $builder): void
     {
-        $builder->macro('reject', function (Builder $builder) {
+        $builder->macro('undoAccept', function (Builder $builder) {
             return $builder->update(['is_accepted' => 0]);
         });
     }
 
     /**
-     * Add the `withRejected` extension to the builder.
+     * Add the `withNotAccepted` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithRejected(Builder $builder): void
+    protected function addWithNotAccepted(Builder $builder): void
     {
-        $builder->macro('withRejected', function (Builder $builder) {
+        $builder->macro('withNotAccepted', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutRejected` extension to the builder.
+     * Add the `withoutNotAccepted` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutRejected(Builder $builder): void
+    protected function addWithoutNotAccepted(Builder $builder): void
     {
-        $builder->macro('withoutRejected', function (Builder $builder) {
+        $builder->macro('withoutNotAccepted', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_accepted', 1);
         });
     }
 
     /**
-     * Add the `onlyRejected` extension to the builder.
+     * Add the `onlyNotAccepted` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyRejected(Builder $builder): void
+    protected function addOnlyNotAccepted(Builder $builder): void
     {
-        $builder->macro('onlyRejected', function (Builder $builder) {
+        $builder->macro('onlyNotAccepted', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->where('is_accepted', 0);
         });
     }

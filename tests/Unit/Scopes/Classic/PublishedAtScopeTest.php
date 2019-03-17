@@ -36,7 +36,7 @@ final class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_without_unpublished(): void
+    public function it_can_get_without_not_published(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Date::now()->subDay(),
@@ -45,13 +45,13 @@ final class PublishedAtScopeTest extends TestCase
             'published_at' => null,
         ]);
 
-        $entities = EntityWithPublishedAt::withoutUnpublished()->get();
+        $entities = EntityWithPublishedAt::withoutNotPublished()->get();
 
         $this->assertCount(3, $entities);
     }
 
     /** @test */
-    public function it_can_get_with_unpublished(): void
+    public function it_can_get_with_not_published(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Date::now()->subDay(),
@@ -60,13 +60,13 @@ final class PublishedAtScopeTest extends TestCase
             'published_at' => null,
         ]);
 
-        $entities = EntityWithPublishedAt::withUnpublished()->get();
+        $entities = EntityWithPublishedAt::withNotPublished()->get();
 
         $this->assertCount(5, $entities);
     }
 
     /** @test */
-    public function it_can_get_only_unpublished(): void
+    public function it_can_get_only_not_published(): void
     {
         factory(EntityWithPublishedAt::class, 3)->create([
             'published_at' => Date::now()->subDay(),
@@ -75,7 +75,7 @@ final class PublishedAtScopeTest extends TestCase
             'published_at' => null,
         ]);
 
-        $entities = EntityWithPublishedAt::onlyUnpublished()->get();
+        $entities = EntityWithPublishedAt::onlyNotPublished()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -95,15 +95,15 @@ final class PublishedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unpublish_model(): void
+    public function it_can_undo_publish_model(): void
     {
         $model = factory(EntityWithPublishedAt::class)->create([
             'published_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithPublishedAt::where('id', $model->id)->unpublish();
+        EntityWithPublishedAt::where('id', $model->id)->undoPublish();
 
-        $model = EntityWithPublishedAt::withUnpublished()->where('id', $model->id)->first();
+        $model = EntityWithPublishedAt::withNotPublished()->where('id', $model->id)->first();
 
         $this->assertNull($model->published_at);
     }

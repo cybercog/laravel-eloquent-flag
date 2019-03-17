@@ -26,7 +26,7 @@ final class ClosedAtScope implements Scope
      * @var array
      */
     protected $extensions = [
-        'Open',
+        'UndoClose',
         'Close',
         'WithClosed',
         'WithoutClosed',
@@ -59,14 +59,14 @@ final class ClosedAtScope implements Scope
     }
 
     /**
-     * Add the `open` extension to the builder.
+     * Add the `undoClose` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOpen(Builder $builder): void
+    protected function addUndoClose(Builder $builder): void
     {
-        $builder->macro('open', function (Builder $builder) {
+        $builder->macro('undoClose', function (Builder $builder) {
             $builder->withClosed();
 
             return $builder->update(['closed_at' => null]);

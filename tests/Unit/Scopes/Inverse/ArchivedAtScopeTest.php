@@ -81,13 +81,13 @@ final class ArchivedAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unarchive_model(): void
+    public function it_can_undo_archive_model(): void
     {
         $model = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithArchivedAt::where('id', $model->id)->unarchive();
+        EntityWithArchivedAt::where('id', $model->id)->undoArchive();
 
         $model = EntityWithArchivedAt::where('id', $model->id)->first();
 

@@ -81,13 +81,13 @@ final class ExpiredAtScopeTest extends TestCase
     }
 
     /** @test */
-    public function it_can_unexpire_model(): void
+    public function it_can_undo_expire_model(): void
     {
         $model = factory(EntityWithExpiredAt::class)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithExpiredAt::where('id', $model->id)->unexpire();
+        EntityWithExpiredAt::where('id', $model->id)->undoExpire();
 
         $model = EntityWithExpiredAt::where('id', $model->id)->first();
 

@@ -27,10 +27,10 @@ final class PublishedAtScope implements Scope
      */
     protected $extensions = [
         'Publish',
-        'Unpublish',
-        'WithUnpublished',
-        'WithoutUnpublished',
-        'OnlyUnpublished',
+        'UndoPublish',
+        'WithNotPublished',
+        'WithoutNotPublished',
+        'OnlyNotPublished',
     ];
 
     /**
@@ -71,60 +71,60 @@ final class PublishedAtScope implements Scope
     protected function addPublish(Builder $builder): void
     {
         $builder->macro('publish', function (Builder $builder) {
-            $builder->withUnpublished();
+            $builder->withNotPublished();
 
             return $builder->update(['published_at' => Date::now()]);
         });
     }
 
     /**
-     * Add the `unpublish` extension to the builder.
+     * Add the `undoPublish` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addUnpublish(Builder $builder): void
+    protected function addUndoPublish(Builder $builder): void
     {
-        $builder->macro('unpublish', function (Builder $builder) {
+        $builder->macro('undoPublish', function (Builder $builder) {
             return $builder->update(['published_at' => null]);
         });
     }
 
     /**
-     * Add the `withUnpublished` extension to the builder.
+     * Add the `withNotPublished` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithUnpublished(Builder $builder): void
+    protected function addWithNotPublished(Builder $builder): void
     {
-        $builder->macro('withUnpublished', function (Builder $builder) {
+        $builder->macro('withNotPublished', function (Builder $builder) {
             return $builder->withoutGlobalScope($this);
         });
     }
 
     /**
-     * Add the `withoutUnpublished` extension to the builder.
+     * Add the `withoutNotPublished` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addWithoutUnpublished(Builder $builder): void
+    protected function addWithoutNotPublished(Builder $builder): void
     {
-        $builder->macro('withoutUnpublished', function (Builder $builder) {
+        $builder->macro('withoutNotPublished', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNotNull('published_at');
         });
     }
 
     /**
-     * Add the `onlyUnpublished` extension to the builder.
+     * Add the `onlyNotPublished` extension to the builder.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
-    protected function addOnlyUnpublished(Builder $builder): void
+    protected function addOnlyNotPublished(Builder $builder): void
     {
-        $builder->macro('onlyUnpublished', function (Builder $builder) {
+        $builder->macro('onlyNotPublished', function (Builder $builder) {
             return $builder->withoutGlobalScope($this)->whereNull('published_at');
         });
     }
