@@ -20,31 +20,16 @@ trait HasInvitedFlagHelpers
         $this->casts['is_invited'] = 'boolean';
     }
 
-    /**
-     * If entity is invited.
-     *
-     * @return bool
-     */
     public function isInvited(): bool
     {
         return $this->getAttributeValue('is_invited');
     }
 
-    /**
-     * If entity is uninvited.
-     *
-     * @return bool
-     */
-    public function isUninvited(): bool
+    public function isNotInvited(): bool
     {
         return !$this->isInvited();
     }
 
-    /**
-     * Mark entity as invited.
-     *
-     * @return void
-     */
     public function invite(): void
     {
         $this->setAttribute('is_invited', true);
@@ -53,11 +38,6 @@ trait HasInvitedFlagHelpers
         $this->fireModelEvent('invited', false);
     }
 
-    /**
-     * Mark entity as uninvited.
-     *
-     * @return void
-     */
     public function uninvite(): void
     {
         $this->setAttribute('is_invited', false);

@@ -20,31 +20,16 @@ trait HasEndedFlagHelpers
         $this->casts['is_ended'] = 'boolean';
     }
 
-    /**
-     * If entity is ended.
-     *
-     * @return bool
-     */
     public function isEnded(): bool
     {
         return $this->getAttributeValue('is_ended');
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUnended(): bool
+    public function isNotEnded(): bool
     {
         return !$this->isEnded();
     }
 
-    /**
-     * Mark entity as ended.
-     *
-     * @return void
-     */
     public function end(): void
     {
         $this->setAttribute('is_ended', true);
@@ -53,11 +38,6 @@ trait HasEndedFlagHelpers
         $this->fireModelEvent('ended', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function unend(): void
     {
         $this->setAttribute('is_ended', false);

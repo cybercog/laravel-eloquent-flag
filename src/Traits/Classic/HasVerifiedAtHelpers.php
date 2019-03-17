@@ -22,31 +22,16 @@ trait HasVerifiedAtHelpers
         $this->dates[] = 'verified_at';
     }
 
-    /**
-     * If entity is verified.
-     *
-     * @return bool
-     */
     public function isVerified(): bool
     {
         return !is_null($this->getAttributeValue('verified_at'));
     }
 
-    /**
-     * If entity is unverified.
-     *
-     * @return bool
-     */
-    public function isUnverified(): bool
+    public function isNotVerified(): bool
     {
         return !$this->isVerified();
     }
 
-    /**
-     * Mark entity as verified.
-     *
-     * @return void
-     */
     public function verify(): void
     {
         $this->setAttribute('verified_at', Date::now());
@@ -55,11 +40,6 @@ trait HasVerifiedAtHelpers
         $this->fireModelEvent('verified', false);
     }
 
-    /**
-     * Mark entity as unverified.
-     *
-     * @return void
-     */
     public function unverify(): void
     {
         $this->setAttribute('verified_at', null);

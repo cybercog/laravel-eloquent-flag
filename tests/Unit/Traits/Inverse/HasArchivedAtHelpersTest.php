@@ -47,7 +47,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unarchived(): void
+    public function it_can_check_if_entity_is_not_archived(): void
     {
         $archivedEntity = factory(EntityWithArchivedAt::class)->create([
             'archived_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasArchivedAtHelpersTest extends TestCase
             'archived_at' => null,
         ]);
 
-        $this->assertFalse($archivedEntity->isUnarchived());
-        $this->assertTrue($unarchivedEntity->isUnarchived());
+        $this->assertFalse($archivedEntity->isNotArchived());
+        $this->assertTrue($unarchivedEntity->isNotArchived());
     }
 
     /** @test */

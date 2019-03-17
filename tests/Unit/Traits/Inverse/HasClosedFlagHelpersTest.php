@@ -54,7 +54,7 @@ final class HasClosedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_opened(): void
+    public function it_can_check_if_entity_is_not_closed(): void
     {
         $closedEntity = factory(EntityWithClosedFlag::class)->create([
             'is_closed' => true,
@@ -64,8 +64,8 @@ final class HasClosedFlagHelpersTest extends TestCase
             'is_closed' => false,
         ]);
 
-        $this->assertFalse($closedEntity->isOpened());
-        $this->assertTrue($openedEntity->isOpened());
+        $this->assertFalse($closedEntity->isNotClosed());
+        $this->assertTrue($openedEntity->isNotClosed());
     }
 
     /** @test */

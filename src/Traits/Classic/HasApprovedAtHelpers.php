@@ -22,31 +22,16 @@ trait HasApprovedAtHelpers
         $this->dates[] = 'approved_at';
     }
 
-    /**
-     * If entity is approved.
-     *
-     * @return bool
-     */
     public function isApproved(): bool
     {
         return !is_null($this->getAttributeValue('approved_at'));
     }
 
-    /**
-     * If entity is disapproved.
-     *
-     * @return bool
-     */
-    public function isDisapproved(): bool
+    public function isNotApproved(): bool
     {
         return !$this->isApproved();
     }
 
-    /**
-     * Mark entity as approved.
-     *
-     * @return void
-     */
     public function approve(): void
     {
         $this->setAttribute('approved_at', Date::now());
@@ -55,11 +40,6 @@ trait HasApprovedAtHelpers
         $this->fireModelEvent('approved', false);
     }
 
-    /**
-     * Mark entity as disapproved.
-     *
-     * @return void
-     */
     public function disapprove(): void
     {
         $this->setAttribute('approved_at', null);

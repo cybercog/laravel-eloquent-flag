@@ -47,7 +47,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_disapproved(): void
+    public function it_can_check_if_entity_is_not_approved(): void
     {
         $approvedEntity = factory(EntityWithApprovedAt::class)->create([
             'approved_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasApprovedAtHelpersTest extends TestCase
             'approved_at' => null,
         ]);
 
-        $this->assertFalse($approvedEntity->isDisapproved());
-        $this->assertTrue($disapprovedEntity->isDisapproved());
+        $this->assertFalse($approvedEntity->isNotApproved());
+        $this->assertTrue($disapprovedEntity->isNotApproved());
     }
 
     /** @test */

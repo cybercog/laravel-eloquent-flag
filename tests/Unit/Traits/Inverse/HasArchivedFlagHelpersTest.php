@@ -54,7 +54,7 @@ final class HasArchivedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unarchived(): void
+    public function it_can_check_if_entity_is_not_archived(): void
     {
         $archivedEntity = factory(EntityWithArchivedFlag::class)->create([
             'is_archived' => true,
@@ -64,8 +64,8 @@ final class HasArchivedFlagHelpersTest extends TestCase
             'is_archived' => false,
         ]);
 
-        $this->assertFalse($archivedEntity->isUnarchived());
-        $this->assertTrue($unarchivedEntity->isUnarchived());
+        $this->assertFalse($archivedEntity->isNotArchived());
+        $this->assertTrue($unarchivedEntity->isNotArchived());
     }
 
     /** @test */

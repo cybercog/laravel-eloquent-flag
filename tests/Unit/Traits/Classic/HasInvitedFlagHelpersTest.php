@@ -54,7 +54,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_uninvited(): void
+    public function it_can_check_if_entity_is_not_invited(): void
     {
         $invitedEntity = factory(EntityWithInvitedFlag::class)->create([
             'is_invited' => true,
@@ -64,8 +64,8 @@ final class HasInvitedFlagHelpersTest extends TestCase
             'is_invited' => false,
         ]);
 
-        $this->assertFalse($invitedEntity->isUninvited());
-        $this->assertTrue($uninvitedEntity->isUninvited());
+        $this->assertFalse($invitedEntity->isNotInvited());
+        $this->assertTrue($uninvitedEntity->isNotInvited());
     }
 
     /** @test */

@@ -54,7 +54,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_unpublished(): void
+    public function it_can_check_if_entity_is_not_published(): void
     {
         $publishedEntity = factory(EntityWithPublishedFlag::class)->create([
             'is_published' => true,
@@ -64,8 +64,8 @@ final class HasPublishedFlagHelpersTest extends TestCase
             'is_published' => false,
         ]);
 
-        $this->assertFalse($publishedEntity->isUnpublished());
-        $this->assertTrue($unpublishedEntity->isUnpublished());
+        $this->assertFalse($publishedEntity->isNotPublished());
+        $this->assertTrue($unpublishedEntity->isNotPublished());
     }
 
     /** @test */

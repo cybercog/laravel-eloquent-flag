@@ -54,7 +54,7 @@ final class HasDraftedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_undrafted(): void
+    public function it_can_check_if_entity_is_not_drafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedFlag::class)->create([
             'is_drafted' => true,
@@ -64,8 +64,8 @@ final class HasDraftedFlagHelpersTest extends TestCase
             'is_drafted' => false,
         ]);
 
-        $this->assertFalse($draftedEntity->isUndrafted());
-        $this->assertTrue($undraftedEntity->isUndrafted());
+        $this->assertFalse($draftedEntity->isNotDrafted());
+        $this->assertTrue($undraftedEntity->isNotDrafted());
     }
 
     /** @test */

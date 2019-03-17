@@ -54,7 +54,7 @@ final class HasActiveFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_deactivated(): void
+    public function it_can_check_if_entity_is_not_activated(): void
     {
         $activatedEntity = factory(EntityWithActiveFlag::class)->create([
             'is_active' => true,
@@ -64,8 +64,8 @@ final class HasActiveFlagHelpersTest extends TestCase
             'is_active' => false,
         ]);
 
-        $this->assertFalse($activatedEntity->isDeactivated());
-        $this->assertTrue($deactivatedEntity->isDeactivated());
+        $this->assertFalse($activatedEntity->isNotActivated());
+        $this->assertTrue($deactivatedEntity->isNotActivated());
     }
 
     /** @test */

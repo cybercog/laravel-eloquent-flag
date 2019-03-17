@@ -47,7 +47,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_uninvited(): void
+    public function it_can_check_if_entity_is_not_invited(): void
     {
         $invitedEntity = factory(EntityWithInvitedAt::class)->create([
             'invited_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasInvitedAtHelpersTest extends TestCase
             'invited_at' => null,
         ]);
 
-        $this->assertFalse($invitedEntity->isUninvited());
-        $this->assertTrue($uninvitedEntity->isUninvited());
+        $this->assertFalse($invitedEntity->isNotInvited());
+        $this->assertTrue($uninvitedEntity->isNotInvited());
     }
 
     /** @test */

@@ -22,31 +22,16 @@ trait HasEndedAtHelpers
         $this->dates[] = 'ended_at';
     }
 
-    /**
-     * If entity is end.
-     *
-     * @return bool
-     */
     public function isEnded(): bool
     {
         return !is_null($this->getAttributeValue('ended_at'));
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUnended(): bool
+    public function isNotEnded(): bool
     {
         return !$this->isEnded();
     }
 
-    /**
-     * Mark entity as end.
-     *
-     * @return void
-     */
     public function end(): void
     {
         $this->setAttribute('ended_at', Date::now());
@@ -55,11 +40,6 @@ trait HasEndedAtHelpers
         $this->fireModelEvent('ended', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function unend(): void
     {
         $this->setAttribute('ended_at', null);

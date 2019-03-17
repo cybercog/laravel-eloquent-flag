@@ -20,31 +20,16 @@ trait HasClosedFlagHelpers
         $this->casts['is_closed'] = 'boolean';
     }
 
-    /**
-     * If entity is closed.
-     *
-     * @return bool
-     */
     public function isClosed(): bool
     {
         return $this->getAttributeValue('is_closed');
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isOpened(): bool
+    public function isNotClosed(): bool
     {
         return !$this->isClosed();
     }
 
-    /**
-     * Mark entity as closed.
-     *
-     * @return void
-     */
     public function close(): void
     {
         $this->setAttribute('is_closed', true);
@@ -53,11 +38,6 @@ trait HasClosedFlagHelpers
         $this->fireModelEvent('closed', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function open(): void
     {
         $this->setAttribute('is_closed', false);

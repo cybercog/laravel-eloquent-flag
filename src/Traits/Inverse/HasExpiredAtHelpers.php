@@ -22,31 +22,16 @@ trait HasExpiredAtHelpers
         $this->dates[] = 'expired_at';
     }
 
-    /**
-     * If entity is expired.
-     *
-     * @return bool
-     */
     public function isExpired(): bool
     {
         return !is_null($this->getAttributeValue('expired_at'));
     }
 
-    /**
-     * If entity is opened.
-     *
-     * @return bool
-     */
-    public function isUnexpired(): bool
+    public function isNotExpired(): bool
     {
         return !$this->isExpired();
     }
 
-    /**
-     * Mark entity as expired.
-     *
-     * @return void
-     */
     public function expire(): void
     {
         $this->setAttribute('expired_at', Date::now());
@@ -55,11 +40,6 @@ trait HasExpiredAtHelpers
         $this->fireModelEvent('expired', false);
     }
 
-    /**
-     * Mark entity as opened.
-     *
-     * @return void
-     */
     public function unexpire(): void
     {
         $this->setAttribute('expired_at', null);

@@ -54,7 +54,7 @@ final class HasApprovedFlagHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_disapproved(): void
+    public function it_can_check_if_entity_is_not_approved(): void
     {
         $approvedEntity = factory(EntityWithApprovedFlag::class)->create([
             'is_approved' => true,
@@ -64,8 +64,8 @@ final class HasApprovedFlagHelpersTest extends TestCase
             'is_approved' => false,
         ]);
 
-        $this->assertFalse($approvedEntity->isDisapproved());
-        $this->assertTrue($disapprovedEntity->isDisapproved());
+        $this->assertFalse($approvedEntity->isNotApproved());
+        $this->assertTrue($disapprovedEntity->isNotApproved());
     }
 
     /** @test */

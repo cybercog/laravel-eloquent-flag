@@ -47,7 +47,7 @@ final class HasClosedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_opened(): void
+    public function it_can_check_if_entity_is_not_closed(): void
     {
         $closedEntity = factory(EntityWithClosedAt::class)->create([
             'closed_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasClosedAtHelpersTest extends TestCase
             'closed_at' => null,
         ]);
 
-        $this->assertFalse($closedEntity->isOpened());
-        $this->assertTrue($openedEntity->isOpened());
+        $this->assertFalse($closedEntity->isNotClosed());
+        $this->assertTrue($openedEntity->isNotClosed());
     }
 
     /** @test */

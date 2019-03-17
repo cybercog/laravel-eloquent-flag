@@ -20,31 +20,16 @@ trait HasActiveFlagHelpers
         $this->casts['is_active'] = 'boolean';
     }
 
-    /**
-     * If entity is activated.
-     *
-     * @return bool
-     */
     public function isActivated(): bool
     {
         return $this->getAttributeValue('is_active');
     }
 
-    /**
-     * If entity is deactivated.
-     *
-     * @return bool
-     */
-    public function isDeactivated(): bool
+    public function isNotActivated(): bool
     {
         return !$this->isActivated();
     }
 
-    /**
-     * Mark entity as active.
-     *
-     * @return void
-     */
     public function activate(): void
     {
         $this->setAttribute('is_active', true);
@@ -53,11 +38,6 @@ trait HasActiveFlagHelpers
         $this->fireModelEvent('activated', false);
     }
 
-    /**
-     * Mark entity as deactivated.
-     *
-     * @return void
-     */
     public function deactivate(): void
     {
         $this->save();

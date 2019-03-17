@@ -47,7 +47,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_rejected(): void
+    public function it_can_check_if_entity_is_not_accepted(): void
     {
         $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
             'accepted_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasAcceptedAtHelpersTest extends TestCase
             'accepted_at' => null,
         ]);
 
-        $this->assertFalse($acceptedEntity->isRejected());
-        $this->assertTrue($rejectedEntity->isRejected());
+        $this->assertFalse($acceptedEntity->isNotAccepted());
+        $this->assertTrue($rejectedEntity->isNotAccepted());
     }
 
     /** @test */

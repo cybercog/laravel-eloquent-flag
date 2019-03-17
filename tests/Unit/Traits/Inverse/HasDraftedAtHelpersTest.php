@@ -47,7 +47,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_undrafted(): void
+    public function it_can_check_if_entity_is_not_drafted(): void
     {
         $draftedEntity = factory(EntityWithDraftedAt::class)->create([
             'drafted_at' => Date::now(),
@@ -57,8 +57,8 @@ final class HasDraftedAtHelpersTest extends TestCase
             'drafted_at' => null,
         ]);
 
-        $this->assertFalse($draftedEntity->isUndrafted());
-        $this->assertTrue($undraftedEntity->isUndrafted());
+        $this->assertFalse($draftedEntity->isNotDrafted());
+        $this->assertTrue($undraftedEntity->isNotDrafted());
     }
 
     /** @test */
