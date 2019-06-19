@@ -34,7 +34,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance Eloquent Model
 ## Features
 
 - Designed to work with Laravel Eloquent models.
-- Each model can has many flags.
+- Each model can have many flags.
 - Each flag adds global query scopes to models.
 - 2 logical groups of flags: `Classic`, `Inverse`.
 - 2 types of flags: `Boolean`, `Timestamp`.
@@ -61,7 +61,7 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance Eloquent Model
 | `HasDraftedAt` | Inverse | `drafted_at` | Timestamp | `HasDraftedFlag` |
 | `HasDraftedFlag` | Inverse | `is_drafted` | Boolean | `HasDraftedAt` |
 | `HasEndedAt` | Inverse | `ended_at` | Timestamp | `HasEndedFlag` |
-| `HasEndededFlag` | Inverse | `is_ended` | Boolean | `HasEndedAt` |
+| `HasEndedFlag` | Inverse | `is_ended` | Boolean | `HasEndedAt` |
 | `HasExpiredAt` | Inverse | `expired_at` | Timestamp | `HasExpiredFlag` |
 | `HasExpiredFlag` | Inverse | `is_expired` | Boolean | `HasExpiredAt` |
 | `HasInvitedAt` | Classic | `invited_at` | Timestamp | `HasInvitedFlag` |
