@@ -62,10 +62,7 @@ abstract class TestCase extends Orchestra
      */
     protected function registerMigrations(): void
     {
-        $this->loadMigrationsFrom([
-            //'--database' => 'sqlite',
-            '--realpath' => realpath(__DIR__ . '/database/migrations'),
-        ]);
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
     }
 
     /**
