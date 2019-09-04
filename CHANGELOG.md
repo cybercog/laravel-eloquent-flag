@@ -4,12 +4,18 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+## [5.1.0] - 2019-09-04
+
+### Added
+
+- ([#59]) Laravel 6 support
+
 ## [5.0.0] - 2019-03-18
 
 ### Added
 
 - Laravel 5.8 support
-- ([#48](https://github.com/cybercog/laravel-eloquent-flag/pull/48)) Flag fields auto-casting
+- ([#48]) Flag fields auto-casting
 - Added `shouldApplyAcceptedAtScope` & `shouldApplyAcceptedFlagScope` methods to control Accepted flags global scope auto apply.
 - Added `shouldApplyActiveFlagScope` methods to control Active flag global scope auto apply.
 - Added `shouldApplyApprovedAtScope` & `shouldApplyApprovedFlagScope` methods to control Approved flags global scope auto apply.
@@ -93,29 +99,29 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 - Dropped PHP 5.6, 7.0 support
 - Dropped Laravel 5.2, 5.3, 5.4, 5.5, 5.6, 5.7 support
-- ([#50](https://github.com/cybercog/laravel-eloquent-flag/pull/50)) Removed attribute mutator `set*` & `unset*` methods from all helper classes
-- ([#56](https://github.com/cybercog/laravel-eloquent-flag/pull/56)) Removed global scopes auto-apply
+- ([#50]) Removed attribute mutator `set*` & `unset*` methods from all helper classes
+- ([#56]) Removed global scopes auto-apply
 
 ## [4.0.0] - 2018-09-09
 
 ### Added
 
-- ([#42](https://github.com/cybercog/laravel-eloquent-flag/pull/42)) Laravel 5.7 support
-- ([#37](https://github.com/cybercog/laravel-eloquent-flag/pull/37)) Events firing
+- ([#42]) Laravel 5.7 support
+- ([#37]) Events firing
 
 ## [3.13.0] - 2018-02-08
 
 ### Added
 
-- Laravel 5.6 support ([#35](https://github.com/cybercog/laravel-eloquent-flag/pull/35)).
-- `is_invited` classic boolean flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
-- `invited_at` classic timestamp flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
-- `is_ended` inverse boolean flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
-- `ended_at` inverse timestamp flag added ([#31](https://github.com/cybercog/laravel-eloquent-flag/pull/31)).
-- `is_drafted` inverse boolean flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
-- `drafted_at` inverse timestamp flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
-- `is_archived` inverse boolean flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
-- `archived_at` inverse timestamp flag added ([#32](https://github.com/cybercog/laravel-eloquent-flag/pull/32)).
+- Laravel 5.6 support ([#35]).
+- `is_invited` classic boolean flag added ([#31]).
+- `invited_at` classic timestamp flag added ([#31]).
+- `is_ended` inverse boolean flag added ([#31]).
+- `ended_at` inverse timestamp flag added ([#31]).
+- `is_drafted` inverse boolean flag added ([#32]).
+- `drafted_at` inverse timestamp flag added ([#32]).
+- `is_archived` inverse boolean flag added ([#32]).
+- `archived_at` inverse timestamp flag added ([#32]).
 
 ## [3.12.0] - 2017-09-09
 
@@ -266,7 +272,8 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 - `is_active` boolean flag added.
 
-[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.0.0...master
+[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.0...master
+[5.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.0.0...5.1.0
 [5.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.13.0...4.0.0
 [3.13.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.12.0...3.13.0
@@ -290,3 +297,13 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 [1.3.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.0.0...1.1.0
+
+[#59]: https://github.com/cybercog/laravel-eloquent-flag/pull/59
+[#56]: https://github.com/cybercog/laravel-eloquent-flag/pull/56
+[#50]: https://github.com/cybercog/laravel-eloquent-flag/pull/50
+[#48]: https://github.com/cybercog/laravel-eloquent-flag/pull/48
+[#42]: https://github.com/cybercog/laravel-eloquent-flag/pull/42
+[#37]: https://github.com/cybercog/laravel-eloquent-flag/pull/37
+[#35]: https://github.com/cybercog/laravel-eloquent-flag/pull/35
+[#32]: https://github.com/cybercog/laravel-eloquent-flag/pull/32
+[#31]: https://github.com/cybercog/laravel-eloquent-flag/pull/31
