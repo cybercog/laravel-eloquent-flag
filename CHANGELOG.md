@@ -1,6 +1,8 @@
 # Change Log
 
-All notable changes to `laravel-eloquent-flag` will be documented in this file.
+All notable changes to `cybercog/laravel-eloquent-flag` will be documented in this file.
+
+## [Unreleased]
 
 ## [5.0.0] - 2019-03-18
 
@@ -264,6 +266,7 @@ All notable changes to `laravel-eloquent-flag` will be documented in this file.
 
 - `is_active` boolean flag added.
 
+[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.0.0...master
 [5.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.13.0...4.0.0
 [3.13.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.12.0...3.13.0
