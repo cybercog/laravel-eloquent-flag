@@ -40,8 +40,8 @@ trait HasActiveFlagHelpers
 
     public function undoActivate(): void
     {
-        $this->save();
         $this->setAttribute('is_active', false);
+        $this->save();
 
         $this->fireModelEvent('activatedUndone', false);
     }
