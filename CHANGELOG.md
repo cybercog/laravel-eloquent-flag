@@ -4,6 +4,12 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+## [5.1.1] - 2020-02-20
+
+### Fixed
+
+- ([#62]) Fixed `undoActivate` method in `HasActiveFlagHelpers` trait
+
 ## [5.1.0] - 2019-09-04
 
 ### Added
@@ -272,7 +278,8 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 - `is_active` boolean flag added.
 
-[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.0...master
+[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.1...master
+[5.1.1]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.0...5.1.1
 [5.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.0.0...5.1.0
 [5.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/3.13.0...4.0.0
@@ -298,6 +305,7 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 [1.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.0.0...1.1.0
 
+[#62]: https://github.com/cybercog/laravel-eloquent-flag/pull/62
 [#59]: https://github.com/cybercog/laravel-eloquent-flag/pull/59
 [#56]: https://github.com/cybercog/laravel-eloquent-flag/pull/56
 [#50]: https://github.com/cybercog/laravel-eloquent-flag/pull/50
