@@ -28,7 +28,7 @@ final class HasCommentAtHelpersTest extends TestCase
         ]);
 
         $this->assertInstanceOf(Carbon::class, $entity->comment_at);
-        $this->assertSame('1986-03-28 00:00:00', $entity->approved_at->format('Y-m-d H:i:s'));
+        $this->assertSame('1986-03-28 00:00:00', $entity->comment_at->format('Y-m-d H:i:s'));
     }
 
     /** @test */
@@ -57,8 +57,8 @@ final class HasCommentAtHelpersTest extends TestCase
             'comment_at' => null,
         ]);
 
-        $this->assertFalse($commentEntity->isComment());
-        $this->assertTrue($discommentEntity->isComment());
+        $this->assertFalse($commentEntity->isNotComment());
+        $this->assertTrue($discommentEntity->isNotComment());
     }
 
     /** @test */
