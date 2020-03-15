@@ -40,10 +40,10 @@ final class CommentAtScopeTest extends TestCase
     public function it_can_get_without_not_comment(): void
     {
         factory(EntityWithCommentAt::class, 3)->create([
-            'approved_at' => Date::now()->subDay(),
+            'comment_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithCommentAt::class, 2)->create([
-            'approved_at' => null,
+            'comment_at' => null,
         ]);
 
         $entities = EntityWithCommentAt::withoutNotComment()->get();
