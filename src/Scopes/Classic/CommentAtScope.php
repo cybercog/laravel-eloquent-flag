@@ -69,7 +69,7 @@ final class CommentAtScope implements Scope
     protected function addComment(Builder $builder): void
     {
         $builder->macro('comment', function (Builder $builder) {
-            $builder->withNotVerified();
+            $builder->withNotComment();
 
             return $builder->update(['commentable_at' => Date::now()]);
         });

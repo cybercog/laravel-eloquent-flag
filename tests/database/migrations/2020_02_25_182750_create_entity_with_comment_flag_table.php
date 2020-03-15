@@ -27,7 +27,7 @@ final class CreateEntityWithCommentFlagTable extends Migration
         Schema::create('entity_with_comment_flag', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->boolean('is_comment');
+            $table->boolean('is_commentable');
             $table->timestamps();
         });
     }

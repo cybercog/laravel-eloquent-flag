@@ -17,12 +17,12 @@ trait HasCommentFlagHelpers
 {
     public function initializeHasCommwntFlagHelpers(): void
     {
-        $this->casts['is_comment'] = 'boolean';
+        $this->casts['is_commentable'] = 'boolean';
     }
 
     public function isComment(): bool
     {
-        return $this->getAttributeValue('is_comment');
+        return $this->getAttributeValue('is_commentable');
     }
 
     public function isNotComment(): bool
@@ -32,7 +32,7 @@ trait HasCommentFlagHelpers
 
     public function comment(): void
     {
-        $this->setAttribute('is_comment', true);
+        $this->setAttribute('is_commentable', true);
         $this->save();
 
         $this->fireModelEvent('comment', false);
@@ -40,7 +40,7 @@ trait HasCommentFlagHelpers
 
     public function undoComment(): void
     {
-        $this->setAttribute('is_comment', false);
+        $this->setAttribute('is_commentable', false);
         $this->save();
 
         $this->fireModelEvent('approvedComment', false);

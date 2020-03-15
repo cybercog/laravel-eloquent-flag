@@ -19,34 +19,34 @@ use Cog\Tests\Flag\TestCase;
 final class HasCommentFlagHelpersTest extends TestCase
 {
     /** @test */
-    public function it_casts_is_comment_to_boolean(): void
+    public function it_casts_is_commentable_to_boolean(): void
     {
         $entity = factory(EntityWithCommentFlag::class)->create([
-            'is_comment' => 1,
+            'is_commentable' => 1,
         ]);
 
-        $this->assertTrue($entity->is_comment);
+        $this->assertTrue($entity->is_commentable);
     }
 
     /** @test */
-    public function it_not_casts_is_comment_to_boolean(): void
+    public function it_not_casts_is_commentable_to_boolean(): void
     {
         $entity = factory(EntityWithCommentFlag::class)->make([
-            'is_comment' => null,
+            'is_commentable' => null,
         ]);
 
-        $this->assertNull($entity->is_comment);
+        $this->assertNull($entity->is_commentable);
     }
 
     /** @test */
-    public function it_can_check_if_entity_is_comment(): void
+    public function it_can_check_if_entity_is_commentable(): void
     {
         $approvedEntity = factory(EntityWithCommentFlag::class)->create([
-            'is_comment' => true,
+            'is_commentable' => true,
         ]);
 
         $disapprovedEntity = factory(EntityWithCommentFlag::class)->create([
-            'is_comment' => false,
+            'is_commentable' => false,
         ]);
 
         $this->assertTrue($approvedEntity->isComment());
@@ -57,11 +57,11 @@ final class HasCommentFlagHelpersTest extends TestCase
     public function it_can_check_if_entity_is_not_comment(): void
     {
         $approvedEntity = factory(EntityWithCommentFlag::class)->create([
-            'is_comment' => true,
+            'is_commentable' => true,
         ]);
 
         $disapprovedEntity = factory(EntityWithCommentFlag::class)->create([
-            'is_comment' => false,
+            'is_commentable' => false,
         ]);
 
         $this->assertFalse($approvedEntity->isNotComment());
@@ -72,23 +72,23 @@ final class HasCommentFlagHelpersTest extends TestCase
     public function it_can_comment(): void
     {
         $entity = factory(EntityWithCommentFlag::class)->create([
-            'is_comment' => false,
+            'is_commentable' => false,
         ]);
 
         $entity->comment();
 
-        $this->assertTrue($entity->is_comment);
+        $this->assertTrue($entity->is_commentable);
     }
 
     /** @test */
     public function it_can_undo_comment(): void
     {
         $entity = factory(EntityWithCommentFlag::class)->create([
-            'is_comment' => true,
+            'is_commentable' => true,
         ]);
 
         $entity->undoComment();
 
-        $this->assertFalse($entity->is_comment);
+        $this->assertFalse($entity->is_commentable);
     }
 }
