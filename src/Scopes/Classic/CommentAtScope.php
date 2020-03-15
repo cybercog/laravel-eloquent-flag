@@ -27,7 +27,7 @@ final class CommentAtScope implements Scope
      */
     protected $extensions = [
         'Comment',
-        'UnComment',
+        'UndoComment',
         'WithNotComment',
         'WithoutNotComment',
         'OnlyNotComment',
