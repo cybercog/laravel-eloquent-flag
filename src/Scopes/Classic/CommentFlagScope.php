@@ -41,7 +41,7 @@ final class CommentFlagScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        if (method_exists($model, 'shouldApplyVerifiedAtScope') && $model->shouldApplyVerifiedAtScope()) {
+        if (method_exists($model, 'shouldApplyCommentFlagScope') && $model->shouldApplyVerifiedAtScope()) {
             $builder->where('is_comment', 1);
         }
     }
