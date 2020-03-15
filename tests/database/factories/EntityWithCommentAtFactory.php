@@ -18,6 +18,6 @@ use Faker\Generator as Faker;
 $factory->define(EntityWithCommentAt::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
-        'comment_at' => null,
+        'commentable_at' => null,
     ];
 });

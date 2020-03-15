@@ -54,8 +54,8 @@ Eloquent boolean & timestamp flagged attributes behavior. Enhance Eloquent Model
 | `HasActiveFlag` | Classic | `is_active` | Boolean | - |
 | `HasApprovedAt` | Classic | `approved_at` | Timestamp | `HasApprovedFlag` |
 | `HasApprovedFlag` | Classic | `is_approved` | Boolean | `HasApprovedAt` |
-| `HasCommentAt` | Classic | `comment_at` | Timestamp | `HasCommentFlag` |
-| `HasCommentFlag` | Classic | `is_comment` | Boolean | `HasCommentAt` |
+| `HasCommentAt` | Classic | `commentable_at` | Timestamp | `HasCommentFlag` |
+| `HasCommentFlag` | Classic | `is_commentable` | Boolean | `HasCommentAt` |
 | `HasArchivedAt` | Inverse | `archived_at` | Timestamp | `HasArchivedFlag` |
 | `HasArchivedFlag` | Inverse | `is_archived` | Boolean | `HasArchivedAt` |
 | `HasClosedAt` | Inverse | `closed_at` | Timestamp | `HasClosedFlag` |

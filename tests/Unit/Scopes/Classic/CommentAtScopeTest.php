@@ -25,10 +25,10 @@ final class CommentAtScopeTest extends TestCase
     public function it_get_without_global_scope_default(): void
     {
         factory(EntityWithCommentAt::class, 3)->create([
-            'comment_at' => Date::now()->subDay(),
+            'commentable_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithCommentAt::class, 2)->create([
-            'comment_at' => null,
+            'commentable_at' => null,
         ]);
 
         $entities = EntityWithCommentAt::all();
@@ -40,10 +40,10 @@ final class CommentAtScopeTest extends TestCase
     public function it_can_get_without_not_comment(): void
     {
         factory(EntityWithCommentAt::class, 3)->create([
-            'comment_at' => Date::now()->subDay(),
+            'commentable_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithCommentAt::class, 2)->create([
-            'comment_at' => null,
+            'commentable_at' => null,
         ]);
 
         $entities = EntityWithCommentAt::withoutNotComment()->get();
@@ -55,10 +55,10 @@ final class CommentAtScopeTest extends TestCase
     public function it_can_get_with_not_comment(): void
     {
         factory(EntityWithCommentAt::class, 3)->create([
-            'comment_at' => Date::now()->subDay(),
+            'commentable_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithCommentAt::class, 2)->create([
-            'comment_at' => null,
+            'commentable_at' => null,
         ]);
 
         $entities = EntityWithCommentAt::withNotComment()->get();
@@ -70,10 +70,10 @@ final class CommentAtScopeTest extends TestCase
     public function it_can_get_only_not_comment(): void
     {
         factory(EntityWithCommentAt::class, 3)->create([
-            'comment_at' => Date::now()->subDay(),
+            'commentable_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithCommentAt::class, 2)->create([
-            'comment_at' => null,
+            'commentable_at' => null,
         ]);
 
         $entities = EntityWithCommentAt::onlyNotComment()->get();
@@ -85,38 +85,38 @@ final class CommentAtScopeTest extends TestCase
     public function it_can_comment_model(): void
     {
         $model = factory(EntityWithCommentAt::class)->create([
-            'comment_at' => null,
+            'commentable_at' => null,
         ]);
 
         EntityWithCommentAt::where('id', $model->id)->comment();
 
         $model = EntityWithCommentAt::where('id', $model->id)->first();
 
-        $this->assertNotNull($model->comment_at);
+        $this->assertNotNull($model->commentable_at);
     }
 
     /** @test */
     public function it_can_undo_comment_model(): void
     {
         $model = factory(EntityWithCommentAt::class)->create([
-            'comment_at' => Date::now()->subDay(),
+            'commentable_at' => Date::now()->subDay(),
         ]);
 
         EntityWithCommentAt::where('id', $model->id)->undoComment();
 
         $model = EntityWithCommentAt::withNotComment()->where('id', $model->id)->first();
 
-        $this->assertNull($model->comment_at);
+        $this->assertNull($model->commentable_at);
     }
 
     /** @test */
     public function it_can_skip_apply(): void
     {
         factory(EntityWithCommentAt::class, 3)->create([
-            'comment_at' => Date::now()->subDay(),
+            'commentable_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithCommentAt::class, 2)->create([
-            'comment_at' => null,
+            'commentable_at' => null,
         ]);
 
         $entities = EntityWithCommentAtUnapplied::all();
@@ -128,10 +128,10 @@ final class CommentAtScopeTest extends TestCase
     public function it_can_auto_apply(): void
     {
         factory(EntityWithCommentAt::class, 3)->create([
-            'comment_at' => Date::now()->subDay(),
+            'commentable_at' => Date::now()->subDay(),
         ]);
         factory(EntityWithCommentAt::class, 2)->create([
-            'comment_at' => null,
+            'commentable_at' => null,
         ]);
 
         $entities = EntityWithCommentAtApplied::all();

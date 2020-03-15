@@ -19,12 +19,12 @@ trait HasCommentAtHelpers
 {
     public function initializeHasApprovedAtHelpers(): void
     {
-        $this->dates[] = 'comment_at';
+        $this->dates[] = 'commentable_at';
     }
 
     public function isComment(): bool
     {
-        return !is_null($this->getAttributeValue('comment_at'));
+        return !is_null($this->getAttributeValue('commentable_at'));
     }
 
     public function isNotApproved(): bool
@@ -34,7 +34,7 @@ trait HasCommentAtHelpers
 
     public function comment(): void
     {
-        $this->setAttribute('comment_at', Date::now());
+        $this->setAttribute('commentable_at', Date::now());
         $this->save();
 
         $this->fireModelEvent('comment', false);
@@ -42,7 +42,7 @@ trait HasCommentAtHelpers
 
     public function undoComment(): void
     {
-        $this->setAttribute('comment_at', null);
+        $this->setAttribute('commentable_at', null);
         $this->save();
 
         $this->fireModelEvent('commentUndone', false);

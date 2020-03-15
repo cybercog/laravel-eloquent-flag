@@ -18,6 +18,6 @@ use Faker\Generator as Faker;
 $factory->define(EntityWithCommentFlag::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
-        'is_comment' => false,
+        'is_commentable' => false,
     ];
 });

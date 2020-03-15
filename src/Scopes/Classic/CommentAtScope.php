@@ -43,7 +43,7 @@ final class CommentAtScope implements Scope
     public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyCommentAtScope') && $model->shouldApplyVerifiedAtScope()) {
-            $builder->whereNotNull('comment_at');
+            $builder->whereNotNull('commentable_at');
         }
     }
 
@@ -71,7 +71,7 @@ final class CommentAtScope implements Scope
         $builder->macro('comment', function (Builder $builder) {
             $builder->withNotVerified();
 
-            return $builder->update(['comment_at' => Date::now()]);
+            return $builder->update(['commentable_at' => Date::now()]);
         });
     }
 
@@ -84,7 +84,7 @@ final class CommentAtScope implements Scope
     protected function addUndoComment(Builder $builder): void
     {
         $builder->macro('undoComment', function (Builder $builder) {
-            return $builder->update(['comment_at' => null]);
+            return $builder->update(['commentable_at' => null]);
         });
     }
 
@@ -110,7 +110,7 @@ final class CommentAtScope implements Scope
     protected function addWithoutNotComment(Builder $builder): void
     {
         $builder->macro('withoutNotComment', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->whereNotNull('comment_at');
+            return $builder->withoutGlobalScope($this)->whereNotNull('commentable_at');
         });
     }
 
@@ -123,7 +123,7 @@ final class CommentAtScope implements Scope
     protected function addOnlyNotComment(Builder $builder): void
     {
         $builder->macro('onlyNotComment', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->whereNull('comment_at');
+            return $builder->withoutGlobalScope($this)->whereNull('commentable_at');
         });
     }
 }

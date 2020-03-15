@@ -25,7 +25,7 @@ final class EntityWithCommentAt extends Model
      *
      * @var string
      */
-    protected $table = 'entity_with_comment_at';
+    protected $table = 'entity_with_commentable_at';
 
     /**
      * The attributes that are mass assignable.

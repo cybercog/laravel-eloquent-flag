@@ -24,10 +24,10 @@ final class CreateEntityWithCommentAtTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('entity_with_comment_at', function (Blueprint $table) {
+        Schema::create('entity_with_commentable_at', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->timestamp('comment_at')->nullable();
+            $table->timestamp('commentable_at')->nullable();
             $table->timestamps();
         });
     }
@@ -39,6 +39,6 @@ final class CreateEntityWithCommentAtTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('entity_with_comment_at');
+        Schema::dropIfExists('entity_with_commentable_at');
     }
 }

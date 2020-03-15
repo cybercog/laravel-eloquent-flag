@@ -42,7 +42,7 @@ final class CommentFlagScope implements Scope
     public function apply(Builder $builder, Model $model): void
     {
         if (method_exists($model, 'shouldApplyCommentFlagScope') && $model->shouldApplyVerifiedAtScope()) {
-            $builder->where('is_comment', 1);
+            $builder->where('is_commentable', 1);
         }
     }
 
@@ -70,7 +70,7 @@ final class CommentFlagScope implements Scope
         $builder->macro('comment', function (Builder $builder) {
             $builder->withNotVerified();
 
-            return $builder->update(['is_comment' => 1]);
+            return $builder->update(['is_commentable' => 1]);
         });
     }
 
@@ -83,7 +83,7 @@ final class CommentFlagScope implements Scope
     protected function addUndoComment(Builder $builder): void
     {
         $builder->macro('undoComment', function (Builder $builder) {
-            return $builder->update(['is_comment' => 0]);
+            return $builder->update(['is_commentable' => 0]);
         });
     }
 
@@ -109,7 +109,7 @@ final class CommentFlagScope implements Scope
     protected function addWithoutNotComment(Builder $builder): void
     {
         $builder->macro('withoutNotComment', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_comment', 1);
+            return $builder->withoutGlobalScope($this)->where('is_commentable', 1);
         });
     }
 
@@ -122,7 +122,7 @@ final class CommentFlagScope implements Scope
     protected function addOnlyNotComment(Builder $builder): void
     {
         $builder->macro('onlyNotComment', function (Builder $builder) {
-            return $builder->withoutGlobalScope($this)->where('is_comment', 0);
+            return $builder->withoutGlobalScope($this)->where('is_commentable', 0);
         });
     }
 }
