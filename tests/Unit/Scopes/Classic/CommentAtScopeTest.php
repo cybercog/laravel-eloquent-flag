@@ -46,7 +46,7 @@ final class CommentAtScopeTest extends TestCase
             'approved_at' => null,
         ]);
 
-        $entities = EntityWithCommentAt::withoutNotApproved()->get();
+        $entities = EntityWithCommentAt::withoutNotComment()->get();
 
         $this->assertCount(3, $entities);
     }
@@ -61,7 +61,7 @@ final class CommentAtScopeTest extends TestCase
             'comment_at' => null,
         ]);
 
-        $entities = EntityWithCommentAt::withNotApproved()->get();
+        $entities = EntityWithCommentAt::withNotComment()->get();
 
         $this->assertCount(5, $entities);
     }
@@ -76,7 +76,7 @@ final class CommentAtScopeTest extends TestCase
             'comment_at' => null,
         ]);
 
-        $entities = EntityWithCommentAt::onlyNotApproved()->get();
+        $entities = EntityWithCommentAt::onlyNotComment()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -88,11 +88,11 @@ final class CommentAtScopeTest extends TestCase
             'comment_at' => null,
         ]);
 
-        EntityWithApprovedAt::where('id', $model->id)->approve();
+        EntityWithApprovedAt::where('id', $model->id)->comment();
 
         $model = EntityWithApprovedAt::where('id', $model->id)->first();
 
-        $this->assertNotNull($model->approved_at);
+        $this->assertNotNull($model->comment_at);
     }
 
     /** @test */
@@ -102,11 +102,11 @@ final class CommentAtScopeTest extends TestCase
             'comment_at' => Date::now()->subDay(),
         ]);
 
-        EntityWithCommentAt::where('id', $model->id)->undoApprove();
+        EntityWithCommentAt::where('id', $model->id)->undoComment();
 
-        $model = EntityWithCommentAt::withNotApproved()->where('id', $model->id)->first();
+        $model = EntityWithCommentAt::withNotComment()->where('id', $model->id)->first();
 
-        $this->assertNull($model->approved_at);
+        $this->assertNull($model->comment_at);
     }
 
     /** @test */

@@ -45,7 +45,7 @@ final class CommentFlagScopeTest extends TestCase
             'is_comment' => false,
         ]);
 
-        $entities = EntityWithCommentFlag::withoutNotcomment()->get();
+        $entities = EntityWithCommentFlag::withoutNotComment()->get();
 
         $this->assertCount(3, $entities);
     }
@@ -60,7 +60,7 @@ final class CommentFlagScopeTest extends TestCase
             'is_comment' => false,
         ]);
 
-        $entities = EntityWithCommentFlag::withNotcomment()->get();
+        $entities = EntityWithCommentFlag::withNotComment()->get();
 
         $this->assertCount(5, $entities);
     }
@@ -75,7 +75,7 @@ final class CommentFlagScopeTest extends TestCase
             'is_comment' => false,
         ]);
 
-        $entities = EntityWithCommentFlag::onlyNotcomment()->get();
+        $entities = EntityWithCommentFlag::onlyNotComment()->get();
 
         $this->assertCount(2, $entities);
     }
@@ -87,7 +87,7 @@ final class CommentFlagScopeTest extends TestCase
             'is_comment' => false,
         ]);
 
-        EntityWithCommentFlag::where('id', $model->id)->approve();
+        EntityWithCommentFlag::where('id', $model->id)->comment();
 
         $model = EntityWithCommentFlag::where('id', $model->id)->first();
 
@@ -101,9 +101,9 @@ final class CommentFlagScopeTest extends TestCase
             'is_comment' => true,
         ]);
 
-        EntityWithcommentFlag::where('id', $model->id)->undoApprove();
+        EntityWithcommentFlag::where('id', $model->id)->undoComment();
 
-        $model = EntityWithcommentFlag::withNotcomment()->where('id', $model->id)->first();
+        $model = EntityWithcommentFlag::withNotComment()->where('id', $model->id)->first();
 
         $this->assertFalse($model->is_comment);
     }
