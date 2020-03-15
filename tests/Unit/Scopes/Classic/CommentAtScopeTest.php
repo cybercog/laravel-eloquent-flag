@@ -69,10 +69,10 @@ final class CommentAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_comment(): void
     {
-        factory(EntityWithApprovedAt::class, 3)->create([
+        factory(EntityWithCommentAt::class, 3)->create([
             'comment_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithApprovedAt::class, 2)->create([
+        factory(EntityWithCommentAt::class, 2)->create([
             'comment_at' => null,
         ]);
 
@@ -88,9 +88,9 @@ final class CommentAtScopeTest extends TestCase
             'comment_at' => null,
         ]);
 
-        EntityWithApprovedAt::where('id', $model->id)->comment();
+        EntityWithCommentAt::where('id', $model->id)->comment();
 
-        $model = EntityWithApprovedAt::where('id', $model->id)->first();
+        $model = EntityWithCommentAt::where('id', $model->id)->first();
 
         $this->assertNotNull($model->comment_at);
     }
