@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Cog\Flag\Traits\Classic;
 
-use Cog\Flag\Scopes\Classic\ApprovedFlagScope;
+use Cog\Flag\Scopes\Classic\CommentFlagScope;
 
 trait HasCommentFlagScope
 {
@@ -24,7 +24,6 @@ trait HasCommentFlagScope
      */
     public static function bootHasCommentFlagScope(): void
     {
-        static::addGlobalScope(new CommentFlagScope()
-        );
+        static::addGlobalScope(new CommentFlagScope());
     }
 }

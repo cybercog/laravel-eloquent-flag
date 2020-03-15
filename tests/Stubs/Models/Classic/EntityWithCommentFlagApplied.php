@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Flag\Stubs\Models\Classic;
 
-use Cog\Flag\Traits\Classic\HasApprovedFlag;
 use Cog\Flag\Traits\Classic\HasCommentFlag;
 use Illuminate\Database\Eloquent\Model;
 
