@@ -4,11 +4,17 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+## [5.2.0] - 2020-09-09
+
+### Added
+
+- Add Laravel 8 support
+
 ## [5.1.2] - 2020-03-06
 
 ### Added
 
-- ([#65]) Add Laravel 7.x support
+- ([#65]) Add Laravel 7 support
 
 ## [5.1.1] - 2020-02-20
 
@@ -284,7 +290,8 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 - `is_active` boolean flag added.
 
-[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.2...master
+[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.2.0...master
+[5.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.2...5.2.0
 [5.1.2]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.1...5.1.2
 [5.1.1]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.0...5.1.1
 [5.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.0.0...5.1.0
