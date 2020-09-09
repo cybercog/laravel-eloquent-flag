@@ -8,7 +8,7 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ### Added
 
-- Add Laravel 8 support
+- ([#69]) Add Laravel 8 support
 
 ## [5.1.2] - 2020-03-06
 
@@ -319,6 +319,7 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 [1.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.0.0...1.1.0
 
+[#69]: https://github.com/cybercog/laravel-eloquent-flag/pull/69
 [#65]: https://github.com/cybercog/laravel-eloquent-flag/pull/65
 [#62]: https://github.com/cybercog/laravel-eloquent-flag/pull/62
 [#59]: https://github.com/cybercog/laravel-eloquent-flag/pull/59
