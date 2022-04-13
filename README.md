@@ -135,7 +135,7 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 | <a href="https://github.com/antonkomarev">![@antonkomarev](https://avatars.githubusercontent.com/u/1849174?s=110)<br />Anton Komarev</a> | <a href="https://github.com/zagreusinoz">![@zagreusinoz](https://avatars.githubusercontent.com/u/16147285?s=110)<br />zagreusinoz</a> | <a href="https://github.com/jonagoldman">![@jonagoldman](https://avatars.githubusercontent.com/u/1297559?s=110)<br />Jona Goldman</a> | <a href="https://github.com/irazasyed">![@irazasyed](https://avatars.githubusercontent.com/u/1915268?s=110)<br />Irfaq Syed</a> | <a href="https://github.com/gpioto">![@gpioto](https://avatars.githubusercontent.com/u/7549089?s=110)<br />gpioto</a> |  
 | :---: | :---: | :---: | :---: | :---: |
-| <a href="https://github.com/rayronvictor">![@rayronvictor](https://avatars.githubusercontent.com/u/1683922?s=110)<br />Rayron Victor</a> | | | | |
+| <a href="https://github.com/rayronvictor">![@rayronvictor](https://avatars.githubusercontent.com/u/1683922?s=110)<br />Rayron Victor</a> | <a href="https://github.com/jnbn">![@jnbn](https://avatars.githubusercontent.com/u/112425?s=110)<br />Ugur Aydogdu</a> | | | |
 
 [Eloquent Flag contributors list](../../contributors)
 
