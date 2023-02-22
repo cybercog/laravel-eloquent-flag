@@ -4,6 +4,17 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+### Added
+
+- ([#89]) Added Laravel 10 support
+
+### Removed
+
+- ([#89]) Dropped Laravel 5.8 support
+- ([#89]) Dropped Laravel 6 support
+- ([#89]) Dropped Laravel 7 support
+- ([#89]) Dropped Laravel 8 support
+
 ## [5.4.0] - 2022-04-13
 
 ### Added

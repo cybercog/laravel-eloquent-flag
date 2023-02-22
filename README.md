@@ -99,8 +99,8 @@ Helper traits will automatically cast flag attributes to a `DateTime` / `Carbon`
 
 Pull in the package through Composer.
 
-```shell script
-$ composer require cybercog/laravel-eloquent-flag
+```shell
+composer require cybercog/laravel-eloquent-flag
 ```
 
 ## Usage
@@ -123,8 +123,8 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 Run the tests with:
 
-```shell script
-$ vendor/bin/phpunit
+```shell
+vendor/bin/phpunit
 ```
 
 ## Security
