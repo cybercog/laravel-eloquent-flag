@@ -19,7 +19,7 @@ trait HasExpiredAtHelpers
 {
     public function initializeHasExpiredAtHelpers(): void
     {
-        $this->dates[] = 'expired_at';
+        $this->casts['expired_at'] = 'datetime';
     }
 
     public function isExpired(): bool

@@ -19,7 +19,7 @@ trait HasVerifiedAtHelpers
 {
     public function initializeHasVerifiedAtHelpers(): void
     {
-        $this->dates[] = 'verified_at';
+        $this->casts['verified_at'] = 'datetime';
     }
 
     public function isVerified(): bool

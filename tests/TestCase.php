@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Cog\Tests\Flag;
 
 use Illuminate\Support\Facades\File;
-use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -41,7 +40,6 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app): array
     {
         return [
-            ConsoleServiceProvider::class,
         ];
     }
 

@@ -19,7 +19,7 @@ trait HasAcceptedAtHelpers
 {
     public function initializeHasAcceptedAtHelpers(): void
     {
-        $this->dates[] = 'accepted_at';
+        $this->casts['accepted_at'] = 'datetime';
     }
 
     public function isAccepted(): bool

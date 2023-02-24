@@ -4,6 +4,21 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+### Added
+
+- ([#77]) Added Laravel 10 support
+
+### Changed
+
+- ([#77]) Timestamp flagged attributes using Eloquent Model `$casts` property
+
+### Removed
+
+- ([#77]) Dropped Laravel 5.8 support
+- ([#77]) Dropped Laravel 6 support
+- ([#77]) Dropped Laravel 7 support
+- ([#77]) Dropped Laravel 8 support
+
 ## [5.4.0] - 2022-04-13
 
 ### Added
@@ -333,6 +348,7 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 [1.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.0.0...1.1.0
 
+[#77]: https://github.com/cybercog/laravel-eloquent-flag/pull/77
 [#74]: https://github.com/cybercog/laravel-eloquent-flag/pull/71
 [#71]: https://github.com/cybercog/laravel-eloquent-flag/pull/71
 [#69]: https://github.com/cybercog/laravel-eloquent-flag/pull/69
