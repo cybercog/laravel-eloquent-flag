@@ -5,7 +5,7 @@
 <p align="center">
 <a href="https://discord.gg/rBqKTVT"><img src="https://img.shields.io/static/v1?logo=discord&label=&message=Discord&color=36393f&style=flat-square" alt="Discord"></a>
 <a href="https://github.com/cybercog/laravel-eloquent-flag/releases"><img src="https://img.shields.io/github/release/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="Releases"></a>
-<a href="https://travis-ci.org/cybercog/laravel-eloquent-flag"><img src="https://img.shields.io/travis/cybercog/laravel-eloquent-flag/master.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://github.com/cybercog/laravel-eloquent-flag/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/cybercog/laravel-eloquent-flag/tests.yml?style=flat-square" alt="Build"></a>
 <a href="https://styleci.io/repos/69245607"><img src="https://styleci.io/repos/69245607/shield" alt="StyleCI"></a>
 <a href="https://scrutinizer-ci.com/g/cybercog/laravel-eloquent-flag/?branch=master"><img src="https://img.shields.io/scrutinizer/g/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="Code Quality"></a>
 <a href="https://github.com/cybercog/laravel-eloquent-flag/blob/master/LICENSE"><img src="https://img.shields.io/github/license/cybercog/laravel-eloquent-flag.svg?style=flat-square" alt="License"></a>
