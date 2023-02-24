@@ -4,6 +4,8 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+## [6.0.0] - 2023-02-24
+
 ### Added
 
 - ([#77]) Added Laravel 10 support
@@ -317,7 +319,8 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 - `is_active` boolean flag added.
 
-[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.4.0...master
+[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.0.0...master
+[6.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.4.0...6.0.0
 [5.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.3.0...5.4.0
 [5.3.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.2.0...5.3.0
 [5.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.1.2...5.2.0
