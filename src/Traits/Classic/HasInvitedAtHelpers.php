@@ -19,7 +19,7 @@ trait HasInvitedAtHelpers
 {
     public function initializeHasInvitedAtHelpers(): void
     {
-        $this->dates[] = 'invited_at';
+        $this->casts['invited_at'] = 'datetime';
     }
 
     public function isInvited(): bool

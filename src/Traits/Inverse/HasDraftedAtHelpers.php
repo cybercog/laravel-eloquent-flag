@@ -19,7 +19,7 @@ trait HasDraftedAtHelpers
 {
     public function initializeHasDraftedAtHelpers(): void
     {
-        $this->dates[] = 'drafted_at';
+        $this->casts['drafted_at'] = 'datetime';
     }
 
     public function isDrafted(): bool

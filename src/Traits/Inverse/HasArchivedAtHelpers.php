@@ -19,7 +19,7 @@ trait HasArchivedAtHelpers
 {
     public function initializeHasArchivedAtHelpers(): void
     {
-        $this->dates[] = 'archived_at';
+        $this->casts['archived_at'] = 'datetime';
     }
 
     public function isArchived(): bool

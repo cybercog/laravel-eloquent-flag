@@ -8,6 +8,10 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 - ([#77]) Added Laravel 10 support
 
+### Changed
+
+- ([#77]) Timestamp flagged attributes using Eloquent Model `$casts` property
+
 ### Removed
 
 - ([#77]) Dropped Laravel 5.8 support

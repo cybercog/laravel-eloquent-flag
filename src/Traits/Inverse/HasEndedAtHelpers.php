@@ -19,7 +19,7 @@ trait HasEndedAtHelpers
 {
     public function initializeHasEndedAtHelpers(): void
     {
-        $this->dates[] = 'ended_at';
+        $this->casts['ended_at'] = 'datetime';
     }
 
     public function isEnded(): bool

@@ -19,7 +19,7 @@ trait HasClosedAtHelpers
 {
     public function initializeHasClosedAtHelpers(): void
     {
-        $this->dates[] = 'closed_at';
+        $this->casts['closed_at'] = 'datetime';
     }
 
     public function isClosed(): bool

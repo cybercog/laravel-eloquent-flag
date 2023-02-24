@@ -19,7 +19,7 @@ trait HasPublishedAtHelpers
 {
     public function initializeHasPublishedAtHelpers(): void
     {
-        $this->dates[] = 'published_at';
+        $this->casts['published_at'] = 'datetime';
     }
 
     public function isPublished(): bool
