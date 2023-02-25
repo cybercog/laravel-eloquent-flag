@@ -19,8 +19,8 @@ use Illuminate\Database\Eloquent\Model;
 
 final class EntityWithAcceptedAt extends Model
 {
-    use HasFactory;
     use HasAcceptedAt;
+    use HasFactory;
 
     /**
      * The table associated with the model.

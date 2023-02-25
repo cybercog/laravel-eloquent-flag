@@ -23,10 +23,10 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithAcceptedFlag::class, 3)->create([
+        EntityWithAcceptedFlag::factory()->count(3)->create([
             'is_accepted' => true,
         ]);
-        factory(EntityWithAcceptedFlag::class, 2)->create([
+        EntityWithAcceptedFlag::factory()->count(2)->create([
             'is_accepted' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_accepted(): void
     {
-        factory(EntityWithAcceptedFlag::class, 3)->create([
+        EntityWithAcceptedFlag::factory()->count(3)->create([
             'is_accepted' => true,
         ]);
-        factory(EntityWithAcceptedFlag::class, 2)->create([
+        EntityWithAcceptedFlag::factory()->count(2)->create([
             'is_accepted' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_accepted(): void
     {
-        factory(EntityWithAcceptedFlag::class, 3)->create([
+        EntityWithAcceptedFlag::factory()->count(3)->create([
             'is_accepted' => true,
         ]);
-        factory(EntityWithAcceptedFlag::class, 2)->create([
+        EntityWithAcceptedFlag::factory()->count(2)->create([
             'is_accepted' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_accepted(): void
     {
-        factory(EntityWithAcceptedFlag::class, 3)->create([
+        EntityWithAcceptedFlag::factory()->count(3)->create([
             'is_accepted' => true,
         ]);
-        factory(EntityWithAcceptedFlag::class, 2)->create([
+        EntityWithAcceptedFlag::factory()->count(2)->create([
             'is_accepted' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_accept_model(): void
     {
-        $model = factory(EntityWithAcceptedFlag::class)->create([
+        $model = EntityWithAcceptedFlag::factory()->create([
             'is_accepted' => false,
         ]);
 
@@ -97,7 +97,7 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_accept_model(): void
     {
-        $model = factory(EntityWithAcceptedFlag::class)->create([
+        $model = EntityWithAcceptedFlag::factory()->create([
             'is_accepted' => true,
         ]);
 
@@ -111,10 +111,10 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithAcceptedFlag::class, 3)->create([
+        EntityWithAcceptedFlag::factory()->count(3)->create([
             'is_accepted' => true,
         ]);
-        factory(EntityWithAcceptedFlag::class, 2)->create([
+        EntityWithAcceptedFlag::factory()->count(2)->create([
             'is_accepted' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class AcceptedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithAcceptedFlag::class, 3)->create([
+        EntityWithAcceptedFlag::factory()->count(3)->create([
             'is_accepted' => true,
         ]);
-        factory(EntityWithAcceptedFlag::class, 2)->create([
+        EntityWithAcceptedFlag::factory()->count(2)->create([
             'is_accepted' => false,
         ]);
 

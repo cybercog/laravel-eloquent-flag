@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel Eloquent Flag.
+ * This file is part of Laravel Ban.
  *
  * (c) Anton Komarev <anton@komarev.com>
  *
@@ -11,13 +11,25 @@
 
 declare(strict_types=1);
 
-use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithAcceptedFlag;
-use Faker\Generator as Faker;
+namespace Cog\Tests\Laravel\Flag\Database\Factories;
 
-/* @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(EntityWithAcceptedFlag::class, function (Faker $faker) {
-    return [
-        'name' => $faker->word,
-        'is_accepted' => false,
-    ];
-});
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithAcceptedFlag;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+final class EntityWithAcceptedFlagFactory extends Factory
+{
+    protected $model = EntityWithAcceptedFlag::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => $this->faker->word(),
+            'is_accepted' => false,
+        ];
+    }
+}
