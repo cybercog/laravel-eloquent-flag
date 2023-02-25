@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithEndedAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithEndedAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class EndedAtScopeTest extends TestCase
@@ -24,10 +24,10 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithEndedAt::class, 3)->create([
+        EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 2)->create([
+        EntityWithEndedAt::factory()->count(2)->create([
             'ended_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_ended(): void
     {
-        factory(EntityWithEndedAt::class, 3)->create([
+        EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 2)->create([
+        EntityWithEndedAt::factory()->count(2)->create([
             'ended_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_ended(): void
     {
-        factory(EntityWithEndedAt::class, 3)->create([
+        EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 2)->create([
+        EntityWithEndedAt::factory()->count(2)->create([
             'ended_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_ended(): void
     {
-        factory(EntityWithEndedAt::class, 3)->create([
+        EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 2)->create([
+        EntityWithEndedAt::factory()->count(2)->create([
             'ended_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_end_model(): void
     {
-        $model = factory(EntityWithEndedAt::class)->create([
+        $model = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now()->subDay(),
         ]);
 
@@ -98,7 +98,7 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_end_model(): void
     {
-        $model = factory(EntityWithEndedAt::class)->create([
+        $model = EntityWithEndedAt::factory()->create([
             'ended_at' => null,
         ]);
 
@@ -112,10 +112,10 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithEndedAt::class, 3)->create([
+        EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 2)->create([
+        EntityWithEndedAt::factory()->count(2)->create([
             'ended_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class EndedAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithEndedAt::class, 3)->create([
+        EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithEndedAt::class, 2)->create([
+        EntityWithEndedAt::factory()->count(2)->create([
             'ended_at' => null,
         ]);
 

@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Traits\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithApprovedAt;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 
@@ -23,7 +23,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_approved_at_to_datetime(): void
     {
-        $entity = factory(EntityWithApprovedAt::class)->create([
+        $entity = EntityWithApprovedAt::factory()->create([
             'approved_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_approved(): void
     {
-        $approvedEntity = factory(EntityWithApprovedAt::class)->create([
+        $approvedEntity = EntityWithApprovedAt::factory()->create([
             'approved_at' => Date::now(),
         ]);
 
-        $disapprovedEntity = factory(EntityWithApprovedAt::class)->create([
+        $disapprovedEntity = EntityWithApprovedAt::factory()->create([
             'approved_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_approved(): void
     {
-        $approvedEntity = factory(EntityWithApprovedAt::class)->create([
+        $approvedEntity = EntityWithApprovedAt::factory()->create([
             'approved_at' => Date::now(),
         ]);
 
-        $disapprovedEntity = factory(EntityWithApprovedAt::class)->create([
+        $disapprovedEntity = EntityWithApprovedAt::factory()->create([
             'approved_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_approve(): void
     {
-        $entity = factory(EntityWithApprovedAt::class)->create([
+        $entity = EntityWithApprovedAt::factory()->create([
             'approved_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasApprovedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_approve(): void
     {
-        $entity = factory(EntityWithApprovedAt::class)->create([
+        $entity = EntityWithApprovedAt::factory()->create([
             'approved_at' => Date::now(),
         ]);
 

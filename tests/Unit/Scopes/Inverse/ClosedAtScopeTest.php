@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithClosedAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithClosedAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithClosedAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithClosedAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class ClosedAtScopeTest extends TestCase
@@ -24,10 +24,10 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithClosedAt::class, 3)->create([
+        EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithClosedAt::class, 2)->create([
+        EntityWithClosedAt::factory()->count(2)->create([
             'closed_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_closed(): void
     {
-        factory(EntityWithClosedAt::class, 3)->create([
+        EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithClosedAt::class, 2)->create([
+        EntityWithClosedAt::factory()->count(2)->create([
             'closed_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_closed(): void
     {
-        factory(EntityWithClosedAt::class, 3)->create([
+        EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithClosedAt::class, 2)->create([
+        EntityWithClosedAt::factory()->count(2)->create([
             'closed_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_closed(): void
     {
-        factory(EntityWithClosedAt::class, 3)->create([
+        EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithClosedAt::class, 2)->create([
+        EntityWithClosedAt::factory()->count(2)->create([
             'closed_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_close_model(): void
     {
-        $model = factory(EntityWithClosedAt::class)->create([
+        $model = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now()->subDay(),
         ]);
 
@@ -98,7 +98,7 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_can_close_model(): void
     {
-        $model = factory(EntityWithClosedAt::class)->create([
+        $model = EntityWithClosedAt::factory()->create([
             'closed_at' => null,
         ]);
 
@@ -112,10 +112,10 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_auto_apply(): void
     {
-        factory(EntityWithClosedAt::class, 3)->create([
+        EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithClosedAt::class, 2)->create([
+        EntityWithClosedAt::factory()->count(2)->create([
             'closed_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class ClosedAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithClosedAt::class, 3)->create([
+        EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithClosedAt::class, 2)->create([
+        EntityWithClosedAt::factory()->count(2)->create([
             'closed_at' => null,
         ]);
 

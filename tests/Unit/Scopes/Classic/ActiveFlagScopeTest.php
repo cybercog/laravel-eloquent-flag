@@ -11,22 +11,22 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithActiveFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithActiveFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithActiveFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class ActiveFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithActiveFlag::class, 3)->create([
+        EntityWithActiveFlag::factory()->count(3)->create([
             'is_active' => true,
         ]);
-        factory(EntityWithActiveFlag::class, 2)->create([
+        EntityWithActiveFlag::factory()->count(2)->create([
             'is_active' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class ActiveFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_activated(): void
     {
-        factory(EntityWithActiveFlag::class, 3)->create([
+        EntityWithActiveFlag::factory()->count(3)->create([
             'is_active' => true,
         ]);
-        factory(EntityWithActiveFlag::class, 2)->create([
+        EntityWithActiveFlag::factory()->count(2)->create([
             'is_active' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class ActiveFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_activated(): void
     {
-        factory(EntityWithActiveFlag::class, 3)->create([
+        EntityWithActiveFlag::factory()->count(3)->create([
             'is_active' => true,
         ]);
-        factory(EntityWithActiveFlag::class, 2)->create([
+        EntityWithActiveFlag::factory()->count(2)->create([
             'is_active' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class ActiveFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_activated(): void
     {
-        factory(EntityWithActiveFlag::class, 3)->create([
+        EntityWithActiveFlag::factory()->count(3)->create([
             'is_active' => true,
         ]);
-        factory(EntityWithActiveFlag::class, 2)->create([
+        EntityWithActiveFlag::factory()->count(2)->create([
             'is_active' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class ActiveFlagScopeTest extends TestCase
     /** @test */
     public function it_can_activate_model(): void
     {
-        $model = factory(EntityWithActiveFlag::class)->create([
+        $model = EntityWithActiveFlag::factory()->create([
             'is_active' => false,
         ]);
 
@@ -97,7 +97,7 @@ final class ActiveFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_activate_model(): void
     {
-        $model = factory(EntityWithActiveFlag::class)->create([
+        $model = EntityWithActiveFlag::factory()->create([
             'is_active' => true,
         ]);
 
@@ -111,10 +111,10 @@ final class ActiveFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithActiveFlag::class, 3)->create([
+        EntityWithActiveFlag::factory()->count(3)->create([
             'is_active' => true,
         ]);
-        factory(EntityWithActiveFlag::class, 2)->create([
+        EntityWithActiveFlag::factory()->count(2)->create([
             'is_active' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class ActiveFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithActiveFlag::class, 3)->create([
+        EntityWithActiveFlag::factory()->count(3)->create([
             'is_active' => true,
         ]);
-        factory(EntityWithActiveFlag::class, 2)->create([
+        EntityWithActiveFlag::factory()->count(2)->create([
             'is_active' => false,
         ]);
 

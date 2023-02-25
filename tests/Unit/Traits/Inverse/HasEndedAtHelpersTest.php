@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Traits\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithEndedAt;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 
@@ -23,7 +23,7 @@ final class HasEndedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_ended_at_to_datetime(): void
     {
-        $entity = factory(EntityWithEndedAt::class)->create([
+        $entity = EntityWithEndedAt::factory()->create([
             'ended_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasEndedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_ended(): void
     {
-        $endedEntity = factory(EntityWithEndedAt::class)->create([
+        $endedEntity = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now(),
         ]);
 
-        $unendedEntity = factory(EntityWithEndedAt::class)->create([
+        $unendedEntity = EntityWithEndedAt::factory()->create([
             'ended_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasEndedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_ended(): void
     {
-        $endedEntity = factory(EntityWithEndedAt::class)->create([
+        $endedEntity = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now(),
         ]);
 
-        $unendedEntity = factory(EntityWithEndedAt::class)->create([
+        $unendedEntity = EntityWithEndedAt::factory()->create([
             'ended_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasEndedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_end(): void
     {
-        $entity = factory(EntityWithEndedAt::class)->create([
+        $entity = EntityWithEndedAt::factory()->create([
             'ended_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasEndedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_end(): void
     {
-        $entity = factory(EntityWithEndedAt::class)->create([
+        $entity = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now(),
         ]);
 

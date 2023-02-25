@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithInvitedAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithInvitedAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class InvitedAtScopeTest extends TestCase
@@ -24,10 +24,10 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithInvitedAt::class, 3)->create([
+        EntityWithInvitedAt::factory()->count(3)->create([
             'invited_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithInvitedAt::class, 2)->create([
+        EntityWithInvitedAt::factory()->count(2)->create([
             'invited_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_invited(): void
     {
-        factory(EntityWithInvitedAt::class, 3)->create([
+        EntityWithInvitedAt::factory()->count(3)->create([
             'invited_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithInvitedAt::class, 2)->create([
+        EntityWithInvitedAt::factory()->count(2)->create([
             'invited_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_invited(): void
     {
-        factory(EntityWithInvitedAt::class, 3)->create([
+        EntityWithInvitedAt::factory()->count(3)->create([
             'invited_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithInvitedAt::class, 2)->create([
+        EntityWithInvitedAt::factory()->count(2)->create([
             'invited_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_invited(): void
     {
-        factory(EntityWithInvitedAt::class, 3)->create([
+        EntityWithInvitedAt::factory()->count(3)->create([
             'invited_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithInvitedAt::class, 2)->create([
+        EntityWithInvitedAt::factory()->count(2)->create([
             'invited_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_can_invite_model(): void
     {
-        $model = factory(EntityWithInvitedAt::class)->create([
+        $model = EntityWithInvitedAt::factory()->create([
             'invited_at' => null,
         ]);
 
@@ -98,7 +98,7 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_invite_model(): void
     {
-        $model = factory(EntityWithInvitedAt::class)->create([
+        $model = EntityWithInvitedAt::factory()->create([
             'invited_at' => Date::now()->subDay(),
         ]);
 
@@ -112,10 +112,10 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithInvitedAt::class, 3)->create([
+        EntityWithInvitedAt::factory()->count(3)->create([
             'invited_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithInvitedAt::class, 2)->create([
+        EntityWithInvitedAt::factory()->count(2)->create([
             'invited_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class InvitedAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithInvitedAt::class, 3)->create([
+        EntityWithInvitedAt::factory()->count(3)->create([
             'invited_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithInvitedAt::class, 2)->create([
+        EntityWithInvitedAt::factory()->count(2)->create([
             'invited_at' => null,
         ]);
 

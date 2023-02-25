@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Traits\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 
@@ -23,7 +23,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_archived_at_to_datetime(): void
     {
-        $entity = factory(EntityWithArchivedAt::class)->create([
+        $entity = EntityWithArchivedAt::factory()->create([
             'archived_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasArchivedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_archived(): void
     {
-        $archivedEntity = factory(EntityWithArchivedAt::class)->create([
+        $archivedEntity = EntityWithArchivedAt::factory()->create([
             'archived_at' => Date::now(),
         ]);
 
-        $unarchivedEntity = factory(EntityWithArchivedAt::class)->create([
+        $unarchivedEntity = EntityWithArchivedAt::factory()->create([
             'archived_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasArchivedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_archived(): void
     {
-        $archivedEntity = factory(EntityWithArchivedAt::class)->create([
+        $archivedEntity = EntityWithArchivedAt::factory()->create([
             'archived_at' => Date::now(),
         ]);
 
-        $unarchivedEntity = factory(EntityWithArchivedAt::class)->create([
+        $unarchivedEntity = EntityWithArchivedAt::factory()->create([
             'archived_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_archive(): void
     {
-        $entity = factory(EntityWithArchivedAt::class)->create([
+        $entity = EntityWithArchivedAt::factory()->create([
             'archived_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasArchivedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_archive(): void
     {
-        $entity = factory(EntityWithArchivedAt::class)->create([
+        $entity = EntityWithArchivedAt::factory()->create([
             'archived_at' => Date::now(),
         ]);
 

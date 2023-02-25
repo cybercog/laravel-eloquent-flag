@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Traits\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasKeptFlagBehaviorTest extends TestCase
 {
@@ -32,7 +32,7 @@ final class HasKeptFlagBehaviorTest extends TestCase
     /** @test */
     public function it_sets_is_kept_true_on_any_update(): void
     {
-        $entity = factory(EntityWithKeptFlag::class)->create([
+        $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,
         ]);
 

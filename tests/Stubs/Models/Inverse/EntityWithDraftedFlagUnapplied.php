@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Stubs\Models\Inverse;
+namespace Cog\Tests\Laravel\Flag\Stubs\Models\Inverse;
 
 use Cog\Flag\Traits\Inverse\HasDraftedFlag;
 use Illuminate\Database\Eloquent\Model;

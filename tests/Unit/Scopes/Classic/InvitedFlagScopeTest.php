@@ -11,22 +11,22 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithInvitedFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithInvitedFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithInvitedFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class InvitedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithInvitedFlag::class, 3)->create([
+        EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
         ]);
-        factory(EntityWithInvitedFlag::class, 2)->create([
+        EntityWithInvitedFlag::factory()->count(2)->create([
             'is_invited' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class InvitedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_invited(): void
     {
-        factory(EntityWithInvitedFlag::class, 3)->create([
+        EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
         ]);
-        factory(EntityWithInvitedFlag::class, 2)->create([
+        EntityWithInvitedFlag::factory()->count(2)->create([
             'is_invited' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class InvitedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_invited(): void
     {
-        factory(EntityWithInvitedFlag::class, 3)->create([
+        EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
         ]);
-        factory(EntityWithInvitedFlag::class, 2)->create([
+        EntityWithInvitedFlag::factory()->count(2)->create([
             'is_invited' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class InvitedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_invited(): void
     {
-        factory(EntityWithInvitedFlag::class, 3)->create([
+        EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
         ]);
-        factory(EntityWithInvitedFlag::class, 2)->create([
+        EntityWithInvitedFlag::factory()->count(2)->create([
             'is_invited' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class InvitedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_invite_model(): void
     {
-        $model = factory(EntityWithInvitedFlag::class)->create([
+        $model = EntityWithInvitedFlag::factory()->create([
             'is_invited' => false,
         ]);
 
@@ -97,7 +97,7 @@ final class InvitedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_invite_model(): void
     {
-        $model = factory(EntityWithInvitedFlag::class)->create([
+        $model = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,
         ]);
 
@@ -111,10 +111,10 @@ final class InvitedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithInvitedFlag::class, 3)->create([
+        EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
         ]);
-        factory(EntityWithInvitedFlag::class, 2)->create([
+        EntityWithInvitedFlag::factory()->count(2)->create([
             'is_invited' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class InvitedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithInvitedFlag::class, 3)->create([
+        EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
         ]);
-        factory(EntityWithInvitedFlag::class, 2)->create([
+        EntityWithInvitedFlag::factory()->count(2)->create([
             'is_invited' => false,
         ]);
 

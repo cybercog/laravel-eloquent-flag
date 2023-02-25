@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Traits\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithInvitedAt;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 
@@ -23,7 +23,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_invited_at_to_datetime(): void
     {
-        $entity = factory(EntityWithInvitedAt::class)->create([
+        $entity = EntityWithInvitedAt::factory()->create([
             'invited_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasInvitedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_invited(): void
     {
-        $invitedEntity = factory(EntityWithInvitedAt::class)->create([
+        $invitedEntity = EntityWithInvitedAt::factory()->create([
             'invited_at' => Date::now(),
         ]);
 
-        $uninvitedEntity = factory(EntityWithInvitedAt::class)->create([
+        $uninvitedEntity = EntityWithInvitedAt::factory()->create([
             'invited_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasInvitedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_invited(): void
     {
-        $invitedEntity = factory(EntityWithInvitedAt::class)->create([
+        $invitedEntity = EntityWithInvitedAt::factory()->create([
             'invited_at' => Date::now(),
         ]);
 
-        $uninvitedEntity = factory(EntityWithInvitedAt::class)->create([
+        $uninvitedEntity = EntityWithInvitedAt::factory()->create([
             'invited_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_invite(): void
     {
-        $entity = factory(EntityWithInvitedAt::class)->create([
+        $entity = EntityWithInvitedAt::factory()->create([
             'invited_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasInvitedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_invite(): void
     {
-        $entity = factory(EntityWithInvitedAt::class)->create([
+        $entity = EntityWithInvitedAt::factory()->create([
             'invited_at' => Date::now(),
         ]);
 

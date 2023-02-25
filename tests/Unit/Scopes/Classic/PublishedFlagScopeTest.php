@@ -11,22 +11,22 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlag;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithPublishedFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithPublishedFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithPublishedFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class PublishedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithPublishedFlag::class, 3)->create([
+        EntityWithPublishedFlag::factory()->count(3)->create([
             'is_published' => true,
         ]);
-        factory(EntityWithPublishedFlag::class, 2)->create([
+        EntityWithPublishedFlag::factory()->count(2)->create([
             'is_published' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class PublishedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_published(): void
     {
-        factory(EntityWithPublishedFlag::class, 3)->create([
+        EntityWithPublishedFlag::factory()->count(3)->create([
             'is_published' => true,
         ]);
-        factory(EntityWithPublishedFlag::class, 2)->create([
+        EntityWithPublishedFlag::factory()->count(2)->create([
             'is_published' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class PublishedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_published(): void
     {
-        factory(EntityWithPublishedFlag::class, 3)->create([
+        EntityWithPublishedFlag::factory()->count(3)->create([
             'is_published' => true,
         ]);
-        factory(EntityWithPublishedFlag::class, 2)->create([
+        EntityWithPublishedFlag::factory()->count(2)->create([
             'is_published' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class PublishedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_published(): void
     {
-        factory(EntityWithPublishedFlag::class, 3)->create([
+        EntityWithPublishedFlag::factory()->count(3)->create([
             'is_published' => true,
         ]);
-        factory(EntityWithPublishedFlag::class, 2)->create([
+        EntityWithPublishedFlag::factory()->count(2)->create([
             'is_published' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class PublishedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_publish_model(): void
     {
-        $model = factory(EntityWithPublishedFlag::class)->create([
+        $model = EntityWithPublishedFlag::factory()->create([
             'is_published' => false,
         ]);
 
@@ -97,7 +97,7 @@ final class PublishedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_publish_model(): void
     {
-        $model = factory(EntityWithPublishedFlag::class)->create([
+        $model = EntityWithPublishedFlag::factory()->create([
             'is_published' => true,
         ]);
 
@@ -111,10 +111,10 @@ final class PublishedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithPublishedFlag::class, 3)->create([
+        EntityWithPublishedFlag::factory()->count(3)->create([
             'is_published' => true,
         ]);
-        factory(EntityWithPublishedFlag::class, 2)->create([
+        EntityWithPublishedFlag::factory()->count(2)->create([
             'is_published' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class PublishedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithPublishedFlag::class, 3)->create([
+        EntityWithPublishedFlag::factory()->count(3)->create([
             'is_published' => true,
         ]);
-        factory(EntityWithPublishedFlag::class, 2)->create([
+        EntityWithPublishedFlag::factory()->count(2)->create([
             'is_published' => false,
         ]);
 

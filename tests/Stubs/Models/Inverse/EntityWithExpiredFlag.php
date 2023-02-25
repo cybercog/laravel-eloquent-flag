@@ -11,14 +11,16 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Stubs\Models\Inverse;
+namespace Cog\Tests\Laravel\Flag\Stubs\Models\Inverse;
 
 use Cog\Flag\Traits\Inverse\HasExpiredFlag;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 final class EntityWithExpiredFlag extends Model
 {
     use HasExpiredFlag;
+    use HasFactory;
 
     /**
      * The table associated with the model.

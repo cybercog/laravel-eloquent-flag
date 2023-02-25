@@ -11,14 +11,16 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Stubs\Models\Inverse;
+namespace Cog\Tests\Laravel\Flag\Stubs\Models\Inverse;
 
 use Cog\Flag\Traits\Inverse\HasClosedFlag;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 final class EntityWithClosedFlag extends Model
 {
     use HasClosedFlag;
+    use HasFactory;
 
     /**
      * The table associated with the model.

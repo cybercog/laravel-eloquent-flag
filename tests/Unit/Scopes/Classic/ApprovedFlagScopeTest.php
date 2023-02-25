@@ -11,22 +11,22 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlag;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithApprovedFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithApprovedFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithApprovedFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class ApprovedFlagScopeTest extends TestCase
 {
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithApprovedFlag::class, 3)->create([
+        EntityWithApprovedFlag::factory()->count(3)->create([
             'is_approved' => true,
         ]);
-        factory(EntityWithApprovedFlag::class, 2)->create([
+        EntityWithApprovedFlag::factory()->count(2)->create([
             'is_approved' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class ApprovedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_approved(): void
     {
-        factory(EntityWithApprovedFlag::class, 3)->create([
+        EntityWithApprovedFlag::factory()->count(3)->create([
             'is_approved' => true,
         ]);
-        factory(EntityWithApprovedFlag::class, 2)->create([
+        EntityWithApprovedFlag::factory()->count(2)->create([
             'is_approved' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class ApprovedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_approved(): void
     {
-        factory(EntityWithApprovedFlag::class, 3)->create([
+        EntityWithApprovedFlag::factory()->count(3)->create([
             'is_approved' => true,
         ]);
-        factory(EntityWithApprovedFlag::class, 2)->create([
+        EntityWithApprovedFlag::factory()->count(2)->create([
             'is_approved' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class ApprovedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_approved(): void
     {
-        factory(EntityWithApprovedFlag::class, 3)->create([
+        EntityWithApprovedFlag::factory()->count(3)->create([
             'is_approved' => true,
         ]);
-        factory(EntityWithApprovedFlag::class, 2)->create([
+        EntityWithApprovedFlag::factory()->count(2)->create([
             'is_approved' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class ApprovedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_approve_model(): void
     {
-        $model = factory(EntityWithApprovedFlag::class)->create([
+        $model = EntityWithApprovedFlag::factory()->create([
             'is_approved' => false,
         ]);
 
@@ -97,7 +97,7 @@ final class ApprovedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_approve_model(): void
     {
-        $model = factory(EntityWithApprovedFlag::class)->create([
+        $model = EntityWithApprovedFlag::factory()->create([
             'is_approved' => true,
         ]);
 
@@ -111,10 +111,10 @@ final class ApprovedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithApprovedFlag::class, 3)->create([
+        EntityWithApprovedFlag::factory()->count(3)->create([
             'is_approved' => true,
         ]);
-        factory(EntityWithApprovedFlag::class, 2)->create([
+        EntityWithApprovedFlag::factory()->count(2)->create([
             'is_approved' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class ApprovedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithApprovedFlag::class, 3)->create([
+        EntityWithApprovedFlag::factory()->count(3)->create([
             'is_approved' => true,
         ]);
-        factory(EntityWithApprovedFlag::class, 2)->create([
+        EntityWithApprovedFlag::factory()->count(2)->create([
             'is_approved' => false,
         ]);
 
