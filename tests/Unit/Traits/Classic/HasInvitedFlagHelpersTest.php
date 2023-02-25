@@ -21,7 +21,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
     /** @test */
     public function it_casts_is_invited_to_boolean(): void
     {
-        $entity = factory(EntityWithInvitedFlag::class)->create([
+        $entity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => 1,
         ]);
 
@@ -31,7 +31,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
     /** @test */
     public function it_not_casts_is_invited_to_boolean(): void
     {
-        $entity = factory(EntityWithInvitedFlag::class)->make([
+        $entity = EntityWithInvitedFlag::factory()->make([
             'is_invited' => null,
         ]);
 
@@ -41,11 +41,11 @@ final class HasInvitedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_invited(): void
     {
-        $invitedEntity = factory(EntityWithInvitedFlag::class)->create([
+        $invitedEntity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,
         ]);
 
-        $uninvitedEntity = factory(EntityWithInvitedFlag::class)->create([
+        $uninvitedEntity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => false,
         ]);
 
@@ -56,11 +56,11 @@ final class HasInvitedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_invited(): void
     {
-        $invitedEntity = factory(EntityWithInvitedFlag::class)->create([
+        $invitedEntity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,
         ]);
 
-        $uninvitedEntity = factory(EntityWithInvitedFlag::class)->create([
+        $uninvitedEntity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => false,
         ]);
 
@@ -71,7 +71,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_invite(): void
     {
-        $entity = factory(EntityWithInvitedFlag::class)->create([
+        $entity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_invite(): void
     {
-        $entity = factory(EntityWithInvitedFlag::class)->create([
+        $entity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,
         ]);
 

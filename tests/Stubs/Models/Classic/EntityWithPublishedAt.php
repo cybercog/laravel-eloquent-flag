@@ -14,10 +14,12 @@ declare(strict_types=1);
 namespace Cog\Tests\Laravel\Flag\Stubs\Models\Classic;
 
 use Cog\Flag\Traits\Classic\HasPublishedAt;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 final class EntityWithPublishedAt extends Model
 {
+    use HasFactory;
     use HasPublishedAt;
 
     /**

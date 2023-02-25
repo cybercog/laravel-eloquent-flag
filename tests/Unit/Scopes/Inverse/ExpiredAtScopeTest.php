@@ -24,10 +24,10 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithExpiredAt::class, 3)->create([
+        EntityWithExpiredAt::factory()->count(3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 2)->create([
+        EntityWithExpiredAt::factory()->count(2)->create([
             'expired_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_expired(): void
     {
-        factory(EntityWithExpiredAt::class, 3)->create([
+        EntityWithExpiredAt::factory()->count(3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 2)->create([
+        EntityWithExpiredAt::factory()->count(2)->create([
             'expired_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_expired(): void
     {
-        factory(EntityWithExpiredAt::class, 3)->create([
+        EntityWithExpiredAt::factory()->count(3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 2)->create([
+        EntityWithExpiredAt::factory()->count(2)->create([
             'expired_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_expired(): void
     {
-        factory(EntityWithExpiredAt::class, 3)->create([
+        EntityWithExpiredAt::factory()->count(3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 2)->create([
+        EntityWithExpiredAt::factory()->count(2)->create([
             'expired_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_expire_model(): void
     {
-        $model = factory(EntityWithExpiredAt::class)->create([
+        $model = EntityWithExpiredAt::factory()->create([
             'expired_at' => Date::now()->subDay(),
         ]);
 
@@ -98,7 +98,7 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_expire_model(): void
     {
-        $model = factory(EntityWithExpiredAt::class)->create([
+        $model = EntityWithExpiredAt::factory()->create([
             'expired_at' => null,
         ]);
 
@@ -112,10 +112,10 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithExpiredAt::class, 3)->create([
+        EntityWithExpiredAt::factory()->count(3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 2)->create([
+        EntityWithExpiredAt::factory()->count(2)->create([
             'expired_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class ExpiredAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithExpiredAt::class, 3)->create([
+        EntityWithExpiredAt::factory()->count(3)->create([
             'expired_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithExpiredAt::class, 2)->create([
+        EntityWithExpiredAt::factory()->count(2)->create([
             'expired_at' => null,
         ]);
 

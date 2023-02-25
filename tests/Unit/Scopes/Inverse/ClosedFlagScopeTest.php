@@ -23,10 +23,10 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithClosedFlag::class, 3)->create([
+        EntityWithClosedFlag::factory()->count(3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 2)->create([
+        EntityWithClosedFlag::factory()->count(2)->create([
             'is_closed' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_closed(): void
     {
-        factory(EntityWithClosedFlag::class, 3)->create([
+        EntityWithClosedFlag::factory()->count(3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 2)->create([
+        EntityWithClosedFlag::factory()->count(2)->create([
             'is_closed' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_closed(): void
     {
-        factory(EntityWithClosedFlag::class, 3)->create([
+        EntityWithClosedFlag::factory()->count(3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 2)->create([
+        EntityWithClosedFlag::factory()->count(2)->create([
             'is_closed' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_closed(): void
     {
-        factory(EntityWithClosedFlag::class, 3)->create([
+        EntityWithClosedFlag::factory()->count(3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 2)->create([
+        EntityWithClosedFlag::factory()->count(2)->create([
             'is_closed' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_close_model(): void
     {
-        $model = factory(EntityWithClosedFlag::class)->create([
+        $model = EntityWithClosedFlag::factory()->create([
             'is_closed' => true,
         ]);
 
@@ -97,7 +97,7 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_close_model(): void
     {
-        $model = factory(EntityWithClosedFlag::class)->create([
+        $model = EntityWithClosedFlag::factory()->create([
             'is_closed' => false,
         ]);
 
@@ -111,10 +111,10 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_auto_apply(): void
     {
-        factory(EntityWithClosedFlag::class, 3)->create([
+        EntityWithClosedFlag::factory()->count(3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 2)->create([
+        EntityWithClosedFlag::factory()->count(2)->create([
             'is_closed' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class ClosedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithClosedFlag::class, 3)->create([
+        EntityWithClosedFlag::factory()->count(3)->create([
             'is_closed' => true,
         ]);
-        factory(EntityWithClosedFlag::class, 2)->create([
+        EntityWithClosedFlag::factory()->count(2)->create([
             'is_closed' => false,
         ]);
 

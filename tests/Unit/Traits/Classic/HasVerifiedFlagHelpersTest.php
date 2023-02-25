@@ -21,7 +21,7 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     /** @test */
     public function it_casts_is_verified_to_boolean(): void
     {
-        $entity = factory(EntityWithVerifiedFlag::class)->create([
+        $entity = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => 1,
         ]);
 
@@ -31,7 +31,7 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     /** @test */
     public function it_not_casts_is_verified_to_boolean(): void
     {
-        $entity = factory(EntityWithVerifiedFlag::class)->make([
+        $entity = EntityWithVerifiedFlag::factory()->make([
             'is_verified' => null,
         ]);
 
@@ -41,11 +41,11 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_verified(): void
     {
-        $verifiedEntity = factory(EntityWithVerifiedFlag::class)->create([
+        $verifiedEntity = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => true,
         ]);
 
-        $unverifiedEntity = factory(EntityWithVerifiedFlag::class)->create([
+        $unverifiedEntity = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => false,
         ]);
 
@@ -56,11 +56,11 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_verified(): void
     {
-        $verifiedEntity = factory(EntityWithVerifiedFlag::class)->create([
+        $verifiedEntity = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => true,
         ]);
 
-        $unverifiedEntity = factory(EntityWithVerifiedFlag::class)->create([
+        $unverifiedEntity = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => false,
         ]);
 
@@ -71,7 +71,7 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_verify(): void
     {
-        $entity = factory(EntityWithVerifiedFlag::class)->create([
+        $entity = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class HasVerifiedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_verify(): void
     {
-        $entity = factory(EntityWithVerifiedFlag::class)->create([
+        $entity = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => true,
         ]);
 

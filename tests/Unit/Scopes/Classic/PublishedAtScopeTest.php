@@ -24,10 +24,10 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithPublishedAt::class, 3)->create([
+        EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithPublishedAt::class, 2)->create([
+        EntityWithPublishedAt::factory()->count(2)->create([
             'published_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_published(): void
     {
-        factory(EntityWithPublishedAt::class, 3)->create([
+        EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithPublishedAt::class, 2)->create([
+        EntityWithPublishedAt::factory()->count(2)->create([
             'published_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_published(): void
     {
-        factory(EntityWithPublishedAt::class, 3)->create([
+        EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithPublishedAt::class, 2)->create([
+        EntityWithPublishedAt::factory()->count(2)->create([
             'published_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_published(): void
     {
-        factory(EntityWithPublishedAt::class, 3)->create([
+        EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithPublishedAt::class, 2)->create([
+        EntityWithPublishedAt::factory()->count(2)->create([
             'published_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_can_publish_model(): void
     {
-        $model = factory(EntityWithPublishedAt::class)->create([
+        $model = EntityWithPublishedAt::factory()->create([
             'published_at' => null,
         ]);
 
@@ -98,7 +98,7 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_publish_model(): void
     {
-        $model = factory(EntityWithPublishedAt::class)->create([
+        $model = EntityWithPublishedAt::factory()->create([
             'published_at' => Date::now()->subDay(),
         ]);
 
@@ -112,10 +112,10 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithPublishedAt::class, 3)->create([
+        EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithPublishedAt::class, 2)->create([
+        EntityWithPublishedAt::factory()->count(2)->create([
             'published_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class PublishedAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithPublishedAt::class, 3)->create([
+        EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithPublishedAt::class, 2)->create([
+        EntityWithPublishedAt::factory()->count(2)->create([
             'published_at' => null,
         ]);
 

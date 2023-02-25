@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Laravel Eloquent Flag.
+ * This file is part of Laravel Ban.
  *
  * (c) Anton Komarev <anton@komarev.com>
  *
@@ -11,13 +11,25 @@
 
 declare(strict_types=1);
 
-use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
-use Faker\Generator as Faker;
+namespace Cog\Tests\Laravel\Flag\Database\Factories;
 
-/* @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(EntityWithArchivedAt::class, function (Faker $faker) {
-    return [
-        'name' => $faker->word,
-        'archived_at' => null,
-    ];
-});
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+final class EntityWithArchivedAtFactory extends Factory
+{
+    protected $model = EntityWithArchivedAt::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => $this->faker->word(),
+            'archived_at' => null,
+        ];
+    }
+}

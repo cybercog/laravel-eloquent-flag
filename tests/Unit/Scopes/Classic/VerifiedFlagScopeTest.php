@@ -23,10 +23,10 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithVerifiedFlag::class, 3)->create([
+        EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
         ]);
-        factory(EntityWithVerifiedFlag::class, 2)->create([
+        EntityWithVerifiedFlag::factory()->count(2)->create([
             'is_verified' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_verified(): void
     {
-        factory(EntityWithVerifiedFlag::class, 3)->create([
+        EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
         ]);
-        factory(EntityWithVerifiedFlag::class, 2)->create([
+        EntityWithVerifiedFlag::factory()->count(2)->create([
             'is_verified' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_verified(): void
     {
-        factory(EntityWithVerifiedFlag::class, 3)->create([
+        EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
         ]);
-        factory(EntityWithVerifiedFlag::class, 2)->create([
+        EntityWithVerifiedFlag::factory()->count(2)->create([
             'is_verified' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_verified(): void
     {
-        factory(EntityWithVerifiedFlag::class, 3)->create([
+        EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
         ]);
-        factory(EntityWithVerifiedFlag::class, 2)->create([
+        EntityWithVerifiedFlag::factory()->count(2)->create([
             'is_verified' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_verify_model(): void
     {
-        $model = factory(EntityWithVerifiedFlag::class)->create([
+        $model = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => false,
         ]);
 
@@ -97,7 +97,7 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_verify_model(): void
     {
-        $model = factory(EntityWithVerifiedFlag::class)->create([
+        $model = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => true,
         ]);
 
@@ -111,10 +111,10 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithVerifiedFlag::class, 3)->create([
+        EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
         ]);
-        factory(EntityWithVerifiedFlag::class, 2)->create([
+        EntityWithVerifiedFlag::factory()->count(2)->create([
             'is_verified' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class VerifiedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithVerifiedFlag::class, 3)->create([
+        EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
         ]);
-        factory(EntityWithVerifiedFlag::class, 2)->create([
+        EntityWithVerifiedFlag::factory()->count(2)->create([
             'is_verified' => false,
         ]);
 

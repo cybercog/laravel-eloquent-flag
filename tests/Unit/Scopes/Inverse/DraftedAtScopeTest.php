@@ -24,10 +24,10 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithDraftedAt::class, 3)->create([
+        EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 2)->create([
+        EntityWithDraftedAt::factory()->count(2)->create([
             'drafted_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 3)->create([
+        EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 2)->create([
+        EntityWithDraftedAt::factory()->count(2)->create([
             'drafted_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 3)->create([
+        EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 2)->create([
+        EntityWithDraftedAt::factory()->count(2)->create([
             'drafted_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_drafted(): void
     {
-        factory(EntityWithDraftedAt::class, 3)->create([
+        EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 2)->create([
+        EntityWithDraftedAt::factory()->count(2)->create([
             'drafted_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_draft_model(): void
     {
-        $model = factory(EntityWithDraftedAt::class)->create([
+        $model = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
 
@@ -98,7 +98,7 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_draft_model(): void
     {
-        $model = factory(EntityWithDraftedAt::class)->create([
+        $model = EntityWithDraftedAt::factory()->create([
             'drafted_at' => null,
         ]);
 
@@ -112,10 +112,10 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithDraftedAt::class, 3)->create([
+        EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 2)->create([
+        EntityWithDraftedAt::factory()->count(2)->create([
             'drafted_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class DraftedAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithDraftedAt::class, 3)->create([
+        EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithDraftedAt::class, 2)->create([
+        EntityWithDraftedAt::factory()->count(2)->create([
             'drafted_at' => null,
         ]);
 

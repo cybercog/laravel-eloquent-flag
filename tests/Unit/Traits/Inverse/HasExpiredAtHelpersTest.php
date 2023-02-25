@@ -23,7 +23,7 @@ final class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_expired_at_to_datetime(): void
     {
-        $entity = factory(EntityWithExpiredAt::class)->create([
+        $entity = EntityWithExpiredAt::factory()->create([
             'expired_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_expired(): void
     {
-        $expiredEntity = factory(EntityWithExpiredAt::class)->create([
+        $expiredEntity = EntityWithExpiredAt::factory()->create([
             'expired_at' => Date::now(),
         ]);
 
-        $unexpiredEntity = factory(EntityWithExpiredAt::class)->create([
+        $unexpiredEntity = EntityWithExpiredAt::factory()->create([
             'expired_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_expired(): void
     {
-        $expiredEntity = factory(EntityWithExpiredAt::class)->create([
+        $expiredEntity = EntityWithExpiredAt::factory()->create([
             'expired_at' => Date::now(),
         ]);
 
-        $unexpiredEntity = factory(EntityWithExpiredAt::class)->create([
+        $unexpiredEntity = EntityWithExpiredAt::factory()->create([
             'expired_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_expire(): void
     {
-        $entity = factory(EntityWithExpiredAt::class)->create([
+        $entity = EntityWithExpiredAt::factory()->create([
             'expired_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasExpiredAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_expire(): void
     {
-        $entity = factory(EntityWithExpiredAt::class)->create([
+        $entity = EntityWithExpiredAt::factory()->create([
             'expired_at' => Date::now(),
         ]);
 

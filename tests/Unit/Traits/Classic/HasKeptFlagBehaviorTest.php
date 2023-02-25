@@ -32,7 +32,7 @@ final class HasKeptFlagBehaviorTest extends TestCase
     /** @test */
     public function it_sets_is_kept_true_on_any_update(): void
     {
-        $entity = factory(EntityWithKeptFlag::class)->create([
+        $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,
         ]);
 

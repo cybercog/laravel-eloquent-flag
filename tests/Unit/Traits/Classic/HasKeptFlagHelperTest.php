@@ -22,7 +22,7 @@ final class HasKeptFlagHelperTest extends TestCase
     /** @test */
     public function it_casts_is_kept_to_boolean(): void
     {
-        $entity = factory(EntityWithKeptFlag::class)->create([
+        $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => 1,
         ]);
 
@@ -32,7 +32,7 @@ final class HasKeptFlagHelperTest extends TestCase
     /** @test */
     public function it_not_casts_is_kept_to_boolean(): void
     {
-        $entity = factory(EntityWithKeptFlag::class)->make([
+        $entity = EntityWithKeptFlag::factory()->make([
             'is_kept' => null,
         ]);
 
@@ -42,11 +42,11 @@ final class HasKeptFlagHelperTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_kept(): void
     {
-        $keptEntity = factory(EntityWithKeptFlag::class)->create([
+        $keptEntity = EntityWithKeptFlag::factory()->create([
             'is_kept' => true,
         ]);
 
-        $unkeptEntity = factory(EntityWithKeptFlag::class)->create([
+        $unkeptEntity = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,
         ]);
 
@@ -57,11 +57,11 @@ final class HasKeptFlagHelperTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_kept(): void
     {
-        $keptEntity = factory(EntityWithKeptFlag::class)->create([
+        $keptEntity = EntityWithKeptFlag::factory()->create([
             'is_kept' => true,
         ]);
 
-        $unkeptEntity = factory(EntityWithKeptFlag::class)->create([
+        $unkeptEntity = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,
         ]);
 
@@ -72,7 +72,7 @@ final class HasKeptFlagHelperTest extends TestCase
     /** @test */
     public function it_can_keep(): void
     {
-        $entity = factory(EntityWithKeptFlag::class)->create([
+        $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,
         ]);
 
@@ -84,7 +84,7 @@ final class HasKeptFlagHelperTest extends TestCase
     /** @test */
     public function it_can_undo_keep(): void
     {
-        $entity = factory(EntityWithKeptFlag::class)->create([
+        $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => true,
         ]);
 
@@ -96,19 +96,19 @@ final class HasKeptFlagHelperTest extends TestCase
     /** @test */
     public function it_can_get_unkept_older_than_hours(): void
     {
-        factory(EntityWithKeptFlag::class, 3)->create([
+        EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,
             'created_at' => Date::now()->subHours(4)->toDateTimeString(),
         ]);
-        factory(EntityWithKeptFlag::class, 2)->create([
+        EntityWithKeptFlag::factory()->count(2)->create([
             'is_kept' => false,
             'created_at' => Date::now()->subHours(4)->toDateTimeString(),
         ]);
-        factory(EntityWithKeptFlag::class, 2)->create([
+        EntityWithKeptFlag::factory()->count(2)->create([
             'is_kept' => false,
             'created_at' => Date::now()->subHours(2)->toDateTimeString(),
         ]);
-        factory(EntityWithKeptFlag::class, 2)->create([
+        EntityWithKeptFlag::factory()->count(2)->create([
             'is_kept' => false,
         ]);
 

@@ -14,11 +14,13 @@ declare(strict_types=1);
 namespace Cog\Tests\Laravel\Flag\Stubs\Models\Classic;
 
 use Cog\Flag\Traits\Classic\HasApprovedFlag;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 final class EntityWithApprovedFlag extends Model
 {
     use HasApprovedFlag;
+    use HasFactory;
 
     /**
      * The table associated with the model.

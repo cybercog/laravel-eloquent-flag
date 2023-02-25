@@ -23,7 +23,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_verified_at_to_datetime(): void
     {
-        $entity = factory(EntityWithVerifiedAt::class)->create([
+        $entity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_verified(): void
     {
-        $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
+        $verifiedEntity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => Date::now(),
         ]);
 
-        $unverifiedEntity = factory(EntityWithVerifiedAt::class)->create([
+        $unverifiedEntity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_verified(): void
     {
-        $verifiedEntity = factory(EntityWithVerifiedAt::class)->create([
+        $verifiedEntity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => Date::now(),
         ]);
 
-        $unverifiedEntity = factory(EntityWithVerifiedAt::class)->create([
+        $unverifiedEntity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_verify(): void
     {
-        $entity = factory(EntityWithVerifiedAt::class)->create([
+        $entity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_verify(): void
     {
-        $entity = factory(EntityWithVerifiedAt::class)->create([
+        $entity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => Date::now(),
         ]);
 

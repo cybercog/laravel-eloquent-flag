@@ -23,7 +23,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_drafted_at_to_datetime(): void
     {
-        $entity = factory(EntityWithDraftedAt::class)->create([
+        $entity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasDraftedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_drafted(): void
     {
-        $draftedEntity = factory(EntityWithDraftedAt::class)->create([
+        $draftedEntity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now(),
         ]);
 
-        $undraftedEntity = factory(EntityWithDraftedAt::class)->create([
+        $undraftedEntity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasDraftedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_drafted(): void
     {
-        $draftedEntity = factory(EntityWithDraftedAt::class)->create([
+        $draftedEntity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now(),
         ]);
 
-        $undraftedEntity = factory(EntityWithDraftedAt::class)->create([
+        $undraftedEntity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_draft(): void
     {
-        $entity = factory(EntityWithDraftedAt::class)->create([
+        $entity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasDraftedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_draft(): void
     {
-        $entity = factory(EntityWithDraftedAt::class)->create([
+        $entity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now(),
         ]);
 

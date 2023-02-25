@@ -21,7 +21,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
     /** @test */
     public function it_casts_is_published_to_boolean(): void
     {
-        $entity = factory(EntityWithPublishedFlag::class)->create([
+        $entity = EntityWithPublishedFlag::factory()->create([
             'is_published' => 1,
         ]);
 
@@ -31,7 +31,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
     /** @test */
     public function it_not_casts_is_published_to_boolean(): void
     {
-        $entity = factory(EntityWithPublishedFlag::class)->make([
+        $entity = EntityWithPublishedFlag::factory()->make([
             'is_published' => null,
         ]);
 
@@ -41,11 +41,11 @@ final class HasPublishedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_published(): void
     {
-        $publishedEntity = factory(EntityWithPublishedFlag::class)->create([
+        $publishedEntity = EntityWithPublishedFlag::factory()->create([
             'is_published' => true,
         ]);
 
-        $unpublishedEntity = factory(EntityWithPublishedFlag::class)->create([
+        $unpublishedEntity = EntityWithPublishedFlag::factory()->create([
             'is_published' => false,
         ]);
 
@@ -56,11 +56,11 @@ final class HasPublishedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_published(): void
     {
-        $publishedEntity = factory(EntityWithPublishedFlag::class)->create([
+        $publishedEntity = EntityWithPublishedFlag::factory()->create([
             'is_published' => true,
         ]);
 
-        $unpublishedEntity = factory(EntityWithPublishedFlag::class)->create([
+        $unpublishedEntity = EntityWithPublishedFlag::factory()->create([
             'is_published' => false,
         ]);
 
@@ -71,7 +71,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_publish(): void
     {
-        $entity = factory(EntityWithPublishedFlag::class)->create([
+        $entity = EntityWithPublishedFlag::factory()->create([
             'is_published' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_publish(): void
     {
-        $entity = factory(EntityWithPublishedFlag::class)->create([
+        $entity = EntityWithPublishedFlag::factory()->create([
             'is_published' => true,
         ]);
 

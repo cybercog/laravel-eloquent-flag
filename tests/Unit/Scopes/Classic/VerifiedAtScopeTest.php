@@ -24,10 +24,10 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithVerifiedAt::class, 3)->create([
+        EntityWithVerifiedAt::factory()->count(3)->create([
             'verified_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithVerifiedAt::class, 2)->create([
+        EntityWithVerifiedAt::factory()->count(2)->create([
             'verified_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_verified(): void
     {
-        factory(EntityWithVerifiedAt::class, 3)->create([
+        EntityWithVerifiedAt::factory()->count(3)->create([
             'verified_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithVerifiedAt::class, 2)->create([
+        EntityWithVerifiedAt::factory()->count(2)->create([
             'verified_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_verified(): void
     {
-        factory(EntityWithVerifiedAt::class, 3)->create([
+        EntityWithVerifiedAt::factory()->count(3)->create([
             'verified_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithVerifiedAt::class, 2)->create([
+        EntityWithVerifiedAt::factory()->count(2)->create([
             'verified_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_verified(): void
     {
-        factory(EntityWithVerifiedAt::class, 3)->create([
+        EntityWithVerifiedAt::factory()->count(3)->create([
             'verified_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithVerifiedAt::class, 2)->create([
+        EntityWithVerifiedAt::factory()->count(2)->create([
             'verified_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_can_verify_model(): void
     {
-        $model = factory(EntityWithVerifiedAt::class)->create([
+        $model = EntityWithVerifiedAt::factory()->create([
             'verified_at' => null,
         ]);
 
@@ -98,7 +98,7 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_verify_model(): void
     {
-        $model = factory(EntityWithVerifiedAt::class)->create([
+        $model = EntityWithVerifiedAt::factory()->create([
             'verified_at' => Date::now()->subDay(),
         ]);
 
@@ -112,10 +112,10 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithVerifiedAt::class, 3)->create([
+        EntityWithVerifiedAt::factory()->count(3)->create([
             'verified_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithVerifiedAt::class, 2)->create([
+        EntityWithVerifiedAt::factory()->count(2)->create([
             'verified_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class VerifiedAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithVerifiedAt::class, 3)->create([
+        EntityWithVerifiedAt::factory()->count(3)->create([
             'verified_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithVerifiedAt::class, 2)->create([
+        EntityWithVerifiedAt::factory()->count(2)->create([
             'verified_at' => null,
         ]);
 

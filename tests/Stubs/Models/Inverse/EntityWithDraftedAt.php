@@ -14,11 +14,13 @@ declare(strict_types=1);
 namespace Cog\Tests\Laravel\Flag\Stubs\Models\Inverse;
 
 use Cog\Flag\Traits\Inverse\HasDraftedAt;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 final class EntityWithDraftedAt extends Model
 {
     use HasDraftedAt;
+    use HasFactory;
 
     /**
      * The table associated with the model.

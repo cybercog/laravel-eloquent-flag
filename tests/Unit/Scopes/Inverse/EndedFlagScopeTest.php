@@ -23,10 +23,10 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithEndedFlag::class, 3)->create([
+        EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
         ]);
-        factory(EntityWithEndedFlag::class, 2)->create([
+        EntityWithEndedFlag::factory()->count(2)->create([
             'is_ended' => false,
         ]);
 
@@ -38,10 +38,10 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_ended(): void
     {
-        factory(EntityWithEndedFlag::class, 3)->create([
+        EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
         ]);
-        factory(EntityWithEndedFlag::class, 2)->create([
+        EntityWithEndedFlag::factory()->count(2)->create([
             'is_ended' => false,
         ]);
 
@@ -53,10 +53,10 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_ended(): void
     {
-        factory(EntityWithEndedFlag::class, 3)->create([
+        EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
         ]);
-        factory(EntityWithEndedFlag::class, 2)->create([
+        EntityWithEndedFlag::factory()->count(2)->create([
             'is_ended' => false,
         ]);
 
@@ -68,10 +68,10 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_ended(): void
     {
-        factory(EntityWithEndedFlag::class, 3)->create([
+        EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
         ]);
-        factory(EntityWithEndedFlag::class, 2)->create([
+        EntityWithEndedFlag::factory()->count(2)->create([
             'is_ended' => false,
         ]);
 
@@ -83,7 +83,7 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_undo_end_model(): void
     {
-        $model = factory(EntityWithEndedFlag::class)->create([
+        $model = EntityWithEndedFlag::factory()->create([
             'is_ended' => true,
         ]);
 
@@ -97,7 +97,7 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_end_model(): void
     {
-        $model = factory(EntityWithEndedFlag::class)->create([
+        $model = EntityWithEndedFlag::factory()->create([
             'is_ended' => false,
         ]);
 
@@ -111,10 +111,10 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithEndedFlag::class, 3)->create([
+        EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
         ]);
-        factory(EntityWithEndedFlag::class, 2)->create([
+        EntityWithEndedFlag::factory()->count(2)->create([
             'is_ended' => false,
         ]);
 
@@ -126,10 +126,10 @@ final class EndedFlagScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithEndedFlag::class, 3)->create([
+        EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
         ]);
-        factory(EntityWithEndedFlag::class, 2)->create([
+        EntityWithEndedFlag::factory()->count(2)->create([
             'is_ended' => false,
         ]);
 

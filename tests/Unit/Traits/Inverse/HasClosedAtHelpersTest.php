@@ -23,7 +23,7 @@ final class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_closed_at_to_datetime(): void
     {
-        $entity = factory(EntityWithClosedAt::class)->create([
+        $entity = EntityWithClosedAt::factory()->create([
             'closed_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_closed(): void
     {
-        $closedEntity = factory(EntityWithClosedAt::class)->create([
+        $closedEntity = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now(),
         ]);
 
-        $openedEntity = factory(EntityWithClosedAt::class)->create([
+        $openedEntity = EntityWithClosedAt::factory()->create([
             'closed_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_closed(): void
     {
-        $closedEntity = factory(EntityWithClosedAt::class)->create([
+        $closedEntity = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now(),
         ]);
 
-        $openedEntity = factory(EntityWithClosedAt::class)->create([
+        $openedEntity = EntityWithClosedAt::factory()->create([
             'closed_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_close(): void
     {
-        $entity = factory(EntityWithClosedAt::class)->create([
+        $entity = EntityWithClosedAt::factory()->create([
             'closed_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasClosedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_close(): void
     {
-        $entity = factory(EntityWithClosedAt::class)->create([
+        $entity = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now(),
         ]);
 
