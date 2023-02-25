@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithPublishedAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithPublishedAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithPublishedAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithPublishedAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class PublishedAtScopeTest extends TestCase

@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Traits\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 
@@ -23,7 +23,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_casts_accepted_at_to_datetime(): void
     {
-        $entity = factory(EntityWithAcceptedAt::class)->create([
+        $entity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => '1986-03-28 00:00:00',
         ]);
 
@@ -34,11 +34,11 @@ final class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_accepted(): void
     {
-        $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
+        $acceptedEntity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => Date::now(),
         ]);
 
-        $rejectedEntity = factory(EntityWithAcceptedAt::class)->create([
+        $rejectedEntity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => null,
         ]);
 
@@ -49,11 +49,11 @@ final class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_check_if_entity_is_not_accepted(): void
     {
-        $acceptedEntity = factory(EntityWithAcceptedAt::class)->create([
+        $acceptedEntity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => Date::now(),
         ]);
 
-        $rejectedEntity = factory(EntityWithAcceptedAt::class)->create([
+        $rejectedEntity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => null,
         ]);
 
@@ -64,7 +64,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_accept(): void
     {
-        $entity = factory(EntityWithAcceptedAt::class)->create([
+        $entity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => null,
         ]);
 
@@ -76,7 +76,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
     /** @test */
     public function it_can_undo_accept(): void
     {
-        $entity = factory(EntityWithAcceptedAt::class)->create([
+        $entity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => Date::now(),
         ]);
 

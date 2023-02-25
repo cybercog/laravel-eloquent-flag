@@ -11,8 +11,9 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag;
+namespace Cog\Tests\Laravel\Flag;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -90,6 +91,10 @@ abstract class TestCase extends Orchestra
      */
     private function registerPackageFactories(): void
     {
+        Factory::guessFactoryNamesUsing(function (string $modelName) {
+            return 'Cog\\Tests\\Laravel\\Flag\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
+        });
+
         $pathToFactories = realpath(__DIR__ . '/database/factories');
         $this->withFactories($pathToFactories);
     }

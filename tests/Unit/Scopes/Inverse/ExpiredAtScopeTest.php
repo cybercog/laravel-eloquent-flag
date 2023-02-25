@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAt;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithExpiredAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithExpiredAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithExpiredAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class ExpiredAtScopeTest extends TestCase

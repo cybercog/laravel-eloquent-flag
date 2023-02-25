@@ -69,7 +69,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Cog\\Tests\\Flag\\": "tests/"
+            "Cog\\Tests\\Laravel\\Flag\\": "tests/",
+            "Cog\\Tests\\Laravel\\Flag\\Database\\Factories\\": "tests/database/factories/"
         }
     },
     "scripts": {

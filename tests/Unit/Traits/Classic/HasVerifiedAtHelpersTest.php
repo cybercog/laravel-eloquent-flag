@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Traits\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Traits\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithVerifiedAt;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 

@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithAcceptedAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithAcceptedAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithAcceptedAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithAcceptedAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class AcceptedAtScopeTest extends TestCase
@@ -24,10 +24,10 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_get_without_global_scope_default(): void
     {
-        factory(EntityWithAcceptedAt::class, 3)->create([
+        EntityWithAcceptedAt::factory()->count(3)->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithAcceptedAt::class, 2)->create([
+        EntityWithAcceptedAt::factory()->count(2)->create([
             'accepted_at' => null,
         ]);
 
@@ -39,10 +39,10 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_without_not_accepted(): void
     {
-        factory(EntityWithAcceptedAt::class, 3)->create([
+        EntityWithAcceptedAt::factory()->count(3)->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithAcceptedAt::class, 2)->create([
+        EntityWithAcceptedAt::factory()->count(2)->create([
             'accepted_at' => null,
         ]);
 
@@ -54,10 +54,10 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_with_not_accepted(): void
     {
-        factory(EntityWithAcceptedAt::class, 3)->create([
+        EntityWithAcceptedAt::factory()->count(3)->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithAcceptedAt::class, 2)->create([
+        EntityWithAcceptedAt::factory()->count(2)->create([
             'accepted_at' => null,
         ]);
 
@@ -69,10 +69,10 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_can_get_only_not_accepted(): void
     {
-        factory(EntityWithAcceptedAt::class, 3)->create([
+        EntityWithAcceptedAt::factory()->count(3)->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithAcceptedAt::class, 2)->create([
+        EntityWithAcceptedAt::factory()->count(2)->create([
             'accepted_at' => null,
         ]);
 
@@ -84,7 +84,7 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_can_accept_model(): void
     {
-        $model = factory(EntityWithAcceptedAt::class)->create([
+        $model = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => null,
         ]);
 
@@ -98,7 +98,7 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_can_undo_accept(): void
     {
-        $model = factory(EntityWithAcceptedAt::class)->create([
+        $model = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
 
@@ -112,10 +112,10 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_can_skip_apply(): void
     {
-        factory(EntityWithAcceptedAt::class, 3)->create([
+        EntityWithAcceptedAt::factory()->count(3)->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithAcceptedAt::class, 2)->create([
+        EntityWithAcceptedAt::factory()->count(2)->create([
             'accepted_at' => null,
         ]);
 
@@ -127,10 +127,10 @@ final class AcceptedAtScopeTest extends TestCase
     /** @test */
     public function it_can_auto_apply(): void
     {
-        factory(EntityWithAcceptedAt::class, 3)->create([
+        EntityWithAcceptedAt::factory()->count(3)->create([
             'accepted_at' => Date::now()->subDay(),
         ]);
-        factory(EntityWithAcceptedAt::class, 2)->create([
+        EntityWithAcceptedAt::factory()->count(2)->create([
             'accepted_at' => null,
         ]);
 

@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithDraftedAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithDraftedAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithDraftedAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class DraftedAtScopeTest extends TestCase

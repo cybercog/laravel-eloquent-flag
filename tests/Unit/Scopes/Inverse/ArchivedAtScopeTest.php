@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAtApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedAtUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedAt;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedAtApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedAtUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 use Illuminate\Support\Facades\Date;
 
 final class ArchivedAtScopeTest extends TestCase

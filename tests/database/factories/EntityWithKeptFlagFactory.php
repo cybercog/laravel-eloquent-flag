@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithKeptFlag;
 use Faker\Generator as Faker;
 
 /* @var \Illuminate\Database\Eloquent\Factory $factory */

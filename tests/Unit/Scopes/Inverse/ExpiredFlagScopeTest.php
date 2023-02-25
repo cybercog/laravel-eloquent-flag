@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithExpiredFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithExpiredFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class ExpiredFlagScopeTest extends TestCase
 {

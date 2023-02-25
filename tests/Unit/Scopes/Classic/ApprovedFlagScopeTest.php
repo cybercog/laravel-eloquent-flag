@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Classic;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Classic;
 
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlag;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Classic\EntityWithApprovedFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithApprovedFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithApprovedFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithApprovedFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class ApprovedFlagScopeTest extends TestCase
 {

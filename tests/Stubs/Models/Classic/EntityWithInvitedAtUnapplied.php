@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Stubs\Models\Classic;
+namespace Cog\Tests\Laravel\Flag\Stubs\Models\Classic;
 
 use Cog\Flag\Traits\Classic\HasInvitedAt;
 use Illuminate\Database\Eloquent\Model;

@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithDraftedFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithDraftedFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class DraftedFlagScopeTest extends TestCase
 {

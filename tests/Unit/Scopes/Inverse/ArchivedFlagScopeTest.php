@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Cog\Tests\Flag\Unit\Scopes\Inverse;
+namespace Cog\Tests\Laravel\Flag\Unit\Scopes\Inverse;
 
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagApplied;
-use Cog\Tests\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagUnapplied;
-use Cog\Tests\Flag\TestCase;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagApplied;
+use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedFlagUnapplied;
+use Cog\Tests\Laravel\Flag\TestCase;
 
 final class ArchivedFlagScopeTest extends TestCase
 {
