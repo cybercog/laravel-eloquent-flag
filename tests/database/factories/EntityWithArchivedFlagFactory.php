@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Cog\Tests\Laravel\Flag\Database\Factories;
 
-use Cog\Tests\Laravel\Flag\Stubs\Models\Classic\EntityWithActiveFlag;
 use Cog\Tests\Laravel\Flag\Stubs\Models\Inverse\EntityWithArchivedFlag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
