@@ -4,6 +4,12 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+## [6.1.0] - 2024-03-09
+
+### Added
+
+- ([#77]) Added Laravel 11 support
+
 ## [6.0.0] - 2023-02-24
 
 ### Added
