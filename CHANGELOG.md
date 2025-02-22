@@ -4,6 +4,13 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 ## [Unreleased]
 
+## [6.2.0] - 2025-02-22
+
+### Added
+
+- ([#82]) Added Laravel 12 support
+- ([#83]) Added PHP 8.4 tests
+
 ## [6.1.0] - 2024-03-09
 
 ### Added
@@ -325,7 +332,8 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 
 - `is_active` boolean flag added.
 
-[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.1.0...master
+[Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.2.0...master
+[6.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.1.0...6.2.0
 [6.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.0.0...6.1.0
 [6.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.4.0...6.0.0
 [5.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.3.0...5.4.0
@@ -358,6 +366,8 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 [1.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/1.0.0...1.1.0
 
+[#83]: https://github.com/cybercog/laravel-eloquent-flag/pull/83
+[#82]: https://github.com/cybercog/laravel-eloquent-flag/pull/82
 [#81]: https://github.com/cybercog/laravel-eloquent-flag/pull/81
 [#77]: https://github.com/cybercog/laravel-eloquent-flag/pull/77
 [#74]: https://github.com/cybercog/laravel-eloquent-flag/pull/71
