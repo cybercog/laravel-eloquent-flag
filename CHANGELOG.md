@@ -333,7 +333,7 @@ All notable changes to `cybercog/laravel-eloquent-flag` will be documented in th
 - `is_active` boolean flag added.
 
 [Unreleased]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.2.0...master
-[6.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.1.0...6.2.0
+[6.2.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.1.0...6.2.0
 [6.1.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/6.0.0...6.1.0
 [6.0.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.4.0...6.0.0
 [5.4.0]: https://github.com/cybercog/laravel-eloquent-flag/compare/5.3.0...5.4.0
