@@ -20,8 +20,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class KeptFlagScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,
@@ -35,8 +34,7 @@ final class KeptFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_not_kept(): void
+    public function test_it_can_get_without_not_kept(): void
     {
         EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,
@@ -50,8 +48,7 @@ final class KeptFlagScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_not_kept(): void
+    public function test_it_can_get_with_not_kept(): void
     {
         EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,
@@ -65,8 +62,7 @@ final class KeptFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_not_kept(): void
+    public function test_it_can_get_only_not_kept(): void
     {
         EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,
@@ -80,8 +76,7 @@ final class KeptFlagScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_keep_model(): void
+    public function test_it_can_keep_model(): void
     {
         $model = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,
@@ -94,8 +89,7 @@ final class KeptFlagScopeTest extends TestCase
         $this->assertTrue($model->is_kept);
     }
 
-    /** @test */
-    public function it_can_undo_keep_model(): void
+    public function test_it_can_undo_keep_model(): void
     {
         $model = EntityWithKeptFlag::factory()->create([
             'is_kept' => true,
@@ -108,8 +102,7 @@ final class KeptFlagScopeTest extends TestCase
         $this->assertFalse($model->is_kept);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,
@@ -123,8 +116,7 @@ final class KeptFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,

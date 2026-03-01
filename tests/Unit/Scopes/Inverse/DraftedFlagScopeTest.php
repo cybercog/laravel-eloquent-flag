@@ -20,8 +20,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class DraftedFlagScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithDraftedFlag::factory()->count(3)->create([
             'is_drafted' => true,
@@ -35,8 +34,7 @@ final class DraftedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_drafted(): void
+    public function test_it_can_get_without_drafted(): void
     {
         EntityWithDraftedFlag::factory()->count(3)->create([
             'is_drafted' => true,
@@ -50,8 +48,7 @@ final class DraftedFlagScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_drafted(): void
+    public function test_it_can_get_with_drafted(): void
     {
         EntityWithDraftedFlag::factory()->count(3)->create([
             'is_drafted' => true,
@@ -65,8 +62,7 @@ final class DraftedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_drafted(): void
+    public function test_it_can_get_only_drafted(): void
     {
         EntityWithDraftedFlag::factory()->count(3)->create([
             'is_drafted' => true,
@@ -80,8 +76,7 @@ final class DraftedFlagScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_draft_model(): void
+    public function test_it_can_undo_draft_model(): void
     {
         $model = EntityWithDraftedFlag::factory()->create([
             'is_drafted' => true,
@@ -94,8 +89,7 @@ final class DraftedFlagScopeTest extends TestCase
         $this->assertFalse($model->is_drafted);
     }
 
-    /** @test */
-    public function it_can_draft_model(): void
+    public function test_it_can_draft_model(): void
     {
         $model = EntityWithDraftedFlag::factory()->create([
             'is_drafted' => false,
@@ -108,8 +102,7 @@ final class DraftedFlagScopeTest extends TestCase
         $this->assertTrue($model->is_drafted);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithDraftedFlag::factory()->count(3)->create([
             'is_drafted' => true,
@@ -123,8 +116,7 @@ final class DraftedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithDraftedFlag::factory()->count(3)->create([
             'is_drafted' => true,

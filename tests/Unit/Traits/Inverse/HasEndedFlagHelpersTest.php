@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasEndedFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_ended_to_boolean(): void
+    public function test_it_casts_is_ended_to_boolean(): void
     {
         $entity = EntityWithEndedFlag::factory()->create([
             'is_ended' => 1,
@@ -28,8 +27,7 @@ final class HasEndedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_ended);
     }
 
-    /** @test */
-    public function it_not_casts_is_ended_to_boolean(): void
+    public function test_it_not_casts_is_ended_to_boolean(): void
     {
         $entity = EntityWithEndedFlag::factory()->make([
             'is_ended' => null,
@@ -38,8 +36,7 @@ final class HasEndedFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_ended);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_ended(): void
+    public function test_it_can_check_if_entity_is_ended(): void
     {
         $endedEntity = EntityWithEndedFlag::factory()->create([
             'is_ended' => true,
@@ -53,8 +50,7 @@ final class HasEndedFlagHelpersTest extends TestCase
         $this->assertFalse($unendedEntity->isEnded());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_ended(): void
+    public function test_it_can_check_if_entity_is_not_ended(): void
     {
         $endedEntity = EntityWithEndedFlag::factory()->create([
             'is_ended' => true,
@@ -68,8 +64,7 @@ final class HasEndedFlagHelpersTest extends TestCase
         $this->assertTrue($unendedEntity->isNotEnded());
     }
 
-    /** @test */
-    public function it_can_end(): void
+    public function test_it_can_end(): void
     {
         $entity = EntityWithEndedFlag::factory()->create([
             'is_ended' => false,
@@ -80,8 +75,7 @@ final class HasEndedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_ended);
     }
 
-    /** @test */
-    public function it_can_undo_end(): void
+    public function test_it_can_undo_end(): void
     {
         $entity = EntityWithEndedFlag::factory()->create([
             'is_ended' => true,

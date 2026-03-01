@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasAcceptedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_accepted_at_to_datetime(): void
+    public function test_it_casts_accepted_at_to_datetime(): void
     {
         $entity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->accepted_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_accepted(): void
+    public function test_it_can_check_if_entity_is_accepted(): void
     {
         $acceptedEntity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
         $this->assertFalse($rejectedEntity->isAccepted());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_accepted(): void
+    public function test_it_can_check_if_entity_is_not_accepted(): void
     {
         $acceptedEntity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
         $this->assertTrue($rejectedEntity->isNotAccepted());
     }
 
-    /** @test */
-    public function it_can_accept(): void
+    public function test_it_can_accept(): void
     {
         $entity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => null,
@@ -73,8 +69,7 @@ final class HasAcceptedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->accepted_at);
     }
 
-    /** @test */
-    public function it_can_undo_accept(): void
+    public function test_it_can_undo_accept(): void
     {
         $entity = EntityWithAcceptedAt::factory()->create([
             'accepted_at' => Date::now(),

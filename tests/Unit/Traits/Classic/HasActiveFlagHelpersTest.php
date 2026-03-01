@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasActiveFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_active_to_boolean(): void
+    public function test_it_casts_is_active_to_boolean(): void
     {
         $entity = EntityWithActiveFlag::factory()->create([
             'is_active' => 1,
@@ -28,8 +27,7 @@ final class HasActiveFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_active);
     }
 
-    /** @test */
-    public function it_not_casts_is_active_to_boolean(): void
+    public function test_it_not_casts_is_active_to_boolean(): void
     {
         $entity = EntityWithActiveFlag::factory()->make([
             'is_active' => null,
@@ -38,8 +36,7 @@ final class HasActiveFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_active);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_active(): void
+    public function test_it_can_check_if_entity_is_active(): void
     {
         $activatedEntity = EntityWithActiveFlag::factory()->create([
             'is_active' => true,
@@ -53,8 +50,7 @@ final class HasActiveFlagHelpersTest extends TestCase
         $this->assertFalse($deactivatedEntity->isActivated());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_activated(): void
+    public function test_it_can_check_if_entity_is_not_activated(): void
     {
         $activatedEntity = EntityWithActiveFlag::factory()->create([
             'is_active' => true,
@@ -68,8 +64,7 @@ final class HasActiveFlagHelpersTest extends TestCase
         $this->assertTrue($deactivatedEntity->isNotActivated());
     }
 
-    /** @test */
-    public function it_can_activate(): void
+    public function test_it_can_activate(): void
     {
         $entity = EntityWithActiveFlag::factory()->create([
             'is_active' => false,
@@ -80,8 +75,7 @@ final class HasActiveFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_active);
     }
 
-    /** @test */
-    public function it_can_undo_activate(): void
+    public function test_it_can_undo_activate(): void
     {
         $entity = EntityWithActiveFlag::factory()->create([
             'is_active' => true,

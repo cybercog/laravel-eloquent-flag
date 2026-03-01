@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasDraftedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_drafted_at_to_datetime(): void
+    public function test_it_casts_drafted_at_to_datetime(): void
     {
         $entity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasDraftedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->drafted_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_drafted(): void
+    public function test_it_can_check_if_entity_is_drafted(): void
     {
         $draftedEntity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasDraftedAtHelpersTest extends TestCase
         $this->assertFalse($undraftedEntity->isDrafted());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_drafted(): void
+    public function test_it_can_check_if_entity_is_not_drafted(): void
     {
         $draftedEntity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasDraftedAtHelpersTest extends TestCase
         $this->assertTrue($undraftedEntity->isNotDrafted());
     }
 
-    /** @test */
-    public function it_can_draft(): void
+    public function test_it_can_draft(): void
     {
         $entity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => null,
@@ -73,8 +69,7 @@ final class HasDraftedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->drafted_at);
     }
 
-    /** @test */
-    public function it_can_undo_draft(): void
+    public function test_it_can_undo_draft(): void
     {
         $entity = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now(),

@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasArchivedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_archived_at_to_datetime(): void
+    public function test_it_casts_archived_at_to_datetime(): void
     {
         $entity = EntityWithArchivedAt::factory()->create([
             'archived_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasArchivedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->archived_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_archived(): void
+    public function test_it_can_check_if_entity_is_archived(): void
     {
         $archivedEntity = EntityWithArchivedAt::factory()->create([
             'archived_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasArchivedAtHelpersTest extends TestCase
         $this->assertFalse($unarchivedEntity->isArchived());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_archived(): void
+    public function test_it_can_check_if_entity_is_not_archived(): void
     {
         $archivedEntity = EntityWithArchivedAt::factory()->create([
             'archived_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasArchivedAtHelpersTest extends TestCase
         $this->assertTrue($unarchivedEntity->isNotArchived());
     }
 
-    /** @test */
-    public function it_can_archive(): void
+    public function test_it_can_archive(): void
     {
         $entity = EntityWithArchivedAt::factory()->create([
             'archived_at' => null,
@@ -73,8 +69,7 @@ final class HasArchivedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->archived_at);
     }
 
-    /** @test */
-    public function it_can_undo_archive(): void
+    public function test_it_can_undo_archive(): void
     {
         $entity = EntityWithArchivedAt::factory()->create([
             'archived_at' => Date::now(),

@@ -19,8 +19,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasKeptFlagHelperTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_kept_to_boolean(): void
+    public function test_it_casts_is_kept_to_boolean(): void
     {
         $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => 1,
@@ -29,8 +28,7 @@ final class HasKeptFlagHelperTest extends TestCase
         $this->assertTrue($entity->is_kept);
     }
 
-    /** @test */
-    public function it_not_casts_is_kept_to_boolean(): void
+    public function test_it_not_casts_is_kept_to_boolean(): void
     {
         $entity = EntityWithKeptFlag::factory()->make([
             'is_kept' => null,
@@ -39,8 +37,7 @@ final class HasKeptFlagHelperTest extends TestCase
         $this->assertNull($entity->is_kept);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_kept(): void
+    public function test_it_can_check_if_entity_is_kept(): void
     {
         $keptEntity = EntityWithKeptFlag::factory()->create([
             'is_kept' => true,
@@ -54,8 +51,7 @@ final class HasKeptFlagHelperTest extends TestCase
         $this->assertFalse($unkeptEntity->isKept());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_kept(): void
+    public function test_it_can_check_if_entity_is_not_kept(): void
     {
         $keptEntity = EntityWithKeptFlag::factory()->create([
             'is_kept' => true,
@@ -69,8 +65,7 @@ final class HasKeptFlagHelperTest extends TestCase
         $this->assertTrue($unkeptEntity->isNotKept());
     }
 
-    /** @test */
-    public function it_can_keep(): void
+    public function test_it_can_keep(): void
     {
         $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,
@@ -81,8 +76,7 @@ final class HasKeptFlagHelperTest extends TestCase
         $this->assertTrue($entity->is_kept);
     }
 
-    /** @test */
-    public function it_can_undo_keep(): void
+    public function test_it_can_undo_keep(): void
     {
         $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => true,
@@ -93,8 +87,7 @@ final class HasKeptFlagHelperTest extends TestCase
         $this->assertFalse($entity->is_kept);
     }
 
-    /** @test */
-    public function it_can_get_unkept_older_than_hours(): void
+    public function test_it_can_get_unkept_older_than_hours(): void
     {
         EntityWithKeptFlag::factory()->count(3)->create([
             'is_kept' => true,

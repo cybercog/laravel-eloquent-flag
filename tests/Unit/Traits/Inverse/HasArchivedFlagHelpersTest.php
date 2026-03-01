@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasArchivedFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_archived_to_boolean(): void
+    public function test_it_casts_is_archived_to_boolean(): void
     {
         $entity = EntityWithArchivedFlag::factory()->create([
             'is_archived' => 1,
@@ -28,8 +27,7 @@ final class HasArchivedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_archived);
     }
 
-    /** @test */
-    public function it_not_casts_is_archived_to_boolean(): void
+    public function test_it_not_casts_is_archived_to_boolean(): void
     {
         $entity = EntityWithArchivedFlag::factory()->make([
             'is_archived' => null,
@@ -38,8 +36,7 @@ final class HasArchivedFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_archived);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_archived(): void
+    public function test_it_can_check_if_entity_is_archived(): void
     {
         $archivedEntity = EntityWithArchivedFlag::factory()->create([
             'is_archived' => true,
@@ -53,8 +50,7 @@ final class HasArchivedFlagHelpersTest extends TestCase
         $this->assertFalse($unarchivedEntity->isArchived());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_archived(): void
+    public function test_it_can_check_if_entity_is_not_archived(): void
     {
         $archivedEntity = EntityWithArchivedFlag::factory()->create([
             'is_archived' => true,
@@ -68,8 +64,7 @@ final class HasArchivedFlagHelpersTest extends TestCase
         $this->assertTrue($unarchivedEntity->isNotArchived());
     }
 
-    /** @test */
-    public function it_can_archive(): void
+    public function test_it_can_archive(): void
     {
         $entity = EntityWithArchivedFlag::factory()->create([
             'is_archived' => false,
@@ -80,8 +75,7 @@ final class HasArchivedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_archived);
     }
 
-    /** @test */
-    public function it_can_undo_archive(): void
+    public function test_it_can_undo_archive(): void
     {
         $entity = EntityWithArchivedFlag::factory()->create([
             'is_archived' => true,

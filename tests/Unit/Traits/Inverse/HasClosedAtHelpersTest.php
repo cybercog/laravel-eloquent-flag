@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasClosedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_closed_at_to_datetime(): void
+    public function test_it_casts_closed_at_to_datetime(): void
     {
         $entity = EntityWithClosedAt::factory()->create([
             'closed_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasClosedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->closed_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_closed(): void
+    public function test_it_can_check_if_entity_is_closed(): void
     {
         $closedEntity = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasClosedAtHelpersTest extends TestCase
         $this->assertFalse($openedEntity->isClosed());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_closed(): void
+    public function test_it_can_check_if_entity_is_not_closed(): void
     {
         $closedEntity = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasClosedAtHelpersTest extends TestCase
         $this->assertTrue($openedEntity->isNotClosed());
     }
 
-    /** @test */
-    public function it_can_close(): void
+    public function test_it_can_close(): void
     {
         $entity = EntityWithClosedAt::factory()->create([
             'closed_at' => null,
@@ -73,8 +69,7 @@ final class HasClosedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->closed_at);
     }
 
-    /** @test */
-    public function it_can_undo_close(): void
+    public function test_it_can_undo_close(): void
     {
         $entity = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now(),

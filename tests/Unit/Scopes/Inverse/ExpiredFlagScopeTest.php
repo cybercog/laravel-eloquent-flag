@@ -20,8 +20,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class ExpiredFlagScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithExpiredFlag::factory()->count(3)->create([
             'is_expired' => true,
@@ -35,8 +34,7 @@ final class ExpiredFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_expired(): void
+    public function test_it_can_get_without_expired(): void
     {
         EntityWithExpiredFlag::factory()->count(3)->create([
             'is_expired' => true,
@@ -50,8 +48,7 @@ final class ExpiredFlagScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_expired(): void
+    public function test_it_can_get_with_expired(): void
     {
         EntityWithExpiredFlag::factory()->count(3)->create([
             'is_expired' => true,
@@ -65,8 +62,7 @@ final class ExpiredFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_expired(): void
+    public function test_it_can_get_only_expired(): void
     {
         EntityWithExpiredFlag::factory()->count(3)->create([
             'is_expired' => true,
@@ -80,8 +76,7 @@ final class ExpiredFlagScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_expire_model(): void
+    public function test_it_can_undo_expire_model(): void
     {
         $model = EntityWithExpiredFlag::factory()->create([
             'is_expired' => true,
@@ -94,8 +89,7 @@ final class ExpiredFlagScopeTest extends TestCase
         $this->assertFalse($model->is_expired);
     }
 
-    /** @test */
-    public function it_can_expire_model(): void
+    public function test_it_can_expire_model(): void
     {
         $model = EntityWithExpiredFlag::factory()->create([
             'is_expired' => false,
@@ -108,8 +102,7 @@ final class ExpiredFlagScopeTest extends TestCase
         $this->assertTrue($model->is_expired);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithExpiredFlag::factory()->count(3)->create([
             'is_expired' => true,
@@ -123,8 +116,7 @@ final class ExpiredFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithExpiredFlag::factory()->count(3)->create([
             'is_expired' => true,

@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasPublishedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_published_at_to_datetime(): void
+    public function test_it_casts_published_at_to_datetime(): void
     {
         $entity = EntityWithPublishedAt::factory()->create([
             'published_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasPublishedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->published_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_published(): void
+    public function test_it_can_check_if_entity_is_published(): void
     {
         $publishedEntity = EntityWithPublishedAt::factory()->create([
             'published_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasPublishedAtHelpersTest extends TestCase
         $this->assertFalse($unpublishedEntity->isPublished());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_published(): void
+    public function test_it_can_check_if_entity_is_not_published(): void
     {
         $publishedEntity = EntityWithPublishedAt::factory()->create([
             'published_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasPublishedAtHelpersTest extends TestCase
         $this->assertTrue($unpublishedEntity->isNotPublished());
     }
 
-    /** @test */
-    public function it_can_publish(): void
+    public function test_it_can_publish(): void
     {
         $entity = EntityWithPublishedAt::factory()->create([
             'published_at' => null,
@@ -73,8 +69,7 @@ final class HasPublishedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->published_at);
     }
 
-    /** @test */
-    public function it_can_undo_publish(): void
+    public function test_it_can_undo_publish(): void
     {
         $entity = EntityWithPublishedAt::factory()->create([
             'published_at' => Date::now(),

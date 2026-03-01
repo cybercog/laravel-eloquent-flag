@@ -21,8 +21,7 @@ use Illuminate\Support\Facades\Date;
 
 final class PublishedAtScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
@@ -36,8 +35,7 @@ final class PublishedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_not_published(): void
+    public function test_it_can_get_without_not_published(): void
     {
         EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
@@ -51,8 +49,7 @@ final class PublishedAtScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_not_published(): void
+    public function test_it_can_get_with_not_published(): void
     {
         EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
@@ -66,8 +63,7 @@ final class PublishedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_not_published(): void
+    public function test_it_can_get_only_not_published(): void
     {
         EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
@@ -81,8 +77,7 @@ final class PublishedAtScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_publish_model(): void
+    public function test_it_can_publish_model(): void
     {
         $model = EntityWithPublishedAt::factory()->create([
             'published_at' => null,
@@ -95,8 +90,7 @@ final class PublishedAtScopeTest extends TestCase
         $this->assertNotNull($model->published_at);
     }
 
-    /** @test */
-    public function it_can_undo_publish_model(): void
+    public function test_it_can_undo_publish_model(): void
     {
         $model = EntityWithPublishedAt::factory()->create([
             'published_at' => Date::now()->subDay(),
@@ -109,8 +103,7 @@ final class PublishedAtScopeTest extends TestCase
         $this->assertNull($model->published_at);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),
@@ -124,8 +117,7 @@ final class PublishedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithPublishedAt::factory()->count(3)->create([
             'published_at' => Date::now()->subDay(),

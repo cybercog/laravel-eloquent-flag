@@ -21,8 +21,7 @@ use Illuminate\Support\Facades\Date;
 
 final class ArchivedAtScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithArchivedAt::factory()->count(3)->create([
             'archived_at' => Date::now()->subDay(),
@@ -36,8 +35,7 @@ final class ArchivedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_archived(): void
+    public function test_it_can_get_without_archived(): void
     {
         EntityWithArchivedAt::factory()->count(3)->create([
             'archived_at' => Date::now()->subDay(),
@@ -51,8 +49,7 @@ final class ArchivedAtScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_archived(): void
+    public function test_it_can_get_with_archived(): void
     {
         EntityWithArchivedAt::factory()->count(3)->create([
             'archived_at' => Date::now()->subDay(),
@@ -66,8 +63,7 @@ final class ArchivedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_archived(): void
+    public function test_it_can_get_only_archived(): void
     {
         EntityWithArchivedAt::factory()->count(3)->create([
             'archived_at' => Date::now()->subDay(),
@@ -81,8 +77,7 @@ final class ArchivedAtScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_archive_model(): void
+    public function test_it_can_undo_archive_model(): void
     {
         $model = EntityWithArchivedAt::factory()->create([
             'archived_at' => Date::now()->subDay(),
@@ -95,8 +90,7 @@ final class ArchivedAtScopeTest extends TestCase
         $this->assertNull($model->archived_at);
     }
 
-    /** @test */
-    public function it_can_archive_model(): void
+    public function test_it_can_archive_model(): void
     {
         $model = EntityWithArchivedAt::factory()->create([
             'archived_at' => null,
@@ -109,8 +103,7 @@ final class ArchivedAtScopeTest extends TestCase
         $this->assertNotNull($model->archived_at);
     }
 
-    /** @test */
-    public function it_can_skip_auto_apply(): void
+    public function test_it_can_skip_auto_apply(): void
     {
         EntityWithArchivedAt::factory()->count(3)->create([
             'archived_at' => Date::now()->subDay(),
@@ -124,8 +117,7 @@ final class ArchivedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithArchivedAt::factory()->count(3)->create([
             'archived_at' => Date::now()->subDay(),

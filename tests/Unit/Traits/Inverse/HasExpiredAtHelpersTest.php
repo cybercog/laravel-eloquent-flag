@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasExpiredAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_expired_at_to_datetime(): void
+    public function test_it_casts_expired_at_to_datetime(): void
     {
         $entity = EntityWithExpiredAt::factory()->create([
             'expired_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasExpiredAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->expired_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_expired(): void
+    public function test_it_can_check_if_entity_is_expired(): void
     {
         $expiredEntity = EntityWithExpiredAt::factory()->create([
             'expired_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasExpiredAtHelpersTest extends TestCase
         $this->assertFalse($unexpiredEntity->isExpired());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_expired(): void
+    public function test_it_can_check_if_entity_is_not_expired(): void
     {
         $expiredEntity = EntityWithExpiredAt::factory()->create([
             'expired_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasExpiredAtHelpersTest extends TestCase
         $this->assertTrue($unexpiredEntity->isNotExpired());
     }
 
-    /** @test */
-    public function it_can_expire(): void
+    public function test_it_can_expire(): void
     {
         $entity = EntityWithExpiredAt::factory()->create([
             'expired_at' => null,
@@ -73,8 +69,7 @@ final class HasExpiredAtHelpersTest extends TestCase
         $this->assertNotNull($entity->expired_at);
     }
 
-    /** @test */
-    public function it_can_undo_expire(): void
+    public function test_it_can_undo_expire(): void
     {
         $entity = EntityWithExpiredAt::factory()->create([
             'expired_at' => Date::now(),
