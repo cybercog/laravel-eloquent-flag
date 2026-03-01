@@ -20,8 +20,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class ArchivedFlagScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithArchivedFlag::factory()->count(3)->create([
             'is_archived' => true,
@@ -35,8 +34,7 @@ final class ArchivedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_archived(): void
+    public function test_it_can_get_without_archived(): void
     {
         EntityWithArchivedFlag::factory()->count(3)->create([
             'is_archived' => true,
@@ -50,8 +48,7 @@ final class ArchivedFlagScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_archived(): void
+    public function test_it_can_get_with_archived(): void
     {
         EntityWithArchivedFlag::factory()->count(3)->create([
             'is_archived' => true,
@@ -65,8 +62,7 @@ final class ArchivedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_archived(): void
+    public function test_it_can_get_only_archived(): void
     {
         EntityWithArchivedFlag::factory()->count(3)->create([
             'is_archived' => true,
@@ -80,8 +76,7 @@ final class ArchivedFlagScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_archive_model(): void
+    public function test_it_can_undo_archive_model(): void
     {
         $model = EntityWithArchivedFlag::factory()->create([
             'is_archived' => true,
@@ -94,8 +89,7 @@ final class ArchivedFlagScopeTest extends TestCase
         $this->assertFalse($model->is_archived);
     }
 
-    /** @test */
-    public function it_can_archive_model(): void
+    public function test_it_can_archive_model(): void
     {
         $model = EntityWithArchivedFlag::factory()->create([
             'is_archived' => false,
@@ -108,8 +102,7 @@ final class ArchivedFlagScopeTest extends TestCase
         $this->assertTrue($model->is_archived);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithArchivedFlag::factory()->count(3)->create([
             'is_archived' => true,
@@ -123,8 +116,7 @@ final class ArchivedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithArchivedFlag::factory()->count(3)->create([
             'is_archived' => true,

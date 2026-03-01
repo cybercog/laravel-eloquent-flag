@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasInvitedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_invited_at_to_datetime(): void
+    public function test_it_casts_invited_at_to_datetime(): void
     {
         $entity = EntityWithInvitedAt::factory()->create([
             'invited_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasInvitedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->invited_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_invited(): void
+    public function test_it_can_check_if_entity_is_invited(): void
     {
         $invitedEntity = EntityWithInvitedAt::factory()->create([
             'invited_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasInvitedAtHelpersTest extends TestCase
         $this->assertFalse($uninvitedEntity->isInvited());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_invited(): void
+    public function test_it_can_check_if_entity_is_not_invited(): void
     {
         $invitedEntity = EntityWithInvitedAt::factory()->create([
             'invited_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasInvitedAtHelpersTest extends TestCase
         $this->assertTrue($uninvitedEntity->isNotInvited());
     }
 
-    /** @test */
-    public function it_can_invite(): void
+    public function test_it_can_invite(): void
     {
         $entity = EntityWithInvitedAt::factory()->create([
             'invited_at' => null,
@@ -73,8 +69,7 @@ final class HasInvitedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->invited_at);
     }
 
-    /** @test */
-    public function it_can_undo_invite(): void
+    public function test_it_can_undo_invite(): void
     {
         $entity = EntityWithInvitedAt::factory()->create([
             'invited_at' => Date::now(),

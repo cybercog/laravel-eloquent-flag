@@ -21,8 +21,7 @@ use Illuminate\Support\Facades\Date;
 
 final class DraftedAtScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
@@ -36,8 +35,7 @@ final class DraftedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_drafted(): void
+    public function test_it_can_get_without_drafted(): void
     {
         EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
@@ -51,8 +49,7 @@ final class DraftedAtScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_drafted(): void
+    public function test_it_can_get_with_drafted(): void
     {
         EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
@@ -66,8 +63,7 @@ final class DraftedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_drafted(): void
+    public function test_it_can_get_only_drafted(): void
     {
         EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
@@ -81,8 +77,7 @@ final class DraftedAtScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_draft_model(): void
+    public function test_it_can_undo_draft_model(): void
     {
         $model = EntityWithDraftedAt::factory()->create([
             'drafted_at' => Date::now()->subDay(),
@@ -95,8 +90,7 @@ final class DraftedAtScopeTest extends TestCase
         $this->assertNull($model->drafted_at);
     }
 
-    /** @test */
-    public function it_can_draft_model(): void
+    public function test_it_can_draft_model(): void
     {
         $model = EntityWithDraftedAt::factory()->create([
             'drafted_at' => null,
@@ -109,8 +103,7 @@ final class DraftedAtScopeTest extends TestCase
         $this->assertNotNull($model->drafted_at);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),
@@ -124,8 +117,7 @@ final class DraftedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithDraftedAt::factory()->count(3)->create([
             'drafted_at' => Date::now()->subDay(),

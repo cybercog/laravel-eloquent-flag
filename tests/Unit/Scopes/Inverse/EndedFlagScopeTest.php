@@ -20,8 +20,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class EndedFlagScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
@@ -35,8 +34,7 @@ final class EndedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_ended(): void
+    public function test_it_can_get_without_ended(): void
     {
         EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
@@ -50,8 +48,7 @@ final class EndedFlagScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_ended(): void
+    public function test_it_can_get_with_ended(): void
     {
         EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
@@ -65,8 +62,7 @@ final class EndedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_ended(): void
+    public function test_it_can_get_only_ended(): void
     {
         EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
@@ -80,8 +76,7 @@ final class EndedFlagScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_end_model(): void
+    public function test_it_can_undo_end_model(): void
     {
         $model = EntityWithEndedFlag::factory()->create([
             'is_ended' => true,
@@ -94,8 +89,7 @@ final class EndedFlagScopeTest extends TestCase
         $this->assertFalse($model->is_ended);
     }
 
-    /** @test */
-    public function it_can_end_model(): void
+    public function test_it_can_end_model(): void
     {
         $model = EntityWithEndedFlag::factory()->create([
             'is_ended' => false,
@@ -108,8 +102,7 @@ final class EndedFlagScopeTest extends TestCase
         $this->assertTrue($model->is_ended);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,
@@ -123,8 +116,7 @@ final class EndedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithEndedFlag::factory()->count(3)->create([
             'is_ended' => true,

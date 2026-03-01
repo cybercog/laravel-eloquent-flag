@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasKeptFlagBehaviorTest extends TestCase
 {
-    /** @test */
-    public function it_sets_is_kept_false_on_create(): void
+    public function test_it_sets_is_kept_false_on_create(): void
     {
         $entity = new EntityWithKeptFlag([
             'name' => 'test',
@@ -29,8 +28,7 @@ final class HasKeptFlagBehaviorTest extends TestCase
         $this->assertFalse($entity->is_kept);
     }
 
-    /** @test */
-    public function it_sets_is_kept_true_on_any_update(): void
+    public function test_it_sets_is_kept_true_on_any_update(): void
     {
         $entity = EntityWithKeptFlag::factory()->create([
             'is_kept' => false,

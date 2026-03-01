@@ -20,8 +20,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class InvitedFlagScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
@@ -35,8 +34,7 @@ final class InvitedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_not_invited(): void
+    public function test_it_can_get_without_not_invited(): void
     {
         EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
@@ -50,8 +48,7 @@ final class InvitedFlagScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_not_invited(): void
+    public function test_it_can_get_with_not_invited(): void
     {
         EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
@@ -65,8 +62,7 @@ final class InvitedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_not_invited(): void
+    public function test_it_can_get_only_not_invited(): void
     {
         EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
@@ -80,8 +76,7 @@ final class InvitedFlagScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_invite_model(): void
+    public function test_it_can_invite_model(): void
     {
         $model = EntityWithInvitedFlag::factory()->create([
             'is_invited' => false,
@@ -94,8 +89,7 @@ final class InvitedFlagScopeTest extends TestCase
         $this->assertTrue($model->is_invited);
     }
 
-    /** @test */
-    public function it_can_undo_invite_model(): void
+    public function test_it_can_undo_invite_model(): void
     {
         $model = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,
@@ -108,8 +102,7 @@ final class InvitedFlagScopeTest extends TestCase
         $this->assertFalse($model->is_invited);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,
@@ -123,8 +116,7 @@ final class InvitedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithInvitedFlag::factory()->count(3)->create([
             'is_invited' => true,

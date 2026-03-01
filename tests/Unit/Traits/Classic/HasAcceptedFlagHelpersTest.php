@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasAcceptedFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_accepted_to_boolean(): void
+    public function test_it_casts_is_accepted_to_boolean(): void
     {
         $entity = EntityWithAcceptedFlag::factory()->create([
             'is_accepted' => 1,
@@ -28,8 +27,7 @@ final class HasAcceptedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_accepted);
     }
 
-    /** @test */
-    public function it_not_casts_is_accepted_to_boolean(): void
+    public function test_it_not_casts_is_accepted_to_boolean(): void
     {
         $entity = EntityWithAcceptedFlag::factory()->make([
             'is_accepted' => null,
@@ -38,8 +36,7 @@ final class HasAcceptedFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_accepted);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_accepted(): void
+    public function test_it_can_check_if_entity_is_accepted(): void
     {
         $acceptedEntity = EntityWithAcceptedFlag::factory()->create([
             'is_accepted' => true,
@@ -53,8 +50,7 @@ final class HasAcceptedFlagHelpersTest extends TestCase
         $this->assertFalse($rejectedEntity->isAccepted());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_accepted(): void
+    public function test_it_can_check_if_entity_is_not_accepted(): void
     {
         $acceptedEntity = EntityWithAcceptedFlag::factory()->create([
             'is_accepted' => true,
@@ -68,8 +64,7 @@ final class HasAcceptedFlagHelpersTest extends TestCase
         $this->assertTrue($rejectedEntity->isNotAccepted());
     }
 
-    /** @test */
-    public function it_can_accept(): void
+    public function test_it_can_accept(): void
     {
         $entity = EntityWithAcceptedFlag::factory()->create([
             'is_accepted' => false,
@@ -80,8 +75,7 @@ final class HasAcceptedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_accepted);
     }
 
-    /** @test */
-    public function it_can_undo_accept(): void
+    public function test_it_can_undo_accept(): void
     {
         $entity = EntityWithAcceptedFlag::factory()->create([
             'is_accepted' => true,

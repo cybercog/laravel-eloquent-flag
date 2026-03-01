@@ -20,8 +20,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class VerifiedFlagScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
@@ -35,8 +34,7 @@ final class VerifiedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_not_verified(): void
+    public function test_it_can_get_without_not_verified(): void
     {
         EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
@@ -50,8 +48,7 @@ final class VerifiedFlagScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_not_verified(): void
+    public function test_it_can_get_with_not_verified(): void
     {
         EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
@@ -65,8 +62,7 @@ final class VerifiedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_not_verified(): void
+    public function test_it_can_get_only_not_verified(): void
     {
         EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
@@ -80,8 +76,7 @@ final class VerifiedFlagScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_verify_model(): void
+    public function test_it_can_verify_model(): void
     {
         $model = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => false,
@@ -94,8 +89,7 @@ final class VerifiedFlagScopeTest extends TestCase
         $this->assertTrue($model->is_verified);
     }
 
-    /** @test */
-    public function it_can_undo_verify_model(): void
+    public function test_it_can_undo_verify_model(): void
     {
         $model = EntityWithVerifiedFlag::factory()->create([
             'is_verified' => true,
@@ -108,8 +102,7 @@ final class VerifiedFlagScopeTest extends TestCase
         $this->assertFalse($model->is_verified);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,
@@ -123,8 +116,7 @@ final class VerifiedFlagScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithVerifiedFlag::factory()->count(3)->create([
             'is_verified' => true,

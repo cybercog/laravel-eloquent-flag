@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasVerifiedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_verified_at_to_datetime(): void
+    public function test_it_casts_verified_at_to_datetime(): void
     {
         $entity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->verified_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_verified(): void
+    public function test_it_can_check_if_entity_is_verified(): void
     {
         $verifiedEntity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
         $this->assertFalse($unverifiedEntity->isVerified());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_verified(): void
+    public function test_it_can_check_if_entity_is_not_verified(): void
     {
         $verifiedEntity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
         $this->assertTrue($unverifiedEntity->isNotVerified());
     }
 
-    /** @test */
-    public function it_can_verify(): void
+    public function test_it_can_verify(): void
     {
         $entity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => null,
@@ -73,8 +69,7 @@ final class HasVerifiedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->verified_at);
     }
 
-    /** @test */
-    public function it_can_undo_verify(): void
+    public function test_it_can_undo_verify(): void
     {
         $entity = EntityWithVerifiedAt::factory()->create([
             'verified_at' => Date::now(),

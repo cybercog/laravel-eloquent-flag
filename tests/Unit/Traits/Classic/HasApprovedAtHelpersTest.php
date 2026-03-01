@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasApprovedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_approved_at_to_datetime(): void
+    public function test_it_casts_approved_at_to_datetime(): void
     {
         $entity = EntityWithApprovedAt::factory()->create([
             'approved_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasApprovedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->approved_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_approved(): void
+    public function test_it_can_check_if_entity_is_approved(): void
     {
         $approvedEntity = EntityWithApprovedAt::factory()->create([
             'approved_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasApprovedAtHelpersTest extends TestCase
         $this->assertFalse($disapprovedEntity->isApproved());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_approved(): void
+    public function test_it_can_check_if_entity_is_not_approved(): void
     {
         $approvedEntity = EntityWithApprovedAt::factory()->create([
             'approved_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasApprovedAtHelpersTest extends TestCase
         $this->assertTrue($disapprovedEntity->isNotApproved());
     }
 
-    /** @test */
-    public function it_can_approve(): void
+    public function test_it_can_approve(): void
     {
         $entity = EntityWithApprovedAt::factory()->create([
             'approved_at' => null,
@@ -73,8 +69,7 @@ final class HasApprovedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->approved_at);
     }
 
-    /** @test */
-    public function it_can_undo_approve(): void
+    public function test_it_can_undo_approve(): void
     {
         $entity = EntityWithApprovedAt::factory()->create([
             'approved_at' => Date::now(),

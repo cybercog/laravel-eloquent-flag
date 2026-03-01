@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasPublishedFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_published_to_boolean(): void
+    public function test_it_casts_is_published_to_boolean(): void
     {
         $entity = EntityWithPublishedFlag::factory()->create([
             'is_published' => 1,
@@ -28,8 +27,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_published);
     }
 
-    /** @test */
-    public function it_not_casts_is_published_to_boolean(): void
+    public function test_it_not_casts_is_published_to_boolean(): void
     {
         $entity = EntityWithPublishedFlag::factory()->make([
             'is_published' => null,
@@ -38,8 +36,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_published);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_published(): void
+    public function test_it_can_check_if_entity_is_published(): void
     {
         $publishedEntity = EntityWithPublishedFlag::factory()->create([
             'is_published' => true,
@@ -53,8 +50,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
         $this->assertFalse($unpublishedEntity->isPublished());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_published(): void
+    public function test_it_can_check_if_entity_is_not_published(): void
     {
         $publishedEntity = EntityWithPublishedFlag::factory()->create([
             'is_published' => true,
@@ -68,8 +64,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
         $this->assertTrue($unpublishedEntity->isNotPublished());
     }
 
-    /** @test */
-    public function it_can_publish(): void
+    public function test_it_can_publish(): void
     {
         $entity = EntityWithPublishedFlag::factory()->create([
             'is_published' => false,
@@ -80,8 +75,7 @@ final class HasPublishedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_published);
     }
 
-    /** @test */
-    public function it_can_undo_publish(): void
+    public function test_it_can_undo_publish(): void
     {
         $entity = EntityWithPublishedFlag::factory()->create([
             'is_published' => true,

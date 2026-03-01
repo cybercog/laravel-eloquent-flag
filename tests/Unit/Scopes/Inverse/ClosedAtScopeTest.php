@@ -21,8 +21,7 @@ use Illuminate\Support\Facades\Date;
 
 final class ClosedAtScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
@@ -36,8 +35,7 @@ final class ClosedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_closed(): void
+    public function test_it_can_get_without_closed(): void
     {
         EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
@@ -51,8 +49,7 @@ final class ClosedAtScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_closed(): void
+    public function test_it_can_get_with_closed(): void
     {
         EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
@@ -66,8 +63,7 @@ final class ClosedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_closed(): void
+    public function test_it_can_get_only_closed(): void
     {
         EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
@@ -81,8 +77,7 @@ final class ClosedAtScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_close_model(): void
+    public function test_it_can_undo_close_model(): void
     {
         $model = EntityWithClosedAt::factory()->create([
             'closed_at' => Date::now()->subDay(),
@@ -95,8 +90,7 @@ final class ClosedAtScopeTest extends TestCase
         $this->assertNull($model->closed_at);
     }
 
-    /** @test */
-    public function it_can_close_model(): void
+    public function test_it_can_close_model(): void
     {
         $model = EntityWithClosedAt::factory()->create([
             'closed_at' => null,
@@ -109,8 +103,7 @@ final class ClosedAtScopeTest extends TestCase
         $this->assertNotNull($model->closed_at);
     }
 
-    /** @test */
-    public function it_can_skip_auto_apply(): void
+    public function test_it_can_skip_auto_apply(): void
     {
         EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),
@@ -124,8 +117,7 @@ final class ClosedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithClosedAt::factory()->count(3)->create([
             'closed_at' => Date::now()->subDay(),

@@ -21,8 +21,7 @@ use Illuminate\Support\Facades\Date;
 
 final class EndedAtScopeTest extends TestCase
 {
-    /** @test */
-    public function it_get_without_global_scope_default(): void
+    public function test_it_get_without_global_scope_default(): void
     {
         EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
@@ -36,8 +35,7 @@ final class EndedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_without_ended(): void
+    public function test_it_can_get_without_ended(): void
     {
         EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
@@ -51,8 +49,7 @@ final class EndedAtScopeTest extends TestCase
         $this->assertCount(2, $entities);
     }
 
-    /** @test */
-    public function it_can_get_with_ended(): void
+    public function test_it_can_get_with_ended(): void
     {
         EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
@@ -66,8 +63,7 @@ final class EndedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_get_only_ended(): void
+    public function test_it_can_get_only_ended(): void
     {
         EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
@@ -81,8 +77,7 @@ final class EndedAtScopeTest extends TestCase
         $this->assertCount(3, $entities);
     }
 
-    /** @test */
-    public function it_can_undo_end_model(): void
+    public function test_it_can_undo_end_model(): void
     {
         $model = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now()->subDay(),
@@ -95,8 +90,7 @@ final class EndedAtScopeTest extends TestCase
         $this->assertNull($model->ended_at);
     }
 
-    /** @test */
-    public function it_can_end_model(): void
+    public function test_it_can_end_model(): void
     {
         $model = EntityWithEndedAt::factory()->create([
             'ended_at' => null,
@@ -109,8 +103,7 @@ final class EndedAtScopeTest extends TestCase
         $this->assertNotNull($model->ended_at);
     }
 
-    /** @test */
-    public function it_can_skip_apply(): void
+    public function test_it_can_skip_apply(): void
     {
         EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),
@@ -124,8 +117,7 @@ final class EndedAtScopeTest extends TestCase
         $this->assertCount(5, $entities);
     }
 
-    /** @test */
-    public function it_can_auto_apply(): void
+    public function test_it_can_auto_apply(): void
     {
         EntityWithEndedAt::factory()->count(3)->create([
             'ended_at' => Date::now()->subDay(),

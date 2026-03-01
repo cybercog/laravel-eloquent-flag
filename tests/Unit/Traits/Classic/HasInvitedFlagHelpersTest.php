@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasInvitedFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_invited_to_boolean(): void
+    public function test_it_casts_is_invited_to_boolean(): void
     {
         $entity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => 1,
@@ -28,8 +27,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_invited);
     }
 
-    /** @test */
-    public function it_not_casts_is_invited_to_boolean(): void
+    public function test_it_not_casts_is_invited_to_boolean(): void
     {
         $entity = EntityWithInvitedFlag::factory()->make([
             'is_invited' => null,
@@ -38,8 +36,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_invited);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_invited(): void
+    public function test_it_can_check_if_entity_is_invited(): void
     {
         $invitedEntity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,
@@ -53,8 +50,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
         $this->assertFalse($uninvitedEntity->isInvited());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_invited(): void
+    public function test_it_can_check_if_entity_is_not_invited(): void
     {
         $invitedEntity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,
@@ -68,8 +64,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
         $this->assertTrue($uninvitedEntity->isNotInvited());
     }
 
-    /** @test */
-    public function it_can_invite(): void
+    public function test_it_can_invite(): void
     {
         $entity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => false,
@@ -80,8 +75,7 @@ final class HasInvitedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_invited);
     }
 
-    /** @test */
-    public function it_can_undo_invite(): void
+    public function test_it_can_undo_invite(): void
     {
         $entity = EntityWithInvitedFlag::factory()->create([
             'is_invited' => true,

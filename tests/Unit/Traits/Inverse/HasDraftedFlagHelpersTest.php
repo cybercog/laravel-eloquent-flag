@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasDraftedFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_drafted_to_boolean(): void
+    public function test_it_casts_is_drafted_to_boolean(): void
     {
         $entity = EntityWithDraftedFlag::factory()->create([
             'is_drafted' => 1,
@@ -28,8 +27,7 @@ final class HasDraftedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_drafted);
     }
 
-    /** @test */
-    public function it_not_casts_is_drafted_to_boolean(): void
+    public function test_it_not_casts_is_drafted_to_boolean(): void
     {
         $entity = EntityWithDraftedFlag::factory()->make([
             'is_drafted' => null,
@@ -38,8 +36,7 @@ final class HasDraftedFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_drafted);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_drafted(): void
+    public function test_it_can_check_if_entity_is_drafted(): void
     {
         $draftedEntity = EntityWithDraftedFlag::factory()->create([
             'is_drafted' => true,
@@ -53,8 +50,7 @@ final class HasDraftedFlagHelpersTest extends TestCase
         $this->assertFalse($undraftedEntity->isDrafted());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_drafted(): void
+    public function test_it_can_check_if_entity_is_not_drafted(): void
     {
         $draftedEntity = EntityWithDraftedFlag::factory()->create([
             'is_drafted' => true,
@@ -68,8 +64,7 @@ final class HasDraftedFlagHelpersTest extends TestCase
         $this->assertTrue($undraftedEntity->isNotDrafted());
     }
 
-    /** @test */
-    public function it_can_draft(): void
+    public function test_it_can_draft(): void
     {
         $entity = EntityWithDraftedFlag::factory()->create([
             'is_drafted' => false,
@@ -80,8 +75,7 @@ final class HasDraftedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_drafted);
     }
 
-    /** @test */
-    public function it_can_undo_draft(): void
+    public function test_it_can_undo_draft(): void
     {
         $entity = EntityWithDraftedFlag::factory()->create([
             'is_drafted' => true,

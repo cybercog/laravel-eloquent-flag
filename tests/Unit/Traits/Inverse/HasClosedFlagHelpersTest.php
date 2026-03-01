@@ -18,8 +18,7 @@ use Cog\Tests\Laravel\Flag\TestCase;
 
 final class HasClosedFlagHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_is_closed_to_boolean(): void
+    public function test_it_casts_is_closed_to_boolean(): void
     {
         $entity = EntityWithClosedFlag::factory()->create([
             'is_closed' => 1,
@@ -28,8 +27,7 @@ final class HasClosedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_closed);
     }
 
-    /** @test */
-    public function it_not_casts_is_closed_to_boolean(): void
+    public function test_it_not_casts_is_closed_to_boolean(): void
     {
         $entity = EntityWithClosedFlag::factory()->make([
             'is_closed' => null,
@@ -38,8 +36,7 @@ final class HasClosedFlagHelpersTest extends TestCase
         $this->assertNull($entity->is_closed);
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_closed(): void
+    public function test_it_can_check_if_entity_is_closed(): void
     {
         $closedEntity = EntityWithClosedFlag::factory()->create([
             'is_closed' => true,
@@ -53,8 +50,7 @@ final class HasClosedFlagHelpersTest extends TestCase
         $this->assertFalse($openedEntity->isClosed());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_closed(): void
+    public function test_it_can_check_if_entity_is_not_closed(): void
     {
         $closedEntity = EntityWithClosedFlag::factory()->create([
             'is_closed' => true,
@@ -68,8 +64,7 @@ final class HasClosedFlagHelpersTest extends TestCase
         $this->assertTrue($openedEntity->isNotClosed());
     }
 
-    /** @test */
-    public function it_can_close(): void
+    public function test_it_can_close(): void
     {
         $entity = EntityWithClosedFlag::factory()->create([
             'is_closed' => false,
@@ -80,8 +75,7 @@ final class HasClosedFlagHelpersTest extends TestCase
         $this->assertTrue($entity->is_closed);
     }
 
-    /** @test */
-    public function it_can_undo_close(): void
+    public function test_it_can_undo_close(): void
     {
         $entity = EntityWithClosedFlag::factory()->create([
             'is_closed' => true,

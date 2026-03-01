@@ -20,8 +20,7 @@ use Illuminate\Support\Facades\Date;
 
 final class HasEndedAtHelpersTest extends TestCase
 {
-    /** @test */
-    public function it_casts_ended_at_to_datetime(): void
+    public function test_it_casts_ended_at_to_datetime(): void
     {
         $entity = EntityWithEndedAt::factory()->create([
             'ended_at' => '1986-03-28 00:00:00',
@@ -31,8 +30,7 @@ final class HasEndedAtHelpersTest extends TestCase
         $this->assertSame('1986-03-28 00:00:00', $entity->ended_at->format('Y-m-d H:i:s'));
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_ended(): void
+    public function test_it_can_check_if_entity_is_ended(): void
     {
         $endedEntity = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now(),
@@ -46,8 +44,7 @@ final class HasEndedAtHelpersTest extends TestCase
         $this->assertFalse($unendedEntity->isEnded());
     }
 
-    /** @test */
-    public function it_can_check_if_entity_is_not_ended(): void
+    public function test_it_can_check_if_entity_is_not_ended(): void
     {
         $endedEntity = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now(),
@@ -61,8 +58,7 @@ final class HasEndedAtHelpersTest extends TestCase
         $this->assertTrue($unendedEntity->isNotEnded());
     }
 
-    /** @test */
-    public function it_can_end(): void
+    public function test_it_can_end(): void
     {
         $entity = EntityWithEndedAt::factory()->create([
             'ended_at' => null,
@@ -73,8 +69,7 @@ final class HasEndedAtHelpersTest extends TestCase
         $this->assertNotNull($entity->ended_at);
     }
 
-    /** @test */
-    public function it_can_undo_end(): void
+    public function test_it_can_undo_end(): void
     {
         $entity = EntityWithEndedAt::factory()->create([
             'ended_at' => Date::now(),
